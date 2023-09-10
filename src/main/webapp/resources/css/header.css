@@ -36,11 +36,7 @@
 		align-items: center;
 	}
 }
-@media (max-width: 1279px) {
-    .navbar{
-        display: none; /* 화면 너비가 1280px 이하일 때 숨김 */
-    }
-}
+.navbar
 @media ( min-width : 1280px) {
 	.navbar li {relative;
 		
