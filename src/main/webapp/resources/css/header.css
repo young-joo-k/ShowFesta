@@ -36,6 +36,11 @@
 		align-items: center;
 	}
 }
+@media (max-width: 1279px) {
+    .navbar{
+        display: none; /* 화면 너비가 1280px 이하일 때 숨김 */
+    }
+}
 @media ( min-width : 1280px) {
 	.navbar li {relative;
 		
@@ -47,8 +52,10 @@
 		font-size: 15px;
 		text-transform: none;
 		font-weight: 400;
+		
 	}
 }
+
 
 @media ( min-width : 1280px) {
 	.navbar a, .navbar a:focus {

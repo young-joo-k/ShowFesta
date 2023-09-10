@@ -9,6 +9,7 @@
 <link href="/resources/css/container.css?after" rel="stylesheet">
 <link href="/resources/css/main.css?after" rel="stylesheet">
 <link href="/resources/css/icons.css?after" rel="stylesheet">
+<link href="/resources/css/dropdown.css?after" rel="stylesheet">
 
 <head>
 <title>ShowFesta</title>
@@ -24,11 +25,8 @@
 
 	<!-- ======= Header ======= -->
 	<header id="header" class="header d-flex align-items-center fixed-top">
-		<div
-			class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
+		<div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 			<a href="/home" class="logo d-flex align-items-center"> <!-- Uncomment the line below if you also wish to use an image logo -->
-				<!-- <img src="/resources/assets/img/logo.png" alt=""> -->
 				<h1>ShowFesta</h1>
 			</a>
 
@@ -36,15 +34,16 @@
 				<ul>
 					<li><a href="../home">Home</a></li>
 					<li><a href="/page/news">News</a></li>
-					<li class="dropdown"><a href="category.html"><span>Categories</span>
-							<i class="bi bi-chevron-down dropdown-indicator"></i></a>
-						<ul>
+					<li class="dropdown" id="categories-dropdown">
+						<!-- 드롭다운 메뉴 추가 --> <a href="#">Categories <span
+							class="bi bi-chevron-down dropdown-indicator"></span></a>
+						<ul class="dropdown-menu">
 							<li><a href="./musical.jsp">뮤지컬</a></li>
 							<li><a href="#">콘서트</a></li>
 							<li><a href="#">페스티벌</a></li>
 							<li><a href="#">지역축제</a></li>
-						</ul></li>
-
+						</ul>
+					</li>
 					<li><a href="/page/calendar">Calendar</a></li>
 					<li><a href="qna.html">Notice</a></li>
 				</ul>
@@ -85,10 +84,8 @@
 
 	</header>
 	<!-- End Header -->
-	<!-- 	<script src="js/main.js"></script> -->
 
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="/resources/js/main.js"></script>
+
 </body>
 
 </html>
