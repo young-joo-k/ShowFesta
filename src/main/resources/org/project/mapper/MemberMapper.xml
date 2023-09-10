@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.project.mapper.MemberMapper">
+
+	<insert id="insert">
+	
+		insert into tbl_user(userNum, id, pw, name, phone, email,checked)
+		values(seq_user.nextval, #{id}, #{pw}, #{name},#{phone}, #{email}, #{checked})
+		
+	</insert>
+	<insert id="insert2">
+	
+		insert into tbl_user(userNum, id, pw, name, phone, email,checked,validuser,filename)
+		values(seq_user.nextval, #{id}, #{pw}, #{name},#{phone}, #{email}, #{checked},0,#{filename})
+		
+	</insert>
+	<select id="getUserInfo" resultType="org.project.domain.MemberVO">
+		select * from tbl_user where id = #{id}
+	</select>
+	
+	<select id="selectLogin" resultType="string">
+		
+		select pw from tbl_user where id = #{id}
+		
+	</select>
+	
+	<select id="IsIdValid" resultType="int">
+		
+		select count(*) from tbl_user where id = #{id}
+			
+	</select>
+	<select id="IsEmailValid" resultType="int">
+		
+		select count(*) from tbl_user where email = #{email}
+			
+	</select>
+	<select id="findId" parameterType="map" resultType="string">
+        SELECT id FROM tbl_user
+        WHERE name = #{name} AND email = #{email} AND phone = #{phone} AND checked = #{checked}
+    </select>
+    <select id="findPw" parameterType="map" resultType="string">
+        SELECT pw FROM tbl_user
+        WHERE id = #{id} AND name = #{name} AND email = #{email} AND phone = #{phone} AND checked = #{checked}
+    </select>
+
+</mapper>

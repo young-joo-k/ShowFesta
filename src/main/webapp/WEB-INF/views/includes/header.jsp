@@ -8,7 +8,6 @@
 <link href="/resources/css/style.css?after" rel="stylesheet">
 <link href="/resources/css/container.css?after" rel="stylesheet">
 <link href="/resources/css/main.css?after" rel="stylesheet">
-<link href="/resources/css/icons.css?after" rel="stylesheet">
 <link href="/resources/css/dropdown.css?after" rel="stylesheet">
 
 <head>
@@ -33,19 +32,18 @@
 			<nav id="navbar" class="navbar">
 				<ul>
 					<li><a href="../home">Home</a></li>
-					<li><a href="/page/news">News</a></li>
-					<li class="dropdown" id="categories-dropdown">
-						<!-- 드롭다운 메뉴 추가 --> <a href="#">Categories <span
-							class="bi bi-chevron-down dropdown-indicator"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="./musical.jsp">뮤지컬</a></li>
+					<li><a href="single-post.html">News</a></li>
+					<li class="dropdown"><a href="category.html"><span>Categories</span>
+							<i class="bi bi-chevron-down dropdown-indicator"></i></a>
+						<ul>
+							<li><a href="#">뮤지컬</a></li>
 							<li><a href="#">콘서트</a></li>
 							<li><a href="#">페스티벌</a></li>
 							<li><a href="#">지역축제</a></li>
-						</ul>
-					</li>
-					<li><a href="/page/calendar">Calendar</a></li>
-					<li><a href="qna.html">Notice</a></li>
+						</ul></li>
+
+					<li><a href="about.html">Calendar</a></li>
+					<li><a href="contact.html">Notice</a></li>
 				</ul>
 			</nav>
 			<!-- .navbar -->
@@ -53,9 +51,9 @@
 				<!--       el이랑 jstl로 조건문 만들어 보기 -->
 				<a href="#" class="mx-2" id="myPage"
 					style="display: ${empty user ? 'inline' : 'none'}"><span
-					class="bi-person-fill"></span></a> <a href="/join/login" class="mx-2"
+					class="bi-person-fill"></span></a> <a href="resources/views/join/login" class="mx-2"
 					id="logIn" style="display: ${empty user ? 'inline' : 'none'}">Sign-In</a>
-				<a href="/join/register" class="mx-2" id="register"
+				<a href="/resources/join/register" class="mx-2" id="register"
 					style="display: ${empty user ? 'inline' : 'none'}">Sign-Up</a> <a
 					${empty user ? 'style="display:none;"' : ''}>${user.name } <c:if
 						test="${user.checked == 1}">(사업자)</c:if>
@@ -64,7 +62,7 @@
 
 				<!-- JavaScript -->
 				<a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
-				<i class="bi bi-list mobile-nav-toggle"></i>
+				<i class="bi bi-list mobile-nav-toggle"></i>	
 
 				<!-- ======= Search Form ======= -->
 				<div class="search-form-wrap js-search-form-wrap">
@@ -84,7 +82,22 @@
 
 	</header>
 	<!-- End Header -->
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // 카테고리 메뉴에 호버 이벤트 핸들러 추가
+    $('.dropdown').hover(
+        function() {
+            // 호버 시 드롭다운 메뉴를 보이게 하기
+            $(this).find('ul').slideDown('fast');
+        },
+        function() {
+            // 호버가 해제될 때 드롭다운 메뉴를 숨기기
+            $(this).find('ul').slideUp('fast');
+        }
+    );
+});
+</script>
 
 </body>
 
