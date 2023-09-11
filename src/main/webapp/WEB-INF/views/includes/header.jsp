@@ -42,7 +42,7 @@
 						</ul></li>
 
 					<li><a href="/page/calendar">캘린더</a></li>
-					<li><a href="contact.html">고객센터</a></li>
+					<li><a href="/page/notice_list">고객센터</a></li>
 				</ul>
 			</nav>
 			<!-- .navbar -->
@@ -53,11 +53,11 @@
 					class="bi-person-fill"></span></a> <a href="../join/login" class="mx-2"
 					id="logIn" style="display: ${empty user ? 'inline' : 'none'}">로그인</a>
 				<a href="register" class="mx-2" id="register"
-					style="display: ${empty user ? 'inline' : 'none'}">Sign-Up</a> <a
+					style="display: ${empty user ? 'inline' : 'none'}">회원가입</a> <a
 					${empty user ? 'style="display:none;"' : ''}>${user.name } <c:if
 						test="${user.checked == 1}">(사업자)</c:if>
 				</a> <a href="logout" class="mx-2" id="logoutLink"
-					style="display: ${not empty user ? 'inline' : 'none'}">회원가입</a>
+					style="display: ${not empty user ? 'inline' : 'none'}">로그아웃</a>
 
 				<!-- JavaScript -->
 				<a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>

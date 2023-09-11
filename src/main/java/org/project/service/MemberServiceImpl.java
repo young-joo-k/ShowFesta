@@ -32,12 +32,12 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public String login(String id, String pw, int checked) {
+	public String login(String id, String pw) {
 		MemberVO membervo = membermapper.getUserInfo(id);
 		//留뚯빟�뿉 �쑀�� �젙蹂닿� �엳�떎硫�
 		if (membervo != null) {
 			//�쑀�� ���엯�룄 媛숆퀬 �뙣�뒪�썙�뱶�룄 留욎쑝硫� 
-			if (membervo.getPw().equals(pw) && membervo.getChecked()==checked) {
+			if (membervo.getPw().equals(pw)) {
 				if (membervo.getValiduser()==0)
 				{
 					return "�듅�씤�씠 �릺吏� �븡�� �궗�슜�옄 �엯�땲�떎.";
@@ -47,9 +47,6 @@ public class MemberServiceImpl implements MemberService {
 			}
 			else if (!(membervo.getPw().equals(pw))) {
 				return "�뙣�뒪�썙�뱶媛� �떎由낅땲�떎.";
-			}
-			else if (membervo.getChecked()!=checked) {
-				return "�쑀�� ���엯�씠 �떎由낅땲�떎.";
 			}
 
 		}

@@ -2,3 +2,4 @@ eclipse.preferences.version=1
 encoding//src/main/java/org/project/controller/MemberController.java=UTF-8
 encoding//src/main/java/org/project/controller/PageController.java=UTF-8
 encoding//src/main/java/org/project/service/MemberServiceImpl.java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/page/notice_list.jsp=UTF-8
