@@ -1,14 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <link href="/resources/css/header.css?after" rel="stylesheet">
 <link href="/resources/css/style.css?after" rel="stylesheet">
 <link href="/resources/css/container.css?after" rel="stylesheet">
 <link href="/resources/css/main.css?after" rel="stylesheet">
-<link href="/resources/css/icons.css?after" rel="stylesheet">
+<link href="/resources/css/dropdown.css?after" rel="stylesheet">
 
 <head>
 <title>ShowFesta</title>
@@ -24,29 +23,26 @@
 
 	<!-- ======= Header ======= -->
 	<header id="header" class="header d-flex align-items-center fixed-top">
-		<div
-			class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-			<a href="/home" class="logo d-flex align-items-center"> <!-- Uncomment the line below if you also wish to use an image logo -->
-				<!-- <img src="/resources/assets/img/logo.png" alt=""> -->
+		<div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+			<a href="/page/main" class="logo d-flex align-items-center"> <!-- Uncomment the line below if you also wish to use an image logo -->
 				<h1>ShowFesta</h1>
 			</a>
 
 			<nav id="navbar" class="navbar">
 				<ul>
-					<li><a href="../home">Home</a></li>
-					<li><a href="/page/news">News</a></li>
-					<li class="dropdown"><a href="category.html"><span>Categories</span>
+					<li><a href="/page/main">홈</a></li>
+					<li><a href="/page/news">뉴스</a></li>
+					<li class="dropdown"><a href="category.html"><span>카테고리</span>
 							<i class="bi bi-chevron-down dropdown-indicator"></i></a>
 						<ul>
-							<li><a href="./musical.jsp">뮤지컬</a></li>
+							<li><a href="#">뮤지컬</a></li>
 							<li><a href="#">콘서트</a></li>
 							<li><a href="#">페스티벌</a></li>
 							<li><a href="#">지역축제</a></li>
 						</ul></li>
 
-					<li><a href="/page/calendar">Calendar</a></li>
-					<li><a href="qna.html">Notice</a></li>
+					<li><a href="/page/calendar">캘린더</a></li>
+					<li><a href="contact.html">고객센터</a></li>
 				</ul>
 			</nav>
 			<!-- .navbar -->
@@ -54,18 +50,18 @@
 				<!--       el이랑 jstl로 조건문 만들어 보기 -->
 				<a href="#" class="mx-2" id="myPage"
 					style="display: ${empty user ? 'inline' : 'none'}"><span
-					class="bi-person-fill"></span></a> <a href="/join/login" class="mx-2"
-					id="logIn" style="display: ${empty user ? 'inline' : 'none'}">Sign-In</a>
-				<a href="/join/register" class="mx-2" id="register"
+					class="bi-person-fill"></span></a> <a href="../join/login" class="mx-2"
+					id="logIn" style="display: ${empty user ? 'inline' : 'none'}">로그인</a>
+				<a href="register" class="mx-2" id="register"
 					style="display: ${empty user ? 'inline' : 'none'}">Sign-Up</a> <a
 					${empty user ? 'style="display:none;"' : ''}>${user.name } <c:if
 						test="${user.checked == 1}">(사업자)</c:if>
-				</a> <a href="/join/logout" class="mx-2" id="logoutLink"
-					style="display: ${not empty user ? 'inline' : 'none'}">Sign-Out</a>
+				</a> <a href="logout" class="mx-2" id="logoutLink"
+					style="display: ${not empty user ? 'inline' : 'none'}">회원가입</a>
 
 				<!-- JavaScript -->
 				<a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
-				<i class="bi bi-list mobile-nav-toggle"></i>
+				<i class="bi bi-list mobile-nav-toggle"></i>	
 
 				<!-- ======= Search Form ======= -->
 				<div class="search-form-wrap js-search-form-wrap">
@@ -85,10 +81,23 @@
 
 	</header>
 	<!-- End Header -->
-	<!-- 	<script src="js/main.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // 카테고리 메뉴에 호버 이벤트 핸들러 추가
+    $('.dropdown').hover(
+        function() {
+            // 호버 시 드롭다운 메뉴를 보이게 하기
+            $(this).find('ul').slideDown('fast');
+        },
+        function() {
+            // 호버가 해제될 때 드롭다운 메뉴를 숨기기
+            $(this).find('ul').slideUp('fast');
+        }
+    );
+});
+</script>
 
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="/resources/js/main.js"></script>
 </body>
 
 </html>

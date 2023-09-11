@@ -1,0 +1,225 @@
+@charset "utf-8";
+body {
+		scrollbar-face-color: #F6F6F6;
+		scrollbar-highlight-color: #bbbbbb;
+		scrollbar-3dlight-color: #FFFFFF;
+		scrollbar-shadow-color: #bbbbbb;
+		scrollbar-darkshadow-color: #FFFFFF;
+		scrollbar-track-color: #FFFFFF;
+		scrollbar-arrow-color: #bbbbbb;
+		margin-left:"0px"; margin-right:"0px"; margin-top:"0px"; margin-bottom:"0px";
+		}
+
+td {font-size: 9pt; color:#595959;}
+th {font-family: "돋움"; font-size: 9pt; color:#000000;}
+select {font-family: "돋움"; font-size: 9pt; color:#595959;}
+
+
+.divDotText {
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+.day{
+  width:100px; 
+  height:30px;
+  font-weight: bold;
+  font-size:15px;
+  font-weight:bold;
+  text-align: center;
+}
+
+.navigation{
+  font-size: larger;
+  font-weight: bold;
+  
+}
+
+.sat{
+  color:#529dbc;
+}
+.sun{
+  color:red;
+}
+
+.searchBox{
+  float:right;
+}
+
+
+#typeSearch{
+	width:80px;
+	height:30px;
+	margin-bottom: 5px;
+	border-color: #bbbbbb;
+	border-radius: 4px;
+	font-size: large;
+}
+
+
+/* 검색어 입력창 */
+input{
+	width:200px;
+	height:30px;
+  border-color: #bbbbbb;
+  border-radius: 4px;
+
+}
+
+.today_button_div{
+  float: left;
+}
+
+.today_button{
+  width: 100px; 
+  height:30px;
+  text-align: center;
+  border-style: solid;
+  border-width: thin;
+  border-color: #bbbbbb;
+  border-radius: 4px;
+}
+
+.searchFormBtn{
+  border-style: solid;
+  border-radius: 4px;
+  width: 50px;
+  height: 30px;
+  border-width: thin;
+  border-color: #bbbbbb;
+  border-radius: 4px;
+
+}
+
+.calendar{
+  width:80%;
+  margin:auto;
+}
+.navigation{
+  margin-top:100px;
+  margin-bottom:30px;
+  text-align: center;
+  font-size: 25px;
+  vertical-align: middle;
+}
+.calendar_body{
+  width:100%;
+  background-color: #FFFFFF;
+  border:1px solid white;
+  margin-bottom: 50px;
+  border-collapse: collapse;
+}
+.calendar_body .today{
+  border:1px solid white;
+  height:120px;
+  background-color:#c9c9c9;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* .calendar_body .cnt{ */
+/* 	margin-top: 20px; */
+/* 	font-size: medium; */
+/* } */
+
+/* 되는지 확인하기 지금 안됨햣 ㅔ*/
+a {
+	margin-top:20px;
+	font-size:medium;
+}
+a .cnt{
+	margin-top:20px;
+	font-size:large;
+}
+.calendar_body .date{
+  font-weight: bold;
+  font-size: 15px;
+  padding-left: 3px;
+  padding-top: 3px;
+}
+.calendar_body .sat_day{
+  border:1px solid white;
+  height:120px;
+  background-color:#EFEFEF;
+  text-align:left;
+  vertical-align: top;
+}
+.calendar_body .sat_day .sat{
+  color: #529dbc; 
+  font-weight: bold;
+  font-size: 15px;
+  padding-left: 3px;
+  padding-top: 3px;
+}
+.calendar_body .sun_day{
+  border:1px solid white;
+  height:120px;
+  background-color:#EFEFEF;
+  text-align: left;
+  vertical-align: top;
+}
+.calendar_body .sun_day .sun{
+  color: red; 
+  font-weight: bold;
+  font-size: 15px;
+  padding-left: 3px;
+  padding-top: 3px;
+}
+.calendar_body .normal_day{
+  border:1px solid white;
+  height:120px;
+  background-color:#EFEFEF;
+  vertical-align: top;
+  text-align: left;
+}
+.before_after_month{
+  margin: 10px;
+  font-weight: bold;
+  font-size: larger;
+}
+.before_after_year{
+  font-weight: bold;
+}
+.this_month{
+  margin: 10px;
+}
+
+/* 모달에 대한 CSS */
+.modal {
+    display: none;
+    position: relative;
+    z-index: 9999;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    padding: 20px;
+/*     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); */
+    width: 50rem;
+    height: 50rem;
+}
+
+.modal-content {
+	margin: 0 auto;
+	width: 50rem;
+	height: 50rem;
+	
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* 오버레이에 대한 CSS */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 9998;
+}
