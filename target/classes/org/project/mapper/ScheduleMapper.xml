@@ -4,14 +4,22 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.project.mapper.ScheduleMapper">
 
-<select id = "selectCnt" resultType = "int">
+<select id = "getMusical" resultType = "int">
 <![CDATA[
 	select count(*) 
 	from tbl_musical
 	where sysdate > m_start_date and sysdate < m_end_date
 	]]>
-
 </select>
+
+<select id = "getConcerts" resultType = "int">
+<![CDATA[
+	select count(*) 
+	from tbl_concert
+	where sysdate > c_start_date and sysdate < c_end_date
+	]]>
+</select>
+
 
 </mapper>
 

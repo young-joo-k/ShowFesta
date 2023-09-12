@@ -18,11 +18,6 @@ public class DateData {
 	String month = "";
 	String date = "";
 	String value = "";
-	//ìŠ¤ì¼€ì¥´ ì¶”ê°€ì‹œ ì•„ë˜ì²˜ëŸ¼ 
-	//		1. ë³€ìˆ˜ ì¶”ê°€
-	//		2. getter/setter ì¶”ê°€
-	//		3. ìƒì„±ì ì¶”ê°€
-	//				í•˜ì—¬ ì‚¬ìš©í•˜ë©´ ë³´ë‹¤ í¸ë¦¬í•˜ê³  ê¹¨ë—í•˜ê²Œ ì½”ë“œë¥¼ ë§Œë“¤ ìˆ˜ ìˆë‹¤.
 	String schedule = "";
 
 	public DateData(String year, String month, String date, String value, String schedule, String schedule_detail) {
@@ -35,9 +30,9 @@ public class DateData {
 
 	}
 	
-	// ë‚ ì§œì— ê´€ë ¨ëœ ë‹¬ë ¥ì •ë³´ë¥¼ ê°€ì§€ëŠ” ë©”ì„œë“œ
+	// ³¯Â¥¿¡ °ü·ÃµÈ ´Ş·ÂÁ¤º¸¸¦ °¡Áö´Â ¸Ş¼­µå
 	public Map<String, Integer> today_info(DateData dateData) {
-		// ë‚ ì§œ ìº˜ë¦°ë” í•¨ìˆ˜ì— ì‚½ì….
+		// ³¯Â¥ Ä¶¸°´õ ÇÔ¼ö¿¡ »ğÀÔ.
 		Map<String, Integer> today_Data = new HashMap<String, Integer>();
 		Calendar cal = Calendar.getInstance();
 		cal.set(Integer.parseInt(dateData.getYear()), Integer.parseInt(dateData.getMonth()), 1);
@@ -65,9 +60,9 @@ public class DateData {
 		
 		Map<String, Integer> before_after_calendar = before_after_calendar(search_year,search_month);
 		
-		//ë‚ ì§œ ê´€ë ¨
+		//³¯Â¥ °ü·Ã
 		System.out.println("search_month : " + search_month);
-		// ìº˜ë¦°ë” í•¨ìˆ˜ end
+		// Ä¶¸°´õ ÇÔ¼ö end
 		today_Data.put("start", start);
 		today_Data.put("startDay", startDay);
 		today_Data.put("endDay", endDay);
@@ -81,7 +76,7 @@ public class DateData {
 		return today_Data;
 	}
 	
-	//ì´ì „ë‹¬ ë‹¤ìŒë‹¬ ë° ì´ì „ë…„ë„ ë‹¤ìŒë…„ë„
+	//ÀÌÀü´Ş ´ÙÀ½´Ş ¹× ÀÌÀü³âµµ ´ÙÀ½³âµµ
 	private Map<String, Integer> before_after_calendar(int search_year, int search_month){
 		Map<String, Integer> before_after_data = new HashMap<String, Integer>();
 		int before_year = search_year;
@@ -108,7 +103,7 @@ public class DateData {
 	}
 	
 
-	// ë‹¬ë ¥ë§Œ ì‚¬ìš©ì‹œ ì‚¬ìš©ë  ìƒì„±ì
+	// ´Ş·Â¸¸ »ç¿ë½Ã »ç¿ëµÉ »ı¼ºÀÚ
 	public DateData(String year, String month, String date, String value) {
 		if ((month != null && month != "") && (date != null && date != "")) {
 			this.year = year;

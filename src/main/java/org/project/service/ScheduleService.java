@@ -6,7 +6,10 @@ public interface ScheduleService {
 	
 	public ScheduleVO getCategory(String genre);
 
-	public int selectCnt();
+	public int getMusical();
+	
+	public int getConcerts();
 	
 	public String genre();
+
 }
