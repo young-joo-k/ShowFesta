@@ -91,5 +91,13 @@ public class PageController {
 		log.info("News get");
 	}
 	
+	//여기 홈으로 이동하는거 내가 날려먹음
+	
+	
+	//	뮤지컬 상세페이지 가져옵니다
+	@GetMapping("/mContents")
+	public void musicalContent() {
+		log.info("musical contents get");
+	}
 	
 }

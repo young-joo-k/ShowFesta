@@ -6,15 +6,10 @@ pageEncoding="UTF-8"%>
 <%@page import="java.util.Calendar"%>
 
 <!-- <title>캘린더</title> -->
-<<<<<<< HEAD
-=======
 <!-- <link href="/resources/assets/css/calendar.css" rel="stylesheet"	type="text/css"> -->
 <link href="/resources/css/calendar.css?after" rel="stylesheet" type="text/css">
 <!-- <body> -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
->>>>>>> cc85403cdd37c57869407e6e47a0bf60afdf197b
-<!-- <link href="/resources/assets/css/calendar.css" rel="stylesheet" type="text/css"> -->
-<link href="/resources/assets/css/calendar.css?ver=1" rel="stylesheet" type="text/css">
 <body>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <form name="calendarFrm" id="calendarFrm" action="" method="GET">
@@ -146,7 +141,7 @@ pageEncoding="UTF-8"%>
 <script type="text/javascript">
 	// 모달 기능을 위한 JavaScript
 	$(document).ready(function() {
-		// cnt 요소를 클릭하면 모달과 오버레이를 표시합니다.
+// 		cnt 요소를 클릭하면 모달과 오버레이를 표시합니다.
 
 		$('.cnt').click(function() {
 			$('#modal').show();
