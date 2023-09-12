@@ -34,10 +34,10 @@ public class NoticeController {
 		return "redirect:/page/notice_list";
 	}
 	
-	@GetMapping("/notice_get")
+	@GetMapping({"/notice_get", "/notice_modify"})
 	public void get(@RequestParam("b_num") Long b_num, Model model) {
 		log.info("/notice_get");
-		model.addAttribute("board", service.get(b_num));
+		model.addAttribute("notice", service.get(b_num));
 	}
 	
 	@PostMapping("/notice_modify")
@@ -46,16 +46,16 @@ public class NoticeController {
 		if(service.modify(notice)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/notice_list";
+		return "redirect:/page/notice_list";
 	}
 	
-	@PostMapping("/remove")
+	@PostMapping("/notice_remove")
 	public String remove(@RequestParam("b_num") Long b_num, RedirectAttributes rttr) {
 		log.info("remove....." + b_num);
 		if (service.remove(b_num)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/notice_list";
+		return "redirect:/page/notice_list";
 	}
 	
 	@GetMapping("/notice_register")

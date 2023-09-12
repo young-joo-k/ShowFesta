@@ -12,10 +12,14 @@ public class ScheduleServiceImpl implements ScheduleService {
 	private ScheduleMapper schedulemapper;
 
 	@Override
-	public int selectCnt() {
+	public int getMusical() {
 		
-		return schedulemapper.selectCnt();
-
+		return schedulemapper.getMusical();
+	}
+	
+	@Override
+	public int getConcerts() {
+		return schedulemapper.getConcerts();
 	}
 
 	@Override
@@ -29,6 +33,6 @@ public class ScheduleServiceImpl implements ScheduleService {
 		
 		return null;
 	}
-	
+		
 	
 }

@@ -20,6 +20,10 @@ overflow:hidden;
 text-overflow:ellipsis;
 }
 
+A:link { font-size:9pt; font-family:"돋움";color:#000000; text-decoration:none; }
+A:visited { font-size:9pt; font-family:"돋움";color:#000000; text-decoration:none; }
+A:active { font-size:9pt; font-family:"돋움";color:red; text-decoration:none; }
+A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
 .day{
   width:100px; 
   height:30px;
@@ -185,11 +189,12 @@ a .cnt{
 }
 
 /* 모달에 대한 CSS */
-.modal {
+#modal {
     display: none;
     position: relative;
     z-index: 9999;
     left: 50%;
+    top: 0;
     transform: translate(-50%, -100%);
     padding: 20px;
 /*     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); */
