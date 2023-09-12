@@ -25,7 +25,7 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 	
-	@GetMapping("join/login")
+	@GetMapping("/login")
 	public String login(HttpSession session) {
 		log.info("login Get");
 		String id = (String) session.getAttribute("id");
