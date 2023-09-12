@@ -9,8 +9,5 @@ public class MemberVO {
 	private String pw;
 	private String name;
 	private String phone;
-	private String email;
-	private String filename;
-
-	
+	private String email;	
 }
