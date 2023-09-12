@@ -50,12 +50,11 @@
 				<!--       el이랑 jstl로 조건문 만들어 보기 -->
 				<a href="#" class="mx-2" id="myPage"
 					style="display: ${empty user ? 'inline' : 'none'}"><span
-					class="bi-person-fill"></span></a> <a href="../join/login" class="mx-2"
-					id="logIn" style="display: ${empty user ? 'inline' : 'none'}">로그인</a>
-				<a href="register" class="mx-2" id="register"
-					style="display: ${empty user ? 'inline' : 'none'}">회원가입</a> <a
-					${empty user ? 'style="display:none;"' : ''}>${user.name } <c:if
-						test="${user.checked == 1}">(사업자)</c:if>
+					class="bi-person-fill"></span></a> 
+				<a href="../join/login" class="mx-2" id="logIn" 
+					style="display: ${empty user ? 'inline' : 'none'}">로그인</a>
+				<a href="../join/register" class="mx-2" id="register"
+					style="display: ${empty user ? 'inline' : 'none'}">회원가입</a> 
 				</a> <a href="logout" class="mx-2" id="logoutLink"
 					style="display: ${not empty user ? 'inline' : 'none'}">로그아웃</a>
 

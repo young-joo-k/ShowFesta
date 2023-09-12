@@ -11,13 +11,6 @@
 					<form id="joinForm" action="/join/register" method="post" enctype="multipart/form-data">
 						<fieldset>
 							<div class="form-group">
-								<label class="radio-inline"> <input type="radio"
-									name="checked" value=0 checked> 개인
-								</label> <label class="radio-inline"> <input type="radio"
-									name="checked" value=1> 사업자
-								</label>
-							</div>
-							<div class="form-group">
 								<input class="form-control" placeholder="아이디" name="id" id="id"
 									type="text" autofocus>
 								<div id="idError" style="color: red;"></div>
@@ -42,9 +35,6 @@
 								<input class="form-control" placeholder="이메일" name="email"
 									id="email" type="email">
 								<div id="emailError" style="color: red;"></div>
-							</div>
-							<div id ="attachArea" style="display: none;">
-								<input type="file" name="file">
 							</div>
 							<button type="submit" class="btn btn-lg btn-success btn-block">가입하기</button>
 							<button type="button" class="btn btn-lg btn-primary btn-block" onclick="location.href='/join/main'">메인</button>
@@ -74,16 +64,6 @@
             }
             alert(result);
         }
-
-        // 회원 유형에 따른 첨부파일 영역 표시/숨김
-        $('input[name="checked"]').on('change', function () {
-            if ($(this).val() === '1') {
-                $('#attachArea').show();
-                $('#joinForm').attr('action', '/join/upload');
-            } else {
-                $('#attachArea').hide();
-            }
-        });
 
 		// 회원 가입 폼 체크하는 함수
 		$('#joinForm').submit(function(){
