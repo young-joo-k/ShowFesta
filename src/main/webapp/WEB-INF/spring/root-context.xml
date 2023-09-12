@@ -13,8 +13,12 @@
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 	    <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
 <!-- 	    <property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"></property> -->
-	    <property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.32:1521:XE"></property>
-	    <property name="username" value="c##ShowFesta"></property>
+<!--  		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.32:1521:XE"></property> -->
+<!-- 	    <property name="username" value="c##ShowFesta"></property> -->
+<!-- 	    <property name="password" value="1234"></property> -->
+		<!-- 승빈 집에서 할 때  -->
+	   	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"></property>
+	    <property name="username" value="c##bin"></property>
 	    <property name="password" value="1234"></property>
 	</bean>
  
