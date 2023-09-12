@@ -10,6 +10,7 @@ public class MemberVO {
 	private String name;
 	private String phone;
 	private String email;
+	private int validuser;
 	private String filename;
 
 	

@@ -1,0 +1,59 @@
+@charset "EUC-KR";
+
+.mypooq-inner-wrap {
+    height: 100%;
+    min-height: 320px;
+}
+
+.wrap {
+    width: 1240px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.my-user-qna-info {
+    position: relative;
+    padding: 48px 60px;
+    border: 1px solid #252525;
+    border-radius: 4px;
+    background-color: #252525;
+    font-size: 0;
+}
+
+.my-user-qna-info .cs-number {
+    background: url(../img/ic-cst-call.12ab297e.svg) no-repeat 0/36px;
+    font-size: 36px;
+    line-height: 47px;
+    color: #FEBC38;
+    font-weight: 700;
+}
+
+.my-user-qna-info .cs-number+.cs-meta-list {
+    margin-left: 12px;
+}
+
+.my-user-qna-info .cs-meta-list, .my-user-qna-info .cs-number {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.my-user-qna-info .cs-meta-list li:first-child {
+    padding-right: 8px;
+    margin-right: 8px;
+}
+
+.my-user-qna-info .cs-meta-list li {
+    display: inline-block;
+    position: relative;
+    font-size: 14px;
+    line-height: 20px;
+    color: #a5a5a5;
+}
+
+.my-user-qna-info p {
+    margin-top: 11px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #a5a5a5;
+}
