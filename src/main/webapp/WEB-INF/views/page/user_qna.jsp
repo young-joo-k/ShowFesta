@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8"%>
+ddd<%@ page language="java" contentType="text/html;charset=UTF-8"%>
 <%@include file="../includes/header.jsp"%>
 
 
@@ -7,6 +7,7 @@
 <head>
 <link href="/resources/css/join.css?after" rel="stylesheet">
 <link href="/resources/css/notice_list.css?after" rel="stylesheet">
+<link href="/resources/css/user_qna.css?after" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
@@ -38,10 +39,8 @@
 											<li>주말 및 공휴일 휴무</li>
 										</ul>
 										<p>
-											"ShowFesta 이용 시 불편하면 전화하거나 1:1 문의해라" <br> "최대한 빠르게 해보긴
-											할게"
+											"ShowFesta 이용 시 불편하면 전화하거나 1:1 문의해 주세요." <br> "최대한 빠르게 처리해 드리겠습니다."
 										</p>
-										<a href="" class="link-inquiry">1:1문의하기</a>
 									</div>
 								</div>
 							</section>
