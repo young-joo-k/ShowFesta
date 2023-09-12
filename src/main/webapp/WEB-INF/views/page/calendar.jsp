@@ -6,6 +6,13 @@ pageEncoding="UTF-8"%>
 <%@page import="java.util.Calendar"%>
 
 <!-- <title>캘린더</title> -->
+<<<<<<< HEAD
+=======
+<!-- <link href="/resources/assets/css/calendar.css" rel="stylesheet"	type="text/css"> -->
+<link href="/resources/css/calendar.css?after" rel="stylesheet" type="text/css">
+<!-- <body> -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+>>>>>>> cc85403cdd37c57869407e6e47a0bf60afdf197b
 <!-- <link href="/resources/assets/css/calendar.css" rel="stylesheet" type="text/css"> -->
 <link href="/resources/assets/css/calendar.css?ver=1" rel="stylesheet" type="text/css">
 <body>
