@@ -20,7 +20,7 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 @RequestMapping("/page/*")
-public class ScheduleController {
+public class PageController {
 	@Autowired
 	ScheduleService service;
 

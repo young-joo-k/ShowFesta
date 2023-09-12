@@ -7,7 +7,7 @@ pageEncoding="UTF-8"%>
 
 <!-- <title>캘린더</title> -->
 <!-- <link href="/resources/assets/css/calendar.css" rel="stylesheet"	type="text/css"> -->
-<link href="/resources/assets/css/calendar.css?after" rel="stylesheet" type="text/css">
+<link href="/resources/css/calendar.css?after" rel="stylesheet" type="text/css">
 <!-- <body> -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- <link href="/resources/assets/css/calendar.css" rel="stylesheet" type="text/css"> -->
