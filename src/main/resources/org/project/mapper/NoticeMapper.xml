@@ -23,11 +23,11 @@ select * from tbl_notice where b_num = #{b_num}
 
 <update id="update">
 	update tbl_notice
-	set title= #{b_title},
-	content = #{b_content},
-	writer = #{b_writer},
+	set 
+	b_title= #{b_title, jdbcType=VARCHAR},
+	b_content = #{b_content, jdbcType=VARCHAR},
 	updateDate = sysdate
-	where b_num = #{b_num}
+	where b_num = #{b_num, jdbcType=INTEGER}
 </update>
 
 <insert id="insertSelectKey">
