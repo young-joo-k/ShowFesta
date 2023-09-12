@@ -81,6 +81,10 @@ public class PageController {
 		return "/page/calendar";
 	}
 
+	@GetMapping("/main")
+	public void mainpage() {
+
+	}
 	@GetMapping("/musical_info")
 	public void main() {
 

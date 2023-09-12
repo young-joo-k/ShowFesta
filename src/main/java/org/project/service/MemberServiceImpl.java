@@ -38,10 +38,9 @@ public class MemberServiceImpl implements MemberService {
 		if (membervo != null) {
 			//�쑀�� ���엯�룄 媛숆퀬 �뙣�뒪�썙�뱶�룄 留욎쑝硫� 
 			if (membervo.getPw().equals(pw)) {
-				if (membervo.getValiduser()==0)
-				{
-					return "�듅�씤�씠 �릺吏� �븡�� �궗�슜�옄 �엯�땲�떎.";
-				}
+				/*
+				 * if (membervo.getValiduser()==0) { return "�듅�씤�씠 �릺吏� �븡�� �궗�슜�옄 �엯�땲�떎."; }
+				 */
 				//�꽦怨�
 				return membervo.getId();
 			}

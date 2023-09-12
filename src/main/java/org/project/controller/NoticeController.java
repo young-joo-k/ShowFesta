@@ -63,4 +63,8 @@ public class NoticeController {
 		log.info("register Get!");
 		
 	}
+	@GetMapping("/user_qna")
+	public void qna() {
+		log.info("qna Get!");
+	}
 }

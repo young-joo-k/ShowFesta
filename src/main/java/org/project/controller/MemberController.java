@@ -130,15 +130,7 @@ public class MemberController {
 	    return "/home";
 	}
 
-	@GetMapping("/main")
-	public void main(HttpSession session, Model model) {
-		String id = (String) session.getAttribute("id");
-		log.info("main Get");
-		if (id != null) {
-			MemberVO membervo = service.getUserInfo(id);
-			model.addAttribute("user", membervo);
-		}
-	}
+
 	@GetMapping("id_find")
 	public void findId() {
 		log.info("id_find Get");
