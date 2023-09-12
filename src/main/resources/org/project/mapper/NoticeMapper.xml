@@ -14,7 +14,7 @@ select * from tbl_notice where b_num = #{b_num}
 
 <insert id="insert">
 	insert into tbl_notice (b_num, b_title, b_content, b_writer)
-	values (seq_board.nextval, #{title}, #{content}, #{writer})
+	values (seq_board.nextval, #{b_title}, #{b_content}, #{b_writer})
 </insert>
 
 <delete id="delete">
@@ -37,7 +37,7 @@ select * from tbl_notice where b_num = #{b_num}
 	</selectKey>
 	
 	insert into tbl_notice (b_num, b_title, b_content, b_writer) 
-	values (#{b_num}, #{title}, #{content}, #{writer})
+	values (#{b_num}, #{b_title}, #{b_content}, #{b_writer})
 </insert>
 
 </mapper>

@@ -30,8 +30,8 @@ public class NoticeController {
 	public String register(NoticeVO notice, RedirectAttributes rttr) {
 		log.info("register: " + notice);
 		service.register(notice);
-		rttr.addFlashAttribute("result", notice.getBno());
-		return "redirect:/notice_list";
+		rttr.addFlashAttribute("result", notice.getB_num());
+		return "redirect:/page/notice_list";
 	}
 	
 	@GetMapping("/notice_get")
@@ -56,5 +56,11 @@ public class NoticeController {
 			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/notice_list";
+	}
+	
+	@GetMapping("/notice_register")
+	public void register() {
+		log.info("register Get!");
+		
 	}
 }

@@ -6,10 +6,10 @@ import lombok.Data;
 
 @Data
 public class NoticeVO {
-	private Long bno;
-	private String title;
-	private String content;
-	private String writer;
+	private Long b_num;
+	private String b_title;
+	private String b_content;
+	private String b_writer;
 	private Date regdate;
-	private Date updateDate;
+	private Date updatedate;
 }

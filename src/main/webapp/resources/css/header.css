@@ -4,14 +4,14 @@
 	height: 110px;
 	transition: all 0.5s;
 	z-index: 997;
-	background: black;
+	background: #000127;
 }
 
 .header .logo h1 {
 	font-size: 40px;
 	font-weight: 700;
 	font-family: "EB Garamond";
-	color: white;
+	color: #febc38;
 }
 
 @media ( min-width : 1280px) {

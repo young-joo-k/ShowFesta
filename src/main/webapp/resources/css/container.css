@@ -2,7 +2,7 @@
 
 @media (min-width: 1200px){
 .container-xl, .container-lg, .container-md, .container-sm, .container {
-    background-color : black;
+    background-color : #00011b;
 	}
 }
 
@@ -14,7 +14,7 @@
     padding-left: calc(var(--bs-gutter-x) * .5);
     margin-right: auto;
     margin-left: auto;
-   background-color : black;
+   background-color : #000127;
 }
 
 .text-center {

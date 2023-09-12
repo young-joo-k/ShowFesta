@@ -13,7 +13,7 @@
 
 body, html {
     height: 100%;
-    background-color: black;
+    background-color: #000127;
     scrollbar-face-color: #a5a5a5;
     scrollbar-track-color: #1b1b1b;
     scrollbar-arrow-color: #a5a5a5;
@@ -32,8 +32,9 @@ body, html {
 
 .page-top {
     margin-bottom: 40px;
-    padding: 40px 0;
-    background-color: #252525;
+    padding: 10px;
+    background-color: #392310;
+    text-align : center;
 }
 
 .page-top-inner-wrap {
@@ -48,6 +49,7 @@ body, html {
     line-height: 36px;
     color: #fff;
     font-weight: 400;
+    
 }
 
 .wrap {
@@ -65,7 +67,7 @@ body, html {
 .cs-1depth {
     overflow: hidden;
     margin-bottom: 40px;
-    background-color: #252525;
+    background-color: #ffd47f;
     border-radius: 4px;
 }
 
@@ -74,7 +76,7 @@ body, html {
 }
 
 .cs-1depth li.customer-1depth-on {
-    background-color: #1351f9;
+    background-color: #febc38;
     position: relative;
     z-index: 10;
 }
@@ -86,7 +88,7 @@ body, html {
 }
 
 .cs-1depth li.customer-1depth-on a {
-    color: #fff;
+    color: #000127;
 }
 
 .cs-1depth a {
@@ -236,5 +238,22 @@ table {
 
 .paging-type01 a+a.arrow, .paging-type01 a.arrow+a, .paging-type02 a+a.arrow, .paging-type02 a.arrow+a {
     margin-left: 8px;
+}
+
+.cs-table-02 tbody span, .noti-detail-title {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #a5a5a5;
+    padding-left: 20px;
+    margin-bottom : 5px;
+}
+button#regBtn {
+	font-size : 14px;
+	color : #000127;
+	background-color: #febc38;
+	z-index:10;
+	float: right;
 }
 

@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"%>
 <%@include file="../includes/header.jsp"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <link href="/resources/css/join.css?after" rel="stylesheet">
 <link href="/resources/css/notice_list.css?after" rel="stylesheet">
-<title>Insert title here</title>
 </head>
 <body>
 	<div id="app">
@@ -43,22 +43,30 @@
 								</colgroup>
 								<thead>
 									<tr>
-										<th>구분</th>
+										<th>번호</th>
 										<th>제목</th>
 										<th>등록일</th>
 									</tr>
 								</thead>
 								<c:forEach items="${list}" var="notice">
-								<tbody>
-									<tr class>
-												<td class = "noti-type"><c:out value="${notice.b_num}" /></td>
-												<td class = "noti-type"><c:out value="${notice.b_title}" /></td>
-												<td class = "noti-type"><fmt:formatDate pattern="yyyy-MM-dd" value="${notice.b_updatedate }"/></td>			
+									<tbody>
+									<tr>
+												<td>
+													<p class = "noti-type"><c:out value="${notice.b_num}" /></p>
+												</td>
+												<td>
+													<span><c:out value="${notice.b_title}" /></span>
+												</td>
+												<td>
+													<p class = "noti-date"><fmt:formatDate pattern="yyyy-MM-dd" value="${notice.updatedate }"/></p>
+												</td>			
 									</tr>
-								</tbody>
+									</tbody>
 								</c:forEach>
+
 							</table>
 						</div>
+						<button id='regBtn' type="button" class="btn btn-xs pull right">공지사항 등록</button>
 						<div class="paging-type02">
 							<a href="#" class="on">1</a>
 							<a href="#" class>2</a>
@@ -81,4 +89,13 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+$(document).read(
+		function() {
+			$("#regBtn").on("click", function(){
+				self.location = "/page/notice_register";
+			});
+		});
+</script>
 </html>
+
