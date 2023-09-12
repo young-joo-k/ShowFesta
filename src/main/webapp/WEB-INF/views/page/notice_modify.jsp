@@ -75,11 +75,11 @@
 										value='<c:out
 											value="${notice.b_content}" />'>
 
-									<button type="submit"  data-oper='modify'
+									<button id = modiBtn type="submit"  data-oper='modify'
 										class="btn btn-default">수정</button>
-									<button type="submit"  data-oper='remove'
+									<button id = remoBtn type="submit"  data-oper='remove'
 										class="btn btn-danger">삭제</button>
-									<button type="submit"  data-oper='list'
+									<button id = listBtn type="submit"  data-oper='list'
 										class="btn btn-info">목록</button>
 								</div>
 							</div>

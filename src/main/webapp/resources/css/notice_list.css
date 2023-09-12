@@ -96,6 +96,7 @@ body, html {
     height: 50px;
     line-height: 50px;
     font-size: 16px;
+    color : #000127;
 }
 
 .cs-2depth {
@@ -289,6 +290,7 @@ button#modiBtn {
     background-color: #febc38;
     z-index: 10;
     float: right;
+    margin-top: 15px;
 }
 button#listBtn {
     font-size: 14px;
@@ -297,4 +299,15 @@ button#listBtn {
     z-index: 10;
     float: right;
     margin-right : 10px;
+    margin-top: 15px;
+}
+
+button#remoBtn {
+    font-size: 14px;
+    color: #000127;
+    background-color: #a5a5a5;
+    z-index: 10;
+    float: right;
+    margin-right : 10px;
+    margin-top: 15px;
 }

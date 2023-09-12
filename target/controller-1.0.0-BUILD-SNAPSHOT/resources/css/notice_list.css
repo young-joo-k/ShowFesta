@@ -1,0 +1,300 @@
+@charset "UTF-8";
+
+#app {
+    height: 100%;
+}
+
+.body {
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    min-height: 100%;
+}
+
+body, html {
+    height: 100%;
+    background-color: #000127;
+    scrollbar-face-color: #a5a5a5;
+    scrollbar-track-color: #1b1b1b;
+    scrollbar-arrow-color: #a5a5a5;
+    scrollbar-3dlight-color: none;
+    scrollbar-shadow-color: #a5a5a5;
+    scrollbar-darkshadow-color: none;
+    scrollbar-color: #a5a5a5 #1b1b1b;
+    font-family: NotoSans,sans-serif;
+}
+
+.top-padding {
+    padding-top: 109px;
+    height: 100%;
+    min-height: 550px;
+}
+
+.page-top {
+    margin-bottom: 40px;
+    padding: 10px;
+    background-color: #392310;
+    text-align : center;
+}
+
+.page-top-inner-wrap {
+    position: relative;
+    max-width: 1240px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.page-title {
+    font-size: 24px;
+    line-height: 36px;
+    color: #fff;
+    font-weight: 400;
+    
+}
+
+.wrap {
+    width: 1240px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.cs-body {
+    width: 1240px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+
+.cs-1depth {
+    overflow: hidden;
+    margin-bottom: 40px;
+    background-color: #ffd47f;
+    border-radius: 4px;
+}
+
+.cs-1depth li:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.cs-1depth li.customer-1depth-on {
+    background-color: #febc38;
+    position: relative;
+    z-index: 10;
+}
+
+.cs-1depth li {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.cs-1depth li.customer-1depth-on a {
+    color: #000127;
+}
+
+.cs-1depth a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+}
+
+.cs-2depth {
+    padding-bottom: 20px;
+    font-size: 0;
+}
+
+.cs-2depth li {
+    display: inline-block;
+    position: relative;
+    margin-right: 12px;
+    padding-right: 12px;
+    vertical-align: middle;
+}
+
+.cs-2depth li.cs-2depth-on a, .cs-2depth li.cs-2depth-on button {
+    color: #fff;
+    font-weight: 700;
+}
+
+.cs-2depth a, .cs-2depth button {
+    font-size: 20px;
+    line-height: 22px;
+    color: #a5a5a5;
+}
+
+button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled) {
+    cursor: pointer;
+}
+
+button, input, textarea {
+    margin: 0;
+    background: transparent;
+}
+
+button {
+    border: 0;
+}
+
+button, label {
+    cursor: pointer;
+}
+
+button, input, select {
+    font-family: NotoSans,sans-serif;
+}
+
+.cs-2depth li:after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    content: "";
+    width: 1px;
+    height: 18px;
+    background-color: #2f2f2f;
+}
+
+.cs-table02-wrap {
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.cs-table-02 {
+    width: 100%;
+    table-layout: fixed;
+    border-top: 2px solid #2f2f2f;
+}
+
+table {
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.cs-table-02 thead tr {
+    border-bottom: 1px solid #2f2f2f;
+}
+
+.cs-table-02 th {
+    text-align: center;
+    font-size: 15px;
+    color: #a5a5a5;
+    padding: 15px 0;
+}
+
+.cs-table-02 tbody tr {
+    border-bottom: 1px solid #2f2f2f;
+}
+
+.cs-table-02 tbody td {
+    padding: 15px 0;
+}
+
+.noti-date, .noti-type {
+    text-align: center;
+    font-size: 14px;
+    color: #a5a5a5;
+}
+
+.cs-table-02 tbody a, .noti-detail-title {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #a5a5a5;
+    padding-left: 20px;
+}
+
+.cs-table-02 tbody a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.paging-type01, .paging-type02 {
+    padding-bottom: 80px;
+    margin: 0 auto;
+    text-align: center;
+    clear: both;
+}
+
+.paging-type01 a.on, .paging-type02 a.on {
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.paging-type01 a, .paging-type02 a {
+    display: inline-block;
+    min-width: 36px;
+    height: 36px;
+    border: 1px solid transparent;
+    border-radius: 20%;
+    font-size: 14px;
+    line-height: 32px;
+    color: #a5a5a5;
+    vertical-align: middle;
+}
+
+.paging-type01 a+a.arrow, .paging-type01 a.arrow+a, .paging-type02 a+a.arrow, .paging-type02 a.arrow+a {
+    margin-left: 8px;
+}
+
+.cs-table-02 tbody span, .noti-detail-title {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #a5a5a5;
+    padding-left: 20px;
+    margin-bottom : 5px;
+}
+button#regBtn {
+	font-size : 14px;
+	color : #000127;
+	background-color: #febc38;
+	z-index:10;
+	float: right;
+}
+.noti-detail-wrap {
+    padding: 28px 40px;
+    font-size: 18px;
+    line-height: 1.71em;
+    color: #a5a5a5;
+    border:none;
+}
+textarea {
+	width: 100%;
+    height: 6.25em;
+	border: none;
+	resize: none;
+}
+
+.list-btn {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.list-btn a>img, .list-btn a>span {
+    vertical-align: middle;
+}
+
+.list-btn a>img {
+	margin-top : 16px;
+    margin-right: 8px;
+}
+
+button#modiBtn {
+    font-size: 14px;
+    color: #000127;
+    background-color: #febc38;
+    z-index: 10;
+    float: right;
+}
+button#listBtn {
+    font-size: 14px;
+    color: #000127;
+    background-color: #a5a5a5;
+    z-index: 10;
+    float: right;
+    margin-right : 10px;
+}

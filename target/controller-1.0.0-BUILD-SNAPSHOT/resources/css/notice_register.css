@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+.register-top {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.register-top h4 {
+    margin-bottom: 14px;
+    font-weight: 400;
+    font-size: 26px;
+    color: #a5a5a5;
+}
+
+.es-text {
+    text-align: right;
+    font-size: 14px;
+    color: #a5a5a5;
+    margin-bottom: 10px;
+}
+
+.es-dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background-color: #febc38;
+    border-radius: 100px;
+    vertical-align: middle;
+    margin-left: -10px;
+    margin-right: 5px;
+}
+
+.register-table {
+    border-top: 1px solid #2f2f2f;
+    border-bottom: 1px solid #2f2f2f;
+    width: 100%;
+}
+
+.register-table th {
+    text-align: left;
+    padding: 24px 0 12px 40px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #a5a5a5;
+    vertical-align: top;
+}
+
+.register-table td {
+    padding: 12px 28px 12px 0;
+}
+
+.register-table-wrap input[type="text"], .register-table-wrap input[type="tel"], .register-table-wrap select {
+    width: 435px;
+    height: 46px;
+    border-radius: 6px;
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    color: #fff;
+    padding-left: 20px;
+    box-sizing: inherit;
+    margin: auto;
+    background-color: #252525;
+    border: none;
+}
+
+.register-table-wrap textarea.register-table-textarea03 {
+    height: 350px;
+    margin-top: 10px;
+}
+
+.register-table-wrap textarea {
+    width: 715px;
+    border-radius: 6px;
+    background-color: #252525;
+    border: none;
+    resize: none;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 16px;
+}
+
+.register-btn-wrap {
+    text-align: center;
+}
+
+.register-btn-wrap ul {
+    display: inline-block;
+    margin: 40px auto 0;
+    text-align: center;
+}
+
+.register-btn-wrap ul li {
+    float: left;
+    margin: 0 5px;
+}
+
+.register-btn-wrap ul li a, .register-btn-wrap ul li button, .register-btn-wrap ul li input[type="submit"] {
+    display: block;
+    width: 250px;
+    height: 52px;
+    line-height: 52px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+}
+.register-cancel {
+    background-color: #5e5e5e;
+    color: #fff;
+}
+.register-submit {
+    background-color: #febc38;
+    color: #fff;
+}
+
+.register-btn-wrap input[type="submit"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    border: none;
+}

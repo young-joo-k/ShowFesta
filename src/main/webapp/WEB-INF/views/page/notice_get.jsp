@@ -69,8 +69,8 @@
 									<textarea name='b_content' readonly="readonly"><c:out
 											value="${notice.b_content}" /></textarea>
 								</div>
-								<button  data-oper='modify' class="btn btn-default" onclick="location.href='/page/notice_modify?b_num=<c:out value="${notice.b_num}"/>'">수정</button>
-								<button  data-oper='list' class="btn btn-info" onclick="location.href='/page/notice_list'">목록</button>
+								<button  id = modiBtn data-oper='modify' class="btn btn-default" onclick="location.href='/page/notice_modify?b_num=<c:out value="${notice.b_num}"/>'">수정</button>
+								<button  id = listBtn data-oper='list' class="btn btn-info" onclick="location.href='/page/notice_list'">목록</button>
 								<form  action="/page/notice_modify" method="get">
 								<input type='hidden' id='b_num' name='b_num' value='<c:out value="${notice.b_num}"/>'> </form>
 							</div>	

@@ -23,35 +23,25 @@ public class MemberServiceImpl implements MemberService {
 		log.info(member);
 		membermapper.insert(member);
 	}
-
-	@Override
-	public void register2(MemberVO member) {
-		log.info(member);
-		membermapper.insert2(member);
-		
-	}
 	
 	@Override
 	public String login(String id, String pw) {
 		MemberVO membervo = membermapper.getUserInfo(id);
-		//留뚯빟�뿉 �쑀�� �젙蹂닿� �엳�떎硫�
+		//만약에 유저 정보가 있다면
 		if (membervo != null) {
-			//�쑀�� ���엯�룄 媛숆퀬 �뙣�뒪�썙�뱶�룄 留욎쑝硫� 
+			//유저 타입도 같고 패스워드도 맞으면 
 			if (membervo.getPw().equals(pw)) {
-				if (membervo.getValiduser()==0)
-				{
-					return "�듅�씤�씠 �릺吏� �븡�� �궗�슜�옄 �엯�땲�떎.";
-				}
-				//�꽦怨�
+				//성공
 				return membervo.getId();
 			}
 			else if (!(membervo.getPw().equals(pw))) {
-				return "�뙣�뒪�썙�뱶媛� �떎由낅땲�떎.";
+				return "패스워드가 다릅니다.";
 			}
 
 		}
-		return "�뾾�뒗 �븘�씠�뵒 �엯�땲�떎.";
+		return "없는 아이디 입니다.";
 	}
+
 
 	@Override
 	public boolean registerIdCheck(String id) {
@@ -89,13 +79,12 @@ public class MemberServiceImpl implements MemberService {
 	    return foundId;
 	}
 	@Override
-	public String findPw(String id, String name, String email, String phone, int checked) {
+	public String findPw(String id, String name, String email, String phone) {
 	    Map<String, Object> paramMap = new HashMap<>();
 	    paramMap.put("id", id);
 	    paramMap.put("name", name);
 	    paramMap.put("email", email);
 	    paramMap.put("phone", phone);
-	    paramMap.put("checked", checked);
 	    // MemberMapper瑜� �궗�슜�븯�뿬 �븘�씠�뵒瑜� �뜲�씠�꽣踰좎씠�뒪�뿉�꽌 議고쉶
 	    String foundPw = membermapper.findPw(paramMap);
 	    

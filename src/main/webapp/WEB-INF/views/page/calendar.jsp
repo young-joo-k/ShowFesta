@@ -81,6 +81,8 @@ pageEncoding="UTF-8"%>
 							<c:when test="${dateList.value=='today'}">
 								<td class="today">
 									<div class="date">${dateList.date}</div> 
+									<%-- 										<div class = "cnt" > 공연 개수 : ${todayCnt}</div> --%>
+
 									<a class="cnt">뮤지컬 : ${musicalCnt}</a><br>
 									<a class="cnt">콘서트 : ${concertCnt}</a>
 								</td>
@@ -113,6 +115,7 @@ pageEncoding="UTF-8"%>
 		</table>
 		<!--달력몸체끝 -->
 	</div>
+
 	
 	<!-- 모달 -->
 	<div id="modal" class="modalFade">

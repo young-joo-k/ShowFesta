@@ -6,16 +6,11 @@
 
 	<insert id="insert">
 	
-		insert into tbl_user(userNum, id, pw, name, phone, email,checked)
-		values(seq_user.nextval, #{id}, #{pw}, #{name},#{phone}, #{email}, #{checked})
+		insert into tbl_user(userNum, id, pw, name, phone, email)
+		values(seq_user.nextval, #{id}, #{pw}, #{name},#{phone}, #{email})
 		
 	</insert>
-	<insert id="insert2">
-	
-		insert into tbl_user(userNum, id, pw, name, phone, email,checked,validuser,filename)
-		values(seq_user.nextval, #{id}, #{pw}, #{name},#{phone}, #{email}, #{checked},0,#{filename})
-		
-	</insert>
+
 	<select id="getUserInfo" resultType="org.project.domain.MemberVO">
 		select * from tbl_user where id = #{id}
 	</select>
@@ -38,11 +33,11 @@
 	</select>
 	<select id="findId" parameterType="map" resultType="string">
         SELECT id FROM tbl_user
-        WHERE name = #{name} AND email = #{email} AND phone = #{phone} AND checked = #{checked}
+        WHERE name = #{name} AND email = #{email} AND phone = #{phone}
     </select>
     <select id="findPw" parameterType="map" resultType="string">
         SELECT pw FROM tbl_user
-        WHERE id = #{id} AND name = #{name} AND email = #{email} AND phone = #{phone} AND checked = #{checked}
+        WHERE id = #{id} AND name = #{name} AND email = #{email} AND phone = #{phone}
     </select>
 
 </mapper>
