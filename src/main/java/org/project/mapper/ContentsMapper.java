@@ -6,5 +6,5 @@ public interface ContentsMapper {
 	
 	public ContentsVO getMusicalContents();
 	
-	
+	public ContentsVO MusicalRead(Long m_num);
 }

@@ -1,1 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<<<<<<< HEAD
+<mapper namespace ="org.project.mapper.ContentsMapper">
+
+<!-- <select id ="getMusicalList" resultType ="org.project.domain.ContentsVO"> -->
+<!-- <![CDATA[ -->
+<!-- 	select *  -->
+<!-- 	from tbl_musical -->
+<!-- 	where sysdate > m_start_date and sysdate < m_end_date -->
+<!--  ]]> -->
+
+<!-- </select> -->
+ 
+=======
+<mapper namespace="org.project.mapper.ContentsMapper">
+	<select id="MusicalRead" resultType = "org.project.domain.ContentsVO">
+		select * from tbl_musical where m_num = #{m_num}
+	</select>
+>>>>>>> f90ba52b3a48a7cfb4493c157cb1f1384f6e96ef
+</mapper>
