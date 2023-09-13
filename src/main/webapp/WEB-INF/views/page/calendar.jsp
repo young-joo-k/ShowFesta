@@ -11,6 +11,7 @@ pageEncoding="UTF-8"%>
 <!-- <body> -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- <link href="/resources/assets/css/calendar.css" rel="stylesheet" type="text/css"> -->
+<body>
 <form name="calendarFrm" id="calendarFrm" action="" method="GET">
 
 	<div class="calendar">
@@ -137,7 +138,7 @@ pageEncoding="UTF-8"%>
 <!-- </body> -->
 
 <!-- </html> -->
-
+</body>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">

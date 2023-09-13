@@ -18,9 +18,6 @@
 	href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
 	rel="stylesheet">
 
-</head>
-<body>
-
 	<!-- ======= Header ======= -->
 	<header id="header" class="header d-flex align-items-center fixed-top">
 		<div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -80,6 +77,9 @@
 
 	</header>
 	<!-- End Header -->
+</head>
+<body>
+</body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
@@ -96,7 +96,4 @@ $(document).ready(function() {
     );
 });
 </script>
-
-</body>
-
 </html>
