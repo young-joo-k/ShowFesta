@@ -131,18 +131,15 @@ public class PageController {
 	//	뮤지컬 유형별페이지 가져옵니다
 	@GetMapping("/mContents")
 	public void musicalContent(Model model) {
-<<<<<<< HEAD
-=======
-
->>>>>>> 3abe786dba845563191bafce88b9cea10a6edb61
 		log.info("musical contents get");
 		
 		List<ContentsVO> musicalList = contentsservice.getMusicalContents();
 		
-		System.out.println(musicalList.get(0).getM_num());
-		
+		if(musicalList == null || musicalList.isEmpty()) {
+			System.out.println(musicalList.get(0).getM_num());
+			model.addAttribute("musicalContents", musicalList);
+		}
 		model.addAttribute("musicalContents", musicalList);
-		
 	}
 	
 	//	콘서트 유형별페이지 가져옵니다
@@ -152,38 +149,39 @@ public class PageController {
 		
 		List<ContentsVO> concertList = contentsservice.getConcertContents();
 		
-		System.out.println(concertList.get(0).getM_num());
-		
+		if(concertList == null || concertList.isEmpty()) {
+			System.out.println(concertList.get(0).getM_num());
+			model.addAttribute("concertContents", concertList);
+		}
 		model.addAttribute("concertContents", concertList);
 	}
 	
-//	페스티벌 유형별페이지 가져옵니다
+	//	페스티벌 유형별페이지 가져옵니다
 	@GetMapping("/festivalContents")
 	public void festivalContent(Model model) {
 		log.info("festival contents get");
 		
-		List<ContentsVO> festivaltList = contentsservice.getFestivalContents();
-		
-		if (festivaltList == null || festivaltList.isEmpty()) {
-			log.info("배열이 비어있습니다.");
-	        model.addAttribute("emptyContents", festivaltList);
-	        
-	    } else {
-	        model.addAttribute("festivalContents", festivaltList);
-	    }
-		
-//		try {
-//			List<ContentsVO> festivaltList = contentsservice.getFestivalContents();
-//			
-//			System.out.println(festivaltList.get(0).getM_num());
-//			
-//			model.addAttribute("festivalContents", festivaltList);
-//			
-//		} catch(IndexOutOfBoundsException e) {
-//			e.printStackTrace();
+//		List<ContentsVO> festivaltList = contentsservice.getFestivalContents();
+//		
+//		if (festivaltList == null || festivaltList.isEmpty()) {
 //			log.info("배열이 비어있습니다.");
-//			
-//		}
+//	        model.addAttribute("emptyContents", festivaltList);
+//	        
+//	    } else {
+//	        model.addAttribute("festivalContents", festivaltList);
+//	    }
+		
+		try {
+			List<ContentsVO> festivaltList = contentsservice.getFestivalContents();
+			
+			System.out.println(festivaltList.get(0).getM_num());
+			
+			model.addAttribute("festivalContents", festivaltList);
+			
+		} catch(IndexOutOfBoundsException e) {
+			e.printStackTrace();
+			log.info("배열이 비어있습니다.");
+		}
 		 
 	}
 	
