@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.project.data.DateData;
+import org.project.domain.ContentsVO;
 import org.project.domain.MemberVO;
 import org.project.service.ContentsService;
 import org.project.service.MemberService;
@@ -31,7 +32,10 @@ public class PageController {
 	private MemberService memberservice;
 	@Autowired
 	private ContentsService contentsservice;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 34ab99ff283b8fd538053e27219165e093aa4878
 	
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
@@ -102,10 +106,24 @@ public class PageController {
 	@GetMapping("/musical_info")
 	public void m_info(@RequestParam("m_num") Long m_num, Model model) {
 		log.info(m_num);
-		model.addAttribute("musical", contentsservice.getMusical(m_num));
+		ContentsVO result = contentsservice.getMusical(m_num);
+		String s_date = result.getM_start_date();
+		result.setM_start_date(parseDate(s_date));
+		String e_date = result.getM_end_date();
+		result.setM_end_date(parseDate(e_date));
+		model.addAttribute("musical", result);
 	}
 
-
+	//오라클로 날짜를 받아오면 2023-08-10 00:00:00 이런식으로 가져오는데 이걸 2023.08.10 으로 바꾸는 함수
+	public String parseDate(String inputString)
+	{
+		String[] parts = inputString.split(" "); // 공백을 기준으로 문자열을 나눔
+		String datePart = parts[0]; // "2023-08-10" 부분을 가져옴
+		String[] dateParts = datePart.split("-"); // "-"을 기준으로 날짜 부분을 나눔
+		String formattedDate = dateParts[0] + "." + dateParts[1] + "." + dateParts[2]; // 원하는 형식으로 조합
+		return formattedDate;
+	}
+	
 	@GetMapping("/news")
 	public void latestNewsPage() {
 		log.info("News get");

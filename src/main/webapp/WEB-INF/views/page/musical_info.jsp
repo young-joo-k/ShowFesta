@@ -2,13 +2,13 @@
 <%-- <%@include file="../includes/header.jsp"%> --%>
 <div>
 
-	"${musical.m_num }"<br>
-	"${musical.m_title }"<br>
+	${musical.m_num }<br>
+	${musical.m_title }<br>
 	<img src="${musical.m_img}"/><br>
-	"${musical.m_start_date }"<br>
-	"${musical.m_end_date }"<br>
-	"${musical.m_place }"<br>
-	"${musical.m_b_link }"
+	${musical.m_start_date }<br>
+	${musical.m_end_date }<br>
+	${musical.m_place }<br>
+	${musical.m_b_link }
 
 
 </div>
