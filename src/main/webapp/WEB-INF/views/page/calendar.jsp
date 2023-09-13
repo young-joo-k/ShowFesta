@@ -6,12 +6,19 @@ pageEncoding="UTF-8"%>
 <%@page import="java.util.Calendar"%>
 
 <!-- <title>캘린더</title> -->
-<!-- <link href="/resources/assets/css/calendar.css" rel="stylesheet"	type="text/css"> -->
 <link href="/resources/css/calendar.css?after" rel="stylesheet" type="text/css">
 <!-- <body> -->
 
 <body>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<!-- <link href="/resources/assets/css/calendar.css" rel="stylesheet" type="text/css"> -->
+<body>
+>>>>>>> 4f0f9eef0b70d5328e0e5ef2ba06484db81fb717
+>>>>>>> 49cfba42366ffb15f83a8cc5282d8d647f3c673d
 <form name="calendarFrm" id="calendarFrm" action="" method="GET">
 
 	<div class="calendar">
@@ -138,7 +145,7 @@ pageEncoding="UTF-8"%>
 <!-- </body> -->
 
 <!-- </html> -->
-
+</body>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">

@@ -121,3 +121,8 @@
     border-radius: 0;
     border: none;
 }
+
+.login-submit {
+    background-color: #febc38;
+    color: #fff;
+}
