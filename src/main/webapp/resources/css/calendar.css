@@ -27,10 +27,6 @@ A:visited { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:n
 A:active { font-size:9pt; font-family:"돋움";color:red; text-decoration:none; }
 A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
 
-/* #clalendarFrm{
-  margin-top: 50rem;
-} */
-
 .day{
   width:100px; 
   height:30px;

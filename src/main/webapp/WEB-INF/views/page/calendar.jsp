@@ -9,11 +9,6 @@ pageEncoding="UTF-8"%>
 <link href="/resources/css/calendar.css?after" rel="stylesheet" type="text/css">
 <!-- <body> -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<<<<<<< HEAD
-=======
-<!-- <link href="/resources/assets/css/calendar.css" rel="stylesheet" type="text/css"> -->
-<body>
->>>>>>> 4f0f9eef0b70d5328e0e5ef2ba06484db81fb717
 <form name="calendarFrm" id="calendarFrm" action="" method="GET">
 
 	<div class="calendar">
