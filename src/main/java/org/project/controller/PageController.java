@@ -10,12 +10,14 @@ import javax.servlet.http.HttpSession;
 import org.project.data.DateData;
 import org.project.domain.MemberVO;
 import org.project.service.MemberService;
+import org.project.service.MusicalService;
 import org.project.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.extern.log4j.Log4j;
 
@@ -27,6 +29,8 @@ public class PageController {
 	ScheduleService service;
 	@Autowired
 	private MemberService memberservice;
+	@Autowired
+	private MusicalService musicalservice;
 	
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
@@ -95,9 +99,10 @@ public class PageController {
 		}
 	}
 	@GetMapping("/musical_info")
-	public void main() {
-
+	public void m_info(@RequestParam("m_num") Long m_num, Model model) {
+		model.addAttribute("musical",musicalservice.get(m_num));
 	}
+
 
 	@GetMapping("/news")
 	public void latestNewsPage() {

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.project.mapper.MusicalMapper">
+	<select id="read" resultType = "org.project.domain.MusicalVO">
+		select * from tbl_musical where m_num = #{m_num}
+	</select>
+
+</mapper>
