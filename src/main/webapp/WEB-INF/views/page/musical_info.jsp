@@ -1,9 +1,19 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"%>
-<%@include file="../includes/header.jsp"%>
+<%-- <%@include file="../includes/header.jsp"%> --%>
+<div>
+	"${musical.m_num }"<br>
+	"${musical.m_title }"<br>
+	<img src="${musical.m_img}"/><br>
+	"${musical.m_start_date }"<br>
+	"${musical.m_end_date }"<br>
+	"${musical.m_place }"<br>
+	"${musical.m_b_link }"
+	
 
-<div id="container">
+
+</div>
+<!-- <div id="container">
 	<main id="main">
-		<!-- ======= Hero Slider Section ======= -->
 		<section>
 			<div class="contents" style="">
 				<div class="productWrapper">
@@ -450,10 +460,8 @@
 				<a href="#" class="topButton"><span class="blind">맨 위로</span></a>
 			</div>
 		</section>
-		<!-- End Lifestyle Category Section -->
 	</main>
-	<!-- End #main -->
-</div>
+</div>-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	// JavaScript 부분
@@ -487,4 +495,3 @@
 		}
 	});
 </script>
-<%@include file="../includes/footer.jsp"%>
