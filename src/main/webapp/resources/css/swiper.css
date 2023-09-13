@@ -78,6 +78,7 @@ a {
 	height: 120px;
 	position: absolute;
 	margin-right: -91px;
+	    margin-top: -200px
 }
 
 .btn_mslider_next {
@@ -89,6 +90,7 @@ a {
 	height: 120px;
 	position: absolute;
 	margin-left: -91px;
+	    margin-top: -200px
 }
 
 a .btn_mslider_prev, a .btn_mslider_next {
