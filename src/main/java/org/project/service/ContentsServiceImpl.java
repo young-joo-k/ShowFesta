@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import org.project.domain.ContentsVO;
 import org.project.mapper.ContentsMapper;
-import org.project.mapper.MemberMapper;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -17,17 +16,25 @@ public class ContentsServiceImpl implements ContentsService {
 	
 	
 	private ContentsMapper contentsmapper;
-
+	@Override
 	public ArrayList<String> getMusicalContents() {
-        // ¿©±â¼­ ½ÇÁ¦·Î µ¥ÀÌÅÍº£ÀÌ½º¿¡¼­ ¹ÂÁöÄÃ ÄÜÅÙÃ÷¸¦ °¡Á®¿À°í ArrayList<String> ÇüÅÂ·Î ¹ÝÈ¯
+        // ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ArrayList<String> ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½È¯
         
 		//test
         ArrayList<String> musicalContents = new ArrayList<>();
-//        musicalContents.add("¹ÂÁöÄÃ 1");
-//        musicalContents.add("¹ÂÁöÄÃ 2");
-        // µ¥ÀÌÅÍº£ÀÌ½º¿¡¼­ °¡Á®¿Â ½ÇÁ¦ µ¥ÀÌÅÍ¸¦ ¿©±â¿¡ Ãß°¡ÇÏ¼¼¿ä.
+//        musicalContents.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1");
+//        musicalContents.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2");
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½â¿¡ ï¿½ß°ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½.
 
         return musicalContents;
     }
+
+	@Override
+	public ContentsVO getMusical(Long m_num) {
+		log.info("get---"+m_num);
+		
+		return contentsmapper.MusicalRead(m_num);
+	}
+	
 	
 }
