@@ -11,7 +11,6 @@ import org.project.data.DateData;
 import org.project.domain.MemberVO;
 import org.project.service.ContentsService;
 import org.project.service.MemberService;
-import org.project.service.MusicalService;
 import org.project.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +31,10 @@ public class PageController {
 	private MemberService memberservice;
 	@Autowired
 	private ContentsService contentsservice;
+<<<<<<< HEAD
 	private MusicalService musicalservice;
+=======
+>>>>>>> f90ba52b3a48a7cfb4493c157cb1f1384f6e96ef
 	
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
@@ -102,7 +104,8 @@ public class PageController {
 	}
 	@GetMapping("/musical_info")
 	public void m_info(@RequestParam("m_num") Long m_num, Model model) {
-		model.addAttribute("musical",musicalservice.get(m_num));
+		log.info(m_num);
+		model.addAttribute("musical", contentsservice.getMusical(m_num));
 	}
 
 

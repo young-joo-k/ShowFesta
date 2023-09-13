@@ -2,6 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<<<<<<< HEAD
 <mapper namespace ="org.project.mapper.ContentsMapper">
 
 <!-- <select id ="getMusicalList" resultType ="org.project.domain.ContentsVO"> -->
@@ -13,4 +14,10 @@
 
 <!-- </select> -->
  
+=======
+<mapper namespace="org.project.mapper.ContentsMapper">
+	<select id="MusicalRead" resultType = "org.project.domain.ContentsVO">
+		select * from tbl_musical where m_num = #{m_num}
+	</select>
+>>>>>>> f90ba52b3a48a7cfb4493c157cb1f1384f6e96ef
 </mapper>
