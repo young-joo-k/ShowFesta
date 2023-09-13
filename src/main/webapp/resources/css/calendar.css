@@ -244,3 +244,7 @@ a .cnt{
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 9998;
 }
+
+form#calendarFrm {
+    padding-top: 30px;
+}
