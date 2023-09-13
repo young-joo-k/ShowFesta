@@ -212,6 +212,8 @@ a .cnt{
 /*     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); */
     width: 50rem;
     height: 50rem;
+    background-color: #F6F6F6;
+    
 }
 
 .modal-content {
@@ -219,6 +221,10 @@ a .cnt{
 	width: 50rem;
 	height: 50rem;
 	
+}
+
+.modal-content > .modal-header > button {
+  display: flex;
 }
 
 .close-modal {

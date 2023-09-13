@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.project.data.DateData;
 import org.project.domain.MemberVO;
+import org.project.service.ContentsService;
 import org.project.service.MemberService;
 import org.project.service.MusicalService;
 import org.project.service.ScheduleService;
@@ -26,10 +27,11 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/page/*")
 public class PageController {
 	@Autowired
-	ScheduleService service;
+	private ScheduleService scheduleservice;
 	@Autowired
 	private MemberService memberservice;
 	@Autowired
+	private ContentsService contentsservice;
 	private MusicalService musicalservice;
 	
 	@GetMapping("/calendar")
@@ -78,8 +80,8 @@ public class PageController {
 			}
 		}
 		System.out.println(dateList);
-		int musicalCnt = service.getMusical();
-		int concertCnt = service.getConcerts();
+		int musicalCnt = scheduleservice.getMusical();
+		int concertCnt = scheduleservice.getConcerts();
 		
 		// 배열에 담음
 		model.addAttribute("musicalCnt", musicalCnt);
@@ -109,5 +111,20 @@ public class PageController {
 		log.info("News get");
 	}
 	
+	//여기 홈으로 이동하는거 신승빈이 날려먹음
+	
+	
+	//	뮤지컬 상세페이지 가져옵니다
+	@GetMapping("/mContents")
+	public void musicalContent(Model model) {
+		
+
+		ArrayList<String> musicalList = contentsservice.getMusicalContents();
+		
+		log.info("musical contents get");
+		
+		model.addAttribute("musicalContents",musicalList);
+		
+	}
 	
 }

@@ -8,6 +8,8 @@ pageEncoding="UTF-8"%>
 <!-- <title>캘린더</title> -->
 <link href="/resources/css/calendar.css?after" rel="stylesheet" type="text/css">
 <!-- <body> -->
+
+<body>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <form name="calendarFrm" id="calendarFrm" action="" method="GET">
 
@@ -141,7 +143,7 @@ pageEncoding="UTF-8"%>
 <script type="text/javascript">
 	// 모달 기능을 위한 JavaScript
 	$(document).ready(function() {
-		// cnt 요소를 클릭하면 모달과 오버레이를 표시합니다.
+// 		cnt 요소를 클릭하면 모달과 오버레이를 표시합니다.
 
 		$('.cnt').click(function() {
 			$('#modal').show();
