@@ -28,11 +28,12 @@ import lombok.extern.log4j.Log4j;
 public class PageController {
 	@Autowired
 	private ScheduleService scheduleservice;
+	
 	@Autowired
 	private MemberService memberservice;
+	
 	@Autowired
 	private ContentsService contentsservice;
-
 	
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
@@ -127,15 +128,59 @@ public class PageController {
 	}
 	
 	
-	//	뮤지컬 상세페이지 가져옵니다
+	//	뮤지컬 유형별페이지 가져옵니다
 	@GetMapping("/mContents")
 	public void musicalContent(Model model) {
-		
 		log.info("musical contents get");
-		List<ContentsVO> musicalList = contentsservice.getMusicalContents();
-		System.out.println(musicalList.get(1).getM_num());
-		model.addAttribute("musicalContents",musicalList);
 		
+		List<ContentsVO> musicalList = contentsservice.getMusicalContents();
+		
+		System.out.println(musicalList.get(0).getM_num());
+		
+		model.addAttribute("musicalContents", musicalList);
+		
+	}
+	
+	//	콘서트 유형별페이지 가져옵니다
+	@GetMapping("/concertContents")
+	public void concertContent(Model model) {
+		log.info("concert contents get");
+		
+		List<ContentsVO> concertList = contentsservice.getConcertContents();
+		
+		System.out.println(concertList.get(0).getM_num());
+		
+		model.addAttribute("concertContents", concertList);
+	}
+	
+//	페스티벌 유형별페이지 가져옵니다
+	@GetMapping("/festivalContents")
+	public void festivalContent(Model model) {
+		log.info("festival contents get");
+		
+		List<ContentsVO> festivaltList = contentsservice.getFestivalContents();
+		
+		if (festivaltList == null || festivaltList.isEmpty()) {
+			log.info("배열이 비어있습니다.");
+	        model.addAttribute("emptyContents", festivaltList);
+	        
+	    } else {
+	        model.addAttribute("festivalContents", festivaltList);
+	    }
+		
+//		try {
+//			List<ContentsVO> festivaltList = contentsservice.getFestivalContents();
+//			
+//			System.out.println(festivaltList.get(0).getM_num());
+//			
+//			model.addAttribute("festivalContents", festivaltList);
+//			
+//		} catch(IndexOutOfBoundsException e) {
+//			e.printStackTrace();
+//			log.info("배열이 비어있습니다.");
+//			
+//		}
+		 
 	}
 	
 }

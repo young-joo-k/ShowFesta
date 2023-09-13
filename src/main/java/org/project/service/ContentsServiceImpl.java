@@ -1,5 +1,6 @@
 package org.project.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.project.domain.ContentsVO;
@@ -23,7 +24,6 @@ public class ContentsServiceImpl implements ContentsService {
         
         
         return contentsmapper.getMusicalContents();
-
     }
 
 	@Override
@@ -31,6 +31,27 @@ public class ContentsServiceImpl implements ContentsService {
 		log.info("get---"+m_num);
 		
 		return contentsmapper.MusicalRead(m_num);
+	}
+
+	@Override
+	public List<ContentsVO> getConcertContents() {
+		
+		return contentsmapper.getConcertContents();
+	}
+
+	@Override
+	public List<ContentsVO> getFestivalContents() {
+	
+//		 List<ContentsVO> festivalContents = contentsmapper.getFestivalContents();
+//
+//		    // 데이터가 없는 경우 메시지 추가
+//		    if (festivalContents == null || festivalContents.isEmpty()) {
+//		        festivalContents = new ArrayList<>();
+//		    }
+//
+//		    return festivalContents;
+		
+		return contentsmapper.getFestivalContents();
 	}
 	
 	

@@ -6,15 +6,15 @@ pageEncoding="UTF-8"%>
 
 <link href="/resources/css/contents.css?after" rel="stylesheet" type="text/css">
 <body class = "genreContents">
-<!-- 유형별 페이지 입니다. 뮤지컬 -->
+<!-- 유형별 페이지 입니다. 콘서트 -->
 
 <!-- 어떤 유형인지 나타냄 -->
 <div class = categoryTop>
-	<p class = list-title>뮤지컬</p>
+	<p class = list-title>콘서트</p>
 </div>
 <!-- 여기서부터 컨텐츠 리스트 입니다. 한 줄에 네 개의 컨텐츠가 들어갑니다. -->
 <div class = all-contents-list>
-	<c:forEach var = "content" items = "${musicalContents}" varStatus="loop">
+	<c:forEach var = "content" items = "${concertContents}" varStatus="loop">
 		<div class = contents-list>
 		    <div class="contents">
 		    	<div class = list-wrap>

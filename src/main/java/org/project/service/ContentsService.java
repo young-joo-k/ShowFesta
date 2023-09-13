@@ -9,4 +9,8 @@ public interface ContentsService {
 	public List<ContentsVO> getMusicalContents();
 	
 	public ContentsVO getMusical(Long m_num);
+
+	public List<ContentsVO> getConcertContents();
+	
+	public List<ContentsVO> getFestivalContents();
 }

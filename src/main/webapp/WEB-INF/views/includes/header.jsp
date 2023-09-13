@@ -32,9 +32,9 @@
 					<li class="dropdown"><a href="category.html"><span>카테고리</span>
 							<i class="bi bi-chevron-down dropdown-indicator"></i></a>
 						<ul>
-							<li><a href="#">뮤지컬</a></li>
-							<li><a href="#">콘서트</a></li>
-							<li><a href="#">페스티벌</a></li>
+							<li><a href="/page/mContents">뮤지컬</a></li>
+							<li><a href="/page/concertContents">콘서트</a></li>
+							<li><a href="/page/festivalContents">페스티벌</a></li>
 							<li><a href="#">지역축제</a></li>
 						</ul></li>
 
