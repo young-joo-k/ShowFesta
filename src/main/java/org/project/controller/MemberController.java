@@ -25,25 +25,25 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 	
-	@GetMapping("join/login")
-	public String login(HttpSession session) {
+	@GetMapping("/login")
+	public void login() {
 		log.info("login Get");
-		String id = (String) session.getAttribute("id");
-		if (id == null || id.equals("승인이 되지 않은 사용자 입니다.")|| id.equals("없는 아이디 입니다.") || id.equals("패스워드가 다릅니다.") || id.equals("유저 타입이 다릅니다.")) {// 로그인 x
-		    session.invalidate();
-			return "/join/login";
-		}
-		return "redirect:home";// 로그인 o
+//		String id = (String) session.getAttribute("id");
+//		if (id == null || id.equals("승인이 되지 않은 사용자 입니다.")|| id.equals("없는 아이디 입니다.") || id.equals("패스워드가 다릅니다.") || id.equals("유저 타입이 다릅니다.")) {// 로그인 x
+//		    session.invalidate();
+//			return "/join/login";
+//		}
+//		return "redirect:/page/main";// 로그인 o
 	}
 
-	@PostMapping("join/login")
+	@PostMapping("/login")
 	public String login(MemberVO membervo, HttpSession session, RedirectAttributes rttr) {
 		log.info("login post, Id -> " + membervo.getId());
 		String checkId = service.login(membervo.getId(), membervo.getPw());
 		if (checkId != null && checkId.equals(membervo.getId())) {
 		    session.setAttribute("id", checkId);
 		    log.info(checkId + "->main");
-		    return "redirect:home";
+		    return "redirect:/page/main";
 		}
 		rttr.addFlashAttribute("result", checkId);
 		log.info(checkId+"->login");
@@ -55,18 +55,10 @@ public class MemberController {
 		log.info("logout");
 	    session.invalidate();
 	    log.info("logout");
-	    return "/home";
+	    return "/page/main";
 	}
 
-	@GetMapping("/main")
-	public void main(HttpSession session, Model model) {
-		String id = (String) session.getAttribute("id");
-		log.info("main Get");
-		if (id != null) {
-			MemberVO membervo = service.getUserInfo(id);
-			model.addAttribute("user", membervo);
-		}
-	}
+
 	@GetMapping("id_find")
 	public void findId() {
 		log.info("id_find Get");
@@ -108,7 +100,7 @@ public class MemberController {
 			@RequestParam("checked") int checked,
 			@RequestParam("phone") String phone, Model model) {
 		// MemberService를 호출하여 아이디 찾기 로직 수행
-        String foundPw = service.findPw(id, name, email, phone, checked);
+        String foundPw = service.findPw(id, name, email, phone);
 
         if (foundPw != null) {
             model.addAttribute("message", "비밀번호는 " + foundPw + " 입니다.");
@@ -125,7 +117,7 @@ public class MemberController {
 		log.info("register Get");
 	}
 	
-	@PostMapping("join/register")
+	@PostMapping("/register")
 	public String register(MemberVO membervo, RedirectAttributes rttr) {
 		log.info("register ->" + membervo);
 		boolean IDChk;

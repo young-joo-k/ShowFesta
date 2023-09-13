@@ -8,6 +8,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.project.data.DateData;
+import org.project.domain.MemberVO;
+import org.project.service.MemberService;
 import org.project.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +25,9 @@ import lombok.extern.log4j.Log4j;
 public class PageController {
 	@Autowired
 	ScheduleService service;
-
+	@Autowired
+	private MemberService memberservice;
+	
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
 		log.info("calendar Get");
@@ -81,6 +85,15 @@ public class PageController {
 		return "/page/calendar";
 	}
 
+	@GetMapping("/main")
+	public void main(HttpSession session, Model model) {
+		String id = (String) session.getAttribute("id");
+		log.info("main Get");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+		}
+	}
 	@GetMapping("/musical_info")
 	public void main() {
 

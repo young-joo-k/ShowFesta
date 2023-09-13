@@ -65,33 +65,12 @@
 													</p>
 												</td>
 											</tr>
-<%-- 										<tr>
-											<td><c:out value="${notice.b_num}"/></td>
-											<td><a href='/page/get?bno=<c:out value="${notice_b_num }"/>'>
-											<c:out value="${notice.b_title}"/></a></td>
-											<td><c:out value="${board.writer}"/></td>
-											<td><fmt:formatDate pattern = "yyy-MM-dd" value = "${notice.b_num }"/></td>
-											<td><fmt:formatDate pattern = "yyy-MM-dd" value = "${notice.updateDate}"/>
-											</td>
-											</tr> --%>
+
 										</tbody>
 									</c:forEach>
 
 								</table>
 							</div>
-							<!-- 												모달
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-						aria-labelledby="myModalLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button"class="close" data-dismiss="modal"
-											aria-hidden="true">&times;</button>
-										<h4 class="modal-title" id="myModalLabel">Modal title</h4>								
-									</div>
-								</div>
-							</div>
-						</div> -->
 							<button id='regBtn' type="button" class="btn btn-xs pull right">공지사항
 								등록</button>
 							<div class="paging-type02">

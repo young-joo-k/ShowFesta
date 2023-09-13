@@ -1,6 +1,10 @@
 package org.project.controller;
 
+import javax.servlet.http.HttpSession;
+
+import org.project.domain.MemberVO;
 import org.project.domain.NoticeVO;
+import org.project.service.MemberService;
 import org.project.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,10 +23,19 @@ import lombok.extern.log4j.Log4j;
 public class NoticeController {
 	@Autowired
 	private NoticeService service;
+	@Autowired
+	private MemberService memberservice;
 
 	@GetMapping("/notice_list")
-	public void list(Model model) {
+	public void list(Model model, HttpSession session) {
 		log.info("list Get");
+		
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+		}
+		
 		model.addAttribute("list", service.getList());
 	}
 	
@@ -62,5 +75,9 @@ public class NoticeController {
 	public void register() {
 		log.info("register Get!");
 		
+	}
+	@GetMapping("/user_qna")
+	public void qna() {
+		log.info("qna Get!");
 	}
 }
