@@ -16,4 +16,9 @@
 	<select id="MusicalRead" resultType = "org.project.domain.ContentsVO">
 		select * from tbl_musical where m_num = #{m_num}
 	</select>
+	
+<!-- 	유형별페이지에서 사용 -->
+	<select id="getMusicalContents" resultType = "org.project.domain.ContentsVO">
+		select * from tbl_musical 
+	</select>
 </mapper>
