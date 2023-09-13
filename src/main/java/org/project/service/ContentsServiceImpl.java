@@ -19,7 +19,7 @@ public class ContentsServiceImpl implements ContentsService {
 	@Override
 	public ArrayList<String> getMusicalContents() {
         // ���⼭ ������ �����ͺ��̽����� ������ �������� �������� ArrayList<String> ���·� ��ȯ
-        
+        log.info("musical service");
 		//test
         ArrayList<String> musicalContents = new ArrayList<>();
 //        musicalContents.add("������ 1");

@@ -133,7 +133,7 @@ public class PageController {
 	public void musicalContent(Model model) {
 		
 
-		ArrayList<String> musicalList = contentsservice.getMusicalContents();
+		List<String> musicalList = contentsservice.getMusicalContents();
 		
 		log.info("musical contents get");
 		

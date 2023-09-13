@@ -1,18 +1,19 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"%>
-<%-- <%@include file="../includes/header.jsp"%> --%>
-<div>
+<link href="/resources/css/common.css?after" rel="stylesheet"
+	type="text/css">
+<link href="/resources/css/goods.css?after" rel="stylesheet"
+	type="text/css">
+<%@include file="../includes/header.jsp"%>
 
-	${musical.m_num }<br>
-	${musical.m_title }<br>
-	<img src="${musical.m_img}"/><br>
-	${musical.m_start_date }<br>
-	${musical.m_end_date }<br>
-	${musical.m_place }<br>
-	${musical.m_b_link }
+<%-- 	${musical.m_num }<br> --%>
+<%-- 	${musical.m_title }<br> --%>
+<%-- 	<img src="${musical.m_img}"/><br> --%>
+<%-- 	${musical.m_start_date }<br> --%>
+<%-- 	${musical.m_end_date }<br> --%>
+<%-- 	${musical.m_place }<br> --%>
+<%-- 	${musical.m_b_link } --%>
 
-
-</div>
-<!-- <div id="container">
+<div id="container">
 	<main id="main">
 		<section>
 			<div class="contents" style="">
@@ -461,7 +462,7 @@
 			</div>
 		</section>
 	</main>
-</div>-->
+</div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	// JavaScript 부분
