@@ -1,7 +1,10 @@
 package org.project.service;
 
+import java.util.ArrayList;
+
 import org.project.domain.ContentsVO;
 
 public interface ContentsService {
-	public ContentsVO getContentTitle(String title);
+	
+	public ArrayList<String> getMusicalContents();
 }
