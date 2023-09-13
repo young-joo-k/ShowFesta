@@ -4,60 +4,97 @@
 <main id="main">
 	<html>
 <head>
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link href="/resources/css/swiper.css?after" rel="stylesheet">
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 <title>Home</title>
 </head>
 <body>
 	<div id="cont_wrap" class="clear_g">
 		<div class="wrap_main_slider">
-			<div id="slider">
-				<a href="#" class="prev"> <span
-					class="btn_comm btn_mslider_prev">이전</span>
-				</a>
-				<div class="slider_inner">
-					<ul class="list_slider" id="sliderInner"
-						style="width: 2959px; left: -1076px;">
-						<li class>
-							<a  href="/page/musical_info" ><img src= http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg class></a></li>
-						<li class><a  href="/page/musical_info" ><img src= http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg class></a></li>
-						<li class><a  href="/page/musical_info" ><img src= http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg class></a></a></li>
-						<li class="on"><a  href="/page/musical_info" ><img src= http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg class></a></li>
-						<li class="on"><a  href="/page/musical_info" ><img src= http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg class></a></li>
-						<li class="on"><a  href="/page/musical_info" ><img src= http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg class></a></li>
-						<li class><a  href="/page/musical_info" ><img src= http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg class></a></li>
-						<li class><a  href="/page/musical_info" ><img src= http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg class></a></li>
-						<li class><a  href="/page/musical_info" ><img src= http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg class></a></li>
-						<li class><a  href="/page/musical_info" ><img src= http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg class></a></li>
-						<li class><a  href="/page/musical_info" ><img src= http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg class></a></li>
-					</ul>
+			<div class="swiper">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<a href="/page/musical_info"><img
+							src=http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg
+							class=img></a>
+					</div>
+					<div class="swiper-slide">Slide 2</div>
+					<div class="swiper-slide">
+						<a href="/page/musical_info"><img
+							src=http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg
+							class=img></a>
+					</div>
+					<div class="swiper-slide">
+						<a href="/page/musical_info"><img
+							src=http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg
+							class=img></a>
+					</div>
+					<div class="swiper-slide-on">
+						<a href="/page/musical_info"><img
+							src=http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg
+							class=img></a>
+					</div>
+					<div class="swiper-slide-on">
+						<a href="/page/musical_info"><img
+							src=http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg
+							class=img></a>
+					</div>
+					<div class="swiper-slide-on">
+						<a href="/page/musical_info"><img
+							src=http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg
+							class=img></a>
+					</div>
+					<div class="swiper-slide">
+						<a href="/page/musical_info"><img
+							src=http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg
+							class=img></a>
+					</div>
+					<div class="swiper-slide">
+						<a href="/page/musical_info"><img
+							src=http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg
+							class=img></a>
+					</div>
+					<div class="swiper-slide">
+						<a href="/page/musical_info"><img
+							src=http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg
+							class=img></a>
+					</div>
+					<div class="swiper-slide">
+						<a href="/page/musical_info"><img
+							src=http://tkfile.yes24.com/upload2/PerfBlog/202308/20230801/20230801-46725.jpg
+							class=img></a>
+					</div>
 				</div>
-				<a href="#" class="next"> <span
-					class="btn_comm btn_mslider_next">다음</span>
-				</a>
+
+				<div class="swiper-pagination"></div>
+
+				<div class="swiper-button-prev">
+					<div class="btn_mslider_prev"></div>
+				</div>
+				<div class="swiper-button-next">
+					<div class="btn_mslider_next"></div>
+				</div>
 			</div>
 		</div>
 		<script>
-		<script>
-	    $(document).ready(function () {
-	        var currentSlide = 0;
-	        var slides = $(".list_slider li");
-
-	        // 이전 슬라이드로 이동
-	        $(".prev").click(function () {
-	            slides.eq(currentSlide).fadeOut();
-	            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-	            slides.eq(currentSlide).fadeIn();
-	        });
-
-	        // 다음 슬라이드로 이동
-	        $(".next").click(function () {
-	            slides.eq(currentSlide).fadeOut();
-	            currentSlide = (currentSlide + 1) % slides.length;
-	            slides.eq(currentSlide).fadeIn();
-	        });
-	    });
-	</script>
+			new Swiper('.swiper', {
+				autoplay : {
+					delay : 5000
+				},
+				loop : true,
+				slidesPerView : 3,
+				spaceBetween : 10,
+				centeredSlides : true,
+				pagination : {
+					el : '.swiper-pagination',
+					clickable : true
+				},
+				navigation : {
+					prevEl : '.swiper-button-prev',
+					nextEl : '.swiper-button-next'
+				}
+			})
+		</script>
 	</div>
 </body>
 	</html>
