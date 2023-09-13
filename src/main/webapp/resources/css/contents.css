@@ -1,20 +1,32 @@
 @charset "UTF-8";
 /* 이 css는 모든 유형별 페이지에서 공통으로 사용됩니다. */
 
-.body{
+.musicalContents{
 	background-color : #000127;
+}
+
+.categoryTop{
+	padding-top: 150px;
+	text-align: center;
+  
+}
+
+.list-title{
+	size: larger;
+	color: #FFFFFF;
+  font-size: xx-large;
 }
 
 .all-contents-list{
 	display:flex;
-	padding-top: 30px;
+	padding-top: 10rem;
 }
 
 .contents-list {
   margin-left: auto;
   margin-right: auto;
   padding: 0;
-  width: 740px;
+  width: auto;
   text-align: center;
 }
 
@@ -28,9 +40,13 @@
 /*   height: 100%; */
   width: 300px;
   height: 400px;
-  margin-left: 10px;
-  margin-right: 10px;;
-  margin-bottom: 20px;
-  
+  margin: 10px;
+
 }
+
+.list-tit1{
+	color: #FFFFFF;
+}
+
+
 

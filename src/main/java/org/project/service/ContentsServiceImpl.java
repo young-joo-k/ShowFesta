@@ -1,6 +1,6 @@
 package org.project.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.project.domain.ContentsVO;
 import org.project.mapper.ContentsMapper;
@@ -17,16 +17,13 @@ public class ContentsServiceImpl implements ContentsService {
 	
 	private ContentsMapper contentsmapper;
 	@Override
-	public ArrayList<String> getMusicalContents() {
-        // ���⼭ ������ �����ͺ��̽����� ������ �������� �������� ArrayList<String> ���·� ��ȯ
-        log.info("musical service");
-		//test
-        ArrayList<String> musicalContents = new ArrayList<>();
-//        musicalContents.add("������ 1");
-//        musicalContents.add("������ 2");
-        // �����ͺ��̽����� ������ ���� �����͸� ���⿡ �߰��ϼ���.
+	public List<ContentsVO> getMusicalContents() {
+        log.info("getMusicalContents");
+//        List<ContentsVO> musicalContents = new List<>();
+        
+        
+        return contentsmapper.getMusicalContents();
 
-        return musicalContents;
     }
 
 	@Override

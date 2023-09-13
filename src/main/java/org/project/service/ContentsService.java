@@ -5,8 +5,8 @@ import org.project.domain.ContentsVO;
 
 
 public interface ContentsService {
-	
-	public List<String> getMusicalContents();
+
+	public List<ContentsVO> getMusicalContents();
 	
 	public ContentsVO getMusical(Long m_num);
 }

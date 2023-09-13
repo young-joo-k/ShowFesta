@@ -32,6 +32,7 @@ public class PageController {
 	private MemberService memberservice;
 	@Autowired
 	private ContentsService contentsservice;
+
 	
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
@@ -125,18 +126,14 @@ public class PageController {
 		log.info("News get");
 	}
 	
-	//여기 홈으로 이동하는거 신승빈이 날려먹음
-	
 	
 	//	뮤지컬 상세페이지 가져옵니다
 	@GetMapping("/mContents")
 	public void musicalContent(Model model) {
-		
 
-		List<String> musicalList = contentsservice.getMusicalContents();
-		
 		log.info("musical contents get");
-		
+		List<ContentsVO> musicalList = contentsservice.getMusicalContents();
+		System.out.println(musicalList.get(1).getM_num());
 		model.addAttribute("musicalContents",musicalList);
 		
 	}
