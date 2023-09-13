@@ -132,7 +132,7 @@ public class PageController {
 		
 		log.info("musical contents get");
 		List<ContentsVO> musicalList = contentsservice.getMusicalContents();
-		System.out.println(musicalList);
+		System.out.println(musicalList.get(1).getM_num());
 		model.addAttribute("musicalContents",musicalList);
 		
 	}

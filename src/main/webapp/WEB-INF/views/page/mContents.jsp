@@ -21,11 +21,11 @@ pageEncoding="UTF-8"%>
 			      <a style="cursor:pointer;" onclick="#">
 			        <div class = list-inner-wrap>
 						<!--DB에 저장된 이미지 링크 가져올겁니다 -->
-				        <img class ="comImg" src="${content.getM_img()}">
+<%-- 				        <img class ="comImg" src="${content}"> --%>
 				        <div class = list-txt>
-				        	<p class = "list-tit1">${content.getM_title()}</p>
-				        	<p class = "list-tit2">공연기간 넣을거야</p>
-				        	<p class = "list-tit3">공연장소 넣을거야</p>
+				        	<p class = "list-tit1">${content}</p>
+				        	<p class = "list-tit2">${content}</p>
+				        	<p class = "list-tit3">${content}</p>
 				        </div>
 					</div>
 			      </a>
