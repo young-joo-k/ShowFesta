@@ -68,7 +68,7 @@
 									<input type="submit" class="register-submit" onclick="onSubmit(); return false;" value="등록">
 								</li>
 								<li>
-									<a href="/notice_list" onclick="onCancel();" class="register-cancel">취소</a>
+									<a href="/page/notice_list" onclick="onCancel();" class="register-cancel">취소</a>
 								</li>
 							</ul>
 						</div>
