@@ -27,10 +27,6 @@ A:visited { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:n
 A:active { font-size:9pt; font-family:"돋움";color:red; text-decoration:none; }
 A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
 
-/* #clalendarFrm{
-  margin-top: 50rem;
-} */
-
 .day{
   width:100px; 
   height:30px;
@@ -216,6 +212,8 @@ a .cnt{
 /*     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); */
     width: 50rem;
     height: 50rem;
+    background-color: #F6F6F6;
+    
 }
 
 .modal-content {
@@ -223,6 +221,10 @@ a .cnt{
 	width: 50rem;
 	height: 50rem;
 	
+}
+
+.modal-content > .modal-header > button {
+  display: flex;
 }
 
 .close-modal {
