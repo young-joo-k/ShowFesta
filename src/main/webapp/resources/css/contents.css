@@ -1,6 +1,10 @@
 @charset "UTF-8";
 /* 이 css는 모든 유형별 페이지에서 공통으로 사용됩니다. */
 
+.body{
+	background-color : #000127;
+}
+
 .all-contents-list{
 	display:flex;
 	padding-top: 30px;
@@ -14,11 +18,18 @@
   text-align: center;
 }
 
+/* .list-inner-wrap{ */
+	
+/* } */
+
 .comImg{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  margin-right: 20px;
+/*   position: absolute; */
+/*   width: 100%; */
+/*   height: 100%; */
+  width: 300px;
+  height: 400px;
+  margin-left: 10px;
+  margin-right: 10px;;
   margin-bottom: 20px;
   
 }

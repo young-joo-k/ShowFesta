@@ -31,10 +31,6 @@ public class PageController {
 	private MemberService memberservice;
 	@Autowired
 	private ContentsService contentsservice;
-<<<<<<< HEAD
-	private MusicalService musicalservice;
-=======
->>>>>>> f90ba52b3a48a7cfb4493c157cb1f1384f6e96ef
 	
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
