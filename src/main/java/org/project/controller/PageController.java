@@ -131,6 +131,10 @@ public class PageController {
 	//	뮤지컬 유형별페이지 가져옵니다
 	@GetMapping("/mContents")
 	public void musicalContent(Model model) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3abe786dba845563191bafce88b9cea10a6edb61
 		log.info("musical contents get");
 		
 		List<ContentsVO> musicalList = contentsservice.getMusicalContents();
