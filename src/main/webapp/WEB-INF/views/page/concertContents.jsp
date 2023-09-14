@@ -26,13 +26,16 @@ pageEncoding="UTF-8"%>
 				    <div class="contents">
 				    	<div class = list-wrap>
 						<!-- 상세페이지로 들어가는 링크 넣기 -->
-					      <a style="cursor:pointer;" onclick="#">
+					      <a style="cursor:pointer;" href='/page/musical_info?m_num= <c:out value = "${content.m_num}"/>'>
 					        <div class = list-inner-wrap>
 								<!--DB에 저장된 이미지 링크 가져올겁니다 -->
 						        <img class ="comImg" src= <c:out value = "${content.m_img}"/>>
 						        <div class = list-txt>
 									<div class = "list-tit1">${content.m_title}</div>
-									<div class = "list-tit2">${content.m_start_date} </div>
+									<div class = "list-tit2">
+   										 <p class="dateDate">${content.m_start_date}&nbsp;~&nbsp;</p>
+   										 <p class="dateDate"> ${content.m_end_date}</p>
+									</div>
 									<div class = "list-tit3">${content.m_place}</div>
 						        </div>
 							</div>

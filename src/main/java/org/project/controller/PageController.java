@@ -136,7 +136,10 @@ public class PageController {
 		List<ContentsVO> musicalList = contentsservice.getMusicalContents();
 		
 		if(musicalList == null || musicalList.isEmpty()) {
+			
 			System.out.println(musicalList.get(0).getM_num());
+			log.info("배열이 비어있습니다.");
+			
 			model.addAttribute("musicalContents", musicalList);
 		}
 		model.addAttribute("musicalContents", musicalList);
@@ -149,9 +152,11 @@ public class PageController {
 		
 		List<ContentsVO> concertList = contentsservice.getConcertContents();
 		
+		
 		if(concertList == null || concertList.isEmpty()) {
 			System.out.println(concertList.get(0).getM_num());
 			model.addAttribute("concertContents", concertList);
+			log.info("배열이 비어있습니다.");
 		}
 		model.addAttribute("concertContents", concertList);
 	}
