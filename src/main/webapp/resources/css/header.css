@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+.category>li>a{
+	color:white;
+}
+.contents>h1>a{
+	color:white;
+}
+.contents>ul>li>h2>a{
+	color:white;
+}
 .header {
     position: relative;
     z-index: 101;
@@ -139,7 +148,6 @@
 	filter: invert(100%) sepia(52%) saturate(20%) hue-rotate(315deg)
     brightness(103%) contrast(108%);
 }
-
 
 
 

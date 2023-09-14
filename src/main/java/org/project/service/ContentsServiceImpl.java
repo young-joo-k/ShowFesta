@@ -44,7 +44,7 @@ public class ContentsServiceImpl implements ContentsService {
 	
 //		 List<ContentsVO> festivalContents = contentsmapper.getFestivalContents();
 //
-//		    // �����Ͱ� ���� ��� �޽��� �߰�
+//		    // 占쏙옙占쏙옙占싶곤옙 占쏙옙占쏙옙 占쏙옙占� 占쌨쏙옙占쏙옙 占쌩곤옙
 //		    if (festivalContents == null || festivalContents.isEmpty()) {
 //		        festivalContents = new ArrayList<>();
 //		    }
@@ -59,6 +59,12 @@ public class ContentsServiceImpl implements ContentsService {
 		
 		log.info("today_m_contents");
 		return contentsmapper.getToday_contents();
+	}
+
+	@Override
+	public ContentsVO getConcert(Long m_num) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 //	@Override

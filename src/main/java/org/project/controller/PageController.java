@@ -123,7 +123,41 @@ public class PageController {
 		if (id != null) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
+
 		}
+		List<ContentsVO> musicalList = contentsservice.getMusicalContents();
+
+		if (musicalList == null || musicalList.isEmpty()) {
+
+			System.out.println(musicalList.get(0).getM_num());
+			log.info("배열이 비어있습니다.");
+
+			model.addAttribute("musicalContents", musicalList);
+		}
+		model.addAttribute("musicalContents", musicalList);
+				
+		List<ContentsVO> concertList = contentsservice.getConcertContents();
+		
+		
+		if(concertList == null || concertList.isEmpty()) {
+			System.out.println(concertList.get(0).getM_num());
+			model.addAttribute("concertContents", concertList);
+			log.info("배열이 비어있습니다.");
+		}
+		model.addAttribute("concertContents", concertList);
+		
+		try {
+			List<ContentsVO> festivaltList = contentsservice.getFestivalContents();
+			
+			System.out.println(festivaltList.get(0).getM_num());
+			
+			model.addAttribute("festivalContents", festivaltList);
+			
+		} catch(IndexOutOfBoundsException e) {
+			e.printStackTrace();
+			log.info("배열이 비어있습니다.");
+		}
+		 
 	}
 	@GetMapping("/musical_info")
 	public void m_info(@RequestParam("m_num") Long m_num,HttpSession session, Model model) {
