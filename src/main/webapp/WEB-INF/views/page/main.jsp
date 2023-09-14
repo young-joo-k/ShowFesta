@@ -85,7 +85,7 @@
 				},
 				loop : true,
 				slidesPerView : 3,
-				spaceBetween : 10,
+				spaceBetween : 5,
 				centeredSlides : true,
 				pagination : {
 					el : '.swiper-pagination',

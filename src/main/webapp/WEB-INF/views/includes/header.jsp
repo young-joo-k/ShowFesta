@@ -17,10 +17,12 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
 	rel="stylesheet">
-
-	<!-- ======= Header ======= -->
+</head>
+<!-- ======= Header ======= -->
+<body>
 	<header id="header" class="header d-flex align-items-center fixed-top">
-		<div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+		<div
+			class="container-fluid container-xl d-flex align-items-center justify-content-between">
 			<a href="/page/main" class="logo d-flex align-items-center"> <!-- Uncomment the line below if you also wish to use an image logo -->
 				<h1>ShowFesta</h1>
 			</a>
@@ -47,17 +49,16 @@
 				<!--       el이랑 jstl로 조건문 만들어 보기 -->
 				<a href="#" class="mx-2" id="myPage"
 					style="display: ${empty user ? 'inline' : 'none'}"><span
-					class="bi-person-fill"></span></a> 
-				<a href="../join/login" class="mx-2" id="logIn" 
-					style="display: ${empty user ? 'inline' : 'none'}">로그인</a>
+					class="bi-person-fill"></span></a> <a href="../join/login" class="mx-2"
+					id="logIn" style="display: ${empty user ? 'inline' : 'none'}">로그인</a>
 				<a href="../join/register" class="mx-2" id="register"
-					style="display: ${empty user ? 'inline' : 'none'}">회원가입</a> 
-				</a> <a href="../join/logout" class="mx-2" id="logoutLink"
+					style="display: ${empty user ? 'inline' : 'none'}">회원가입</a> </a> <a
+					href="../join/logout" class="mx-2" id="logoutLink"
 					style="display: ${not empty user ? 'inline' : 'none'}">로그아웃</a>
 
 				<!-- JavaScript -->
 				<a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
-				<i class="bi bi-list mobile-nav-toggle"></i>	
+				<i class="bi bi-list mobile-nav-toggle"></i>
 
 				<!-- ======= Search Form ======= -->
 				<div class="search-form-wrap js-search-form-wrap">
@@ -77,8 +78,8 @@
 
 	</header>
 	<!-- End Header -->
-</head>
-<body>
+
+
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
