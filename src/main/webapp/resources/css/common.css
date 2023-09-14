@@ -200,4 +200,7 @@ body {
   width: 100%;
 }
 
+#container .content {
+  margin: 0 auto;
+}
 

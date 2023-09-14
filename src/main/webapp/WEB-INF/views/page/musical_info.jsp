@@ -23,6 +23,7 @@
 											data-toast="like" aria-checked="false"
 											aria-label="즐겨찾기 등록" role="checkbox" href="#"
 											data-popup-hover="like"></a>
+										<h2 class="jowa">좋아요</h2>
 
 									</div>
 									<div>
@@ -112,7 +113,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="toast is-off "><span class="toastMessage">티켓캐스트 등록취소되었습니다.</span></div>
+				<div class="toast is-off"><span class="toastMessage">티켓캐스트 등록취소되었습니다.</span></div>
 			</div>
 			<div class="topButtonWrapper ">
 				<a href="#" class="topButton"><span class="blind">맨 위로</span></a>
@@ -150,7 +151,7 @@
 		    toggleCasting(castingHeartBtn);
 		});
 		// castingHeartBtn를 클릭했을 때 동작하는 함수
-		$(".likeBtn").on("click", function(e) {
+// 		$(".likeBtn").on("click", function(e) {
 		    e.preventDefault();
 		    var likeBtn = $(this);
 		    togglelikeBtn(likeBtn);
@@ -165,33 +166,58 @@
 		        expandableWrap.classList.add("is-toggled");
 		    }
 		}
-// 배우 즐겨찾기
+
 		function toggleCasting(castingHeartBtn) {
+		    var toast = $(".toast");
 		    var toastMessage = $(".toastMessage");
+		    var toastIcon = toast.hasClass("is-off") ? "is-off" : "is-on"; // 현재 아이콘 상태 확인
 
 		    if (castingHeartBtn.hasClass("is-toggled")) {
 		        castingHeartBtn.removeClass("is-toggled");
-		        $(".toast").removeClass("is-off").addClass("is-on");
 		        toastMessage.text("즐겨찾기 해제되었습니다.");
+		        toastIcon = "is-off"; // 아이콘 상태를 변경
 		    } else {
 		        castingHeartBtn.addClass("is-toggled");
-		        $(".toast").removeClass("is-on").addClass("is-off");
 		        toastMessage.text("즐겨찾기 등록되었습니다.");
+		        toastIcon = "is-on"; // 아이콘 상태를 변경
 		    }
+
+		    // 토스트 메시지의 클래스를 토글
+		    toast.toggleClass("is-visible");
+		    // 아이콘 상태에 따라 배경 위치 변경
+		    toast.removeClass("is-off is-on").addClass(toastIcon);
+
+		    // 일정 시간이 지난 후 토스트 메시지 숨기기
+		    setTimeout(function() {
+		        toast.removeClass("is-visible");
+		    }, 500); // 1초 후에 숨김
 		}
-// 컨텐츠 즐겨찾기
+
 		function togglelikeBtn(likeBtn) {
+		    var toast = $(".toast");
 		    var toastMessage = $(".toastMessage");
+		    var toastIcon = toast.hasClass("is-off") ? "is-off" : "is-on"; // 현재 아이콘 상태 확인
 
 		    if (likeBtn.hasClass("is-toggled")) {
 		        likeBtn.removeClass("is-toggled");
-		        $(".toast").removeClass("is-off").addClass("is-on");
 		        toastMessage.text("즐겨찾기 해제되었습니다.");
+		        toastIcon = "is-off"; // 아이콘 상태를 변경
 		    } else {
 		        likeBtn.addClass("is-toggled");
-		        $(".toast").removeClass("is-on").addClass("is-off");
 		        toastMessage.text("즐겨찾기 등록되었습니다.");
+		        toastIcon = "is-on"; // 아이콘 상태를 변경
 		    }
+
+		    // 토스트 메시지의 클래스를 토글
+		    toast.toggleClass("is-visible");
+		    // 아이콘 상태에 따라 배경 위치 변경
+		    toast.removeClass("is-off is-on").addClass(toastIcon);
+
+		    // 일정 시간이 지난 후 토스트 메시지 숨기기
+		    setTimeout(function() {
+		        toast.removeClass("is-visible");
+		    }, 500); // 1초 후에 숨김
 		}
+
 	});
 </script>
