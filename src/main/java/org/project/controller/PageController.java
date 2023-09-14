@@ -8,10 +8,12 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.project.data.DateData;
+import org.project.domain.ContentsVO;
 import org.project.domain.MemberVO;
+import org.project.domain.PlayVO;
+import org.project.service.PlayService;
 import org.project.service.ContentsService;
 import org.project.service.MemberService;
-import org.project.service.MusicalService;
 import org.project.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,13 +30,22 @@ import lombok.extern.log4j.Log4j;
 public class PageController {
 	@Autowired
 	private ScheduleService scheduleservice;
+	
 	@Autowired
 	private MemberService memberservice;
+	
 	@Autowired
+<<<<<<< HEAD
 
 	private ContentsService contentsservice;
 
 	private MusicalService musicalservice;
+=======
+	private ContentsService contentsservice;
+	
+	@Autowired
+	private PlayService playservice;
+>>>>>>> 6b1671a87b5579ed541dec7a49969f32efc5dd69
 	
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
@@ -81,15 +92,29 @@ public class PageController {
 				dateList.add(calendarData);
 			}
 		}
-		System.out.println(dateList);
+//		System.out.println(dateList);
 		int musicalCnt = scheduleservice.getMusical();
 		int concertCnt = scheduleservice.getConcerts();
+		int festivalCnt = scheduleservice.getFestival();
+		
+		//모달창에 띄우기 위해서 필요한 코드 입니다.
+		List<ContentsVO> today_m_contents = contentsservice.getToday_contents();
+//		List<ContentsVO> today_c_contents = contentsservice.getToday_c_contents();
+//		List<ContentsVO> today_f_contents = contentsservice.getToday_f_contents();
+//		
 		
 		// 배열에 담음
 		model.addAttribute("musicalCnt", musicalCnt);
 		model.addAttribute("concertCnt", concertCnt);
+		model.addAttribute("festivalCnt", festivalCnt);
 		model.addAttribute("dateList", dateList); // 날짜 데이터 배열
 		model.addAttribute("today_info", today_info);
+		
+		//여기 모델도 모달창에 띄우려고 쓰는거입니다
+		model.addAttribute("today_contents", today_m_contents);
+		System.out.println(today_m_contents.size());
+//		model.addAttribute("today_c_contents", today_c_contents);
+//		model.addAttribute("today_f_contents", today_f_contents);
 		return "/page/calendar";
 	}
 
@@ -104,29 +129,122 @@ public class PageController {
 	}
 	@GetMapping("/musical_info")
 	public void m_info(@RequestParam("m_num") Long m_num, Model model) {
-		model.addAttribute("musical",musicalservice.get(m_num));
+		log.info(m_num);
+		ContentsVO result = contentsservice.getMusical(m_num);
+		String s_date = result.getM_start_date();
+		result.setM_start_date(parseDate(s_date));
+		String e_date = result.getM_end_date();
+		result.setM_end_date(parseDate(e_date));
+		List<PlayVO> actor = playservice.getActorList(m_num);
+
+		System.out.println(actor);
+//		상세이미지 가져오기
+//		List<DImgVO> img = infoimgservice.InfoImgList(m_num);
+		model.addAttribute("actorList", actor);
+		model.addAttribute("musical", result);
 	}
 
-
+	@GetMapping("/concert_info")
+	public void c_info(@RequestParam("m_num") Long m_num,HttpSession session, Model model) {
+		log.info(m_num);
+//		아이디 정보
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+		}
+//		컨텐츠 번호,이름,날짜 등등 가져오기
+////		ContentsVO result = contentsservice.getConcert(m_num);
+//		String s_date = result.getM_start_date();
+//		result.setM_start_date(parseDate(s_date));
+//		String e_date = result.getM_end_date();
+//		result.setM_end_date(parseDate(e_date));
+////		뮤지컬에 출연한 배우이름,이미지,역할 등등 가져오기
+////		List<PlayVO> actor = playservice.getActorList(m_num);
+////		상세이미지 가져오기
+////		List<DImgVO> img = infoimgservice.InfoImgList(m_num);
+////		model.addAttribute("actorList", actor);
+//		model.addAttribute("musical", result);
+////		model.addAttribute("ImgList",img);
+}
+	
+	//오라클로 날짜를 받아오면 2023-08-10 00:00:00 이런식으로 가져오는데 이걸 2023.08.10 으로 바꾸는 함수
+	public String parseDate(String inputString)
+	{
+		String[] parts = inputString.split(" "); // 공백을 기준으로 문자열을 나눔
+		String datePart = parts[0]; // "2023-08-10" 부분을 가져옴
+		String[] dateParts = datePart.split("-"); // "-"을 기준으로 날짜 부분을 나눔
+		String formattedDate = dateParts[0] + "." + dateParts[1] + "." + dateParts[2]; // 원하는 형식으로 조합
+		return formattedDate;
+	}
+	
 	@GetMapping("/news")
 	public void latestNewsPage() {
 		log.info("News get");
 	}
 	
-	//여기 홈으로 이동하는거 신승빈이 날려먹음
 	
-	
-	//	뮤지컬 상세페이지 가져옵니다
+	//	뮤지컬 유형별페이지 가져옵니다
 	@GetMapping("/mContents")
 	public void musicalContent(Model model) {
-		
-
-		ArrayList<String> musicalList = contentsservice.getMusicalContents();
-		
 		log.info("musical contents get");
 		
-		model.addAttribute("musicalContents",musicalList);
+		List<ContentsVO> musicalList = contentsservice.getMusicalContents();
 		
+		if(musicalList == null || musicalList.isEmpty()) {
+			
+			System.out.println(musicalList.get(0).getM_num());
+			log.info("배열이 비어있습니다.");
+			
+			model.addAttribute("musicalContents", musicalList);
+		}
+		model.addAttribute("musicalContents", musicalList);
 	}
+	
+	//	콘서트 유형별페이지 가져옵니다
+	@GetMapping("/concertContents")
+	public void concertContent(Model model) {
+		log.info("concert contents get");
+		
+		List<ContentsVO> concertList = contentsservice.getConcertContents();
+		
+		
+		if(concertList == null || concertList.isEmpty()) {
+			System.out.println(concertList.get(0).getM_num());
+			model.addAttribute("concertContents", concertList);
+			log.info("배열이 비어있습니다.");
+		}
+		model.addAttribute("concertContents", concertList);
+	}
+	
+	//	페스티벌 유형별페이지 가져옵니다
+	@GetMapping("/festivalContents")
+	public void festivalContent(Model model) {
+		log.info("festival contents get");
+		
+//		List<ContentsVO> festivaltList = contentsservice.getFestivalContents();
+//		
+//		if (festivaltList == null || festivaltList.isEmpty()) {
+//			log.info("배열이 비어있습니다.");
+//	        model.addAttribute("emptyContents", festivaltList);
+//	        
+//	    } else {
+//	        model.addAttribute("festivalContents", festivaltList);
+//	    }
+		
+		try {
+			List<ContentsVO> festivaltList = contentsservice.getFestivalContents();
+			
+			System.out.println(festivaltList.get(0).getM_num());
+			
+			model.addAttribute("festivalContents", festivaltList);
+			
+		} catch(IndexOutOfBoundsException e) {
+			e.printStackTrace();
+			log.info("배열이 비어있습니다.");
+		}
+		 
+	}
+
 	
 }

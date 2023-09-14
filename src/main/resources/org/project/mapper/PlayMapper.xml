@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace ="org.project.mapper.PlayMapper">
+
+	<select id="getPlayList" resultType = "org.project.domain.PlayVO">
+		select ta.a_num, ta.a_name, ta.a_img, tp.a_role
+		from
+		    tbl_actor ta,
+		    tbl_play tp
+		where
+		    ta.a_name = tp.a_name AND tp.m_title = (
+		    select m_title from tbl_musical where m_num = #{m_num}
+		    )
+	</select>
+	
+</mapper>

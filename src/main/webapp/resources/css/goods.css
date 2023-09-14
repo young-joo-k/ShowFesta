@@ -1,0 +1,636 @@
+@charset "UTF-8";
+
+a {
+	color: inherit;
+}
+
+a[role='button'] {
+	cursor: pointer;
+	outline-offset: -1px;
+}
+
+button {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background: none;
+	font-family: -apple-system, system-ui, BlinkMacSystemFont, '맑은 고딕',
+		'Malgun Gothic', '돋움', Dotum, Helvetica, 'Apple SD Gothic Neo',
+		sans-serif;
+	box-sizing: border-box;
+	cursor: pointer;
+	outline-offset: -1px;
+}
+
+input, textarea {
+	font-family: -apple-system, system-ui, BlinkMacSystemFont, '맑은 고딕',
+		'Malgun Gothic', '돋움', Dotum, Helvetica, 'Apple SD Gothic Neo',
+		sans-serif;
+	resize: none;
+}
+
+label {
+	box-sizing: border-box;
+}
+
+.blind {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	margin: -0.1rem;
+	width: 0.1rem;
+	height: 0.1rem;
+}
+
+strong {
+	font-weight: bold;
+}
+
+li {
+	list-style: none;
+}
+
+.is-disabled {
+	pointer-events: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.productWrapper {
+	position: relative;
+	padding-top :15rem;
+}
+
+.productWrapper .productMain {
+	width: 83rem;
+	margin-bottom: 9.8rem;
+	margin-left: 23rem;
+}
+
+.productWrapper .productMainBody {
+	position: relative;
+}
+
+.productWrapper .prdContents {
+	padding-top: 11.8rem;
+	padding-bottom: 9rem;
+}
+
+.productWrapper .summary {
+	position: relative;
+	padding-bottom: 3.5rem;
+	font-size: 0;
+}
+
+.productWrapper .summary .summaryTop {
+	margin-bottom: 1.9rem;
+}
+
+.productWrapper .summary .summaryBody {
+	display: flex;
+	align-items: center;
+}
+
+.productWrapper .summary .tag {
+	display: inline-block;
+	margin-bottom: 0.9rem;
+	width: 100%;
+	color: #666;
+	font-size: 0;
+}
+
+.productWrapper .summary .tag .tagList {
+	display: inline-block;
+	margin-right: 1.1rem;
+	vertical-align: middle;
+}
+
+.productWrapper .summary .tag .tagItem {
+	display: inline-block;
+	margin-left: 0.6rem;
+}
+
+.productWrapper .summary .tag .tagItem:first-child {
+	margin-left: 0;
+}
+
+.productWrapper .summary .tag .tagItem .text {
+	font-size: 1.2rem;
+	display: inline-block;
+	padding: 0 1.1rem 0 0.8rem;
+	color: #fff;
+	font-size: 1.2rem;
+	height: 2.4rem;
+	font-weight: bold;
+	line-height: 2.3rem;
+	vertical-align: middle;
+	background-color: #9557fa;
+	border-radius: 0.4rem;
+}
+
+.productWrapper .summary .prdTitle {
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	font-size: 2.4rem;
+	font-weight: bold;
+	line-height: 130%;
+}
+
+.productWrapper .summary .posterBox .posterBoxTop {
+	background-image:
+		url('//openimage.interpark.com/ticket-desktop/pages/product/noImage_logo.png');
+	background-repeat: no-repeat;
+	background-color: #f0f0f0;
+	background-position: 50% 50%;
+	position: relative;
+	height: 40rem;
+}
+
+.productWrapper .summary .posterBox .posterBoxImage {
+	display: block;
+	width: 30rem;
+	height: 40rem;
+	border: 0.1rem solid #dadee3;
+	box-sizing: border-box;
+}
+
+.productWrapper .summary .likeBtn {
+	position: absolute;
+	display: inline-block;
+	font-size: 1.4rem;
+	font-weight: inherit;
+	line-height: 2.4rem;
+	outline-style: none;
+	cursor: pointer;
+	top: 12%;
+	left: 32%;
+	z-index:1;
+}
+
+.productWrapper .summary .likeBtn:focus-visible {
+	outline-style: auto;
+}
+
+.productWrapper .summary .likeBtn:before {
+	background-image:
+		url('../img/heart.png');
+	background-repeat: no-repeat;
+	position: relative;
+	display: inline-block;
+	top: 0.2rem;
+	width: 11rem;
+	height: 3rem;
+	padding-right: 0.6rem;
+	background-position: 0 0;
+	content: '';
+}
+
+.productWrapper .summary .likeBtn.is-toggled:before {
+	background-position: 0 -3rem;
+}
+
+.productWrapper .summary .likeBtn:disabled {
+	color: inherit;
+}
+
+.productWrapper .summary .bookBtn {
+	align-self: flex-end;
+}
+
+.productWrapper .summary .info {
+	display: flex;
+	width: 70rem;
+	margin-left: 2.5rem;
+	vertical-align: top;
+	flex-direction: column;
+
+}
+
+.productWrapper .summary .info .infoItem {
+	margin-top: 1.5rem;
+	padding-left: 2.5rem;
+	font-size: 0;
+}
+
+.productWrapper .summary .info .infoItem:first-child {
+	margin-top: 0;
+	line-height: 2.2rem;
+}
+
+.productWrapper .summary .info .infoLabel {
+	display: inline-block;
+	width: 9rem;
+	padding-right: 0.5rem;
+	color: #000;
+	font-size: 1.6rem;
+	font-weight: normal;
+	line-height: 160%;
+	vertical-align: top;
+	box-sizing: border-box;
+}
+
+.productWrapper .summary .info .infoDesc {
+	display: inline-block;
+	max-width: 39rem;
+	vertical-align: top;
+}
+
+.productWrapper .summary .info .infoDesc.is-guide .infoText {
+	position: relative;
+	top: -0.4rem;
+	font-size: 1.4rem;
+	line-height: 3rem;
+	word-break: keep-all;
+}
+
+.productWrapper .summary .info .infoText {
+	position: relative;
+	max-width: 41.5rem;
+	color: #000;
+	font-size: 1.6rem;
+	line-height: 160%;
+}
+
+.productWrapper .nav {
+	position: absolute;
+}
+
+.productWrapper .nav .navInfo {
+	width: 83rem;
+	z-index: 5;
+	position: absolute;
+	top: initial;
+}
+
+
+.productWrapper .nav .navList {
+	font-size: 0;
+	border-bottom: 0.1rem solid #b6bdc7;
+	border-width:0.2rem;
+}
+
+.productWrapper .nav .navItem {
+	position: relative;
+	display: inline-block;
+	color: #666;
+	font-size: 1.6rem;
+	white-space: nowrap;
+	line-height: 2.5rem;
+	font-weight: bold;
+}
+
+
+.productWrapper .sideBtn {
+	display: table;
+	width: 60%;
+	min-height: 5.4rem;
+	padding: 0 1rem;
+	font-size: 1.6rem;
+	font-weight: bold;
+	color: #fff;
+	background-color: #a9a9a9;
+	border: 0.1rem solid #a9a9a9;
+	border-radius: 1rem;
+	text-align: center;
+	box-sizing: border-box;
+	margin-top:13rem;
+	margin-left:7rem;
+}
+
+.productWrapper .sideBtn>span {
+	display: table-cell;
+	height: 100%;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 120%;
+}
+
+.productWrapper .sideBtn.is-primary {
+	font-size: 1.8rem;
+}
+
+.productWrapper .sideBtn+.sideBtn {
+	margin-top: 1rem;
+}
+
+.productWrapper .sideBtn:disabled, .productWrapper .sideBtn.is-disabled
+	{
+	color: #fff;
+	border-color: #ccc;
+	background-color: #ccc;
+	cursor: default;
+}
+
+.productWrapper .detail {
+	position: relative;
+	padding-bottom: 0;
+}
+
+.productWrapper .detail .content {
+	position: relative;
+	margin: 0 0 10rem 0;
+}
+
+.productWrapper .detail .content .contentTitle {
+	margin-bottom: 2rem;
+	font-size: 2rem;
+	font-weight: bold;
+	line-height: 120%;
+}
+
+.productWrapper .detail .content .contentTitle .countNum {
+	vertical-align: top;
+	line-height: 2rem;
+	font-size: 1.8rem;
+}
+
+.productWrapper .detail .content .contentDetail {
+	color: #000;
+	font-size: 1.4rem;
+	line-height: 180%;
+}
+
+.productWrapper .detail .content .contentDetail+.contentDetail {
+	margin-top: 3rem;
+}
+
+.productWrapper .detail .content .facilityInfo {
+	margin-top: 3rem;
+	color: #000;
+	font-size: 1.4rem;
+	line-height: 180%;
+}
+
+.productWrapper .detail .content .contentDetail+.facilityInfo {
+	margin-bottom: 3rem;
+}
+
+.productWrapper .detail .content .contentDetail img {
+	display: block;
+	width: 750px !important;
+}
+
+.productWrapper .detail .content .contentDetailTitle {
+	margin: 0 0 1.2rem;
+	font-size: 1.4rem;
+	font-weight: bold;
+	line-height: 120%;
+}
+
+.productWrapper .detail .content .contentToggleBtn {
+	display: block;
+	width: 100%;
+	height: 5.8rem;
+	line-height: 5.8rem;
+	color: #666;
+	font-size: 1.4rem;
+	text-align: center;
+	background-color: #f4f6f9;
+	border: 0;
+	border-bottom: 0.1rem solid #dfe5ed;
+	overflow-anchor: none;
+}
+
+.productWrapper .detail .content .contentToggleBtn:before {
+	display: inline-block;
+	content: '더보기';
+}
+
+.productWrapper .detail .content .contentToggleBtn:after {
+	background-image:
+		url('//openimage.interpark.com/ticket-desktop/pages/product/icon_contentToggle.png');
+	background-repeat: no-repeat;
+	position: relative;
+	top: -0.1rem;
+	left: 0.6rem;
+	display: inline-block;
+	width: 1.3rem;
+	height: 0.8rem;
+	background-size: 100%;
+	background-position: 0 -0.8rem;
+	content: '';
+}
+
+.productWrapper .detail .expandableWrap.is-toggled .contentToggleBtn:before
+	{
+	content: '닫기';
+}
+
+.productWrapper .detail .expandableWrap.is-toggled .contentToggleBtn:after
+	{
+	background-position: 0 0;
+}
+
+.productWrapper .detail .loadableWrap.is-allLoaded.is-toggled .contentToggleBtn:before
+	{
+	content: '닫기';
+}
+
+.productWrapper .detail .loadableWrap.is-allLoaded.is-toggled .contentToggleBtn:after
+	{
+	background-position: 0 0;
+}
+
+.productWrapper .detail . {
+	position: relative;
+}
+
+.productWrapper .detail .casting .castingInfoBtn {
+	position: absolute;
+	top: -0.4rem;
+	right: 0;
+	padding: 0.8rem 1.8rem;
+	font-size: 1.4rem;
+	color: #000;
+	border-radius: 0.6rem;
+	border: 0.1rem solid #b6bdc7;
+}
+
+.productWrapper .detail .casting .is-toggled .castingList {
+	height: auto;
+}
+
+.productWrapper .detail .casting .castingList {
+	overflow: hidden;
+	height: 19.2rem;
+	padding-left: 1.2rem;
+	margin-top: 5rem;
+	font-size: 0;
+}
+
+.productWrapper .detail .casting .castingItem {
+	position: relative;
+	display: inline-block;
+	width: 10.1rem;
+	min-height: 15.2rem;
+	margin: 0 3.6rem 4rem 0;
+	font-size: 1.4rem;
+	text-align: center;
+	vertical-align: top;
+}
+
+.productWrapper .detail .casting .castingItem:nth-child(6n) {
+	margin-right: 0;
+}
+
+.productWrapper .detail .casting .castingTop {
+	position: relative;
+}
+
+.productWrapper .detail .casting .castingProfile {
+	overflow: hidden;
+	display: block;
+	width: 10.1rem;
+	margin: 0 auto 0.8rem;
+	border-radius: 50%;
+	background-color: #f0f0f0;
+}
+
+.productWrapper .detail .casting .castingImage {
+	display: block;
+	width: 100%;
+	margin-top: -1.2rem;
+}
+
+.productWrapper .detail .casting .castingActor {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-weight: bold;
+	color: #000;
+	line-height: 2.5rem;
+}
+
+.productWrapper .detail .casting .castingName {
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	color: #666;
+	line-height: 130%;
+}
+
+.productWrapper .detail .casting .castingHeartBtn {
+	position: absolute;
+	bottom: 0.2rem;
+	right: 0;
+	display: block;
+	width: 2.8rem;
+	height: 2.8rem;
+	border-radius: 50%;
+	background-color: #ddd;
+	box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.14);
+}
+
+.productWrapper .detail .casting .castingHeartBtn:before {
+	background-image:
+		url('//openimage.interpark.com/ticket-desktop/pages/product/icon_myCastHeart.png');
+	background-repeat: no-repeat;
+	display: block;
+	width: 1.3rem;
+	height: 1.2rem;
+	margin: 0.8rem auto 0;
+	background-position: 0 0;
+	content: '';
+}
+
+.productWrapper .detail .casting .castingHeartBtn.is-toggled {
+	background-color: #fff;
+}
+
+.productWrapper .detail .casting .castingHeartBtn.is-toggled:before {
+	background-position: 0 -1.2rem;
+}
+
+.productWrapper .detail .description .contentTitle {
+	margin-bottom: 3rem;
+}
+
+.productWrapper .detail .prdStat .statWrap {
+	position: relative;
+	width: 100%;
+	min-height: 21rem;
+	padding: 2.8rem 3rem 3rem;
+	font-size: 0;
+	border-radius: 1rem;
+	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
+}
+
+.productWrapper .detail .relative .is-toggled .relativeList {
+	height: auto;
+}
+
+.productWrapper .detail .relative .relativeList {
+	overflow: hidden;
+	height: 37.2rem;
+	font-size: 0;
+}
+
+.productWrapper .prdMoreInfo {
+	padding-bottom: 10rem;
+}
+
+.topButtonWrapper {
+	opacity: 0;
+	visibility: hidden;
+	position: fixed;
+	bottom: 10px;
+	z-index: 100;
+	left: calc(50% - 640px);
+	width: 1280px;
+	height: 52px;
+	margin: 0 auto;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	-webkit-transition: visibility .15s, opacity .15s;
+	transition: visibility .15s, opacity .15s;
+}
+
+.topButtonWrapper .topButton {
+	position: absolute;
+	right: -62px;
+	display: block;
+	width: 54px;
+	height: 52px;
+	background-color: #fff;
+	border: 1px solid #e1e4e9;
+	border-radius: 10px;
+	-webkit-user-select: auto;
+	-moz-user-select: auto;
+	user-select: auto;
+	pointer-events: auto;
+	background-image:
+		url("//openimage.interpark.com/ticket-desktop/components/topButton/topButton.png");
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+.topButtonWrapper .blind {
+	display: block;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+}
+
+.topButtonWrapper.notFixed {
+	position: absolute;
+	bottom: 380px;
+}
+
+.topButtonWrapper.active {
+	opacity: 1;
+	visibility: visible;
+}
+

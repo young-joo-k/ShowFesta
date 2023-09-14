@@ -12,7 +12,11 @@ public interface ScheduleService {
 	
 	public int getConcerts();
 	
+	public int getFestival();
+	
 	public String genre();
+
+
 
 
 }

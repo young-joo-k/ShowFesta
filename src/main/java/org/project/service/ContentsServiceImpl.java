@@ -1,10 +1,10 @@
 package org.project.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.project.domain.ContentsVO;
 import org.project.mapper.ContentsMapper;
-import org.project.mapper.MemberMapper;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -17,17 +17,60 @@ public class ContentsServiceImpl implements ContentsService {
 	
 	
 	private ContentsMapper contentsmapper;
-
-	public ArrayList<String> getMusicalContents() {
-        // ¿©±â¼­ ½ÇÁ¦·Î µ¥ÀÌÅÍº£ÀÌ½º¿¡¼­ ¹ÂÁöÄÃ ÄÜÅÙÃ÷¸¦ °¡Á®¿À°í ArrayList<String> ÇüÅÂ·Î ¹İÈ¯
+	@Override
+	public List<ContentsVO> getMusicalContents() {
+        log.info("getMusicalContents");
+//        List<ContentsVO> musicalContents = new List<>();
         
-		//test
-        ArrayList<String> musicalContents = new ArrayList<>();
-//        musicalContents.add("¹ÂÁöÄÃ 1");
-//        musicalContents.add("¹ÂÁöÄÃ 2");
-        // µ¥ÀÌÅÍº£ÀÌ½º¿¡¼­ °¡Á®¿Â ½ÇÁ¦ µ¥ÀÌÅÍ¸¦ ¿©±â¿¡ Ãß°¡ÇÏ¼¼¿ä.
-
-        return musicalContents;
+        
+        return contentsmapper.getMusicalContents();
     }
+
+	@Override
+	public ContentsVO getMusical(Long m_num) {
+		log.info("get---"+m_num);
+		
+		return contentsmapper.MusicalRead(m_num);
+	}
+
+	@Override
+	public List<ContentsVO> getConcertContents() {
+		
+		return contentsmapper.getConcertContents();
+	}
+
+	@Override
+	public List<ContentsVO> getFestivalContents() {
+	
+//		 List<ContentsVO> festivalContents = contentsmapper.getFestivalContents();
+//
+//		    // ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ş½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+//		    if (festivalContents == null || festivalContents.isEmpty()) {
+//		        festivalContents = new ArrayList<>();
+//		    }
+//
+//		    return festivalContents;
+		
+		return contentsmapper.getFestivalContents();
+	}
+
+	@Override
+	public List<ContentsVO> getToday_contents() {
+		
+		log.info("today_m_contents");
+		return contentsmapper.getToday_contents();
+	}
+
+//	@Override
+//	public List<ContentsVO> getToday_c_contents() {
+//		return contentsmapper.getToday_c_contents();
+//	}
+//
+//	@Override
+//	public List<ContentsVO> getToday_f_contents() {
+//		
+//		return contentsmapper.getToday_f_contents();
+//	}
+	
 	
 }
