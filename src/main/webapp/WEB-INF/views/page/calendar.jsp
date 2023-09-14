@@ -6,16 +6,16 @@ pageEncoding="UTF-8"%>
 <%@page import="java.util.Calendar"%>
 
 <!-- <title>캘린더</title> -->
-<!-- <link href="/resources/assets/css/calendar.css" rel="stylesheet"	type="text/css"> -->
 <link href="/resources/css/calendar.css?after" rel="stylesheet" type="text/css">
 <!-- <body> -->
+
+<body>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!-- <link href="/resources/assets/css/calendar.css" rel="stylesheet" type="text/css"> -->
 <form name="calendarFrm" id="calendarFrm" action="" method="GET">
 
 	<div class="calendar">
 		<!--날짜 네비게이션  -->
-		<div class="navigation">
+		<div class="cal-navigation">
 			<a class="before_after_year"
 				href="./calendar?year=${today_info.search_year-1}&month=${today_info.search_month-1}">
 				&lt;&lt; <!-- 이전년도 --></a> 
@@ -37,15 +37,13 @@ pageEncoding="UTF-8"%>
 		<div class="searchBox">
 			<form id='searchForm' action="#" method='get'>
 				<select id="typeSearch" name='type'>
-					<option value="${pageMaker.cri.type == null?'selected':'' }">유형</option>
+					<option value="${pageMaker.cri.type == null?'selected':'' }">전체</option>
 					<option value="M"
 						<c:out value="${pageMaker.cri.type eq 'M' ? 'selected':'' }"/>>뮤지컬</option>
 					<option value="C"
 						<c:out value="${pageMaker.cri.type eq 'C' ? 'selected':'' }"/>>콘서트</option>
 					<option value="L"
-						<c:out value="${pageMaker.cri.type eq 'L' ? 'selected':'' }"/>>지역축제</option>
-					<option value="F"
-						<c:out value="${pageMaker.cri.type eq 'F' ? 'selected':'' }"/>>페스티벌</option>
+						<c:out value="${pageMaker.cri.type eq 'L' ? 'selected':'' }"/>>축제</option>
 				</select> <input type='text' name='keyword'
 					value='<c:out value ="${pageMaker.cri.keyword }"/>' />
 				<button class='searchFormBtn'>찾기</button>
@@ -80,10 +78,9 @@ pageEncoding="UTF-8"%>
 							<c:when test="${dateList.value=='today'}">
 								<td class="today">
 									<div class="date">${dateList.date}</div> 
-									<%-- 										<div class = "cnt" > 공연 개수 : ${todayCnt}</div> --%>
-
-									<a class="cnt">뮤지컬 : ${musicalCnt}</a><br>
-									<a class="cnt">콘서트 : ${concertCnt}</a>
+									<a class="contentsCnt" data-cntType="${today_contents.size()}">뮤지컬 : ${musicalCnt}</a><br>
+									<a class="contentsCnt" data-cntType ="${today_c_contents.size()}">콘서트 : ${concertCnt}</a><br>
+									<a class="contentsCnt" data-cntType ="${today_f_contents.size()}">축제 : ${festivalCnt}</a>
 								</td>
 							</c:when>
 							<c:when test="${date_status.index%7==6}">
@@ -102,9 +99,7 @@ pageEncoding="UTF-8"%>
 					<c:otherwise>
 						<td class="normal_day">
 							<div class="date">${dateList.date}</div>
-							<!--<div></div> -->
 							<!-- 여기에 매일 공연 개수 나타나야해 -->
-<%-- 							<a class="cnt">공연 개수 : ${getPerformanceCount(dateList.date)}</a> --%>
 						</td>
 					</c:otherwise>
 						</c:choose>
@@ -114,69 +109,93 @@ pageEncoding="UTF-8"%>
 		</table>
 		<!--달력몸체끝 -->
 	</div>
+	<!-- 달력 끝 -->
 
-	
-	<!-- 모달 -->
-	<div id="modal" class="modalFade">
-		<!--모달내용 -->
+	<!-- 모달에 내용을 넣기 위한 HTML -->
+
+	<!--모달 -->
+	<div id="modal">
 		<div class="modal-content">
 			<div class ="modal-header">
-			<h2>상세정보</h2>
-			<button type = "button" class = "btn btn-default" data-dismiss="modal">닫기</button>
-			</div>
+			<h2></h2>
+			<button type = "button" class = "modal-close-btn" data-dismiss="modal">닫기</button>
+			</div> <!-- 모달헤더 끝 -->
 			<div class = "modal-body">
-			<!--<span class="close-modal" id="close-modal">&times;</span> -->
-			<h2>제발 되주겠니</h2>
+				<div class = "modal-content-container">
+				<!-- 데이터베이스에서 가져온 데이터 삽입 -->
+					<div class = today-contents >
+						<c:choose>
+							<c:when test = "${empty today_contents }">
+								<div class = "no-data-message">
+									<p class = "no-message">표시할 내용이 없습니다.</p>
+								</div>
+							</c:when>
+							<c:otherwise>
+								<c:forEach var = "content" items = "${today_contents}">
+									<div class = modal-contents-list>
+									    <div class="contents">
+									    	<div class = list-wrap>
+												<!--상세페이지로 들어가는 링크 넣기 -->
+												<a href='/page/musical_info?m_num=${content.m_num}'>
+									     			<div class = list-inner-wrap>
+														<!--DB에 저장된 이미지 링크 가져올겁니다 -->
+									      				<img class ="modal-comImg" src= <c:out value = "${content.m_img}"/>>
+									     				<div class = modal-list-txt>
+														<div class = "modal-list-tit1">${content.m_title}</div>
+														<div class = "modal-list-tit2">
+													 		<p class="dateDate">${content.m_start_date}&nbsp;~&nbsp;</p>
+															<p class="dateDate"> ${content.m_end_date}</p>
+														</div>
+														<div class = "modal-list-tit3">${content.m_place}</div>
+											        </div>
+												</div>
+										      </a>
+											</div>
+									     </div>
+									</div>
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+					</div>
+				</div>
 			</div>
-		<!-- <div class = "modal-footer"> </div>-->
+<!-- 			<div class = modal-footer></div> -->
 		</div>
 	</div>
-
+	<!--모달끝 -->
 	<div id="overlay" class="overlay"></div>
+	
 </form>
-<!-- </body> -->
-
+</body>
 <!-- </html> -->
-
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-	// 모달 기능을 위한 JavaScript
-	$(document).ready(function() {
-		// cnt 요소를 클릭하면 모달과 오버레이를 표시합니다.
+// 모달 기능을 위한 JavaScript
+$(document).ready(function() {
+    // 각 contentsCnt 항목에 클릭 이벤트 핸들러를 지정
+    $('.contentsCnt').click(function() {
+        var cntType = $(this).attr('data-cntType'); // 클릭한 항목의 데이터 속성을 가져옴
 
-		$('.cnt').click(function() {
-			$('#modal').show();
-			$('#overlay').show();
-		});
+        var modal = $('#modal');
+        var modalHeader = modal.find('.modal-header h2');
 
-		// 닫기 버튼 또는 오버레이를 클릭하면 모달을 숨깁니다.
-		$('button, #overlay').click(function() {
-			$('#modal').hide();
-			$('#overlay').hide();
-		});
+        // 데이터 속성에 따라 모달 헤더 내용을 설정
+        modalHeader.text(' 공연 (' + cntType + ' 건)');
 
-// 		var searchForm = $("#searchForm");
+        modal.show();
+        $('#overlay').show();
+    });
 
-// 		$("#searchFormBtn").on("click", function(e) {
+    // 닫기 버튼 또는 오버레이를 클릭하면 모달을 숨기기
+    $('button.modal-close-btn, #overlay').click(function() {
+        $('#modal').hide();
+        $('#overlay').hide();
+    });
+});
 
-// 			if (!searchForm.find("option:selected").val()) {
-// 				alert("검색유형을 선택하세요");
-// 				return false;
-// 			}
-// 			if (!searchForm.find("input[name='keyword']").val()) {
-// 				alert("검색내용을 입력하세요");
-// 				return false;
-// 			}
 
-// 			searchForm.find("input[name='pageNum']").val("1");
 
-// 			e.preventDefault();
 
-// 			searchForm.submit();
-
-// 		})
-	});
 </script>
 
 <%@include file="../includes/footer.jsp"%>

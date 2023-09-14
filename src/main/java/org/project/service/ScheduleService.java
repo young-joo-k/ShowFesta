@@ -1,5 +1,7 @@
 package org.project.service;
 
+import java.util.ArrayList;
+
 import org.project.domain.ScheduleVO;
 
 public interface ScheduleService {
@@ -10,6 +12,11 @@ public interface ScheduleService {
 	
 	public int getConcerts();
 	
+	public int getFestival();
+	
 	public String genre();
+
+
+
 
 }

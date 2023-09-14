@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <head>
 <link href="/resources/css/join.css?after" rel="stylesheet">
+<link href="/resources/css/notice_register.css?after" rel="stylesheet">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -37,8 +38,9 @@
 							</label></li>
 						</ul>
 						<div class="btn-purple btn-purple-dark">
-<!-- 							<a href="#" title="로그인">로그인</a> -->
-								<button type="submit" id="loginBtn">로그인</button>
+							<!-- <a href="#" title="로그인">로그인</a>  -->
+							<input type="submit" class="login-submit" onclick="onSubmit(); return false;" value="로그인">
+								<!-- <button type="submit" id="loginBtn">로그인</button> -->
 						</div>
 					</fieldset>
 				</form>

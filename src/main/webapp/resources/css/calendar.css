@@ -8,10 +8,11 @@ body {
 		scrollbar-track-color: #FFFFFF;
 		scrollbar-arrow-color: #bbbbbb;
 		margin-left:"0px"; margin-right:"0px"; margin-top:"0px"; margin-bottom:"0px";
+		background-color : #000127;
 		}
 
 td {font-size: 9pt; color:#595959;}
-th {font-family: "돋움"; font-size: 9pt; color:#000000;}
+th {font-family: "돋움"; font-size: 9pt; color:#000127;}
 select {font-family: "돋움"; font-size: 9pt; color:#595959;}
 
 
@@ -20,10 +21,12 @@ overflow:hidden;
 text-overflow:ellipsis;
 }
 
-A:link { font-size:9pt; font-family:"돋움";color:#000000; text-decoration:none; }
-A:visited { font-size:9pt; font-family:"돋움";color:#000000; text-decoration:none; }
-A:active { font-size:9pt; font-family:"돋움";color:red; text-decoration:none; }
-A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
+A:link { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:none; }
+A:visited { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:none; }
+/* 마우스 올렸을때 색 바뀌는 부분 */
+A:active { font-size:15pt; font-family:"돋움";color:#FEBC38; text-decoration:none; }
+A:hover { font-size:15pt; font-family:"돋움";color:#FEBC38;text-decoration:none;}
+
 .day{
   width:100px; 
   height:30px;
@@ -33,9 +36,12 @@ A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
   text-align: center;
 }
 
-.navigation{
+
+
+.cal-navigation{
   font-size: larger;
   font-weight: bold;
+  color: #FEBC38;
   
 }
 
@@ -55,9 +61,10 @@ A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
 	width:80px;
 	height:30px;
 	margin-bottom: 5px;
-	border-color: #bbbbbb;
+	border-color: #FEBC38;
 	border-radius: 4px;
 	font-size: large;
+  /* color: #000127; */
 }
 
 
@@ -65,8 +72,9 @@ A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
 input{
 	width:200px;
 	height:30px;
-  border-color: #bbbbbb;
+  border-color: #FEBC38;
   border-radius: 4px;
+  background-color: #F6F6F6;
 
 }
 
@@ -80,8 +88,9 @@ input{
   text-align: center;
   border-style: solid;
   border-width: thin;
-  border-color: #bbbbbb;
+  border-color: #FEBC38;
   border-radius: 4px;
+  background-color: #FEBC38;
 }
 
 .searchFormBtn{
@@ -89,9 +98,9 @@ input{
   border-radius: 4px;
   width: 50px;
   height: 30px;
-  border-width: thin;
-  border-color: #bbbbbb;
+  border-color: #FEBC38;
   border-radius: 4px;
+  background-color: #FEBC38;
 
 }
 
@@ -99,7 +108,8 @@ input{
   width:80%;
   margin:auto;
 }
-.navigation{
+
+.cal-navigation{
   margin-top:100px;
   margin-bottom:30px;
   text-align: center;
@@ -121,19 +131,15 @@ input{
   vertical-align: top;
 }
 
-/* .calendar_body .cnt{ */
-/* 	margin-top: 20px; */
-/* 	font-size: medium; */
-/* } */
-
-/* 되는지 확인하기 지금 안됨햣 ㅔ*/
 a {
 	margin-top:20px;
 	font-size:medium;
 }
-a .cnt{
+
+.contentsCnt {
 	margin-top:20px;
 	font-size:large;
+  	color : #000127;
 }
 .calendar_body .date{
   font-weight: bold;
@@ -176,37 +182,102 @@ a .cnt{
   vertical-align: top;
   text-align: left;
 }
-.before_after_month{
+a.before_after_month{
   margin: 10px;
   font-weight: bold;
   font-size: larger;
+  color: #EFEFEF;
 }
-.before_after_year{
+
+a.before_after_year{
   font-weight: bold;
+  font-weight: bold;
+  font-size: larger;
+  color: #EFEFEF;
 }
 .this_month{
   margin: 10px;
+  color : #EFEFEF;
+  font-size: larger;
 }
 
 /* 모달에 대한 CSS */
 #modal {
-    display: none;
-    position: relative;
-    z-index: 9999;
-    left: 50%;
-    top: 0;
-    transform: translate(-50%, -100%);
-    padding: 20px;
-/*     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); */
-    width: 50rem;
-    height: 50rem;
+  display: none;
+  position: relative;
+  z-index: 9999;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -100%);
+  width: 50rem;
+  height: 50rem;
+  background-color: #F6F6F6;
+  border-radius: 4px;
+}
+
+.modal-header{
+	display: flex;
+	justify-content: space-between;
+	color: #000127;
+	position: relative;
+}
+
+button.modal-close-btn {
+	position: absolute; /* 절대 위치 지정 */
+  right: 0; /* 오른쪽에 고정 */
+  top: 0; /* 상단에 고정 (필요에 따라 조절 가능) */
+  margin-top:10px;
+  margin-right:20px;
+  height: 35px;
+  width: 70px;
+  color: #000127;
+  background-color: #FEBC38;
+  border-style: none;
+  border-radius: 4px;
 }
 
 .modal-content {
 	margin: 0 auto;
 	width: 50rem;
 	height: 50rem;
-	
+	color: #F6F6F6;
+	margin:5px;
+}
+
+.modal-body{
+	margin: 0 auto;
+	width: 50rem;
+	height: 50rem;
+	color: #F6F6F6;
+	box-sizing: border-box;
+	max-height: auto; /* 원하는 높이로 조정 */
+	overflow-y: auto; /* 내용이 넘칠 때 수직 스크롤바 추가 */
+}
+
+.modal-content-container{
+	max-height: calc(100% - 80px); /* 모달 헤더와 푸터의 높이를 고려한 최대 높이 설정 */
+	overflow-y: auto; /* 내용이 넘칠 때 수직 스크롤바 추가 */
+	margin-right:10px;
+}
+
+.modal-contents-list{
+	width: 25%; /* 4개 컨텐츠가 한 줄에 들어가도록 25%로 설정 */
+	float: right; /* 오른쪽으로 띄워서 나란히 표시 */
+	box-sizing: border-box; /* 요소의 width와 height에 padding과 border를 포함시킴 */
+	padding: 15px; /* 컨텐츠 간의 간격을 조절 */
+	padding-bottom: 25px;
+	text-align: center;
+}
+
+.modal-comImg{
+	width:150px;
+	height:200px;	
+}
+
+.modal-list-txt{
+  size: 10px;
+  align-items: center;
+  margin-top:10px;
 }
 
 .close-modal {
@@ -226,5 +297,9 @@ a .cnt{
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
-    z-index: 9998;
+    z-index: 9995;
+}
+
+form#calendarFrm {
+    padding-top: 30px;
 }
