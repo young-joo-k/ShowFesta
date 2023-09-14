@@ -18,9 +18,6 @@
 	href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
 	rel="stylesheet">
 
-</head>
-<body>
-
 	<!-- ======= Header ======= -->
 	<header id="header" class="header d-flex align-items-center fixed-top">
 		<div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -35,9 +32,9 @@
 					<li class="dropdown"><a href="category.html"><span>카테고리</span>
 							<i class="bi bi-chevron-down dropdown-indicator"></i></a>
 						<ul>
-							<li><a href="#">뮤지컬</a></li>
-							<li><a href="#">콘서트</a></li>
-							<li><a href="#">페스티벌</a></li>
+							<li><a href="/page/mContents">뮤지컬</a></li>
+							<li><a href="/page/concertContents">콘서트</a></li>
+							<li><a href="/page/festivalContents">페스티벌</a></li>
 							<li><a href="#">지역축제</a></li>
 						</ul></li>
 
@@ -55,7 +52,7 @@
 					style="display: ${empty user ? 'inline' : 'none'}">로그인</a>
 				<a href="../join/register" class="mx-2" id="register"
 					style="display: ${empty user ? 'inline' : 'none'}">회원가입</a> 
-				</a> <a href="logout" class="mx-2" id="logoutLink"
+				</a> <a href="../join/logout" class="mx-2" id="logoutLink"
 					style="display: ${not empty user ? 'inline' : 'none'}">로그아웃</a>
 
 				<!-- JavaScript -->
@@ -80,6 +77,9 @@
 
 	</header>
 	<!-- End Header -->
+</head>
+<body>
+</body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
@@ -96,7 +96,4 @@ $(document).ready(function() {
     );
 });
 </script>
-
-</body>
-
 </html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.project.mapper.NoticeMapper">
+
+<select id="getList" resultType="org.project.domain.NoticeVO">
+<![CDATA[select * from tbl_notice where b_num > 0 ]]>
+</select>
+
+<select id="read" resultType="org.project.domain.NoticeVO">
+select * from tbl_notice where b_num = #{b_num}
+</select>
+
+<insert id="insert">
+	insert into tbl_notice (b_num, b_title, b_content, b_writer)
+	values (seq_board.nextval, #{b_title}, #{b_content}, #{b_writer})
+</insert>
+
+<delete id="delete">
+	delete from tbl_notice where b_num = #{b_num}
+</delete>
+
+<update id="update">
+	update tbl_notice
+	set 
+	b_title= #{b_title, jdbcType=VARCHAR},
+	b_content = #{b_content, jdbcType=VARCHAR},
+	updateDate = sysdate
+	where b_num = #{b_num, jdbcType=INTEGER}
+</update>
+
+<insert id="insertSelectKey">
+	<selectKey keyProperty="b_num" order="BEFORE"
+	resultType="long">
+	select seq_board.nextval from dual
+	</selectKey>
+	
+	insert into tbl_notice (b_num, b_title, b_content, b_writer) 
+	values (#{b_num}, #{b_title}, #{b_content}, #{b_writer})
+</insert>
+
+</mapper>

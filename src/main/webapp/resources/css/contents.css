@@ -1,0 +1,70 @@
+@charset "UTF-8";
+/* 이 css는 모든 유형별 페이지에서 공통으로 사용됩니다. */
+
+.genreContents{
+	background-color : #000127;
+}
+
+.categoryTop{
+	padding-top: 150px;
+	text-align: center;
+  
+}
+
+.list-title{
+	size: larger;
+	color: #FFFFFF;
+  font-size: xx-large;
+}
+
+.no-data-message {
+        text-align: center;
+        padding: 20px;
+        font-size: 18rem;
+        color: #FEBC38;
+    }
+
+
+.no-message{
+  font-size: x-large;
+}
+
+.all-contents-list{
+	padding-top: 10rem;
+}
+
+.contents-list {
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  text-align: center;
+  width: 25%; /* 4개 컨텐츠가 한 줄에 들어가도록 25%로 설정 */
+  float: left; /* 왼쪽으로 띄워서 나란히 표시 */
+  box-sizing: border-box; /* 요소의 width와 height에 padding과 border를 포함시킴 */
+  padding: 15px; /* 컨텐츠 간의 간격을 조절 */
+  padding-bottom: 25px;
+  text-align: center;
+  
+}
+
+.comImg{
+/*   position: absolute; */
+/*   width: 100%; */
+/*   height: 100%; */
+  width: 300px;
+  height: 400px;
+  margin: 10px;
+
+}
+
+.list-tit1{
+	color: #FFFFFF;
+}
+
+.no-data-message {
+        text-align: center;
+        padding: 20px;
+        font-size: 18px;
+        color: #FEBC38;
+    }
+

@@ -8,10 +8,11 @@ body {
 		scrollbar-track-color: #FFFFFF;
 		scrollbar-arrow-color: #bbbbbb;
 		margin-left:"0px"; margin-right:"0px"; margin-top:"0px"; margin-bottom:"0px";
+		background-color : #000127;
 		}
 
 td {font-size: 9pt; color:#595959;}
-th {font-family: "돋움"; font-size: 9pt; color:#000000;}
+th {font-family: "돋움"; font-size: 9pt; color:#000127;}
 select {font-family: "돋움"; font-size: 9pt; color:#595959;}
 
 
@@ -20,10 +21,12 @@ overflow:hidden;
 text-overflow:ellipsis;
 }
 
-A:link { font-size:9pt; font-family:"돋움";color:#000000; text-decoration:none; }
-A:visited { font-size:9pt; font-family:"돋움";color:#000000; text-decoration:none; }
+A:link { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:none; }
+A:visited { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:none; }
+/* 마우스 올렸을때 색 바뀌는 부분 */
 A:active { font-size:9pt; font-family:"돋움";color:red; text-decoration:none; }
 A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
+
 .day{
   width:100px; 
   height:30px;
@@ -33,9 +36,12 @@ A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
   text-align: center;
 }
 
+
+
 .navigation{
   font-size: larger;
   font-weight: bold;
+  color: #FEBC38;
   
 }
 
@@ -55,9 +61,10 @@ A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
 	width:80px;
 	height:30px;
 	margin-bottom: 5px;
-	border-color: #bbbbbb;
+	border-color: #FEBC38;
 	border-radius: 4px;
 	font-size: large;
+  /* color: #000127; */
 }
 
 
@@ -65,8 +72,9 @@ A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
 input{
 	width:200px;
 	height:30px;
-  border-color: #bbbbbb;
+  border-color: #FEBC38;
   border-radius: 4px;
+  background-color: #F6F6F6;
 
 }
 
@@ -80,8 +88,9 @@ input{
   text-align: center;
   border-style: solid;
   border-width: thin;
-  border-color: #bbbbbb;
+  border-color: #FEBC38;
   border-radius: 4px;
+  background-color: #FEBC38;
 }
 
 .searchFormBtn{
@@ -89,9 +98,9 @@ input{
   border-radius: 4px;
   width: 50px;
   height: 30px;
-  border-width: thin;
-  border-color: #bbbbbb;
+  border-color: #FEBC38;
   border-radius: 4px;
+  background-color: #FEBC38;
 
 }
 
@@ -134,6 +143,7 @@ a {
 a .cnt{
 	margin-top:20px;
 	font-size:large;
+  /* color: #FEBC38; */
 }
 .calendar_body .date{
   font-weight: bold;
@@ -180,9 +190,11 @@ a .cnt{
   margin: 10px;
   font-weight: bold;
   font-size: larger;
+  color: #FEBC38;
 }
 .before_after_year{
   font-weight: bold;
+  color: #FEBC38;
 }
 .this_month{
   margin: 10px;
@@ -200,6 +212,8 @@ a .cnt{
 /*     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); */
     width: 50rem;
     height: 50rem;
+    background-color: #F6F6F6;
+    
 }
 
 .modal-content {
@@ -207,6 +221,10 @@ a .cnt{
 	width: 50rem;
 	height: 50rem;
 	
+}
+
+.modal-content > .modal-header > button {
+  display: flex;
 }
 
 .close-modal {
@@ -227,4 +245,8 @@ a .cnt{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 9998;
+}
+
+form#calendarFrm {
+    padding-top: 30px;
 }

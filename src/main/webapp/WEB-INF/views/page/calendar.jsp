@@ -6,11 +6,11 @@ pageEncoding="UTF-8"%>
 <%@page import="java.util.Calendar"%>
 
 <!-- <title>캘린더</title> -->
-<!-- <link href="/resources/assets/css/calendar.css" rel="stylesheet"	type="text/css"> -->
 <link href="/resources/css/calendar.css?after" rel="stylesheet" type="text/css">
 <!-- <body> -->
+
+<body>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!-- <link href="/resources/assets/css/calendar.css" rel="stylesheet" type="text/css"> -->
 <form name="calendarFrm" id="calendarFrm" action="" method="GET">
 
 	<div class="calendar">
@@ -80,10 +80,10 @@ pageEncoding="UTF-8"%>
 							<c:when test="${dateList.value=='today'}">
 								<td class="today">
 									<div class="date">${dateList.date}</div> 
-									<%-- 										<div class = "cnt" > 공연 개수 : ${todayCnt}</div> --%>
 
 									<a class="cnt">뮤지컬 : ${musicalCnt}</a><br>
 									<a class="cnt">콘서트 : ${concertCnt}</a>
+									<a class="cnt">지역축제 : </a>
 								</td>
 							</c:when>
 							<c:when test="${date_status.index%7==6}">
@@ -137,13 +137,13 @@ pageEncoding="UTF-8"%>
 <!-- </body> -->
 
 <!-- </html> -->
-
+</body>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	// 모달 기능을 위한 JavaScript
 	$(document).ready(function() {
-		// cnt 요소를 클릭하면 모달과 오버레이를 표시합니다.
+// 		cnt 요소를 클릭하면 모달과 오버레이를 표시합니다.
 
 		$('.cnt').click(function() {
 			$('#modal').show();
