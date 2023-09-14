@@ -13,12 +13,12 @@
 						<div class="productMainTop">
 							<div class="summary">
 								<div class="summaryTop">
-									<h2 class="prdTitle">${musical.m_title }</h2>
+									<h2 class="prdTitle">${concert.m_title }</h2>
 								</div>
 								<div class="summaryBody">
 									<div class="posterBox">
-										<img class="posterBoxImage" src="${musical.m_img}"
-											alt="${musical.m_title }">
+										<img class="posterBoxImage" src="${concert.m_img}"
+											alt="${concert.m_title }">
 										<a class="likeBtn" data-toggle="self"
 											data-toast="like" aria-checked="false"
 											aria-label="즐겨찾기 등록" role="checkbox" href="#"
@@ -29,20 +29,20 @@
 										<ul class="info">
 											<li class="infoItem"><strong class="infoLabel">제목</strong>
 												<div class="infoDesc">
-													<p class="infoText">${musical.m_title }</p>
+													<p class="infoText">${concert.m_title }</p>
 												</div></li>
 											<li class="infoItem"><strong class="infoLabel">장소</strong>
 												<div class="infoDesc">
-													<p class="infoText">${musical.m_place }</p>
+													<p class="infoText">${concert.m_place }</p>
 												</div></li>
 											<li class="infoItem"><strong class="infoLabel">공연기간</strong>
 												<div class="infoDesc">
-													<p class="infoText">${musical.m_start_date }~
-														${musical.m_end_date }</p>
+													<p class="infoText">${concert.m_start_date }~
+														${concert.m_end_date }</p>
 												</div></li>
 										</ul>
 										<div class="bookBtn">
-											<a class="sideBtn is-primary" href="${musical.m_b_link }"
+											<a class="sideBtn is-primary" href="${concert.m_b_link }"
 												data-check="false"><span>예매하기</span></a>
 										</div>
 									</div>
@@ -50,7 +50,7 @@
 							</div>
 						</div>
 						<div id="productMainBody" class="productMainBody">
-							<nav class="nav">
+							<nav class="contents">
 								<div class="navInfo" style="">
 									<div class="stickyWrap">
 										<ul class="navList">
@@ -59,8 +59,8 @@
 									</div>
 								</div>
 							</nav>
-<!-- 							<div> -->
-<!-- 								<div class="prdContents detail"> -->
+							<div>
+								<div class="prdContents detail">
 <!-- 									<div class="content casting"> -->
 <!-- 										<h3 class="contentTitle">캐스팅</h3> -->
 <!-- 										<div class="expandableWrap "> -->
@@ -88,19 +88,19 @@
 <!-- 												role="button" aria-label="여닫기" href="#"></a> -->
 <!-- 										</div> -->
 <!-- 									</div> -->
-<!-- 									<div class="content description"> -->
-<!-- 										<h3 class="contentTitle">공연상세 / 캐스팅일정</h3> -->
-<!-- 										<div class="contentDetail"> -->
-<%-- 											<c:forEach var="img" items="${ImgList}"> --%>
-<!-- 												<p> -->
-<%-- 													<strong><img src="${img.info_img}" alt="" --%>
-<!-- 														border="0"></strong> -->
-<!-- 												</p> -->
-<%-- 											</c:forEach> --%>
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 								</div> -->
-<!-- 							</div> -->
+									<div class="content description">
+										<h3 class="contentTitle">공연상세 / 캐스팅일정</h3>
+										<div class="contentDetail">
+											<c:forEach var="img" items="${ImgList}">
+												<p>
+													<strong><img src="${img.info_img}" alt=""
+														border="0"></strong>
+												</p>
+											</c:forEach>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

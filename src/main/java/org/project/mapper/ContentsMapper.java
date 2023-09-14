@@ -19,4 +19,6 @@ public interface ContentsMapper {
 //	public List<ContentsVO> getToday_c_contents();
 //
 //	public List<ContentsVO> getToday_f_contents();
+	
+	public ContentsVO ConcertRead(Long m_num);
 }

@@ -50,7 +50,7 @@
 							</div>
 						</div>
 						<div id="productMainBody" class="productMainBody">
-							<nav class="nav">
+							<nav class="contents">
 								<div class="navInfo" style="">
 									<div class="stickyWrap">
 										<ul class="navList">

@@ -1,6 +1,5 @@
 package org.project.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.project.domain.ContentsVO;
@@ -59,6 +58,12 @@ public class ContentsServiceImpl implements ContentsService {
 		
 		log.info("today_m_contents");
 		return contentsmapper.getToday_contents();
+	}
+
+	@Override
+	public ContentsVO getConcert(Long m_num) {
+		// TODO Auto-generated method stub
+		return contentsmapper.ConcertRead(m_num);
 	}
 
 //	@Override

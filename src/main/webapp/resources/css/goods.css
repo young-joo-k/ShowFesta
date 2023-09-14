@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
-a {
+.likeBtn,.sideBtn,.topButton,.castingLink,.castingHeartBtn,.contentToggleBtn {
 	color: inherit;
 }
 
-a[role='button'] {
+.likeBtn,.sideBtn,.topButton,.castingLink,.castingHeartBtn,.contentToggleBtn[role='button'] {
 	cursor: pointer;
 	outline-offset: -1px;
 }
@@ -166,7 +166,7 @@ li {
 	outline-style: none;
 	cursor: pointer;
 	top: 12%;
-	left: 32%;
+	left: 45%;
 	z-index:1;
 }
 
@@ -203,7 +203,7 @@ li {
 .productWrapper .summary .info {
 	display: flex;
 	width: 70rem;
-	margin-left: 2.5rem;
+	margin-left: 5rem;
 	vertical-align: top;
 	flex-direction: column;
 
@@ -254,11 +254,11 @@ li {
 	line-height: 160%;
 }
 
-.productWrapper .nav {
+.productWrapper .contents {
 	position: absolute;
 }
 
-.productWrapper .nav .navInfo {
+.productWrapper .contents .navInfo {
 	width: 83rem;
 	z-index: 5;
 	position: absolute;
@@ -266,13 +266,14 @@ li {
 }
 
 
-.productWrapper .nav .navList {
+.productWrapper .contents .navList {
 	font-size: 0;
 	border-bottom: 0.1rem solid #b6bdc7;
 	border-width:0.2rem;
+	margin-top : 5rem;
 }
 
-.productWrapper .nav .navItem {
+.productWrapper .contents .navItem {
 	position: relative;
 	display: inline-block;
 	color: #666;

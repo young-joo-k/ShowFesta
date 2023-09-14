@@ -6,8 +6,7 @@ div,
 span,
 object,
 iframe,
-h1,
-h2,
+.prdTitle,
 h3,
 h4,
 h5,
@@ -38,8 +37,8 @@ dl,
 dt,
 dd,
 ol,
-ul,
-li,
+.info,.navList,.catingList,
+.infoItem,.navItem,.castingItem,
 fieldset,
 form,
 label,
@@ -62,7 +61,7 @@ footer,
 header,
 hgroup,
 menu,
-nav,
+.contents,
 section,
 summary,
 time,
@@ -87,12 +86,12 @@ footer,
 header,
 hgroup,
 menu,
-nav,
+.contents,
 section {
   display: block;
 }
 
-ul,
+.info,.navList,.catingList,
 ol {
   list-style: none;
 }
@@ -116,7 +115,7 @@ i {
   font-style: normal;
 }
 
-a {
+.likeBtn,.sideBtn,.topButton,.castingLink,.castingHeartBtn,.contentToggleBtn {
   margin: 0;
   padding: 0;
   font-size: 100%;

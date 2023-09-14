@@ -140,10 +140,22 @@ public class PageController {
 		result.setM_start_date(parseDate(s_date));
 		String e_date = result.getM_end_date();
 		result.setM_end_date(parseDate(e_date));
+		/////////////////////////////////////////////////////////////////////////////////
+		List<ContentsVO> musicalList = contentsservice.getMusicalContents();
+		
+		if(musicalList == null || musicalList.isEmpty()) {
+			
+			System.out.println(musicalList.get(0).getM_num());
+			log.info("배열이 비어있습니다.");
+			
+			model.addAttribute("musicalContents", musicalList);
+		}
+		model.addAttribute("musicalContents", musicalList);
+		/////////////////////////////////////////////////////////////////////////////////
 //		뮤지컬에 출연한 배우이름,이미지,역할 등등 가져오기
 		List<PlayVO> actor = playservice.getActorList(m_num);
 //		상세이미지 가져오기
-		List<DImgVO> img = infoimgservice.InfoImgList(m_num);
+		List<DImgVO> img = infoimgservice.InfoMImgList(m_num);
 		model.addAttribute("actorList", actor);
 		model.addAttribute("musical", result);
 		model.addAttribute("ImgList",img);
@@ -164,12 +176,10 @@ public class PageController {
 		result.setM_start_date(parseDate(s_date));
 		String e_date = result.getM_end_date();
 		result.setM_end_date(parseDate(e_date));
-//		뮤지컬에 출연한 배우이름,이미지,역할 등등 가져오기
-//		List<PlayVO> actor = playservice.getActorList(m_num);
 //		상세이미지 가져오기
-		List<DImgVO> img = infoimgservice.InfoImgList(m_num);
-//		model.addAttribute("actorList", actor);
-		model.addAttribute("musical", result);
+		List<DImgVO> img = infoimgservice.InfoCImgList(m_num);
+		System.out.println(img);
+		model.addAttribute("concert", result);
 		model.addAttribute("ImgList",img);
 	}
 	
