@@ -635,3 +635,47 @@ li {
 	visibility: visible;
 }
 
+.toast {
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 30.6rem;
+  display: inline-block;
+  padding: 1.8rem 3rem;
+  margin: -3.4rem 0 0 -15.3rem;
+  font-weight: bold;
+  font-size: 1.6rem;
+  text-align: center;
+  background-color: #fff;
+  border: 0.1rem solid #ccc;
+  border-radius: 1rem;
+  line-height: 190%;
+  box-shadow: 0 0.4rem 1.8rem rgba(0, 0, 0, 0.28);
+  box-sizing: border-box;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.toast.is-on:before,
+.toast.is-off:before {
+  background-image: url('../img/heart.png');
+  background-repeat: no-repeat;
+  position: relative;
+  top: 0.5rem;
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.2rem;
+  margin: 0 0.6rem 0 -0.1rem;
+  background-position: 0 -3rem;
+  content: '';
+}
+
+.toast.is-off:before {
+  background-position: 0 0;
+}

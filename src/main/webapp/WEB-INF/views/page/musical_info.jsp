@@ -7,7 +7,7 @@
 <div id="container">
 	<main id="main">
 		<section class="infoSection">
-			<div class="contents" style="">
+			<div class="content" style="">
 				<div class="productWrapper">
 					<div class="productMain">
 						<div class="productMainTop">
@@ -50,7 +50,7 @@
 							</div>
 						</div>
 						<div id="productMainBody" class="productMainBody">
-							<nav class="contents">
+							<nav class="content">
 								<div class="navInfo" style="">
 									<div class="stickyWrap">
 										<ul class="navList">
@@ -66,7 +66,6 @@
 											<c:choose>
 												<c:when test = "${empty actorList }">
 													<div class = "no-data-message">
-														<p class = "no-message">캐스팅 정보가 없습니다.</p>
 													</div>
 												</c:when>
 												<c:otherwise>
@@ -113,6 +112,7 @@
 						</div>
 					</div>
 				</div>
+				<div class="toast is-off "><span class="toastMessage">티켓캐스트 등록취소되었습니다.</span></div>
 			</div>
 			<div class="topButtonWrapper ">
 				<a href="#" class="topButton"><span class="blind">맨 위로</span></a>
@@ -165,23 +165,33 @@
 		        expandableWrap.classList.add("is-toggled");
 		    }
 		}
-
+// 배우 즐겨찾기
 		function toggleCasting(castingHeartBtn) {
-		    // castingHeartBtn 토글
-	        if (castingHeartBtn.hasClass("is-toggled")) {
-      			castingHeartBtn.removeClass("is-toggled");
-    		} else {
-        		castingHeartBtn.addClass("is-toggled");
-    		}
+		    var toastMessage = $(".toastMessage");
+
+		    if (castingHeartBtn.hasClass("is-toggled")) {
+		        castingHeartBtn.removeClass("is-toggled");
+		        $(".toast").removeClass("is-off").addClass("is-on");
+		        toastMessage.text("즐겨찾기 해제되었습니다.");
+		    } else {
+		        castingHeartBtn.addClass("is-toggled");
+		        $(".toast").removeClass("is-on").addClass("is-off");
+		        toastMessage.text("즐겨찾기 등록되었습니다.");
+		    }
 		}
-		
+// 컨텐츠 즐겨찾기
 		function togglelikeBtn(likeBtn) {
-		    // castingHeartBtn 토글
-	        if (likeBtn.hasClass("is-toggled")) {
-	        	likeBtn.removeClass("is-toggled");
-    		} else {
-    			likeBtn.addClass("is-toggled");
-    		}
+		    var toastMessage = $(".toastMessage");
+
+		    if (likeBtn.hasClass("is-toggled")) {
+		        likeBtn.removeClass("is-toggled");
+		        $(".toast").removeClass("is-off").addClass("is-on");
+		        toastMessage.text("즐겨찾기 해제되었습니다.");
+		    } else {
+		        likeBtn.addClass("is-toggled");
+		        $(".toast").removeClass("is-on").addClass("is-off");
+		        toastMessage.text("즐겨찾기 등록되었습니다.");
+		    }
 		}
 	});
 </script>
