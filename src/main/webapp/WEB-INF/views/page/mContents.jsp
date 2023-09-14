@@ -12,31 +12,44 @@ pageEncoding="UTF-8"%>
 <div class = categoryTop>
 	<p class = list-title>뮤지컬</p>
 </div>
+
 <!-- 여기서부터 컨텐츠 리스트 입니다. 한 줄에 네 개의 컨텐츠가 들어갑니다. -->
 <div class = all-contents-list>
-	<c:forEach var = "content" items = "${musicalContents}" varStatus="loop">
-		<div class = contents-list>
-		    <div class="contents">
-		    	<div class = list-wrap>
-				<!-- 상세페이지로 들어가는 링크 넣기 -->
-			      <a style="cursor:pointer;" onclick="#">
-			        <div class = list-inner-wrap>
-						<!--DB에 저장된 이미지 링크 가져올겁니다 -->
-				        <img class ="comImg" src= <c:out value = "${content.m_img}"/>>
-				        <div class = list-txt>
-							<div class = "list-tit1">${content.m_title}</div>
-							<div class = "list-tit2">${content.m_start_date} </div>
-							<div class = "list-tit3">${content.m_place}</div>
-				        </div>
-					</div>
-			      </a>
+	<c:choose>
+		<c:when test = "${empty musicalContents }">
+			<div class = "no-data-message">
+				<p class = "no-message">표시할 내용이 없습니다.</p>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<c:forEach var = "content" items = "${musicalContents}" varStatus="loop">
+				<div class = contents-list>
+				    <div class="contents">
+				    	<div class = list-wrap>
+						<!-- 상세페이지로 들어가는 링크 넣기 -->
+					      <a style="cursor:pointer;" href='/page/musical_info?m_num= <c:out value = "${content.m_num}"/>'>
+					        <div class = list-inner-wrap>
+								<!--DB에 저장된 이미지 링크 가져올겁니다 -->
+						        <img class ="comImg" src= <c:out value = "${content.m_img}"/>>
+						        <div class = list-txt>
+									<div class = "list-tit1">${content.m_title}</div>
+									<div class = "list-tit2">
+   										 <p class="dateDate">${content.m_start_date}&nbsp;~&nbsp;</p>
+   										 <p class="dateDate"> ${content.m_end_date}</p>
+									</div>
+									<div class = "list-tit3">${content.m_place}</div>
+						        </div>
+							</div>
+					      </a>
+						</div>
+				     </div>
 				</div>
-		     </div>
-		</div>
-<%-- 		<c:if test = "${loop.index % 4 == 3 && loop.last}"> --%>
-<!-- 			<div style="clear:both;"></div> -->
-<%-- 		</c:if> --%>
-	</c:forEach>
+		<%-- 		<c:if test = "${loop.index % 4 == 3 && loop.last}"> --%>
+		<!-- 			<div style="clear:both;"></div> -->
+		<%-- 		</c:if> --%>
+			</c:forEach>
+		</c:otherwise>
+	</c:choose>
 </div>
 <div class="clear"></div>
 

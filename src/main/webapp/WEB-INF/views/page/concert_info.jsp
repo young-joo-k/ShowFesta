@@ -59,48 +59,48 @@
 									</div>
 								</div>
 							</nav>
-							<div>
-								<div class="prdContents detail">
-									<div class="content casting">
-										<h3 class="contentTitle">캐스팅</h3>
-										<div class="expandableWrap ">
-											<ul class="castingList">
-												<c:forEach var="actor" items="${actorList}">
-													<li class="castingItem"><div class="castingTop">
-															<a class="castingLink"
-																href="http://www.playdb.co.kr/artistdb/detail.asp?ManNo=359"
-																target="_blank" rel="noopener">
-																<div class="castingProfile">
-																	<img src="${actor.a_img }" class="castingImage"
-																		alt="프로필 사진">
-																</div>
-															</a> <a class="castingHeartBtn " data-toggle="self"
-																data-toast="cast" aria-checked="false"
-																aria-label="즐겨찾기 등록/취소" role="checkbox" href="#"></a>
-														</div>
-														<div class="castingInfo">
-															<div class="castingActor">${actor.a_role }</div>
-															<div class="castingName">${actor.a_name }</div>
-														</div></li>
-												</c:forEach>
-											</ul>
-											<a class="contentToggleBtn" data-toggle="expandableWrap"
-												role="button" aria-label="여닫기" href="#"></a>
-										</div>
-									</div>
-									<div class="content description">
-										<h3 class="contentTitle">공연상세 / 캐스팅일정</h3>
-										<div class="contentDetail">
-											<c:forEach var="img" items="${ImgList}">
-												<p>
-													<strong><img src="${img.info_img}" alt=""
-														border="0"></strong>
-												</p>
-											</c:forEach>
-										</div>
-									</div>
-								</div>
-							</div>
+<!-- 							<div> -->
+<!-- 								<div class="prdContents detail"> -->
+<!-- 									<div class="content casting"> -->
+<!-- 										<h3 class="contentTitle">캐스팅</h3> -->
+<!-- 										<div class="expandableWrap "> -->
+<!-- 											<ul class="castingList"> -->
+<%-- 												<c:forEach var="actor" items="${actorList}"> --%>
+<!-- 													<li class="castingItem"><div class="castingTop"> -->
+<!-- 															<a class="castingLink" -->
+<!-- 																href="http://www.playdb.co.kr/artistdb/detail.asp?ManNo=359" -->
+<!-- 																target="_blank" rel="noopener"> -->
+<!-- 																<div class="castingProfile"> -->
+<%-- 																	<img src="${actor.a_img }" class="castingImage" --%>
+<!-- 																		alt="프로필 사진"> -->
+<!-- 																</div> -->
+<!-- 															</a> <a class="castingHeartBtn " data-toggle="self" -->
+<!-- 																data-toast="cast" aria-checked="false" -->
+<!-- 																aria-label="즐겨찾기 등록/취소" role="checkbox" href="#"></a> -->
+<!-- 														</div> -->
+<!-- 														<div class="castingInfo"> -->
+<%-- 															<div class="castingActor">${actor.a_role }</div> --%>
+<%-- 															<div class="castingName">${actor.a_name }</div> --%>
+<!-- 														</div></li> -->
+<%-- 												</c:forEach> --%>
+<!-- 											</ul> -->
+<!-- 											<a class="contentToggleBtn" data-toggle="expandableWrap" -->
+<!-- 												role="button" aria-label="여닫기" href="#"></a> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 									<div class="content description"> -->
+<!-- 										<h3 class="contentTitle">공연상세 / 캐스팅일정</h3> -->
+<!-- 										<div class="contentDetail"> -->
+<%-- 											<c:forEach var="img" items="${ImgList}"> --%>
+<!-- 												<p> -->
+<%-- 													<strong><img src="${img.info_img}" alt="" --%>
+<!-- 														border="0"></strong> -->
+<!-- 												</p> -->
+<%-- 											</c:forEach> --%>
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
 						</div>
 					</div>
 				</div>
