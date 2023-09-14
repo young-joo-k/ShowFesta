@@ -109,15 +109,6 @@
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="/resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/resources/assets/vendor/swiper/swiper.min.js"></script>
-  <script src="/resources/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="/resources/assets/vendor/aos/aos.js"></script>
-  <script src="/resources/assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="/resources/assets/js/main.js"></script>
 
 </body>
 

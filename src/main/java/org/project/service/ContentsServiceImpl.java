@@ -55,16 +55,22 @@ public class ContentsServiceImpl implements ContentsService {
 	}
 
 	@Override
-	public List<ContentsVO> getToday_m_contents() {
+	public List<ContentsVO> getToday_contents() {
 		
 		log.info("today_m_contents");
-		return contentsmapper.getToday_m_contents();
+		return contentsmapper.getToday_contents();
 	}
 
-	@Override
-	public ContentsVO getConcert(Long m_num) {
-		return contentsmapper.ConcertRead(m_num);
-	}
+//	@Override
+//	public List<ContentsVO> getToday_c_contents() {
+//		return contentsmapper.getToday_c_contents();
+//	}
+//
+//	@Override
+//	public List<ContentsVO> getToday_f_contents() {
+//		
+//		return contentsmapper.getToday_f_contents();
+//	}
 	
 	
 }

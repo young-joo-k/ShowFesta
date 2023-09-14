@@ -78,9 +78,9 @@ pageEncoding="UTF-8"%>
 							<c:when test="${dateList.value=='today'}">
 								<td class="today">
 									<div class="date">${dateList.date}</div> 
-									<a class="contentsCnt1">뮤지컬 : ${musicalCnt}</a><br>
-									<a class="contentsCnt2">콘서트 : ${concertCnt}</a><br>
-									<a class="contentsCnt3">축제 : ${festivalCnt}</a>
+									<a class="contentsCnt" data-cntType="${today_contents.size()}">뮤지컬 : ${musicalCnt}</a><br>
+									<a class="contentsCnt" data-cntType ="${today_c_contents.size()}">콘서트 : ${concertCnt}</a><br>
+									<a class="contentsCnt" data-cntType ="${today_f_contents.size()}">축제 : ${festivalCnt}</a>
 								</td>
 							</c:when>
 							<c:when test="${date_status.index%7==6}">
@@ -113,11 +113,11 @@ pageEncoding="UTF-8"%>
 
 	<!-- 모달에 내용을 넣기 위한 HTML -->
 
-	<!-- 모달 -->
+	<!--모달 -->
 	<div id="modal">
 		<div class="modal-content">
 			<div class ="modal-header">
-			<h2>오늘의 공연 (${musicalCnt} 건)</h2>
+			<h2></h2>
 			<button type = "button" class = "modal-close-btn" data-dismiss="modal">닫기</button>
 			</div> <!-- 모달헤더 끝 -->
 			<div class = "modal-body">
@@ -125,13 +125,13 @@ pageEncoding="UTF-8"%>
 				<!-- 데이터베이스에서 가져온 데이터 삽입 -->
 					<div class = today-contents >
 						<c:choose>
-							<c:when test = "${empty today_m_contents }">
+							<c:when test = "${empty today_contents }">
 								<div class = "no-data-message">
 									<p class = "no-message">표시할 내용이 없습니다.</p>
 								</div>
 							</c:when>
 							<c:otherwise>
-								<c:forEach var = "content" items = "${today_m_contents}">
+								<c:forEach var = "content" items = "${today_contents}">
 									<div class = modal-contents-list>
 									    <div class="contents">
 									    	<div class = list-wrap>
@@ -163,31 +163,38 @@ pageEncoding="UTF-8"%>
 		</div>
 	</div>
 	<!--모달끝 -->
-
 	<div id="overlay" class="overlay"></div>
 	
 </form>
 </body>
 <!-- </html> -->
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 // 모달 기능을 위한 JavaScript
 $(document).ready(function() {
-    $('.contentsCnt1').click(function() {
-    	console.log("클릭함")
+    // 각 contentsCnt 항목에 클릭 이벤트 핸들러를 지정
+    $('.contentsCnt').click(function() {
+        var cntType = $(this).attr('data-cntType'); // 클릭한 항목의 데이터 속성을 가져옴
 
-        // 모달보이기
-    	$('#modal').show();
+        var modal = $('#modal');
+        var modalHeader = modal.find('.modal-header h2');
+
+        // 데이터 속성에 따라 모달 헤더 내용을 설정
+        modalHeader.text(' 공연 (' + cntType + ' 건)');
+
+        modal.show();
         $('#overlay').show();
     });
 
-    // 닫기 버튼 또는 오버레이를 클릭하면 모달을 숨깁니다.
-    $('button, #overlay').click(function() {
-        $('#modal').hide(); // show 클래스 제거
+    // 닫기 버튼 또는 오버레이를 클릭하면 모달을 숨기기
+    $('button.modal-close-btn, #overlay').click(function() {
+        $('#modal').hide();
         $('#overlay').hide();
     });
 });
+
+
+
 
 </script>
 
