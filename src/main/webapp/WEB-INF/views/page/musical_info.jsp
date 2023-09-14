@@ -21,7 +21,7 @@
 											alt="${musical.m_title }">
 										<a class="likeBtn" data-toggle="self"
 											data-toast="like" aria-checked="false"
-											aria-label="티켓캐스트 등록" role="checkbox" href="#"
+											aria-label="즐겨찾기 등록" role="checkbox" href="#"
 											data-popup-hover="like"></a>
 
 									</div>

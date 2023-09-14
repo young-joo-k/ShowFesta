@@ -36,4 +36,8 @@
 		]]> 
 
 </select>
+
+	<select id="ConcertRead" resultType = "org.project.domain.ContentsVO">
+		select * from tbl_concert where m_num = #{m_num}
+	</select>
 </mapper>
