@@ -9,12 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.project.data.DateData;
 import org.project.domain.ContentsVO;
-import org.project.domain.DImgVO;
 import org.project.domain.MemberVO;
 import org.project.domain.PlayVO;
 import org.project.service.PlayService;
 import org.project.service.ContentsService;
-import org.project.service.InfoImgService;
 import org.project.service.MemberService;
 import org.project.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +39,6 @@ public class PageController {
 	
 	@Autowired
 	private PlayService playservice;
-	
-	@Autowired
-	private InfoImgService infoimgservice; 
 	
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
@@ -99,7 +94,7 @@ public class PageController {
 		List<ContentsVO> today_m_contents = contentsservice.getToday_contents();
 //		List<ContentsVO> today_c_contents = contentsservice.getToday_c_contents();
 //		List<ContentsVO> today_f_contents = contentsservice.getToday_f_contents();
-		
+//		
 		
 		// 배열에 담음
 		model.addAttribute("musicalCnt", musicalCnt);
@@ -126,28 +121,17 @@ public class PageController {
 		}
 	}
 	@GetMapping("/musical_info")
-	public void m_info(@RequestParam("m_num") Long m_num,HttpSession session, Model model) {
+	public void m_info(@RequestParam("m_num") Long m_num, Model model) {
 		log.info(m_num);
-//		아이디 정보
-		String id = (String) session.getAttribute("id");
-		if (id != null) {
-			MemberVO membervo = memberservice.getUserInfo(id);
-			model.addAttribute("user", membervo);
-		}
-//		컨텐츠 번호,이름,날짜 등등 가져오기
 		ContentsVO result = contentsservice.getMusical(m_num);
 		String s_date = result.getM_start_date();
 		result.setM_start_date(parseDate(s_date));
 		String e_date = result.getM_end_date();
 		result.setM_end_date(parseDate(e_date));
-//		뮤지컬에 출연한 배우이름,이미지,역할 등등 가져오기
 		List<PlayVO> actor = playservice.getActorList(m_num);
-//		상세이미지 가져오기
-		List<DImgVO> img = infoimgservice.InfoImgList(m_num);		
-		System.out.println(img);
+		System.out.println(actor);
 		model.addAttribute("actorList", actor);
 		model.addAttribute("musical", result);
-		model.addAttribute("ImgList",img);
 	}
 
 	//오라클로 날짜를 받아오면 2023-08-10 00:00:00 이런식으로 가져오는데 이걸 2023.08.10 으로 바꾸는 함수
