@@ -4,14 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace ="org.project.mapper.ContentsMapper">
 
-<!-- <select id ="getMusicalList" resultType ="org.project.domain.ContentsVO"> -->
-<!-- <![CDATA[ -->
-<!-- 	select *  -->
-<!-- 	from tbl_musical -->
-<!-- 	where sysdate > m_start_date and sysdate < m_end_date -->
-<!--  ]]> -->
-
-<!-- </select> -->
  
 	<select id="MusicalRead" resultType = "org.project.domain.ContentsVO">
 		select * from tbl_musical where m_num = #{m_num}
@@ -33,4 +25,15 @@
 		SELECT * FROM tbl_festival ORDER BY m_start_date DESC
 	</select>
 	
+	
+	
+	<!-- 캘린더 내 모달에서 사용됨 -->
+	<select id ="getToday_m_contents" resultType ="org.project.domain.ContentsVO">
+		<![CDATA[
+			select *
+			from tbl_musical
+			where sysdate > m_start_date and sysdate < m_end_date
+		]]> 
+
+</select>
 </mapper>

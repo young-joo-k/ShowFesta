@@ -53,6 +53,13 @@ public class ContentsServiceImpl implements ContentsService {
 		
 		return contentsmapper.getFestivalContents();
 	}
+
+	@Override
+	public List<ContentsVO> getToday_m_contents() {
+		
+		log.info("today_m_contents");
+		return contentsmapper.getToday_m_contents();
+	}
 	
 	
 }
