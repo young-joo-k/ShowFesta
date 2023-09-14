@@ -23,6 +23,11 @@ public class ScheduleServiceImpl implements ScheduleService {
 	public int getConcerts() {
 		return schedulemapper.getConcerts();
 	}
+	
+	@Override
+	public int getFestival() {
+		return schedulemapper.getFestival();
+	}
 
 	@Override
 	public ScheduleVO getCategory(String genre) {
@@ -35,6 +40,8 @@ public class ScheduleServiceImpl implements ScheduleService {
 		
 		return null;
 	}
+
+
 
 			
 }

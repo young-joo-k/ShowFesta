@@ -26,7 +26,7 @@ pageEncoding="UTF-8"%>
 				    <div class="contents">
 				    	<div class = list-wrap>
 						<!-- 상세페이지로 들어가는 링크 넣기 -->
-					      <a style="cursor:pointer;" href='/page/musical_info?m_num= <c:out value = "${content.m_num}"/>'>
+					      <a style="cursor:pointer;" href='/page/concert_info?m_num= <c:out value = "${content.m_num}"/>'>
 					        <div class = list-inner-wrap>
 								<!--DB에 저장된 이미지 링크 가져올겁니다 -->
 						        <img class ="comImg" src= <c:out value = "${content.m_img}"/>>

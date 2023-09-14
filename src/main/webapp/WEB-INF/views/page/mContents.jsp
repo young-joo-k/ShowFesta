@@ -33,7 +33,10 @@ pageEncoding="UTF-8"%>
 						        <img class ="comImg" src= <c:out value = "${content.m_img}"/>>
 						        <div class = list-txt>
 									<div class = "list-tit1">${content.m_title}</div>
-									<div class = "list-tit2">${content.m_start_date} </div>
+									<div class = "list-tit2">
+   										 <p class="dateDate">${content.m_start_date}&nbsp;~&nbsp;</p>
+   										 <p class="dateDate"> ${content.m_end_date}</p>
+									</div>
 									<div class = "list-tit3">${content.m_place}</div>
 						        </div>
 							</div>

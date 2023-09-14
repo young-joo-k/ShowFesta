@@ -85,15 +85,26 @@ public class PageController {
 				dateList.add(calendarData);
 			}
 		}
-		System.out.println(dateList);
+//		System.out.println(dateList);
 		int musicalCnt = scheduleservice.getMusical();
 		int concertCnt = scheduleservice.getConcerts();
+		int festivalCnt = scheduleservice.getFestival();
+		
+		//모달창에 띄우기 위해서 필요한 코드 입니다.
+		List<ContentsVO> today_m_contents = contentsservice.getToday_m_contents();
+		
 		
 		// 배열에 담음
 		model.addAttribute("musicalCnt", musicalCnt);
 		model.addAttribute("concertCnt", concertCnt);
+		model.addAttribute("festivalCnt", festivalCnt);
 		model.addAttribute("dateList", dateList); // 날짜 데이터 배열
 		model.addAttribute("today_info", today_info);
+		
+		//여기 모델도 모달창에 띄울라고 쓰는거입니다
+		model.addAttribute("today_m_contents", today_m_contents);
+		log.info("today_m_contents");
+		System.out.println(today_m_contents);
 		return "/page/calendar";
 	}
 
@@ -197,5 +208,6 @@ public class PageController {
 		}
 		 
 	}
+
 	
 }
