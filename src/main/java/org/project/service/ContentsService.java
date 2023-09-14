@@ -15,9 +15,12 @@ public interface ContentsService {
 	public List<ContentsVO> getFestivalContents();
 
 
-	public ContentsVO getConcert(Long m_num);
-	//Ķ���� ���â�� ��� ���� �ִ� ����
+//	public ContentsVO getConcert(Long m_num);
+	
+	//캘占쏙옙占쏙옙 占쏙옙占시�占쏙옙 占쏙옙占� 占쏙옙占쏙옙 占쌍댐옙 占쏙옙占쏙옙
 	public List<ContentsVO> getToday_contents();
 //	public List<ContentsVO> getToday_c_contents();
 //	public List<ContentsVO> getToday_f_contents();
+
+	public ContentsVO getConcert(Long m_num);
 }

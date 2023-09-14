@@ -15,7 +15,7 @@ pageEncoding="UTF-8"%>
 
 	<div class="calendar">
 		<!--날짜 네비게이션  -->
-		<div class="navigation">
+		<div class="cal-navigation">
 			<a class="before_after_year"
 				href="./calendar?year=${today_info.search_year-1}&month=${today_info.search_month-1}">
 				&lt;&lt; <!-- 이전년도 --></a> 
