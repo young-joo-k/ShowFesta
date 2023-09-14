@@ -38,7 +38,7 @@ A:hover { font-size:15pt; font-family:"돋움";color:#FEBC38;text-decoration:non
 
 
 
-.navigation{
+.cal-navigation{
   font-size: larger;
   font-weight: bold;
   color: #FEBC38;
@@ -108,7 +108,8 @@ input{
   width:80%;
   margin:auto;
 }
-.navigation{
+
+.cal-navigation{
   margin-top:100px;
   margin-bottom:30px;
   text-align: center;
@@ -134,6 +135,7 @@ a {
 	margin-top:20px;
 	font-size:medium;
 }
+
 .contentsCnt {
 	margin-top:20px;
 	font-size:large;
@@ -180,18 +182,23 @@ a {
   vertical-align: top;
   text-align: left;
 }
-.before_after_month{
+a.before_after_month{
   margin: 10px;
   font-weight: bold;
   font-size: larger;
-  color: #FEBC38;
+  color: #EFEFEF;
 }
-.before_after_year{
+
+a.before_after_year{
   font-weight: bold;
-  color: #FEBC38;
+  font-weight: bold;
+  font-size: larger;
+  color: #EFEFEF;
 }
 .this_month{
   margin: 10px;
+  color : #EFEFEF;
+  font-size: larger;
 }
 
 /* 모달에 대한 CSS */
