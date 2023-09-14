@@ -15,5 +15,7 @@ public interface ContentsService {
 	public List<ContentsVO> getFestivalContents();
 	
 	//캘린더 모달창에 띄울 내용 넣는 구간
-	public List<ContentsVO> getToday_m_contents();
+	public List<ContentsVO> getToday_contents();
+//	public List<ContentsVO> getToday_c_contents();
+//	public List<ContentsVO> getToday_f_contents();
 }
