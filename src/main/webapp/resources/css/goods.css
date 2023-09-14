@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
-a {
+.likeBtn,.sideBtn,.topButton,.castingLink,.castingHeartBtn,.contentToggleBtn {
 	color: inherit;
 }
 
-a[role='button'] {
+.likeBtn,.sideBtn,.topButton,.castingLink,.castingHeartBtn,.contentToggleBtn[role='button'] {
 	cursor: pointer;
 	outline-offset: -1px;
 }
@@ -88,7 +88,6 @@ li {
 
 .productWrapper .summary .summaryBody {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 }
 
@@ -152,74 +151,49 @@ li {
 
 .productWrapper .summary .posterBox .posterBoxImage {
 	display: block;
-	width: 100%;
-	height: 100%;
+	width: 30rem;
+	height: 40rem;
 	border: 0.1rem solid #dadee3;
 	box-sizing: border-box;
 }
 
-.productWrapper .summary .posterBox .posterBoxBottom {
-	margin-top: 1.2rem;
-	font-size: 0;
-}
-
-.productWrapper .summary .posterBox .posterBoxBottom:after {
-	display: block;
-	clear: both;
-	content: '';
-}
-
-.productWrapper .summary .prdCast {
-	float: left;
-	margin-top: 0.2rem;
-	font-size: 0;
-}
-
-.productWrapper .summary .prdCast .prdCastWrap {
-	display: inline-block;
-}
-
-.productWrapper .summary .prdCast .prdCastBtn {
-	position: relative;
+.productWrapper .summary .likeBtn {
+	position: absolute;
 	display: inline-block;
 	font-size: 1.4rem;
 	font-weight: inherit;
 	line-height: 2.4rem;
 	outline-style: none;
 	cursor: pointer;
+	top: 12%;
+	left: 45%;
+	z-index:1;
 }
 
-.productWrapper .summary .prdCast .prdCastBtn:focus-visible {
+.productWrapper .summary .likeBtn:focus-visible {
 	outline-style: auto;
 }
 
-.productWrapper .summary .prdCast .prdCastBtn:before {
+.productWrapper .summary .likeBtn:before {
 	background-image:
-		url('//openimage.interpark.com/ticket-desktop/pages/product/icon_heart.png');
+		url('../img/heart.png');
 	background-repeat: no-repeat;
 	position: relative;
 	display: inline-block;
 	top: 0.2rem;
-	width: 1.7rem;
-	height: 1.5rem;
+	width: 11rem;
+	height: 3rem;
 	padding-right: 0.6rem;
 	background-position: 0 0;
 	content: '';
 }
 
-.productWrapper .summary .prdCast .prdCastBtn.is-toggled:before {
-	background-position: 0 -1.5rem;
+.productWrapper .summary .likeBtn.is-toggled:before {
+	background-position: 0 -3rem;
 }
 
-.productWrapper .summary .prdCast .prdCastBtn:disabled {
+.productWrapper .summary .likeBtn:disabled {
 	color: inherit;
-}
-
-.productWrapper .summary .prdCast .prdCastNum {
-	display: inline-block;
-	margin-left: 0.5rem;
-	font-size: 1.4rem;
-	font-weight: bold;
 }
 
 .productWrapper .summary .bookBtn {
@@ -228,8 +202,8 @@ li {
 
 .productWrapper .summary .info {
 	display: flex;
-	width: 40rem;
-	margin-left: 2.5rem;
+	width: 70rem;
+	margin-left: 5rem;
 	vertical-align: top;
 	flex-direction: column;
 
@@ -237,7 +211,6 @@ li {
 
 .productWrapper .summary .info .infoItem {
 	margin-top: 1.5rem;
-	margin-bottom: 1rem;
 	padding-left: 2.5rem;
 	font-size: 0;
 }
@@ -281,29 +254,26 @@ li {
 	line-height: 160%;
 }
 
-.productWrapper .nav {
+.productWrapper .contents {
 	position: absolute;
 }
 
-.productWrapper .nav .navSticky {
+.productWrapper .contents .navInfo {
 	width: 83rem;
 	z-index: 5;
 	position: absolute;
 	top: initial;
 }
 
-.productWrapper .nav .navSticky.is-fixed {
-	position: fixed;
-	top: 0;
-}
 
-.productWrapper .nav .navList {
+.productWrapper .contents .navList {
 	font-size: 0;
 	border-bottom: 0.1rem solid #b6bdc7;
-	background-color: #fff;
+	border-width:0.2rem;
+	margin-top : 5rem;
 }
 
-.productWrapper .nav .navItem {
+.productWrapper .contents .navItem {
 	position: relative;
 	display: inline-block;
 	color: #666;
@@ -313,41 +283,10 @@ li {
 	font-weight: bold;
 }
 
-.productWrapper .nav .navItem+.navItem {
-	margin-left: 1.8rem;
-}
-
-.productWrapper .nav .navItem:before {
-	display: none;
-	content: '';
-	position: absolute;
-	bottom: -1px;
-	left: 0;
-	width: 100%;
-	height: 5px;
-	background-color: #333;
-}
-
-.productWrapper .nav .navItem.is-active {
-	color: #000;
-}
-
-.productWrapper .nav .navItem.is-active:before {
-	display: block;
-}
-
-.productWrapper .nav .navLink {
-	display: block;
-	padding: 1.6rem 1rem;
-}
-
-.productWrapper .nav .navLink {
-	padding-top: 1rem;
-}
 
 .productWrapper .sideBtn {
 	display: table;
-	width: 100%;
+	width: 60%;
 	min-height: 5.4rem;
 	padding: 0 1rem;
 	font-size: 1.6rem;
@@ -358,6 +297,8 @@ li {
 	border-radius: 1rem;
 	text-align: center;
 	box-sizing: border-box;
+	margin-top:13rem;
+	margin-left:7rem;
 }
 
 .productWrapper .sideBtn>span {
@@ -494,7 +435,7 @@ li {
 	background-position: 0 0;
 }
 
-.productWrapper .detail .casting {
+.productWrapper .detail . {
 	position: relative;
 }
 
@@ -544,7 +485,6 @@ li {
 	overflow: hidden;
 	display: block;
 	width: 10.1rem;
-	height: 10.1rem;
 	margin: 0 auto 0.8rem;
 	border-radius: 50%;
 	background-color: #f0f0f0;
@@ -695,3 +635,47 @@ li {
 	visibility: visible;
 }
 
+.toast {
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 30.6rem;
+  display: inline-block;
+  padding: 1.8rem 3rem;
+  margin: -3.4rem 0 0 -15.3rem;
+  font-weight: bold;
+  font-size: 1.6rem;
+  text-align: center;
+  background-color: #fff;
+  border: 0.1rem solid #ccc;
+  border-radius: 1rem;
+  line-height: 190%;
+  box-shadow: 0 0.4rem 1.8rem rgba(0, 0, 0, 0.28);
+  box-sizing: border-box;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.toast.is-on:before,
+.toast.is-off:before {
+  background-image: url('../img/heart.png');
+  background-repeat: no-repeat;
+  position: relative;
+  top: 0.5rem;
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.2rem;
+  margin: 0 0.6rem 0 -0.1rem;
+  background-position: 0 -3rem;
+  content: '';
+}
+
+.toast.is-off:before {
+  background-position: 0 0;
+}

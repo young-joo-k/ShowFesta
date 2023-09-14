@@ -1,6 +1,5 @@
 package org.project.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.project.domain.ContentsVO;
@@ -44,7 +43,7 @@ public class ContentsServiceImpl implements ContentsService {
 	
 //		 List<ContentsVO> festivalContents = contentsmapper.getFestivalContents();
 //
-//		    // µ¥ÀÌÅÍ°¡ ¾ø´Â °æ¿ì ¸Ş½ÃÁö Ãß°¡
+//		    // å ì™ì˜™å ì™ì˜™å ì‹¶ê³¤ì˜™ å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ï¿½ å ìŒ¨ì™ì˜™å ì™ì˜™ å ìŒ©ê³¤ì˜™
 //		    if (festivalContents == null || festivalContents.isEmpty()) {
 //		        festivalContents = new ArrayList<>();
 //		    }
@@ -53,6 +52,30 @@ public class ContentsServiceImpl implements ContentsService {
 		
 		return contentsmapper.getFestivalContents();
 	}
+
+	@Override
+	public List<ContentsVO> getToday_contents() {
+		
+		log.info("today_m_contents");
+		return contentsmapper.getToday_contents();
+	}
+
+	@Override
+	public ContentsVO getConcert(Long m_num) {
+		// TODO Auto-generated method stub
+		return contentsmapper.ConcertRead(m_num);
+	}
+
+//	@Override
+//	public List<ContentsVO> getToday_c_contents() {
+//		return contentsmapper.getToday_c_contents();
+//	}
+//
+//	@Override
+//	public List<ContentsVO> getToday_f_contents() {
+//		
+//		return contentsmapper.getToday_f_contents();
+//	}
 	
 	
 }

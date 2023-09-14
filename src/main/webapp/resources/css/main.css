@@ -1,9 +1,11 @@
-@charset "UTF-8";
-
-a {
-	color: white;
+ @charset "UTF-8";
+ a {
 	text-decoration: none;
 }
+ 
+/* @charset "UTF-8";
+
+
 
 input, button, select, optgroup, textarea {
 	margin: 0;
@@ -52,3 +54,4 @@ button, [type=button], [type=reset], [type=submit] {
 	display: table;
 	content: " ";
 }
+ */

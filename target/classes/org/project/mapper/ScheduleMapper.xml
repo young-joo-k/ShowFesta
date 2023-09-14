@@ -20,6 +20,15 @@
 	]]>
 </select>
 
+<!-- 지역축제 달력에 불러오기 -->
+<select id = "getFestival" resultType = "int">
+<![CDATA[
+	select count(*) 
+	from tbl_festival
+	where sysdate > m_start_date and sysdate < m_end_date
+	]]>
+</select>
+
 
 </mapper>
 
