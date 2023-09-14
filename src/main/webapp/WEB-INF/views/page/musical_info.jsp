@@ -22,7 +22,7 @@
 										<a class="likeBtn" data-toggle="self"
 											data-toast="like" aria-checked="false"
 											aria-label="즐겨찾기 등록" role="checkbox" href="#"
-											data-popup-hover="like"     
+											data-popup-hover="like" data-contents-num="${musical.m_num } " data-contents-type="뮤지컬"    
 											<c:if test="${empty user}">
 										        data-empty-user="true"				
 										    </c:if>></a>
@@ -87,6 +87,7 @@
 																		</a> <a class="castingHeartBtn " data-toggle="self"
 																			data-toast="cast" aria-checked="false"
 																			aria-label="즐겨찾기 등록/취소" role="checkbox" href="#"
+																			data-actor-num="${actor.a_num }" data-type="배우"
 																			<c:if test="${empty user}">
 									      										data-empty-user="true"				
 										    								</c:if>></a>
@@ -154,18 +155,21 @@
 		    }
 		    else {
 		    	toggleCasting(castingHeartBtn);	
+		    	var actorNum = castingHeartBtn.attr("data-actor-num");
+		    	console.log("actorNum : "+ actorNum);
 		    }
 		});
-		// castingHeartBtn를 클릭했을 때 동작하는 함수
+		// likeBtn를 클릭했을 때 동작하는 함수
 		$(".likeBtn").on("click", function(e) {
 		    e.preventDefault();
 		    var likeBtn = $(this);
-
 		    if (checkUser(likeBtn) === "true") {
 		    	window.location.href = "/join/login";
 		    } 
 		    else {
 			    togglelikeBtn(likeBtn);
+		    	var musicalNum = likeBtn.attr("data-contents-num");
+		    	console.log("musicalNum : "+ musicalNum);
 		    }
 		});
 		function checkUser(check){
