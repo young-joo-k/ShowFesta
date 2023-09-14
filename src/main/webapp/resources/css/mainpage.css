@@ -124,3 +124,16 @@
     height: 34px;
     vertical-align: middle;
 }
+
+.picture-area img{
+	transition: transform 0.3s;
+}
+
+.picture-area {
+	
+	  overflow: hidden; /* 이미지 넘침 제어 */
+}
+
+.picture-area:hover img {
+    transform: scale(1.1); /* 호버 상태에서 이미지를 확대합니다 (1.1배로 확대). */
+}

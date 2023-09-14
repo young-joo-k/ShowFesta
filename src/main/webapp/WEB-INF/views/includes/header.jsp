@@ -7,7 +7,7 @@
 <link href="/resources/css/style.css?after" rel="stylesheet">
 <link href="/resources/css/main.css?after" rel="stylesheet">
 <link href="/resources/css/dropdown.css?after" rel="stylesheet">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <head>
 <title>ShowFesta</title>
 <!-- font -->
