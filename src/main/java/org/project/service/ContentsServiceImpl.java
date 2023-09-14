@@ -1,6 +1,7 @@
 package org.project.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.project.domain.ContentsVO;
 import org.project.mapper.ContentsMapper;
@@ -17,16 +18,12 @@ public class ContentsServiceImpl implements ContentsService {
 	
 	private ContentsMapper contentsmapper;
 	@Override
-	public ArrayList<String> getMusicalContents() {
-        // ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ArrayList<String> ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½È¯
+	public List<ContentsVO> getMusicalContents() {
+        log.info("getMusicalContents");
+//        List<ContentsVO> musicalContents = new List<>();
         
-		//test
-        ArrayList<String> musicalContents = new ArrayList<>();
-//        musicalContents.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1");
-//        musicalContents.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2");
-        // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½â¿¡ ï¿½ß°ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½.
-
-        return musicalContents;
+        
+        return contentsmapper.getMusicalContents();
     }
 
 	@Override
@@ -34,6 +31,27 @@ public class ContentsServiceImpl implements ContentsService {
 		log.info("get---"+m_num);
 		
 		return contentsmapper.MusicalRead(m_num);
+	}
+
+	@Override
+	public List<ContentsVO> getConcertContents() {
+		
+		return contentsmapper.getConcertContents();
+	}
+
+	@Override
+	public List<ContentsVO> getFestivalContents() {
+	
+//		 List<ContentsVO> festivalContents = contentsmapper.getFestivalContents();
+//
+//		    // µ¥ÀÌÅÍ°¡ ¾ø´Â °æ¿ì ¸Þ½ÃÁö Ãß°¡
+//		    if (festivalContents == null || festivalContents.isEmpty()) {
+//		        festivalContents = new ArrayList<>();
+//		    }
+//
+//		    return festivalContents;
+		
+		return contentsmapper.getFestivalContents();
 	}
 	
 	

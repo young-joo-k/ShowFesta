@@ -80,10 +80,10 @@ pageEncoding="UTF-8"%>
 							<c:when test="${dateList.value=='today'}">
 								<td class="today">
 									<div class="date">${dateList.date}</div> 
-									<%-- 										<div class = "cnt" > 공연 개수 : ${todayCnt}</div> --%>
 
 									<a class="cnt">뮤지컬 : ${musicalCnt}</a><br>
 									<a class="cnt">콘서트 : ${concertCnt}</a>
+									<a class="cnt">지역축제 : </a>
 								</td>
 							</c:when>
 							<c:when test="${date_status.index%7==6}">

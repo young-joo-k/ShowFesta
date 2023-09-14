@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 import org.project.data.DateData;
 import org.project.domain.ContentsVO;
 import org.project.domain.MemberVO;
+import org.project.domain.PlayVO;
+import org.project.service.PlayService;
 import org.project.service.ContentsService;
 import org.project.service.MemberService;
 import org.project.service.ScheduleService;
@@ -28,11 +30,15 @@ import lombok.extern.log4j.Log4j;
 public class PageController {
 	@Autowired
 	private ScheduleService scheduleservice;
+	
 	@Autowired
 	private MemberService memberservice;
+	
 	@Autowired
 	private ContentsService contentsservice;
-
+	
+	@Autowired
+	private PlayService playservice;
 	
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
@@ -108,6 +114,9 @@ public class PageController {
 		result.setM_start_date(parseDate(s_date));
 		String e_date = result.getM_end_date();
 		result.setM_end_date(parseDate(e_date));
+		List<PlayVO> actor = playservice.getActorList(m_num);
+		System.out.println(actor);
+		model.addAttribute("actorList", actor);
 		model.addAttribute("musical", result);
 	}
 
@@ -126,20 +135,62 @@ public class PageController {
 		log.info("News get");
 	}
 	
-	//여기 홈으로 이동하는거 신승빈이 날려먹음
 	
-	
-	//	뮤지컬 상세페이지 가져옵니다
+	//	뮤지컬 유형별페이지 가져옵니다
 	@GetMapping("/mContents")
 	public void musicalContent(Model model) {
-		
-
-		ArrayList<String> musicalList = contentsservice.getMusicalContents();
-		
 		log.info("musical contents get");
 		
-		model.addAttribute("musicalContents",musicalList);
+		List<ContentsVO> musicalList = contentsservice.getMusicalContents();
 		
+		if(musicalList == null || musicalList.isEmpty()) {
+			System.out.println(musicalList.get(0).getM_num());
+			model.addAttribute("musicalContents", musicalList);
+		}
+		model.addAttribute("musicalContents", musicalList);
+	}
+	
+	//	콘서트 유형별페이지 가져옵니다
+	@GetMapping("/concertContents")
+	public void concertContent(Model model) {
+		log.info("concert contents get");
+		
+		List<ContentsVO> concertList = contentsservice.getConcertContents();
+		
+		if(concertList == null || concertList.isEmpty()) {
+			System.out.println(concertList.get(0).getM_num());
+			model.addAttribute("concertContents", concertList);
+		}
+		model.addAttribute("concertContents", concertList);
+	}
+	
+	//	페스티벌 유형별페이지 가져옵니다
+	@GetMapping("/festivalContents")
+	public void festivalContent(Model model) {
+		log.info("festival contents get");
+		
+//		List<ContentsVO> festivaltList = contentsservice.getFestivalContents();
+//		
+//		if (festivaltList == null || festivaltList.isEmpty()) {
+//			log.info("배열이 비어있습니다.");
+//	        model.addAttribute("emptyContents", festivaltList);
+//	        
+//	    } else {
+//	        model.addAttribute("festivalContents", festivaltList);
+//	    }
+		
+		try {
+			List<ContentsVO> festivaltList = contentsservice.getFestivalContents();
+			
+			System.out.println(festivaltList.get(0).getM_num());
+			
+			model.addAttribute("festivalContents", festivaltList);
+			
+		} catch(IndexOutOfBoundsException e) {
+			e.printStackTrace();
+			log.info("배열이 비어있습니다.");
+		}
+		 
 	}
 	
 }
