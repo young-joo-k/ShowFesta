@@ -34,6 +34,7 @@
 			from tbl_musical
 			where sysdate > m_start_date and sysdate < m_end_date
 		]]> 
+
 	</select>
 	
 <!-- 	<select id ="getToday_c_contents" resultType ="org.project.domain.ContentsVO"> -->

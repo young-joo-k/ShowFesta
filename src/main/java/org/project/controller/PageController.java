@@ -129,11 +129,40 @@ public class PageController {
 		String e_date = result.getM_end_date();
 		result.setM_end_date(parseDate(e_date));
 		List<PlayVO> actor = playservice.getActorList(m_num);
+<<<<<<< HEAD
 		System.out.println(actor);
+=======
+//		상세이미지 가져오기
+		List<DImgVO> img = infoimgservice.InfoImgList(m_num);
+>>>>>>> 874dc0a84894c8ace9ade0e6416be1b58ab9769b
 		model.addAttribute("actorList", actor);
 		model.addAttribute("musical", result);
 	}
 
+	@GetMapping("/concert_info")
+	public void c_info(@RequestParam("m_num") Long m_num,HttpSession session, Model model) {
+		log.info(m_num);
+//		아이디 정보
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+		}
+//		컨텐츠 번호,이름,날짜 등등 가져오기
+		ContentsVO result = contentsservice.getConcert(m_num);
+		String s_date = result.getM_start_date();
+		result.setM_start_date(parseDate(s_date));
+		String e_date = result.getM_end_date();
+		result.setM_end_date(parseDate(e_date));
+//		뮤지컬에 출연한 배우이름,이미지,역할 등등 가져오기
+//		List<PlayVO> actor = playservice.getActorList(m_num);
+//		상세이미지 가져오기
+		List<DImgVO> img = infoimgservice.InfoImgList(m_num);
+//		model.addAttribute("actorList", actor);
+		model.addAttribute("musical", result);
+		model.addAttribute("ImgList",img);
+	}
+	
 	//오라클로 날짜를 받아오면 2023-08-10 00:00:00 이런식으로 가져오는데 이걸 2023.08.10 으로 바꾸는 함수
 	public String parseDate(String inputString)
 	{

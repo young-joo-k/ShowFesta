@@ -13,8 +13,10 @@ public interface ContentsService {
 	public List<ContentsVO> getConcertContents();
 	
 	public List<ContentsVO> getFestivalContents();
-	
-	//Ä¶¸°´õ ¸ð´ÞÃ¢¿¡ ¶ç¿ï ³»¿ë ³Ö´Â ±¸°£
+
+
+	public ContentsVO getConcert(Long m_num);
+	//Ä¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public List<ContentsVO> getToday_contents();
 //	public List<ContentsVO> getToday_c_contents();
 //	public List<ContentsVO> getToday_f_contents();

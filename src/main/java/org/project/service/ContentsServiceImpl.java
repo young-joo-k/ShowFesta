@@ -44,7 +44,7 @@ public class ContentsServiceImpl implements ContentsService {
 	
 //		 List<ContentsVO> festivalContents = contentsmapper.getFestivalContents();
 //
-//		    // µ¥ÀÌÅÍ°¡ ¾ø´Â °æ¿ì ¸Þ½ÃÁö Ãß°¡
+//		    // ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 //		    if (festivalContents == null || festivalContents.isEmpty()) {
 //		        festivalContents = new ArrayList<>();
 //		    }
