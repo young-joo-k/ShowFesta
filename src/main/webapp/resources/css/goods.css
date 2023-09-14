@@ -158,68 +158,42 @@ li {
 	box-sizing: border-box;
 }
 
-.productWrapper .summary .posterBox .posterBoxBottom {
-	margin-top: 1.2rem;
-	font-size: 0;
-}
-
-.productWrapper .summary .posterBox .posterBoxBottom:after {
-	display: block;
-	clear: both;
-	content: '';
-}
-
-.productWrapper .summary .prdCast {
-	float: left;
-	margin-top: 0.2rem;
-	font-size: 0;
-}
-
-.productWrapper .summary .prdCast .prdCastWrap {
-	display: inline-block;
-}
-
-.productWrapper .summary .prdCast .prdCastBtn {
-	position: relative;
+.productWrapper .summary .likeBtn {
+	position: absolute;
 	display: inline-block;
 	font-size: 1.4rem;
 	font-weight: inherit;
 	line-height: 2.4rem;
 	outline-style: none;
 	cursor: pointer;
+	top: 12%;
+	left: 32%;
 }
 
-.productWrapper .summary .prdCast .prdCastBtn:focus-visible {
+.productWrapper .summary .likeBtn:focus-visible {
 	outline-style: auto;
 }
 
-.productWrapper .summary .prdCast .prdCastBtn:before {
+.productWrapper .summary .likeBtn:before {
 	background-image:
-		url('//openimage.interpark.com/ticket-desktop/pages/product/icon_heart.png');
+		url('../img/heart.png');
 	background-repeat: no-repeat;
 	position: relative;
 	display: inline-block;
 	top: 0.2rem;
-	width: 1.7rem;
-	height: 1.5rem;
+	width: 11rem;
+	height: 3rem;
 	padding-right: 0.6rem;
 	background-position: 0 0;
 	content: '';
 }
 
-.productWrapper .summary .prdCast .prdCastBtn.is-toggled:before {
-	background-position: 0 -1.5rem;
+.productWrapper .summary .likeBtn.is-toggled:before {
+	background-position: 0 3rem;
 }
 
-.productWrapper .summary .prdCast .prdCastBtn:disabled {
+.productWrapper .summary .likeBtn:disabled {
 	color: inherit;
-}
-
-.productWrapper .summary .prdCast .prdCastNum {
-	display: inline-block;
-	margin-left: 0.5rem;
-	font-size: 1.4rem;
-	font-weight: bold;
 }
 
 .productWrapper .summary .bookBtn {
@@ -285,22 +259,17 @@ li {
 	position: absolute;
 }
 
-.productWrapper .nav .navSticky {
+.productWrapper .nav .navInfo {
 	width: 83rem;
 	z-index: 5;
 	position: absolute;
 	top: initial;
 }
 
-.productWrapper .nav .navSticky.is-fixed {
-	position: fixed;
-	top: 0;
-}
 
 .productWrapper .nav .navList {
 	font-size: 0;
 	border-bottom: 0.1rem solid #b6bdc7;
-	background-color: #fff;
 }
 
 .productWrapper .nav .navItem {
@@ -313,37 +282,6 @@ li {
 	font-weight: bold;
 }
 
-.productWrapper .nav .navItem+.navItem {
-	margin-left: 1.8rem;
-}
-
-.productWrapper .nav .navItem:before {
-	display: none;
-	content: '';
-	position: absolute;
-	bottom: -1px;
-	left: 0;
-	width: 100%;
-	height: 5px;
-	background-color: #333;
-}
-
-.productWrapper .nav .navItem.is-active {
-	color: #000;
-}
-
-.productWrapper .nav .navItem.is-active:before {
-	display: block;
-}
-
-.productWrapper .nav .navLink {
-	display: block;
-	padding: 1.6rem 1rem;
-}
-
-.productWrapper .nav .navLink {
-	padding-top: 1rem;
-}
 
 .productWrapper .sideBtn {
 	display: table;
@@ -358,6 +296,7 @@ li {
 	border-radius: 1rem;
 	text-align: center;
 	box-sizing: border-box;
+	margin-top:4rem;
 }
 
 .productWrapper .sideBtn>span {
@@ -494,7 +433,7 @@ li {
 	background-position: 0 0;
 }
 
-.productWrapper .detail .casting {
+.productWrapper .detail . {
 	position: relative;
 }
 
@@ -544,7 +483,6 @@ li {
 	overflow: hidden;
 	display: block;
 	width: 10.1rem;
-	height: 10.1rem;
 	margin: 0 auto 0.8rem;
 	border-radius: 50%;
 	background-color: #f0f0f0;

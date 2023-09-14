@@ -11,16 +11,18 @@
 <body>
 	<div id="cont_wrap" class="clear_g">
 		<div class="wrap_main_slider">
-			<div class="swiper">
+			<div class="swiper" style="width: 2959px; left: -1076px;">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
 						<a href="/page/musical_info"><img
 							src=http://tkfile.yes24.com/upload2/PerfBlog/202307/20230703/20230703-46234.jpg
 							class=img></a>
 					</div>
-					<div class="swiper-slide"><a href="/page/musical_info"><img
+					<div class="swiper-slide">
+						<a href="/page/musical_info"><img
 							src=http://tkfile.yes24.com/upload2/PerfBlog/202308/20230804/20230804-46305.jpg
-							class=img></a></div>
+							class=img></a>
+					</div>
 					<div class="swiper-slide">
 						<a href="/page/musical_info"><img
 							src=https://ticketimage.interpark.com/Play/image/large/L0/L0000049_p.gif
@@ -78,26 +80,59 @@
 				</div>
 			</div>
 		</div>
-		<script>
-			new Swiper('.swiper', {
-				autoplay : {
-					delay : 5000
-				},
-				loop : true,
-				slidesPerView : 3,
-				spaceBetween : 10,
-				centeredSlides : true,
-				pagination : {
-					el : '.swiper-pagination',
-					clickable : true
-				},
-				navigation : {
-					prevEl : '.swiper-button-prev',
-					nextEl : '.swiper-button-next'
-				}
-			})
-		</script>
 	</div>
+	<div class>
+		<div data-v-223ac3f7>
+			<div data-v-223ac3f7 id="mitisection_index_1" class="multi portrait-cell" style="background-color: #000127;">
+				<div data-v-223ac3f7 class="title">
+					<h1 data-v-223ac3f7 tabindex="0" class="title-area">
+						<span data-v-223ac3f7 class="label">뮤지컬</span>
+					</h1>
+				</div>
+				<div data-v-223ac3f7>
+					<div data-v-54077454 data-v-223ac3f7 class = "session-contents" cell-type="band_14">
+						<div class = "contents-wrapper">
+							<div data-v-54077454 class="slide1" style="width:240px; margin-right:10px;">
+								<div data-v-54077454 class="thumb portrait" loaded-fn="function() { [navice cod]}" cell-index="0">
+									<a href="/page/musical_info?m_num=141" aria-label="">
+										<div class="thumb-image">
+											<div class="picture-area">
+												<picture> <img
+													src="https://ticketimage.interpark.com/Play/image/large/23/23008837_p.gif"
+													class="thumb-img"> </picture>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a data-v-223ac3f7 href="#" class="btn-more all">더보기</a>
+			</div>
+		</div>
+	</div>
+		<ul>
+		</ul>
 </body>
+<script>
+	new Swiper('.swiper', {
+		autoplay : {
+			delay : 5000
+		},
+		loop : true,
+		slidesPerView : 3,
+		spaceBetween : 5,
+		centeredSlides : true,
+		pagination : {
+			el : '.swiper-pagination',
+			clickable : true
+		},
+		navigation : {
+			prevEl : '.swiper-button-prev',
+			nextEl : '.swiper-button-next'
+		}
+	})
+</script>
 	</html>
 </main>
