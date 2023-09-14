@@ -88,7 +88,6 @@ li {
 
 .productWrapper .summary .summaryBody {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 }
 
@@ -152,8 +151,8 @@ li {
 
 .productWrapper .summary .posterBox .posterBoxImage {
 	display: block;
-	width: 100%;
-	height: 100%;
+	width: 30rem;
+	height: 40rem;
 	border: 0.1rem solid #dadee3;
 	box-sizing: border-box;
 }
@@ -168,6 +167,7 @@ li {
 	cursor: pointer;
 	top: 12%;
 	left: 32%;
+	z-index:1;
 }
 
 .productWrapper .summary .likeBtn:focus-visible {
@@ -189,7 +189,7 @@ li {
 }
 
 .productWrapper .summary .likeBtn.is-toggled:before {
-	background-position: 0 3rem;
+	background-position: 0 -3rem;
 }
 
 .productWrapper .summary .likeBtn:disabled {
@@ -202,7 +202,7 @@ li {
 
 .productWrapper .summary .info {
 	display: flex;
-	width: 40rem;
+	width: 70rem;
 	margin-left: 2.5rem;
 	vertical-align: top;
 	flex-direction: column;
@@ -211,7 +211,6 @@ li {
 
 .productWrapper .summary .info .infoItem {
 	margin-top: 1.5rem;
-	margin-bottom: 1rem;
 	padding-left: 2.5rem;
 	font-size: 0;
 }
@@ -270,6 +269,7 @@ li {
 .productWrapper .nav .navList {
 	font-size: 0;
 	border-bottom: 0.1rem solid #b6bdc7;
+	border-width:0.2rem;
 }
 
 .productWrapper .nav .navItem {
@@ -285,7 +285,7 @@ li {
 
 .productWrapper .sideBtn {
 	display: table;
-	width: 100%;
+	width: 60%;
 	min-height: 5.4rem;
 	padding: 0 1rem;
 	font-size: 1.6rem;
@@ -296,7 +296,8 @@ li {
 	border-radius: 1rem;
 	text-align: center;
 	box-sizing: border-box;
-	margin-top:4rem;
+	margin-top:13rem;
+	margin-left:7rem;
 }
 
 .productWrapper .sideBtn>span {

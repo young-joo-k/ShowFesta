@@ -44,7 +44,7 @@ public class ContentsServiceImpl implements ContentsService {
 	
 //		 List<ContentsVO> festivalContents = contentsmapper.getFestivalContents();
 //
-//		    // µ¥ÀÌÅÍ°¡ ¾ø´Â °æ¿ì ¸Þ½ÃÁö Ãß°¡
+//		    // ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 //		    if (festivalContents == null || festivalContents.isEmpty()) {
 //		        festivalContents = new ArrayList<>();
 //		    }
@@ -55,11 +55,22 @@ public class ContentsServiceImpl implements ContentsService {
 	}
 
 	@Override
-	public List<ContentsVO> getToday_m_contents() {
+	public List<ContentsVO> getToday_contents() {
 		
 		log.info("today_m_contents");
-		return contentsmapper.getToday_m_contents();
+		return contentsmapper.getToday_contents();
 	}
+
+//	@Override
+//	public List<ContentsVO> getToday_c_contents() {
+//		return contentsmapper.getToday_c_contents();
+//	}
+//
+//	@Override
+//	public List<ContentsVO> getToday_f_contents() {
+//		
+//		return contentsmapper.getToday_f_contents();
+//	}
 	
 	
 }

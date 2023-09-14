@@ -28,12 +28,28 @@
 	
 	
 	<!-- 캘린더 내 모달에서 사용됨 -->
-	<select id ="getToday_m_contents" resultType ="org.project.domain.ContentsVO">
+	<select id ="getToday_contents" resultType ="org.project.domain.ContentsVO">
 		<![CDATA[
 			select *
 			from tbl_musical
 			where sysdate > m_start_date and sysdate < m_end_date
 		]]> 
 
-</select>
+	</select>
+	
+<!-- 	<select id ="getToday_c_contents" resultType ="org.project.domain.ContentsVO"> -->
+<!-- 		<![CDATA[ -->
+<!-- 			select * -->
+<!-- 			from tbl_concert -->
+<!-- 			where sysdate > m_start_date and sysdate < m_end_date -->
+<!-- 		]]>  -->
+<!-- 	</select> -->
+	
+<!-- 	<select id ="getToday_f_contents" resultType ="org.project.domain.ContentsVO"> -->
+<!-- 		<![CDATA[ -->
+<!-- 			select * -->
+<!-- 			from tbl_festival -->
+<!-- 			where sysdate > m_start_date and sysdate < m_end_date -->
+<!-- 		]]>  -->
+<!-- 	</select> -->
 </mapper>

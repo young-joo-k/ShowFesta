@@ -96,7 +96,9 @@ public class PageController {
 		int festivalCnt = scheduleservice.getFestival();
 		
 		//모달창에 띄우기 위해서 필요한 코드 입니다.
-		List<ContentsVO> today_m_contents = contentsservice.getToday_m_contents();
+		List<ContentsVO> today_m_contents = contentsservice.getToday_contents();
+//		List<ContentsVO> today_c_contents = contentsservice.getToday_c_contents();
+//		List<ContentsVO> today_f_contents = contentsservice.getToday_f_contents();
 		
 		
 		// 배열에 담음
@@ -106,10 +108,11 @@ public class PageController {
 		model.addAttribute("dateList", dateList); // 날짜 데이터 배열
 		model.addAttribute("today_info", today_info);
 		
-		//여기 모델도 모달창에 띄울라고 쓰는거입니다
-		model.addAttribute("today_m_contents", today_m_contents);
-		log.info("today_m_contents");
-		System.out.println(today_m_contents);
+		//여기 모델도 모달창에 띄우려고 쓰는거입니다
+		model.addAttribute("today_contents", today_m_contents);
+		System.out.println(today_m_contents.size());
+//		model.addAttribute("today_c_contents", today_c_contents);
+//		model.addAttribute("today_f_contents", today_f_contents);
 		return "/page/calendar";
 	}
 
@@ -140,13 +143,36 @@ public class PageController {
 //		뮤지컬에 출연한 배우이름,이미지,역할 등등 가져오기
 		List<PlayVO> actor = playservice.getActorList(m_num);
 //		상세이미지 가져오기
-		List<DImgVO> img = infoimgservice.InfoImgList(m_num);		
-		System.out.println(img);
+		List<DImgVO> img = infoimgservice.InfoImgList(m_num);
 		model.addAttribute("actorList", actor);
 		model.addAttribute("musical", result);
 		model.addAttribute("ImgList",img);
 	}
 
+	@GetMapping("/concert_info")
+	public void c_info(@RequestParam("m_num") Long m_num,HttpSession session, Model model) {
+		log.info(m_num);
+//		아이디 정보
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+		}
+//		컨텐츠 번호,이름,날짜 등등 가져오기
+		ContentsVO result = contentsservice.getConcert(m_num);
+		String s_date = result.getM_start_date();
+		result.setM_start_date(parseDate(s_date));
+		String e_date = result.getM_end_date();
+		result.setM_end_date(parseDate(e_date));
+//		뮤지컬에 출연한 배우이름,이미지,역할 등등 가져오기
+//		List<PlayVO> actor = playservice.getActorList(m_num);
+//		상세이미지 가져오기
+		List<DImgVO> img = infoimgservice.InfoImgList(m_num);
+//		model.addAttribute("actorList", actor);
+		model.addAttribute("musical", result);
+		model.addAttribute("ImgList",img);
+	}
+	
 	//오라클로 날짜를 받아오면 2023-08-10 00:00:00 이런식으로 가져오는데 이걸 2023.08.10 으로 바꾸는 함수
 	public String parseDate(String inputString)
 	{
