@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 import org.project.data.DateData;
 import org.project.domain.ContentsVO;
 import org.project.domain.MemberVO;
+import org.project.domain.PlayVO;
+import org.project.service.PlayService;
 import org.project.service.ContentsService;
 import org.project.service.MemberService;
 import org.project.service.ScheduleService;
@@ -34,6 +36,9 @@ public class PageController {
 	
 	@Autowired
 	private ContentsService contentsservice;
+	
+	@Autowired
+	private PlayService playservice;
 	
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
@@ -109,6 +114,9 @@ public class PageController {
 		result.setM_start_date(parseDate(s_date));
 		String e_date = result.getM_end_date();
 		result.setM_end_date(parseDate(e_date));
+		List<PlayVO> actor = playservice.getActorList(m_num);
+		System.out.println(actor);
+		model.addAttribute("actorList", actor);
 		model.addAttribute("musical", result);
 	}
 
