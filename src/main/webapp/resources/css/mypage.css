@@ -21,17 +21,15 @@ article{
 
 .myPage-info{
 	margin-left:30px;
-	
 }
 
 .myPage-name, .myPage-update{
 	margin: 20px;
-	font-size: 30px;
 }
 
 .myPage-menu-wrapper{
 	display:flex;
-	margin-top: 15px;
+	margin-top: 20px;
 }
 
 .mypage-contents{
@@ -40,7 +38,31 @@ article{
 
 .like-contents, .like-actor, .myPage-qna{
   border-style: none;
-  width: 200px;
+  width: 180px;
   height: 70px;
-  font-size: large;
+  font-size: larger;
+  background-color: #ffd47f;
+  border-color: #ffd47f;
+  color: #595959;
+}
+
+/* 마이페이지 qna */
+.myQna{
+	width: 50rem;
+	height: 20rem;
+	text-align: center;
+	
+}
+.myPage-qna-space{
+	margin:15px;
+}
+
+.myPage-qna-button{
+	float: right;
+  margin-right: 20px;
+  
+}
+
+.mypage-notice{
+	margin-left: 30px;
 }
