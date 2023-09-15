@@ -13,9 +13,14 @@ public class InfoImgServiceImpl implements InfoImgService{
 
 	private InfoImgMapper imgmapper;
 	@Override
-	public List<DImgVO> InfoImgList(Long m_num) {
+	public List<DImgVO> InfoMImgList(Long m_num) {
 		
-		return imgmapper.getInfoImgList(m_num);
+		return imgmapper.getInfoMImgList(m_num);
+	}
+	@Override
+	public List<DImgVO> InfoCImgList(Long m_num) {
+		// TODO Auto-generated method stub
+		return imgmapper.getInfoCImgList(m_num);
 	}
 
 }

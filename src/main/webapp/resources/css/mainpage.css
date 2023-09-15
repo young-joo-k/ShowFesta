@@ -16,7 +16,11 @@
 }
 .multi {
     position: relative;
+    width: 1240px;
+    margin: 0 auto;
+    overflow: hidden;
 }
+
 
 .multi.portrait-cell[data-v-223ac3f7] {
     min-height: 383px;
@@ -32,7 +36,7 @@
 }
 
 .session-contents[data-v-54077454] {
-    min-height: 442px;
+    min-height: 360px;
 }
 
 
@@ -49,7 +53,6 @@
 .contents-wrapper{
 	position: relative;
     width: 100%;
-    height: 100%;
     z-index: 1;
     display: flex;
     transition-property: transform;
@@ -57,7 +60,7 @@
     transform: translateZ(0);
 }
 
-.slide1{
+.contents-slide{
     flex-shrink: 0;
     width: 100%;
     height: 100%;
@@ -99,8 +102,8 @@
 .multi .btn-more.all {
     position: absolute;
     top: 7px;
-    right: 20;
-    padding: 5px 20px 5px 0;
+    right: 20px;
+    padding: 5px 90px 10px 0;
     font-size: 16px;
     line-height: 24px;
     color: black;
@@ -108,4 +111,29 @@
     background-size: 16px auto;
     filter: invert(100%) sepia(52%) saturate(20%) hue-rotate(315deg)
     brightness(103%) contrast(108%);
+}
+
+.middle-section{
+	background-color : #000127;
+	    padding-top: 50px;
+}
+
+.main01-nav button[class^=btn] {
+    display: table-cell;
+    width: 34px;
+    height: 34px;
+    vertical-align: middle;
+}
+
+.picture-area img{
+	transition: transform 0.3s;
+}
+
+.picture-area {
+	
+	  overflow: hidden; /* 이미지 넘침 제어 */
+}
+
+.picture-area:hover img {
+    transform: scale(1.1); /* 호버 상태에서 이미지를 확대합니다 (1.1배로 확대). */
 }

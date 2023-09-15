@@ -1,5 +1,5 @@
 @charset "utf-8";
-body {
+.calendarBody {
 		scrollbar-face-color: #F6F6F6;
 		scrollbar-highlight-color: #bbbbbb;
 		scrollbar-3dlight-color: #FFFFFF;
@@ -21,11 +21,27 @@ overflow:hidden;
 text-overflow:ellipsis;
 }
 
-A:link { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:none; }
-A:visited { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:none; }
+/* A:link { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:none; } */
+/* A:visited { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:none; } */
 /* 마우스 올렸을때 색 바뀌는 부분 */
-A:active { font-size:15pt; font-family:"돋움";color:#FEBC38; text-decoration:none; }
-A:hover { font-size:15pt; font-family:"돋움";color:#FEBC38;text-decoration:none;}
+.contentsCount{
+  margin-left: 10px;
+}
+
+.contentsCnt1:active, .contentsCnt2:active, .contentsCnt3:active { 
+	font-size:15pt; 
+	font-family:"돋움";
+	color:#FEBC38; 
+	text-decoration:none;  
+	
+}
+.contentsCnt1:hover, .contentsCnt2:hover, .contentsCnt3:hover { 
+	font-size:15pt; 
+	font-family:"돋움";
+	color:#FEBC38;
+	text-decoration:none;
+	
+}
 
 .day{
   width:100px; 
@@ -41,8 +57,7 @@ A:hover { font-size:15pt; font-family:"돋움";color:#FEBC38;text-decoration:non
 .cal-navigation{
   font-size: larger;
   font-weight: bold;
-  color: #FEBC38;
-  
+  color: #FEBC38;  
 }
 
 .sat{
@@ -57,29 +72,31 @@ A:hover { font-size:15pt; font-family:"돋움";color:#FEBC38;text-decoration:non
 }
 
 
-#typeSearch{
-	width:80px;
-	height:30px;
-	margin-bottom: 5px;
-	border-color: #FEBC38;
-	border-radius: 4px;
-	font-size: large;
-  /* color: #000127; */
-}
+/* #typeSearch{ */
+/* 	width:80px; */
+/* 	height:30px; */
+/* 	margin-bottom: 5px; */
+/* 	border-color: #FEBC38; */
+/* 	border-radius: 4px; */
+/* 	font-size: large; */
+/*   color: #000127; */
+/* } */
 
 
 /* 검색어 입력창 */
-input{
-	width:200px;
-	height:30px;
-  border-color: #FEBC38;
-  border-radius: 4px;
-  background-color: #F6F6F6;
+/* input{ */
+/* 	width:200px; */
+/* 	height:30px; */
+/* 	border-color: #FEBC38; */
+/* 	border-radius: 4px; */
+/* 	background-color: #F6F6F6; */
 
-}
+/* } */
 
 .today_button_div{
   float: left;
+  margin-bottom: 15px;
+  
 }
 
 .today_button{
@@ -91,9 +108,10 @@ input{
   border-color: #FEBC38;
   border-radius: 4px;
   background-color: #FEBC38;
+  font-size: medium;
 }
 
-.searchFormBtn{
+.searchBoxBtn{
   border-style: solid;
   border-radius: 4px;
   width: 50px;
@@ -122,6 +140,7 @@ input{
   border:1px solid white;
   margin-bottom: 50px;
   border-collapse: collapse;
+  padding-top: 20px;
 }
 .calendar_body .today{
   border:1px solid white;
@@ -131,12 +150,11 @@ input{
   vertical-align: top;
 }
 
-a {
-	margin-top:20px;
-	font-size:medium;
+.no-data-message{
+	color:red;	
 }
 
-.contentsCnt {
+.contentsCnt1, .contentsCnt2, .contentsCnt3 {
 	margin-top:20px;
 	font-size:large;
   	color : #000127;
@@ -146,6 +164,7 @@ a {
   font-size: 15px;
   padding-left: 3px;
   padding-top: 3px;
+  padding-bottom:5px;
 }
 .calendar_body .sat_day{
   border:1px solid white;
@@ -202,7 +221,7 @@ a.before_after_year{
 }
 
 /* 모달에 대한 CSS */
-#modal {
+#modal-musical, #modal-concert, #modal-festival {
   display: none;
   position: relative;
   z-index: 9999;
@@ -222,6 +241,10 @@ a.before_after_year{
 	position: relative;
 }
 
+.modal-title{
+	text-align: center;
+}
+
 button.modal-close-btn {
 	position: absolute; /* 절대 위치 지정 */
   right: 0; /* 오른쪽에 고정 */
@@ -236,7 +259,7 @@ button.modal-close-btn {
   border-radius: 4px;
 }
 
-.modal-content {
+.modal-content-wrap {
 	margin: 0 auto;
 	width: 50rem;
 	height: 50rem;
@@ -262,7 +285,7 @@ button.modal-close-btn {
 
 .modal-contents-list{
 	width: 25%; /* 4개 컨텐츠가 한 줄에 들어가도록 25%로 설정 */
-	float: right; /* 오른쪽으로 띄워서 나란히 표시 */
+	float: left; /* 왼쪽으로 띄워서 나란히 표시 */
 	box-sizing: border-box; /* 요소의 width와 height에 padding과 border를 포함시킴 */
 	padding: 15px; /* 컨텐츠 간의 간격을 조절 */
 	padding-bottom: 25px;
@@ -301,5 +324,5 @@ button.modal-close-btn {
 }
 
 form#calendarFrm {
-    padding-top: 30px;
+    padding-top: 5px;
 }

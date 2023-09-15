@@ -4,10 +4,17 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace ="org.project.mapper.InfoImgMapper">
 
-	<select id="getInfoImgList" resultType = "org.project.domain.DImgVO">
+	<select id="getInfoMImgList" resultType = "org.project.domain.DImgVO">
 		select info_img from detail_img where m_title = (
 		    SELECT m_title
 		    FROM tbl_musical
+		    WHERE m_num = #{m_num}
+		)
+	</select>
+	<select id="getInfoCImgList" resultType = "org.project.domain.DImgVO">
+		select info_img from concert_img where m_title = (
+		    SELECT m_title
+		    FROM tbl_concert
 		    WHERE m_num = #{m_num}
 		)
 	</select>

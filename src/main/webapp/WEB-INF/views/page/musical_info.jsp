@@ -7,7 +7,7 @@
 <div id="container">
 	<main id="main">
 		<section class="infoSection">
-			<div class="contents" style="">
+			<div class="content" style="">
 				<div class="productWrapper">
 					<div class="productMain">
 						<div class="productMainTop">
@@ -22,7 +22,12 @@
 										<a class="likeBtn" data-toggle="self"
 											data-toast="like" aria-checked="false"
 											aria-label="즐겨찾기 등록" role="checkbox" href="#"
-											data-popup-hover="like"></a>
+											data-popup-hover="like" data-contents-num="${musical.m_num } " data-type="뮤지컬"  
+											data-user-id="${user.id }"  
+											<c:if test="${empty user}">
+										        data-empty-user="true"				
+										    </c:if>></a>
+										<h2 class="jowa">좋아요</h2>
 
 									</div>
 									<div>
@@ -50,7 +55,7 @@
 							</div>
 						</div>
 						<div id="productMainBody" class="productMainBody">
-							<nav class="nav">
+							<nav class="content">
 								<div class="navInfo" style="">
 									<div class="stickyWrap">
 										<ul class="navList">
@@ -63,30 +68,43 @@
 								<div class="prdContents detail">
 									<div class="content casting">
 										<h3 class="contentTitle">캐스팅</h3>
-										<div class="expandableWrap ">
-											<ul class="castingList">
-												<c:forEach var="actor" items="${actorList}">
-													<li class="castingItem"><div class="castingTop">
-															<a class="castingLink"
-																href="http://www.playdb.co.kr/artistdb/detail.asp?ManNo=359"
-																target="_blank" rel="noopener">
-																<div class="castingProfile">
-																	<img src="${actor.a_img }" class="castingImage"
-																		alt="프로필 사진">
-																</div>
-															</a> <a class="castingHeartBtn " data-toggle="self"
-																data-toast="cast" aria-checked="false"
-																aria-label="즐겨찾기 등록/취소" role="checkbox" href="#"></a>
-														</div>
-														<div class="castingInfo">
-															<div class="castingActor">${actor.a_role }</div>
-															<div class="castingName">${actor.a_name }</div>
-														</div></li>
-												</c:forEach>
-											</ul>
-											<a class="contentToggleBtn" data-toggle="expandableWrap"
-												role="button" aria-label="여닫기" href="#"></a>
-										</div>
+											<c:choose>
+												<c:when test = "${empty actorList }">
+													<div class = "no-data-message">
+													</div>
+												</c:when>
+												<c:otherwise>
+													<div class="expandableWrap ">
+														<ul class="castingList">
+															<c:forEach var="actor" items="${actorList}">
+																<li class="castingItem"><div class="castingTop">
+																		<a class="castingLink"
+																			href="${actor.a_link }"
+																			target="_blank" rel="noopener">
+																			<div class="castingProfile">
+																				<img src="${actor.a_img }" class="castingImage"
+																					alt="프로필 사진">
+																			</div>
+																		</a> <a class="castingHeartBtn " data-toggle="self"
+																			data-toast="cast" aria-checked="false"
+																			aria-label="즐겨찾기 등록/취소" role="checkbox" href="#"
+																			data-actor-num="${actor.a_num }" data-type="배우"
+																			data-user-id="${user.id }"  
+																			<c:if test="${empty user}">
+									      										data-empty-user="true"				
+										    								</c:if>></a>
+																	</div>
+																	<div class="castingInfo">
+																		<div class="castingActor">${actor.a_role }</div>
+																		<div class="castingName">${actor.a_name }</div>
+																	</div></li>
+															</c:forEach>
+														</ul>
+														<a class="contentToggleBtn" data-toggle="expandableWrap"
+															role="button" aria-label="여닫기" href="#"></a>
+													</div>
+												</c:otherwise>
+											</c:choose>
 									</div>
 									<div class="content description">
 										<h3 class="contentTitle">공연상세 / 캐스팅일정</h3>
@@ -104,6 +122,7 @@
 						</div>
 					</div>
 				</div>
+				<div class="toast is-off"><span class="toastMessage">즐겨찾기 해제되었습니다.</span></div>
 			</div>
 			<div class="topButtonWrapper ">
 				<a href="#" class="topButton"><span class="blind">맨 위로</span></a>
@@ -116,17 +135,12 @@
 	// JavaScript 부분
 	$(document).ready(function() {
 		$(".navItem").on("click", function(e) {
-			// 기본 동작(링크 이동)을 방지합니다.
 			e.preventDefault();
 
-			// 모든 .navItem에서 is-active 클래스를 제거합니다.
 			$(".navItem").removeClass("is-active");
 
-			// 현재 클릭한 .navItem에 is-active 클래스를 추가합니다.
 			$(this).addClass("is-active");
 
-			// 여기에서 원하는 동작을 추가할 수 있습니다.
-			// 예를 들어, 클릭한 메뉴에 해당하는 내용을 화면에 표시하거나 다른 동작을 수행할 수 있습니다.
 		});
 		// contentToggleBtn를 클릭했을 때 동작하는 함수
 		$(".contentToggleBtn").on("click", function(e) {
@@ -134,18 +148,40 @@
 		    toggleContent();
 		});
 
+
 		// castingHeartBtn를 클릭했을 때 동작하는 함수
 		$(".castingHeartBtn").on("click", function(e) {
 		    e.preventDefault();
 		    var castingHeartBtn = $(this);
-		    toggleCasting(castingHeartBtn);
+		    if (checkUser(castingHeartBtn)==="true") {
+		    	window.location.href = "/join/login";
+		    }
+		    else {
+		    	toggleCasting(castingHeartBtn);	
+		    	
+		    }
 		});
-		// castingHeartBtn를 클릭했을 때 동작하는 함수
+		
 		$(".likeBtn").on("click", function(e) {
 		    e.preventDefault();
 		    var likeBtn = $(this);
-		    togglelikeBtn(likeBtn);
+		    if (checkUser(likeBtn) === "true") {
+		    	window.location.href = "/join/login";
+		    } 
+		    else {
+			    togglelikeBtn(likeBtn);
+		    	var musicalNum = likeBtn.attr("data-contents-num");
+		    	var userId = likeBtn.attr("data-user-id");
+		    	var type = likeBtn.attr("data-type");
+		    	console.log("musicalNum : "+ musicalNum);
+		    	console.log("userId : "+ userId);
+		    	console.log("type : "+ type);
+		    }
 		});
+		function checkUser(check){
+			return check.attr("data-empty-user");
+		}
+
 		function toggleContent() {
 		    // 여닫기 상태를 토글
 		    var expandableWrap = document.querySelector(".expandableWrap");
@@ -158,21 +194,82 @@
 		}
 
 		function toggleCasting(castingHeartBtn) {
-		    // castingHeartBtn 토글
-	        if (castingHeartBtn.hasClass("is-toggled")) {
-      			castingHeartBtn.removeClass("is-toggled");
-    		} else {
-        		castingHeartBtn.addClass("is-toggled");
-    		}
+		    var toast = $(".toast");
+		    var toastMessage = $(".toastMessage");
+		    var toastIcon = toast.hasClass("is-off") ? "is-off" : "is-on"; // 현재 아이콘 상태 확인
+	    	var actorNum = castingHeartBtn.attr("data-actor-num");
+	    	var userId = castingHeartBtn.attr("data-user-id");
+	    	var type = castingHeartBtn.attr("data-type");
+	    	console.log("actorNum : "+ actorNum);
+	    	console.log("userId : "+ userId);
+	    	console.log("type : "+ type);
+		    if (castingHeartBtn.hasClass("is-toggled")) {
+		        castingHeartBtn.removeClass("is-toggled");
+		        toastMessage.text("즐겨찾기 해제되었습니다.");
+		        toastIcon = "is-off"; // 아이콘 상태를 변경
+		    } else {
+		        castingHeartBtn.addClass("is-toggled");
+		        toastMessage.text("즐겨찾기 등록되었습니다.");
+		        toastIcon = "is-on"; // 아이콘 상태를 변경
+		        $.ajax({
+		            type: "GET",
+		            url: "/insert",
+		            data: {
+		                actorNum: actorNum,
+		                userId: userId,
+		                type: type
+		            },
+		            success: function() {
+		                console.log("성공 ");
+		            },
+		            error: function() {
+		                // AJAX 요청이 실패했을 때의 처리
+		                console.log("실패: ");
+		                // 에러 처리 로직을 추가하세요
+		            }
+		        });
+		    }
+
+		    // 토스트 메시지의 클래스를 토글
+		    toast.toggleClass("is-visible");
+		    // 아이콘 상태에 따라 배경 위치 변경
+		    toast.removeClass("is-off is-on").addClass(toastIcon);
+
+		    // 일정 시간이 지난 후 토스트 메시지 숨기기
+		    setTimeout(function() {
+		        toast.removeClass("is-visible");
+		    }, 500); // 0.5초 후에 숨김
+		}
+
+		function togglelikeBtn(likeBtn) {
+		    var toast = $(".toast");
+		    var toastMessage = $(".toastMessage");
+		    var toastIcon = toast.hasClass("is-off") ? "is-off" : "is-on"; // 현재 아이콘 상태 확인
+
+		    if (likeBtn.hasClass("is-toggled")) {
+		        likeBtn.removeClass("is-toggled");
+		        toastMessage.text("즐겨찾기 해제되었습니다.");
+		        toastIcon = "is-off"; // 아이콘 상태를 변경
+		    } else {
+		        likeBtn.addClass("is-toggled");
+		        toastMessage.text("즐겨찾기 등록되었습니다.");
+		        toastIcon = "is-on"; // 아이콘 상태를 변경
+		    }
+
+		    // 토스트 메시지의 클래스를 토글
+		    toast.toggleClass("is-visible");
+		    // 아이콘 상태에 따라 배경 위치 변경
+		    toast.removeClass("is-off is-on").addClass(toastIcon);
+
+		    // 일정 시간이 지난 후 토스트 메시지 숨기기
+		    setTimeout(function() {
+		        toast.removeClass("is-visible");
+		    }, 500); // 0.5초 후에 숨김
 		}
 		
-		function togglelikeBtn(likeBtn) {
-		    // castingHeartBtn 토글
-	        if (likeBtn.hasClass("is-toggled")) {
-	        	likeBtn.removeClass("is-toggled");
-    		} else {
-    			likeBtn.addClass("is-toggled");
-    		}
+		function updateLike(num,id,type){
+			
 		}
+
 	});
 </script>

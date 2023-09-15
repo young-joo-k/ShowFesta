@@ -8,4 +8,5 @@ public class PlayVO {
 	private String a_name;
 	private String a_img;
 	private String a_role;
+	private String a_link;
 }
