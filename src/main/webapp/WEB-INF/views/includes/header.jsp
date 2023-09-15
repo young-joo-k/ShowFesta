@@ -76,7 +76,7 @@
 						<input type="text" id="header_keyword" placeholder="검색어를 입력해 주세요">
 						<input type="hidden" id="header_ad_keyword" name="header_ad_keyword">
 					</label>
-					<button type="button" class="btn_totalSearch" id="btn_header_search" onclick="location.href='/page/search'">검색</button>
+					<button type="button" class="btn_totalSearch" id="btn_header_search" onclick="search()">검색</button>
 				</div>
 			</div>
 		</div>
@@ -99,5 +99,29 @@ $(document).ready(function() {
     );
     $('.dropdown ul').hide();
 });
+</script>
+
+
+<script>
+    // 페이지가 준비되면 실행할 코드
+    $(document).ready(function() {
+        // 검색 버튼 클릭 이벤트를 처리합니다.
+        $("#btn_header_search").click(function() {
+            // 검색어를 가져옵니다.
+            var keyword = $("#header_keyword").val();
+
+            // 검색어가 비어있지 않은 경우에만 검색 결과 페이지로 이동합니다.
+            if (keyword.trim() !== "") {
+                // 검색 결과 페이지 URL을 구성합니다.
+                var searchResultUrl = "/page/search?keyword=" + encodeURIComponent(keyword);
+
+                // 검색 결과 페이지로 리디렉션합니다.
+                window.location.href = searchResultUrl;
+            } else {
+                // 검색어가 비어있는 경우 경고 메시지를 표시하거나 아무 작업도 수행하지 않습니다.
+                alert("검색어를 입력하세요.");
+            }
+        });
+    });
 </script>
 </html>

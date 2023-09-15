@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- MyBatis XML 설정 파일에서 SQL 쿼리를 정의 -->
+<mapper namespace="org.project.mapper.SearchMapper">
+   <select id="searchMusicals" parameterType="string" resultType="org.project.mapper.SearchMapper">
+SELECT * FROM tbl_musical
+WHERE m_title LIKE '%검색어%'
+    </select>
+<!--     뮤지컬 검색 결과 쿼리
+    <select id="searchMusicals" parameterType="string" resultType="org.project.mapper.SearchMapper">
+        SELECT m_title, m_image
+        FROM tbl_musical
+        WHERE m_title LIKE CONCAT('%', #{keyword}, '%');
+    </select>
+    
+    페스티벌 검색 결과 쿼리
+    <select id="searchFestivals" parameterType="string" resultType="org.project.mapper.SearchMapper">
+        SELECT m_title, m_img
+        FROM tbl_festival
+        WHERE m_title LIKE CONCAT('%', #{keyword}, '%');
+    </select>
+    
+    배우 검색 결과 쿼리
+    <select id="searchActors" parameterType="string" resultType="org.project.mapper.SearchMapper">
+        SELECT a_name, a_image
+        FROM tbl_actor
+        WHERE a_name LIKE CONCAT('%', #{keyword}, '%');
+    </select>
+     -->
+</mapper>
