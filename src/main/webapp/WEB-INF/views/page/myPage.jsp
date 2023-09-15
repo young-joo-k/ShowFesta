@@ -46,11 +46,19 @@ pageEncoding="UTF-8"%>
 <div class = "my-like-content">
 	<div class = "my-contetnt-wrap">
 		<c:choose>
-			<c:when test = "${empty } ">
-				
+			<c:when test = "${empty likeInfo} ">
+				<div class = "no-like-message">
+					<p class = "no-like-message">즐겨찾기 하신 내용이 없습니다.</p>
+				</div>
 			</c:when>
 			<c:otherwise>
-			
+				<c:forEach var = "myLike" items="${likeInfo }">
+					<div class = "like-list-wrap">
+						<a style="cursor:pointer;" href='/page/musical_info?m_num= <c:out value = "${content.m_num}"/>'></a>					
+						<img class = "comImg" src = <c:out value = "${myLike.m_img}"/>>
+						<div class = "like-list-title">${myLike.m_title}</div>
+					</div>
+				</c:forEach>
 			</c:otherwise>
 		</c:choose>
 	</div>

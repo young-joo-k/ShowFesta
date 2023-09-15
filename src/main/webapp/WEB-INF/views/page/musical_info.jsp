@@ -22,7 +22,7 @@
 										<a class="likeBtn" data-toggle="self"
 											data-toast="like" aria-checked="false"
 											aria-label="즐겨찾기 등록" role="checkbox" href="#"
-											data-popup-hover="like" data-contents-num="${musical.m_num } " data-type="뮤지컬"  
+											data-popup-hover="like" data-contents-name="${musical.m_title } " data-type="뮤지컬"  
 											data-user-id="${user.id }"  
 											<c:if test="${empty user}">
 										        data-empty-user="true"				
@@ -88,7 +88,7 @@
 																		</a> <a class="castingHeartBtn " data-toggle="self"
 																			data-toast="cast" aria-checked="false"
 																			aria-label="즐겨찾기 등록/취소" role="checkbox" href="#"
-																			data-actor-num="${actor.a_num }" data-type="배우"
+																			data-actor-name="${actor.a_name }" data-type="배우"
 																			data-user-id="${user.id }"  
 																			<c:if test="${empty user}">
 									      										data-empty-user="true"				
@@ -170,12 +170,6 @@
 		    } 
 		    else {
 			    togglelikeBtn(likeBtn);
-		    	var musicalNum = likeBtn.attr("data-contents-num");
-		    	var userId = likeBtn.attr("data-user-id");
-		    	var type = likeBtn.attr("data-type");
-		    	console.log("musicalNum : "+ musicalNum);
-		    	console.log("userId : "+ userId);
-		    	console.log("type : "+ type);
 		    }
 		});
 		function checkUser(check){
@@ -197,16 +191,28 @@
 		    var toast = $(".toast");
 		    var toastMessage = $(".toastMessage");
 		    var toastIcon = toast.hasClass("is-off") ? "is-off" : "is-on"; // 현재 아이콘 상태 확인
-	    	var actorNum = castingHeartBtn.attr("data-actor-num");
+	    	var actorName = castingHeartBtn.attr("data-actor-name");
 	    	var userId = castingHeartBtn.attr("data-user-id");
 	    	var type = castingHeartBtn.attr("data-type");
-	    	console.log("actorNum : "+ actorNum);
-	    	console.log("userId : "+ userId);
-	    	console.log("type : "+ type);
 		    if (castingHeartBtn.hasClass("is-toggled")) {
 		        castingHeartBtn.removeClass("is-toggled");
 		        toastMessage.text("즐겨찾기 해제되었습니다.");
 		        toastIcon = "is-off"; // 아이콘 상태를 변경
+		        $.ajax({
+		            type: "GET",
+		            url: "/like/delete",
+		            data: {
+		                like_name: actorName,
+		                id: userId,
+		                like_type: type
+		            },
+		            success: function() {
+		                console.log("성공 ");
+		            },
+		            error: function() {
+		                console.log("실패: ");
+		            }
+		        });
 		    } else {
 		        castingHeartBtn.addClass("is-toggled");
 		        toastMessage.text("즐겨찾기 등록되었습니다.");
@@ -215,18 +221,15 @@
 		            type: "GET",
 		            url: "/like/insert",
 		            data: {
-		                actorNum: actorNum,
-		                userId: userId,
-		                type: type,
-		                like:1
+		                like_name: actorName,
+		                id: userId,
+		                like_type: type
 		            },
 		            success: function() {
 		                console.log("성공 ");
 		            },
 		            error: function() {
-		                // AJAX 요청이 실패했을 때의 처리
 		                console.log("실패: ");
-		                // 에러 처리 로직을 추가하세요
 		            }
 		        });
 		    }
@@ -246,15 +249,47 @@
 		    var toast = $(".toast");
 		    var toastMessage = $(".toastMessage");
 		    var toastIcon = toast.hasClass("is-off") ? "is-off" : "is-on"; // 현재 아이콘 상태 확인
-
+	    	var contentsName = likeBtn.attr("data-contents-name");
+	    	var userId = likeBtn.attr("data-user-id");
+	    	var type = likeBtn.attr("data-type");
 		    if (likeBtn.hasClass("is-toggled")) {
 		        likeBtn.removeClass("is-toggled");
 		        toastMessage.text("즐겨찾기 해제되었습니다.");
 		        toastIcon = "is-off"; // 아이콘 상태를 변경
+		        $.ajax({
+		            type: "GET",
+		            url: "/like/delete",
+		            data: {
+		                like_name: contentsName,
+		                id: userId,
+		                like_type: type
+		            },
+		            success: function() {
+		                console.log("성공 ");
+		            },
+		            error: function() {
+		                console.log("실패: ");
+		            }
+		        });
 		    } else {
 		        likeBtn.addClass("is-toggled");
 		        toastMessage.text("즐겨찾기 등록되었습니다.");
 		        toastIcon = "is-on"; // 아이콘 상태를 변경
+		        $.ajax({
+		            type: "GET",
+		            url: "/like/insert",
+		            data: {
+		                like_name: contentsName,
+		                id: userId,
+		                like_type: type
+		            },
+		            success: function() {
+		                console.log("성공 ");
+		            },
+		            error: function() {
+		                console.log("실패: ");
+		            }
+		        });
 		    }
 
 		    // 토스트 메시지의 클래스를 토글

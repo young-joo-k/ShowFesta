@@ -1,8 +1,12 @@
 package org.project.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
+import org.project.domain.LikeVO;
 import org.project.domain.MemberVO;
+import org.project.service.LikeService;
 import org.project.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +29,8 @@ import lombok.extern.log4j.Log4j;
 public class MemberController {
 	@Autowired
 	private MemberService service;
-	
+	@Autowired
+	private LikeService likeservice;
 	@GetMapping("/login")
 	public void login(@RequestHeader(value = "Referer", required = false) String referrer, HttpSession session) {
 	    if (referrer != null && !referrer.isEmpty()) {
@@ -38,14 +43,21 @@ public class MemberController {
 	public String login(MemberVO membervo, HttpSession session, RedirectAttributes rttr) {
 		log.info("login post, Id -> " + membervo.getId());
 		String checkId = service.login(membervo.getId(), membervo.getPw());
+		List<LikeVO> likeList = likeservice.getLike(membervo.getId());
 		if (checkId != null && checkId.equals(membervo.getId())) {
 		    session.setAttribute("id", checkId);
+		    session.setAttribute("likeInfo", likeList);
 		    log.info(checkId + "->main");
 	        // 이전 페이지의 URL을 가져옴
 	        String prevPage = (String) session.getAttribute("prevPage");
 	        if (prevPage != null) {
 	            // 이전 페이지로 리다이렉션
 	            session.removeAttribute("prevPage");
+//	            만약 마이페이지에서 로그인하면 마이페이지로 갈거야
+//	            if(prevPage =="http://localhost:8080/page/main")
+//	            {
+//	            	return "redirect:/page/mypage";
+//	            }
 	            return "redirect:" + prevPage;
 	        } else {
 	            return "redirect:/page/main";
@@ -67,6 +79,11 @@ public class MemberController {
 	            session.removeAttribute("prevPage");
 	            session.invalidate();
 	            log.info("logout");
+//	            만약 마이페이지에서 로그아웃하면 로그인 페이지로 갈거야
+//	            if(prevPage =="http://localhost:8080/page/main")
+//	            {
+//	            	return "redirect:/join/login";
+//	            }
 	            return "redirect:" + prevPage;
 	        }	        
 	    }
