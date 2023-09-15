@@ -6,10 +6,12 @@ import lombok.Data;
 
 @Data
 public class SearchVO {
-	private Long b_num;
-	private String b_title;
-	private String b_content;
-	private String b_writer;
-	private Date regdate;
-	private Date updatedate;
+    private String m_title;
+    private String m_b_link;
+    private String a_name;
+    private String a_img;
+    private String a_link;
+    private String type; // "Musical", "Festival", "Actor" 등
+    
+    // 생성자, 게터, 세터 등 필요한 메서드 추가
 }
