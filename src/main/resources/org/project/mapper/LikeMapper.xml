@@ -5,8 +5,8 @@
 <mapper namespace="org.project.mapper.LikeMapper">
 
 	<insert id="insert">
-		insert into tbl_like(like_name, id,like_type)
-		values(#{like_name}, #{id}, #{like_type})	
+		insert into tbl_like(like_name, id,like_type,like_img)
+		values(#{like_name}, #{id}, #{like_type}, #{like_img})	
 	</insert>
 	
 	<delete id="delete">
