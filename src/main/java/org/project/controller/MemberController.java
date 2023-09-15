@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,14 +27,11 @@ public class MemberController {
 	private MemberService service;
 	
 	@GetMapping("/login")
-	public void login() {
-		log.info("login Get");
-//		String id = (String) session.getAttribute("id");
-//		if (id == null || id.equals("승인이 되지 않은 사용자 입니다.")|| id.equals("없는 아이디 입니다.") || id.equals("패스워드가 다릅니다.") || id.equals("유저 타입이 다릅니다.")) {// 로그인 x
-//		    session.invalidate();
-//			return "/join/login";
-//		}
-//		return "redirect:/page/main";// 로그인 o
+	public void login(@RequestHeader(value = "Referer", required = false) String referrer, HttpSession session) {
+	    if (referrer != null && !referrer.isEmpty()) {
+	        // 이전 페이지의 URL을 세션에 저장
+	        session.setAttribute("prevPage", referrer);
+	    }
 	}
 
 	@PostMapping("/login")
@@ -43,7 +41,15 @@ public class MemberController {
 		if (checkId != null && checkId.equals(membervo.getId())) {
 		    session.setAttribute("id", checkId);
 		    log.info(checkId + "->main");
-		    return "redirect:/page/main";
+	        // 이전 페이지의 URL을 가져옴
+	        String prevPage = (String) session.getAttribute("prevPage");
+	        if (prevPage != null) {
+	            // 이전 페이지로 리다이렉션
+	            session.removeAttribute("prevPage");
+	            return "redirect:" + prevPage;
+	        } else {
+	            return "redirect:/page/main";
+	        }
 		}
 		rttr.addFlashAttribute("result", checkId);
 		log.info(checkId+"->login");

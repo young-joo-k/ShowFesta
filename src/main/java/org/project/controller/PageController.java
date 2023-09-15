@@ -162,7 +162,13 @@ public class PageController {
 		 
 	}
 	@GetMapping("/musical_info")
-	public void m_info(@RequestParam("m_num") Long m_num, Model model) {
+	public void m_info(HttpSession session,@RequestParam("m_num") Long m_num, Model model) {
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+
+		}
 		log.info(m_num);
 		ContentsVO result = contentsservice.getMusical(m_num);
 		String s_date = result.getM_start_date();

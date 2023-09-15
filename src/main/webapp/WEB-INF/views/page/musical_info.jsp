@@ -22,7 +22,11 @@
 										<a class="likeBtn" data-toggle="self"
 											data-toast="like" aria-checked="false"
 											aria-label="즐겨찾기 등록" role="checkbox" href="#"
-											data-popup-hover="like"></a>
+											data-popup-hover="like" data-contents-num="${musical.m_num } " data-type="뮤지컬"  
+											data-user-id="${user.id }"  
+											<c:if test="${empty user}">
+										        data-empty-user="true"				
+										    </c:if>></a>
 										<h2 class="jowa">좋아요</h2>
 
 									</div>
@@ -75,7 +79,7 @@
 															<c:forEach var="actor" items="${actorList}">
 																<li class="castingItem"><div class="castingTop">
 																		<a class="castingLink"
-																			href="http://www.playdb.co.kr/artistdb/detail.asp?ManNo=359"
+																			href="${actor.a_link }"
 																			target="_blank" rel="noopener">
 																			<div class="castingProfile">
 																				<img src="${actor.a_img }" class="castingImage"
@@ -83,7 +87,12 @@
 																			</div>
 																		</a> <a class="castingHeartBtn " data-toggle="self"
 																			data-toast="cast" aria-checked="false"
-																			aria-label="즐겨찾기 등록/취소" role="checkbox" href="#"></a>
+																			aria-label="즐겨찾기 등록/취소" role="checkbox" href="#"
+																			data-actor-num="${actor.a_num }" data-type="배우"
+																			data-user-id="${user.id }"  
+																			<c:if test="${empty user}">
+									      										data-empty-user="true"				
+										    								</c:if>></a>
 																	</div>
 																	<div class="castingInfo">
 																		<div class="castingActor">${actor.a_role }</div>
@@ -113,7 +122,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="toast is-off"><span class="toastMessage">티켓캐스트 등록취소되었습니다.</span></div>
+				<div class="toast is-off"><span class="toastMessage">즐겨찾기 해제되었습니다.</span></div>
 			</div>
 			<div class="topButtonWrapper ">
 				<a href="#" class="topButton"><span class="blind">맨 위로</span></a>
@@ -144,18 +153,64 @@
 		    toggleContent();
 		});
 
+
 		// castingHeartBtn를 클릭했을 때 동작하는 함수
 		$(".castingHeartBtn").on("click", function(e) {
 		    e.preventDefault();
 		    var castingHeartBtn = $(this);
-		    toggleCasting(castingHeartBtn);
+		    if (checkUser(castingHeartBtn)==="true") {
+		    	window.location.href = "/join/login";
+		    }
+		    else {
+		    	toggleCasting(castingHeartBtn);	
+		    	var actorNum = castingHeartBtn.attr("data-actor-num");
+		    	var userId = castingHeartBtn.attr("data-user-id");
+		    	var type = castingHeartBtn.attr("data-type");
+		    	console.log("actorNum : "+ actorNum);
+		    	console.log("userId : "+ userId);
+		    	console.log("type : "+ type);
+		        // AJAX 요청을 보내고 값을 전달
+		        $.ajax({
+		            type: "GET",
+		            url: "/like/insert",
+		            data: {
+		                actorNum: actorNum,
+		                userId: userId,
+		                type: type
+		            },
+		            success: function(response) {
+		                console.log("성공: " + response);
+		            },
+		            error: function(error) {
+		                console.log("실패: " + error);
+		            }
+		        });
+		    }
 		});
-		// castingHeartBtn를 클릭했을 때 동작하는 함수
-// 		$(".likeBtn").on("click", function(e) {
+		    	
+		    }
+		});
+		
+		$(".likeBtn").on("click", function(e) {
 		    e.preventDefault();
 		    var likeBtn = $(this);
-		    togglelikeBtn(likeBtn);
+		    if (checkUser(likeBtn) === "true") {
+		    	window.location.href = "/join/login";
+		    } 
+		    else {
+			    togglelikeBtn(likeBtn);
+		    	var musicalNum = likeBtn.attr("data-contents-num");
+		    	var userId = likeBtn.attr("data-user-id");
+		    	var type = likeBtn.attr("data-type");
+		    	console.log("musicalNum : "+ musicalNum);
+		    	console.log("userId : "+ userId);
+		    	console.log("type : "+ type);
+		    }
 		});
+		function checkUser(check){
+			return check.attr("data-empty-user");
+		}
+		
 		function toggleContent() {
 		    // 여닫기 상태를 토글
 		    var expandableWrap = document.querySelector(".expandableWrap");
@@ -190,7 +245,7 @@
 		    // 일정 시간이 지난 후 토스트 메시지 숨기기
 		    setTimeout(function() {
 		        toast.removeClass("is-visible");
-		    }, 500); // 1초 후에 숨김
+		    }, 500); // 0.5초 후에 숨김
 		}
 
 		function togglelikeBtn(likeBtn) {
@@ -216,7 +271,11 @@
 		    // 일정 시간이 지난 후 토스트 메시지 숨기기
 		    setTimeout(function() {
 		        toast.removeClass("is-visible");
-		    }, 500); // 1초 후에 숨김
+		    }, 500); // 0.5초 후에 숨김
+		}
+		
+		function updateLike(num,id,type){
+			
 		}
 
 	});
