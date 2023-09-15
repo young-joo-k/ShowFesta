@@ -9,7 +9,7 @@ pageEncoding="UTF-8"%>
 <link href="/resources/css/calendar.css?after" rel="stylesheet" type="text/css">
 <!-- <body> -->
 
-<body>
+<body class = "calendarBody">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <form name="calendarFrm" id="calendarFrm" action="" method="GET">
 
