@@ -37,7 +37,7 @@
 							src="https://img.cgv.co.kr/R2014/images/common/ico/loginJoin.png"			
 							alt="회원가입"> <span style="display: ${empty user ? 'inline' : 'none'}">회원가입</span>		
 					</a></li>
-					<li><a href="../join/mypage"> <img
+					<li><a href="../page/myPage"> <img
 							src="https://img.cgv.co.kr/R2014/images/common/ico/loginMember.png"
 							alt="MY PAGE"> <span >마이페이지</span>
 					</a></li>
