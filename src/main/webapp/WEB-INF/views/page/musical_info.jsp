@@ -158,30 +158,6 @@
 		    }
 		    else {
 		    	toggleCasting(castingHeartBtn);	
-		    	var actorNum = castingHeartBtn.attr("data-actor-num");
-		    	var userId = castingHeartBtn.attr("data-user-id");
-		    	var type = castingHeartBtn.attr("data-type");
-		    	console.log("actorNum : "+ actorNum);
-		    	console.log("userId : "+ userId);
-		    	console.log("type : "+ type);
-		        // AJAX 요청을 보내고 값을 전달
-		        $.ajax({
-		            type: "GET",
-		            url: "/like/insert",
-		            data: {
-		                actorNum: actorNum,
-		                userId: userId,
-		                type: type
-		            },
-		            success: function(response) {
-		                console.log("성공: " + response);
-		            },
-		            error: function(error) {
-		                console.log("실패: " + error);
-		            }
-		        });
-		    }
-		});
 		    	
 		    }
 		});
@@ -221,7 +197,12 @@
 		    var toast = $(".toast");
 		    var toastMessage = $(".toastMessage");
 		    var toastIcon = toast.hasClass("is-off") ? "is-off" : "is-on"; // 현재 아이콘 상태 확인
-
+	    	var actorNum = castingHeartBtn.attr("data-actor-num");
+	    	var userId = castingHeartBtn.attr("data-user-id");
+	    	var type = castingHeartBtn.attr("data-type");
+	    	console.log("actorNum : "+ actorNum);
+	    	console.log("userId : "+ userId);
+	    	console.log("type : "+ type);
 		    if (castingHeartBtn.hasClass("is-toggled")) {
 		        castingHeartBtn.removeClass("is-toggled");
 		        toastMessage.text("즐겨찾기 해제되었습니다.");
@@ -230,6 +211,23 @@
 		        castingHeartBtn.addClass("is-toggled");
 		        toastMessage.text("즐겨찾기 등록되었습니다.");
 		        toastIcon = "is-on"; // 아이콘 상태를 변경
+		        $.ajax({
+		            type: "GET",
+		            url: "/insert",
+		            data: {
+		                actorNum: actorNum,
+		                userId: userId,
+		                type: type
+		            },
+		            success: function() {
+		                console.log("성공 ");
+		            },
+		            error: function() {
+		                // AJAX 요청이 실패했을 때의 처리
+		                console.log("실패: ");
+		                // 에러 처리 로직을 추가하세요
+		            }
+		        });
 		    }
 
 		    // 토스트 메시지의 클래스를 토글
@@ -267,13 +265,10 @@
 		    setTimeout(function() {
 		        toast.removeClass("is-visible");
 		    }, 500); // 0.5초 후에 숨김
-<<<<<<< HEAD
 		}
 		
 		function updateLike(num,id,type){
 			
-=======
->>>>>>> bd105ca6fde8e48199de4a7f6c189866eb21f4e3
 		}
 
 	});
