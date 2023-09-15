@@ -105,9 +105,9 @@ text-overflow:ellipsis;
   text-align: center;
   border-style: solid;
   border-width: thin;
-  border-color: #fc7110;
+  border-color: #febc38;
   border-radius: 4px;
-  background-color: #fc7110;
+  background-color: #febc38;
   font-size: medium;
   color: white;
 }
@@ -142,11 +142,12 @@ text-overflow:ellipsis;
   margin-bottom: 50px;
   border-collapse: collapse;
   padding-top: 20px;
+  border-radius: 8px;
 }
 .calendar_body .today{
-  border:1px solid white;
+  border:1px solid #FFFFFF;
   height:120px;
-  background-color:#c9c9c9;
+/*   background-color:#febc38; */
   text-align: left;
   vertical-align: top;
 }
@@ -158,7 +159,7 @@ text-overflow:ellipsis;
 .contentsCnt1, .contentsCnt2, .contentsCnt3 {
 	margin-top:20px;
 	font-size:large;
-  	color : #ffffff;
+  	color : #595959;
 }
 .calendar_body .date{
   font-weight: bold;
