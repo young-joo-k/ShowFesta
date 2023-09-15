@@ -27,7 +27,7 @@ public class MemberController {
 	private MemberService service;
 	
 	@GetMapping("/login")
-	public void loginForm(@RequestHeader(value = "Referer", required = false) String referrer, HttpSession session) {
+	public void login(@RequestHeader(value = "Referer", required = false) String referrer, HttpSession session) {
 	    if (referrer != null && !referrer.isEmpty()) {
 	        // 이전 페이지의 URL을 세션에 저장
 	        session.setAttribute("prevPage", referrer);
