@@ -163,14 +163,16 @@ public class PageController {
 	@GetMapping("/musical_info")
 	public void m_info(HttpSession session,@RequestParam("m_num") Long m_num, Model model) {
 		String id = (String) session.getAttribute("id");
+		log.info("musical_info get");
 		if (id != null) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
 			
 			try {
 				List<LikeVO> likeList = (List<LikeVO>) session.getAttribute("likeInfo");
-				model.addAttribute(likeList);
-				log.info(likeList);}
+				model.addAttribute("likeList",likeList);
+				log.info(likeList);
+				}
 			catch (Exception e) {
 				log.info("좋아요 목록 오류");
 				log.info(e);

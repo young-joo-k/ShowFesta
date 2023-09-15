@@ -122,7 +122,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="toast is-off"><span class="toastMessage">즐겨찾기 해제되었습니다.</span></div>
+<!-- 				<div class="toast is-off"><span class="toastMessage">즐겨찾기 해제되었습니다.</span></div> -->
 			</div>
 			<div class="topButtonWrapper ">
 				<a href="#" class="topButton"><span class="blind">맨 위로</span></a>
@@ -142,6 +142,28 @@
 			$(this).addClass("is-active");
 
 		});
+		var likeList = ${likeList};
+		$(".castingHeartBtn").each(function() {
+		    var castingHeartBtn = $(this);
+		    var actorName = castingHeartBtn.attr("data-actor-name");
+		    if (likeList.includes(actorName)) {
+		    	castingHeartBtn.addClass("is-toggled");
+		    } else {
+		    	castingHeartBtn.removeClass("is-toggled");
+		    }
+		});
+		
+		$(".likeBtn").each(function() {
+		    var likeBtn = $(this);
+		    var contentsName = likeBtn.attr("data-contents-name");
+
+		    if (likeList.includes(contentsName)) {
+		        likeBtn.addClass("is-toggled");
+		    } else {
+		        likeBtn.removeClass("is-toggled");
+		    }
+		});
+		
 		// contentToggleBtn를 클릭했을 때 동작하는 함수
 		$(".contentToggleBtn").on("click", function(e) {
 		    e.preventDefault();
@@ -188,17 +210,17 @@
 		}
 
 		function toggleCasting(castingHeartBtn) {
-		    var toast = $(".toast");
-		    var toastMessage = $(".toastMessage");
-		    var toastIcon = toast.hasClass("is-off") ? "is-off" : "is-on"; // 현재 아이콘 상태 확인
+// 		    var toast = $(".toast");
+// 		    var toastMessage = $(".toastMessage");
+// 		    var toastIcon = toast.hasClass("is-off") ? "is-off" : "is-on"; // 현재 아이콘 상태 확인
 	    	var actorName = castingHeartBtn.attr("data-actor-name");
 	    	var userId = castingHeartBtn.attr("data-user-id");
 	    	var type = castingHeartBtn.attr("data-type");
 	    	var img = castingHeartBtn.attr("data-actor-img");
 		    if (castingHeartBtn.hasClass("is-toggled")) {
 		        castingHeartBtn.removeClass("is-toggled");
-		        toastMessage.text("즐겨찾기 해제되었습니다.");
-		        toastIcon = "is-off"; // 아이콘 상태를 변경
+// 		        toastMessage.text("즐겨찾기 해제되었습니다.");
+// 		        toastIcon = "is-off"; // 아이콘 상태를 변경
 		        $.ajax({
 		            type: "GET",
 		            url: "/like/delete",
@@ -217,8 +239,8 @@
 		        });
 		    } else {
 		        castingHeartBtn.addClass("is-toggled");
-		        toastMessage.text("즐겨찾기 등록되었습니다.");
-		        toastIcon = "is-on"; // 아이콘 상태를 변경
+// 		        toastMessage.text("즐겨찾기 등록되었습니다.");
+// 		        toastIcon = "is-on"; // 아이콘 상태를 변경
 		        $.ajax({
 		            type: "GET",
 		            url: "/like/insert",
@@ -238,28 +260,28 @@
 		    }
 
 		    // 토스트 메시지의 클래스를 토글
-		    toast.toggleClass("is-visible");
+// 		    toast.toggleClass("is-visible");
 		    // 아이콘 상태에 따라 배경 위치 변경
-		    toast.removeClass("is-off is-on").addClass(toastIcon);
+// 		    toast.removeClass("is-off is-on").addClass(toastIcon);
 
 		    // 일정 시간이 지난 후 토스트 메시지 숨기기
-		    setTimeout(function() {
-		        toast.removeClass("is-visible");
-		    }, 500); // 0.5초 후에 숨김
+// 		    setTimeout(function() {
+// 		        toast.removeClass("is-visible");
+// 		    }, 500); // 0.5초 후에 숨김
 		}
 
 		function togglelikeBtn(likeBtn) {
-		    var toast = $(".toast");
-		    var toastMessage = $(".toastMessage");
-		    var toastIcon = toast.hasClass("is-off") ? "is-off" : "is-on"; // 현재 아이콘 상태 확인
+// 		    var toast = $(".toast");
+// 		    var toastMessage = $(".toastMessage");
+// 		    var toastIcon = toast.hasClass("is-off") ? "is-off" : "is-on"; // 현재 아이콘 상태 확인
 	    	var contentsName = likeBtn.attr("data-contents-name");
 	    	var userId = likeBtn.attr("data-user-id");
 	    	var type = likeBtn.attr("data-type");
 	    	var img = likeBtn.attr("data-img");
 		    if (likeBtn.hasClass("is-toggled")) {
 		        likeBtn.removeClass("is-toggled");
-		        toastMessage.text("즐겨찾기 해제되었습니다.");
-		        toastIcon = "is-off"; // 아이콘 상태를 변경
+// 		        toastMessage.text("즐겨찾기 해제되었습니다.");
+// 		        toastIcon = "is-off"; // 아이콘 상태를 변경
 		        $.ajax({
 		            type: "GET",
 		            url: "/like/delete",
@@ -278,8 +300,8 @@
 		        });
 		    } else {
 		        likeBtn.addClass("is-toggled");
-		        toastMessage.text("즐겨찾기 등록되었습니다.");
-		        toastIcon = "is-on"; // 아이콘 상태를 변경
+// 		        toastMessage.text("즐겨찾기 등록되었습니다.");
+// 		        toastIcon = "is-on"; // 아이콘 상태를 변경
 		        $.ajax({
 		            type: "GET",
 		            url: "/like/insert",
@@ -299,18 +321,14 @@
 		    }
 
 		    // 토스트 메시지의 클래스를 토글
-		    toast.toggleClass("is-visible");
+// 		    toast.toggleClass("is-visible");
 		    // 아이콘 상태에 따라 배경 위치 변경
-		    toast.removeClass("is-off is-on").addClass(toastIcon);
+// 		    toast.removeClass("is-off is-on").addClass(toastIcon);
 
 		    // 일정 시간이 지난 후 토스트 메시지 숨기기
-		    setTimeout(function() {
-		        toast.removeClass("is-visible");
-		    }, 500); // 0.5초 후에 숨김
-		}
-		
-		function updateLike(num,id,type){
-			
+// 		    setTimeout(function() {
+// 		        toast.removeClass("is-visible");
+// 		    }, 500); // 0.5초 후에 숨김
 		}
 
 	});
