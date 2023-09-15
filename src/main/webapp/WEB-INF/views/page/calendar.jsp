@@ -125,7 +125,7 @@ pageEncoding="UTF-8"%>
 			<div class = "modal-body">
 				<div class = "modal-content-container">
 				<!-- 데이터베이스에서 가져온 데이터 삽입 -->
-					<div class = today-contents >
+					<div class = today-contents>
 						<c:choose>
 							<c:when test = "${empty today_m_contents }">
 								<div class = "no-data-message">
@@ -171,10 +171,11 @@ pageEncoding="UTF-8"%>
 			<div class ="modal-header">
 			<h2 class = modal-title>콘서트</h2>
 			<button type = "button" class = "modal-close-btn" data-dismiss="modal">닫기</button>
-			</div> <!-- 모달헤더 끝 -->
+			</div>
+<!-- 			 모달헤더 끝 -->
 			<div class = "modal-body">
 				<div class = "modal-content-container">
-				<!-- 데이터베이스에서 가져온 데이터 삽입 -->
+<!-- 				데이터베이스에서 가져온 데이터 삽입 -->
 					<div class = today-contents >
 						<c:choose>
 							<c:when test = "${empty today_c_contents}">
@@ -187,10 +188,10 @@ pageEncoding="UTF-8"%>
 									<div class = modal-contents-list>
 									    <div class="contents">
 									    	<div class = list-wrap>
-												<!--상세페이지로 들어가는 링크 넣기 -->
+<!-- 												상세페이지로 들어가는 링크 넣기 -->
 												<a href='/page/musical_info?m_num=${content.m_num}'>
 									     			<div class = list-inner-wrap>
-														<!--DB에 저장된 이미지 링크 가져올겁니다 -->
+<!-- 														DB에 저장된 이미지 링크 가져올겁니다 -->
 									      				<img class ="modal-comImg" src= <c:out value = "${content.m_img}"/>>
 									     				<div class = modal-list-txt>
 														<div class = "modal-list-tit1">${content.m_title}</div>
@@ -221,10 +222,11 @@ pageEncoding="UTF-8"%>
 			<div class ="modal-header">
 			<h2 class = modal-title>페스티벌</h2>
 			<button type = "button" class = "modal-close-btn" data-dismiss="modal">닫기</button>
-			</div> <!-- 모달헤더 끝 -->
+			</div>
+<!-- 			 모달헤더 끝 -->
 			<div class = "modal-body">
 				<div class = "modal-content-container">
-				<!-- 데이터베이스에서 가져온 데이터 삽입 -->
+<!-- 				데이터베이스에서 가져온 데이터 삽입 -->
 					<div class = today-contents >
 						<c:choose>
 							<c:when test = "${empty today_f_contents }">
@@ -237,10 +239,10 @@ pageEncoding="UTF-8"%>
 									<div class = modal-contents-list>
 									    <div class="contents">
 									    	<div class = list-wrap>
-												<!--상세페이지로 들어가는 링크 넣기 -->
+<!-- 												상세페이지로 들어가는 링크 넣기 -->
 												<a href='/page/musical_info?m_num=${content.m_num}'>
 									     			<div class = list-inner-wrap>
-														<!--DB에 저장된 이미지 링크 가져올겁니다 -->
+<!-- 														DB에 저장된 이미지 링크 가져올겁니다 -->
 									      				<img class ="modal-comImg" src= <c:out value = "${content.m_img}"/>>
 									     				<div class = modal-list-txt>
 														<div class = "modal-list-tit1">${content.m_title}</div>
@@ -295,7 +297,6 @@ $(document).ready(function() {
         $('#modal-festival').show();
         $('#overlay').show();
     });
-    
     // 닫기 버튼 또는 오버레이를 클릭하면 모달을 숨기기
     $('button.modal-close-btn, #overlay').click(function() {
         $('#modal-musical').hide();
