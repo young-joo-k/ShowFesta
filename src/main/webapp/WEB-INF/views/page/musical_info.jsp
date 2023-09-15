@@ -135,17 +135,12 @@
 	// JavaScript 부분
 	$(document).ready(function() {
 		$(".navItem").on("click", function(e) {
-			// 기본 동작(링크 이동)을 방지합니다.
 			e.preventDefault();
 
-			// 모든 .navItem에서 is-active 클래스를 제거합니다.
 			$(".navItem").removeClass("is-active");
 
-			// 현재 클릭한 .navItem에 is-active 클래스를 추가합니다.
 			$(this).addClass("is-active");
 
-			// 여기에서 원하는 동작을 추가할 수 있습니다.
-			// 예를 들어, 클릭한 메뉴에 해당하는 내용을 화면에 표시하거나 다른 동작을 수행할 수 있습니다.
 		});
 		// contentToggleBtn를 클릭했을 때 동작하는 함수
 		$(".contentToggleBtn").on("click", function(e) {
@@ -210,7 +205,7 @@
 		function checkUser(check){
 			return check.attr("data-empty-user");
 		}
-		
+
 		function toggleContent() {
 		    // 여닫기 상태를 토글
 		    var expandableWrap = document.querySelector(".expandableWrap");
@@ -272,10 +267,13 @@
 		    setTimeout(function() {
 		        toast.removeClass("is-visible");
 		    }, 500); // 0.5초 후에 숨김
+<<<<<<< HEAD
 		}
 		
 		function updateLike(num,id,type){
 			
+=======
+>>>>>>> bd105ca6fde8e48199de4a7f6c189866eb21f4e3
 		}
 
 	});

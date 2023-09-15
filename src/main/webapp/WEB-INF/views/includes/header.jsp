@@ -7,7 +7,7 @@
 <link href="/resources/css/style.css?after" rel="stylesheet">
 <link href="/resources/css/main.css?after" rel="stylesheet">
 <link href="/resources/css/dropdown.css?after" rel="stylesheet">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <head>
 <title>ShowFesta</title>
 <!-- font -->
@@ -54,9 +54,9 @@
 							<a href="#">카테고리</a>
 						</h2>
 						<ul class="category">
-							<li><a href="#">뮤지컬</a></li>
-							<li><a href="#">콘서트</a></li>
-							<li><a href="#">페스티벌</a></li>
+							<li><a href="/page/mContents">뮤지컬</a></li>
+							<li><a href="/page/concertContents">콘서트</a></li>
+							<li><a href="/page/festivalContents">페스티벌</a></li>
 							<li><a href="#">지역축제</a></li>
 						</ul>
 					</li>

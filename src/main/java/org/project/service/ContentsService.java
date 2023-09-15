@@ -17,10 +17,10 @@ public interface ContentsService {
 
 //	public ContentsVO getConcert(Long m_num);
 	
-	//캘占쏙옙占쏙옙 占쏙옙占시�占쏙옙 占쏙옙占� 占쏙옙占쏙옙 占쌍댐옙 占쏙옙占쏙옙
-	public List<ContentsVO> getToday_contents();
-//	public List<ContentsVO> getToday_c_contents();
-//	public List<ContentsVO> getToday_f_contents();
+	//캘린더 모달창에 띄울 부분
+	public List<ContentsVO> getToday_m_contents();
+	public List<ContentsVO> getToday_c_contents();
+	public List<ContentsVO> getToday_f_contents();
 
 	public ContentsVO getConcert(Long m_num);
 }
