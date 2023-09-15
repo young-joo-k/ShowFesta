@@ -42,7 +42,7 @@ pageEncoding="UTF-8"%>
 	</div>
 
 
-<!-- 즐겨찾기 버튼 눌렀을 때 띄워줄 내용 -->
+<!-- 즐겨찾기 버튼 눌렀을 때 띄워줄 내용 즐겨찾기에서 사용할 예정 -->
 <div class = "my-like-content">
 	<div class = "my-contetnt-wrap">
 		<c:choose>
@@ -54,15 +54,17 @@ pageEncoding="UTF-8"%>
 			<c:otherwise>
 				<c:forEach var = "myLike" items="${likeInfo }">
 					<div class = "like-list-wrap">
-						<a style="cursor:pointer;" href='/page/musical_info?m_num= <c:out value = "${content.m_num}"/>'></a>					
+						<a style="cursor:pointer;" href='/page/musical_info?m_num= <c:out value = "${myLike.type}"/>'></a>					
 						<img class = "comImg" src = <c:out value = "${myLike.m_img}"/>>
-						<div class = "like-list-title">${myLike.m_title}</div>
+						<div class = "like-list-title">${myLike.type}</div>
 					</div>
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
 	</div>
 </div>
+
+<!-- 문의내역 눌렀을 때 나타날 내용 -->
 
 
 </body>
