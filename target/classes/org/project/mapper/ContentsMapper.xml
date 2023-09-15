@@ -12,17 +12,30 @@
 	<!--유형별페이지에서 사용 -->
 	<!--뮤지컬 -->
 	<select id="getMusicalContents" resultType = "org.project.domain.ContentsVO">
-		SELECT * FROM tbl_musical ORDER BY m_start_date DESC
+		SELECT m_num,m_title,m_img,
+				to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
+				to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
+				m_place,
+				m_b_link 
+		FROM tbl_musical ORDER BY m_start_date DESC
 	</select>
 	
 	<!--콘서트 -->
 	<select id="getConcertContents" resultType = "org.project.domain.ContentsVO">
-		SELECT * FROM tbl_concert ORDER BY m_start_date DESC
+		SELECT m_num,m_title,m_img,
+				to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
+				to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
+				m_place,m_b_link 
+		FROM tbl_concert ORDER BY m_start_date DESC
 	</select>
 	
 	<!--페스티벌 -->
 	<select id="getFestivalContents" resultType = "org.project.domain.ContentsVO">
-		SELECT * FROM tbl_festival ORDER BY m_start_date DESC
+		SELECT m_num,m_title,
+				to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
+				to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
+				m_place
+		FROM tbl_festival ORDER BY m_start_date DESC
 	</select>
 	
 	
@@ -30,7 +43,10 @@
 	<!-- 캘린더 내 모달에서 사용됨 -->
 	<select id ="getToday_m_contents" resultType ="org.project.domain.ContentsVO">
 		<![CDATA[
-			select *
+			select m_num,m_title,m_img,
+					to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
+					to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
+					m_place,m_b_link 
 			from tbl_musical
 			where sysdate > m_start_date and sysdate < m_end_date
 		]]> 
@@ -39,7 +55,10 @@
 	
 	<select id ="getToday_c_contents" resultType ="org.project.domain.ContentsVO">
 		<![CDATA[
- 			select * 
+			select m_num,m_title,m_img,
+					to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
+					to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
+					m_place,m_b_link 
  			from tbl_concert 
  			where sysdate > m_start_date and sysdate < m_end_date 
  		]]> 
@@ -47,7 +66,10 @@
 	
 	<select id ="getToday_f_contents" resultType ="org.project.domain.ContentsVO">
 		<![CDATA[
- 			select * 
+			select m_num,m_title,
+					to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
+					to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
+					m_place
  			from tbl_festival 
  			where sysdate > m_start_date and sysdate < m_end_date 
  		]]>  -->
