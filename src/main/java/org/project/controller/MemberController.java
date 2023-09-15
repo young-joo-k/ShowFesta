@@ -40,26 +40,29 @@ public class MemberController {
 	}
 
 	@PostMapping("/login")
-	public String login(MemberVO membervo, HttpSession session, RedirectAttributes rttr) {
+	public String login(MemberVO membervo, HttpSession session, RedirectAttributes rttr,@RequestHeader(value = "Referer", required = false)String referer) {
 		log.info("login post, Id -> " + membervo.getId());
 		String checkId = service.login(membervo.getId(), membervo.getPw());
 		List<LikeVO> likeList = likeservice.getLike(membervo.getId());
 	    session.setAttribute("likeList", likeList);
 		if (checkId != null && checkId.equals(membervo.getId())) {
 		    session.setAttribute("id", checkId);
-		    log.info(checkId + "->main");
 	        // 이전 페이지의 URL을 가져옴
 	        String prevPage = (String) session.getAttribute("prevPage");
 	        if (prevPage != null) {
 	            // 이전 페이지로 리다이렉션
-	            session.removeAttribute("prevPage");
 //	            만약 마이페이지에서 로그인하면 마이페이지로 갈거야
-//	            if(prevPage =="http://localhost:8080/page/main")
-//	            {
-//	            	return "redirect:/page/mypage";
-//	            }
+	            session.removeAttribute("prevPage");
+	            if(prevPage.equals("http://localhost:8080/page/myPage"))
+	            {
+	            	log.info("ififif");
+	            	return "redirect:/page/myPage";
+	            }
+	            //마이페이지가 아니면 이전페이지로 갈거야
 	            return "redirect:" + prevPage;
 	        } else {
+	        	log.info(prevPage);
+			    log.info(checkId + "->main");
 	            return "redirect:/page/main";
 	        }
 		}
@@ -69,21 +72,23 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "join/logout", method = { RequestMethod.GET, RequestMethod.POST })
-	public String logout(HttpSession session,@RequestHeader(value = "Referer", required = false)String referrer) {
-	    if (referrer != null && !referrer.isEmpty()) {
+	public String logout(HttpSession session,@RequestHeader(value = "Referer", required = false)String referer) {
+	    if (referer != null && !referer.isEmpty()) {
 	        // 이전 페이지의 URL을 세션에 저장
-	        session.setAttribute("prevPage", referrer);
+	        session.setAttribute("prevPage", referer);
 	        String prevPage = (String) session.getAttribute("prevPage");
 	        if (prevPage != null) {
 	            // 이전 페이지로 리다이렉션
 	            session.removeAttribute("prevPage");
 	            session.invalidate();
 	            log.info("logout");
+	            log.info(prevPage);
 //	            만약 마이페이지에서 로그아웃하면 로그인 페이지로 갈거야
-//	            if(prevPage =="http://localhost:8080/page/main")
-//	            {
-//	            	return "redirect:/join/login";
-//	            }
+	            if(prevPage.equals("http://localhost:8080/page/myPage"))
+	            {
+	            	log.info("ififif");
+	            	return "redirect:/join/login";
+	            }
 	            return "redirect:" + prevPage;
 	        }	        
 	    }

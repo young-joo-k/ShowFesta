@@ -27,7 +27,7 @@
 				</h1>
 				<ul class="memberInfo_wrap">
 					<li style="display: ${not empty user ? 'inline' : 'none'}"><a href="../join/logout"> <img
-							src="https://img.cgv.co.kr/R2014/images/common/ico/loginMember.png"
+							src="https://img.cgv.co.kr/R2014/images/common/ico/loginPassword.png"
 							alt="로그아웃"> <span style="display: ${not empty user ? 'inline' : 'none'}">로그아웃</span>
 					</a></li>
 					<li style="display: ${empty user ? 'inline' : 'none'}"><a href="../join/login"> <img
