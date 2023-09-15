@@ -50,7 +50,7 @@
  			select * 
  			from tbl_festival 
  			where sysdate > m_start_date and sysdate < m_end_date 
- 		]]>  
+ 		]]>  -->
 	</select>
 
 	<select id="ConcertRead" resultType = "org.project.domain.ContentsVO">

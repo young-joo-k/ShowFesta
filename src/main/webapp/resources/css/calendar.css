@@ -1,5 +1,5 @@
 @charset "utf-8";
-body {
+.calendarBody {
 		scrollbar-face-color: #F6F6F6;
 		scrollbar-highlight-color: #bbbbbb;
 		scrollbar-3dlight-color: #FFFFFF;
@@ -57,8 +57,7 @@ text-overflow:ellipsis;
 .cal-navigation{
   font-size: larger;
   font-weight: bold;
-  color: #FEBC38;
-  
+  color: #FEBC38;  
 }
 
 .sat{
@@ -73,26 +72,26 @@ text-overflow:ellipsis;
 }
 
 
-#typeSearch{
-	width:80px;
-	height:30px;
-	margin-bottom: 5px;
-	border-color: #FEBC38;
-	border-radius: 4px;
-	font-size: large;
-  /* color: #000127; */
-}
+/* #typeSearch{ */
+/* 	width:80px; */
+/* 	height:30px; */
+/* 	margin-bottom: 5px; */
+/* 	border-color: #FEBC38; */
+/* 	border-radius: 4px; */
+/* 	font-size: large; */
+/*   color: #000127; */
+/* } */
 
 
 /* 검색어 입력창 */
-input{
-	width:200px;
-	height:30px;
-	border-color: #FEBC38;
-	border-radius: 4px;
-	background-color: #F6F6F6;
+/* input{ */
+/* 	width:200px; */
+/* 	height:30px; */
+/* 	border-color: #FEBC38; */
+/* 	border-radius: 4px; */
+/* 	background-color: #F6F6F6; */
 
-}
+/* } */
 
 .today_button_div{
   float: left;
@@ -325,5 +324,5 @@ button.modal-close-btn {
 }
 
 form#calendarFrm {
-    padding-top: 30px;
+    padding-top: 5px;
 }
