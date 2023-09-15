@@ -4,6 +4,7 @@
 <link href="/resources/css/goods.css?after" rel="stylesheet"
 	type="text/css">
 <%@include file="../includes/header.jsp"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <div id="container">
 	<main id="main">
 		<section class="infoSection">
@@ -19,7 +20,9 @@
 									<div class="posterBox">
 										<img class="posterBoxImage" src="${musical.m_img}"
 											alt="${musical.m_title }">
-										<a class="likeBtn" data-toggle="self"
+										<c:set var="contentsName" value="${musical.m_title}" />
+										<c:set var="list" value="${likeList }"/>
+										<a class="likeBtn ${fn:contains(list, contentsName) ? 'is-toggled' : ''}" data-toggle="self"
 											data-toast="like" aria-checked="false"
 											aria-label="즐겨찾기 등록" role="checkbox" href="#"
 											data-popup-hover="like" data-contents-name="${musical.m_title } " data-type="뮤지컬"  
@@ -85,14 +88,17 @@
 																				<img src="${actor.a_img }" class="castingImage"
 																					alt="프로필 사진">
 																			</div>
-																		</a> <a class="castingHeartBtn " data-toggle="self"
-																			data-toast="cast" aria-checked="false"
-																			aria-label="즐겨찾기 등록/취소" role="checkbox" href="#"
-																			data-actor-name="${actor.a_name }" data-type="배우"
-																			data-user-id="${user.id }" data-actor-img="${actor.a_img }"
-																			<c:if test="${empty user}">
-									      										data-empty-user="true"				
-										    								</c:if>></a>
+																		</a>
+																		<c:set var="actorName" value="${actor.a_name}" />
+																		<c:set var="list" value="${likeList }"/>
+																		
+																		<a class="castingHeartBtn ${fn:contains(list, actorName) ? 'is-toggled' : ''}" data-toggle="self"
+																		   data-toast="cast" aria-checked="false" aria-label="즐겨찾기 등록/취소" role="checkbox" href="#"
+																		   data-actor-name="${actor.a_name }" data-type="배우" data-user-id="${user.id }" data-actor-img="${actor.a_img }"
+																		   <c:if test="${empty user}">
+																		       data-empty-user="true"				
+																		   </c:if>>
+																		</a>
 																	</div>
 																	<div class="castingInfo">
 																		<div class="castingActor">${actor.a_role }</div>
@@ -142,28 +148,6 @@
 			$(this).addClass("is-active");
 
 		});
-		var likeList = ${likeList};
-		$(".castingHeartBtn").each(function() {
-		    var castingHeartBtn = $(this);
-		    var actorName = castingHeartBtn.attr("data-actor-name");
-		    if (likeList.includes(actorName)) {
-		    	castingHeartBtn.addClass("is-toggled");
-		    } else {
-		    	castingHeartBtn.removeClass("is-toggled");
-		    }
-		});
-		
-		$(".likeBtn").each(function() {
-		    var likeBtn = $(this);
-		    var contentsName = likeBtn.attr("data-contents-name");
-
-		    if (likeList.includes(contentsName)) {
-		        likeBtn.addClass("is-toggled");
-		    } else {
-		        likeBtn.removeClass("is-toggled");
-		    }
-		});
-		
 		// contentToggleBtn를 클릭했을 때 동작하는 함수
 		$(".contentToggleBtn").on("click", function(e) {
 		    e.preventDefault();

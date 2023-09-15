@@ -44,9 +44,9 @@ public class MemberController {
 		log.info("login post, Id -> " + membervo.getId());
 		String checkId = service.login(membervo.getId(), membervo.getPw());
 		List<LikeVO> likeList = likeservice.getLike(membervo.getId());
+	    session.setAttribute("likeList", likeList);
 		if (checkId != null && checkId.equals(membervo.getId())) {
 		    session.setAttribute("id", checkId);
-		    session.setAttribute("likeInfo", likeList);
 		    log.info(checkId + "->main");
 	        // 이전 페이지의 URL을 가져옴
 	        String prevPage = (String) session.getAttribute("prevPage");

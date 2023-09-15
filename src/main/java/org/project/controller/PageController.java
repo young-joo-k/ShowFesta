@@ -18,6 +18,7 @@ import org.project.domain.PlayVO;
 import org.project.service.PlayService;
 import org.project.service.ContentsService;
 import org.project.service.InfoImgService;
+import org.project.service.LikeService;
 import org.project.service.MemberService;
 import org.project.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import lombok.extern.log4j.Log4j;
 
 @Controller
@@ -47,6 +52,8 @@ public class PageController {
 	
 	@Autowired
 	private InfoImgService infoimgservice;
+	@Autowired
+	private LikeService likeservice;
 	
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
@@ -167,16 +174,15 @@ public class PageController {
 		if (id != null) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
-			
-			try {
-				List<LikeVO> likeList = (List<LikeVO>) session.getAttribute("likeInfo");
-				model.addAttribute("likeList",likeList);
-				log.info(likeList);
-				}
-			catch (Exception e) {
-				log.info("좋아요 목록 오류");
-				log.info(e);
+			List<LikeVO> likeList = likeservice.getLike(membervo.getId());
+			log.info(likeList);
+			List<String> nameList = new ArrayList<String>();
+			for(LikeVO list:likeList) {
+				String name = list.getLike_name();
+				nameList.add(name);
 			}
+//			System.out.println(nameList);
+			model.addAttribute("likeList",nameList);
 		}
 //		log.info(m_num);
 		ContentsVO result = contentsservice.getMusical(m_num);
