@@ -66,6 +66,7 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO getUserInfo(String id) {
 		return membermapper.getUserInfo(id);
 	}
+	
 	@Override
 	public String findId(String name, String email, String phone) {
 	    Map<String, Object> paramMap = new HashMap<>();

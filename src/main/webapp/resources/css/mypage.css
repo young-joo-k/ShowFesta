@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+#myPage-wrap{
+  margin-top: 150px;
+	margin-left:80px;
+}
+
+article{
+	display:block;
+}
+
+.mypage{
+	margin-top: 100px;
+	display:flex;
+}
+
+.myPage-profile{
+	display:flex;
+	
+}
+
+.myPage-info{
+	margin-left:30px;
+	
+}
+
+.myPage-name, .myPage-update{
+	margin: 20px;
+	font-size: 30px;
+}
+
+.myPage-menu-wrapper{
+	display:flex;
+	margin-top: 15px;
+}
+
+.mypage-contents{
+	margin: 10px;
+}
+
+.like-contents, .like-actor, .myPage-qna{
+  border-style: none;
+  width: 200px;
+  height: 70px;
+  font-size: large;
+}

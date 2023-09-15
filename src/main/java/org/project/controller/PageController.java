@@ -165,6 +165,7 @@ public class PageController {
 		if (id != null) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
+			log.info(membervo);
 
 		}
 		log.info(m_num);
@@ -187,7 +188,7 @@ public class PageController {
 	}
 
 	@GetMapping("/concert_info")
-	public void c_info(@RequestParam("m_num") Long m_num,HttpSession session, Model model) {
+	public void c_info(@RequestParam("m_num") Long m_num, HttpSession session, Model model) {
 		log.info(m_num);
 //		아이디 정보
 		String id = (String) session.getAttribute("id");
@@ -286,5 +287,7 @@ public class PageController {
 		}
 		 
 	}
+	
+	
 
 }

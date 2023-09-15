@@ -30,7 +30,7 @@
 }
 
 .all-contents-list{
-	padding-top: 10rem;
+	padding-top: 5rem;
 }
 
 .contents-list {
@@ -64,6 +64,8 @@
 
 .list-tit2{
 	display:flex;
+	text-align:center;
+	
 }
 
 .no-data-message {

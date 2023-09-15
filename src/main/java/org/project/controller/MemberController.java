@@ -155,5 +155,21 @@ public class MemberController {
 		// redirect login
 		return "redirect:/join/login";
 	}
+	
+	@GetMapping("/myPage")
+	public String myPage(Model model, HttpSession session ) {
+		log.info("mypage get");
+		
+//		아이디 정보
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = service.getUserInfo(id);
+			model.addAttribute("user", membervo);
+		} else if(id == null){
+			return "/join/login";
+		}
+
+		return "/page/myPage";
+	}
 
 }
