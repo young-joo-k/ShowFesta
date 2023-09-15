@@ -27,7 +27,7 @@ public class MemberController {
 	private MemberService service;
 	
 	@GetMapping("/login")
-	public void loginForm(@RequestHeader(value = "Referer", required = false) String referrer, HttpSession session) {
+	public void login(@RequestHeader(value = "Referer", required = false) String referrer, HttpSession session) {
 	    if (referrer != null && !referrer.isEmpty()) {
 	        // 이전 페이지의 URL을 세션에 저장
 	        session.setAttribute("prevPage", referrer);
@@ -57,11 +57,22 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "join/logout", method = { RequestMethod.GET, RequestMethod.POST })
-	public String logout(HttpSession session) {
-		log.info("logout");
+	public String logout(HttpSession session,@RequestHeader(value = "Referer", required = false)String referrer) {
+	    if (referrer != null && !referrer.isEmpty()) {
+	        // 이전 페이지의 URL을 세션에 저장
+	        session.setAttribute("prevPage", referrer);
+	        String prevPage = (String) session.getAttribute("prevPage");
+	        if (prevPage != null) {
+	            // 이전 페이지로 리다이렉션
+	            session.removeAttribute("prevPage");
+	            session.invalidate();
+	            log.info("logout");
+	            return "redirect:" + prevPage;
+	        }	        
+	    }
 	    session.invalidate();
 	    log.info("logout");
-	    return "/page/main";
+	    return "redirect:/page/main";
 	}
 
 

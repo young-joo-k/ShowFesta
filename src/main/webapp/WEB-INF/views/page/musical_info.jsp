@@ -22,7 +22,8 @@
 										<a class="likeBtn" data-toggle="self"
 											data-toast="like" aria-checked="false"
 											aria-label="즐겨찾기 등록" role="checkbox" href="#"
-											data-popup-hover="like" data-contents-num="${musical.m_num } " data-contents-type="뮤지컬"    
+											data-popup-hover="like" data-contents-num="${musical.m_num } " data-type="뮤지컬"  
+											data-user-id="${user.id }"  
 											<c:if test="${empty user}">
 										        data-empty-user="true"				
 										    </c:if>></a>
@@ -78,7 +79,7 @@
 															<c:forEach var="actor" items="${actorList}">
 																<li class="castingItem"><div class="castingTop">
 																		<a class="castingLink"
-																			href="http://www.playdb.co.kr/artistdb/detail.asp?ManNo=359"
+																			href="${actor.a_link }"
 																			target="_blank" rel="noopener">
 																			<div class="castingProfile">
 																				<img src="${actor.a_img }" class="castingImage"
@@ -88,6 +89,7 @@
 																			data-toast="cast" aria-checked="false"
 																			aria-label="즐겨찾기 등록/취소" role="checkbox" href="#"
 																			data-actor-num="${actor.a_num }" data-type="배우"
+																			data-user-id="${user.id }"  
 																			<c:if test="${empty user}">
 									      										data-empty-user="true"				
 										    								</c:if>></a>
@@ -146,6 +148,7 @@
 		    toggleContent();
 		});
 
+
 		// castingHeartBtn를 클릭했을 때 동작하는 함수
 		$(".castingHeartBtn").on("click", function(e) {
 		    e.preventDefault();
@@ -155,11 +158,10 @@
 		    }
 		    else {
 		    	toggleCasting(castingHeartBtn);	
-		    	var actorNum = castingHeartBtn.attr("data-actor-num");
-		    	console.log("actorNum : "+ actorNum);
+		    	
 		    }
 		});
-		// likeBtn를 클릭했을 때 동작하는 함수
+		
 		$(".likeBtn").on("click", function(e) {
 		    e.preventDefault();
 		    var likeBtn = $(this);
@@ -169,12 +171,17 @@
 		    else {
 			    togglelikeBtn(likeBtn);
 		    	var musicalNum = likeBtn.attr("data-contents-num");
+		    	var userId = likeBtn.attr("data-user-id");
+		    	var type = likeBtn.attr("data-type");
 		    	console.log("musicalNum : "+ musicalNum);
+		    	console.log("userId : "+ userId);
+		    	console.log("type : "+ type);
 		    }
 		});
 		function checkUser(check){
 			return check.attr("data-empty-user");
 		}
+
 		function toggleContent() {
 		    // 여닫기 상태를 토글
 		    var expandableWrap = document.querySelector(".expandableWrap");
@@ -190,7 +197,12 @@
 		    var toast = $(".toast");
 		    var toastMessage = $(".toastMessage");
 		    var toastIcon = toast.hasClass("is-off") ? "is-off" : "is-on"; // 현재 아이콘 상태 확인
-
+	    	var actorNum = castingHeartBtn.attr("data-actor-num");
+	    	var userId = castingHeartBtn.attr("data-user-id");
+	    	var type = castingHeartBtn.attr("data-type");
+	    	console.log("actorNum : "+ actorNum);
+	    	console.log("userId : "+ userId);
+	    	console.log("type : "+ type);
 		    if (castingHeartBtn.hasClass("is-toggled")) {
 		        castingHeartBtn.removeClass("is-toggled");
 		        toastMessage.text("즐겨찾기 해제되었습니다.");
@@ -199,6 +211,23 @@
 		        castingHeartBtn.addClass("is-toggled");
 		        toastMessage.text("즐겨찾기 등록되었습니다.");
 		        toastIcon = "is-on"; // 아이콘 상태를 변경
+		        $.ajax({
+		            type: "GET",
+		            url: "/insert",
+		            data: {
+		                actorNum: actorNum,
+		                userId: userId,
+		                type: type
+		            },
+		            success: function() {
+		                console.log("성공 ");
+		            },
+		            error: function() {
+		                // AJAX 요청이 실패했을 때의 처리
+		                console.log("실패: ");
+		                // 에러 처리 로직을 추가하세요
+		            }
+		        });
 		    }
 
 		    // 토스트 메시지의 클래스를 토글
@@ -236,6 +265,10 @@
 		    setTimeout(function() {
 		        toast.removeClass("is-visible");
 		    }, 500); // 0.5초 후에 숨김
+		}
+		
+		function updateLike(num,id,type){
+			
 		}
 
 	});

@@ -98,10 +98,9 @@ public class PageController {
 		int festivalCnt = scheduleservice.getFestival();
 		
 		//모달창에 띄우기 위해서 필요한 코드 입니다.
-		List<ContentsVO> today_m_contents = contentsservice.getToday_contents();
-//		List<ContentsVO> today_c_contents = contentsservice.getToday_c_contents();
-//		List<ContentsVO> today_f_contents = contentsservice.getToday_f_contents();
-//		
+		List<ContentsVO> today_m_contents = contentsservice.getToday_m_contents();
+		List<ContentsVO> today_c_contents = contentsservice.getToday_c_contents();
+		List<ContentsVO> today_f_contents = contentsservice.getToday_f_contents();
 		
 		// 배열에 담음
 		model.addAttribute("musicalCnt", musicalCnt);
@@ -111,10 +110,9 @@ public class PageController {
 		model.addAttribute("today_info", today_info);
 		
 		//여기 모델도 모달창에 띄우려고 쓰는거입니다
-		model.addAttribute("today_contents", today_m_contents);
-		System.out.println(today_m_contents.size());
-//		model.addAttribute("today_c_contents", today_c_contents);
-//		model.addAttribute("today_f_contents", today_f_contents);
+		model.addAttribute("today_m_contents", today_m_contents);
+		model.addAttribute("today_c_contents", today_c_contents);
+		model.addAttribute("today_f_contents", today_f_contents);
 		return "/page/calendar";
 	}
 

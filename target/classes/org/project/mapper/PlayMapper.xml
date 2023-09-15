@@ -5,7 +5,7 @@
 <mapper namespace ="org.project.mapper.PlayMapper">
 
 	<select id="getPlayList" resultType = "org.project.domain.PlayVO">
-		select ta.a_num, ta.a_name, ta.a_img, tp.a_role
+		select ta.a_num, ta.a_name, ta.a_img, tp.a_role, ta.a_link
 		from
 		    tbl_actor ta,
 		    tbl_play tp
