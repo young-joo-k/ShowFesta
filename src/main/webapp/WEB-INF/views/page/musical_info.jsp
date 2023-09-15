@@ -213,11 +213,12 @@
 		        toastIcon = "is-on"; // 아이콘 상태를 변경
 		        $.ajax({
 		            type: "GET",
-		            url: "/insert",
+		            url: "/like/insert",
 		            data: {
 		                actorNum: actorNum,
 		                userId: userId,
-		                type: type
+		                type: type,
+		                like:1
 		            },
 		            success: function() {
 		                console.log("성공 ");
