@@ -8,6 +8,20 @@
 		margin: 0;
 	padding: 0;
 	letter-spaceing: -1px;
+	position:relative;
+}
+.clear_g::after{
+		position:absolute;
+	content:"";
+		background-image: url('../img/bomb8.png');
+	background-repeat: no-repeat;
+	background-position: 1000px 5px;
+	background-size: 25%;
+	opacity: 40%;
+	        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
 }
 
 .wrap_main_slider {
@@ -15,7 +29,7 @@
 	overflow: hidden;
 	width: 100%;
 	padding-top: 50px;
-	background-color: #000127;
+	padding-bottom:50px;
 }
 
 .wrap_main_slider #swiper {
