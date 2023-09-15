@@ -8,11 +8,11 @@
 		scrollbar-track-color: #FFFFFF;
 		scrollbar-arrow-color: #bbbbbb;
 		margin-left:"0px"; margin-right:"0px"; margin-top:"0px"; margin-bottom:"0px";
-		background-color : #000127;
+		background-color : #ffffff;
 		}
 
 td {font-size: 9pt; color:#595959;}
-th {font-family: "돋움"; font-size: 9pt; color:#000127;}
+th {font-family: "돋움"; font-size: 9pt; color:#ffffff;}
 select {font-family: "돋움"; font-size: 9pt; color:#595959;}
 
 
@@ -21,8 +21,8 @@ overflow:hidden;
 text-overflow:ellipsis;
 }
 
-/* A:link { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:none; } */
-/* A:visited { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:none; } */
+/* A:link { font-size:9pt; font-family:"돋움";color:#ffffff; text-decoration:none; } */
+/* A:visited { font-size:9pt; font-family:"돋움";color:#ffffff; text-decoration:none; } */
 /* 마우스 올렸을때 색 바뀌는 부분 */
 .contentsCount{
   margin-left: 10px;
@@ -79,7 +79,7 @@ text-overflow:ellipsis;
 /* 	border-color: #FEBC38; */
 /* 	border-radius: 4px; */
 /* 	font-size: large; */
-/*   color: #000127; */
+/*   color: #ffffff; */
 /* } */
 
 
@@ -105,10 +105,11 @@ text-overflow:ellipsis;
   text-align: center;
   border-style: solid;
   border-width: thin;
-  border-color: #FEBC38;
+  border-color: #fc7110;
   border-radius: 4px;
-  background-color: #FEBC38;
+  background-color: #fc7110;
   font-size: medium;
+  color: white;
 }
 
 .searchBoxBtn{
@@ -157,7 +158,7 @@ text-overflow:ellipsis;
 .contentsCnt1, .contentsCnt2, .contentsCnt3 {
 	margin-top:20px;
 	font-size:large;
-  	color : #000127;
+  	color : #ffffff;
 }
 .calendar_body .date{
   font-weight: bold;
@@ -205,18 +206,18 @@ a.before_after_month{
   margin: 10px;
   font-weight: bold;
   font-size: larger;
-  color: #EFEFEF;
+  color: #595959;
 }
 
 a.before_after_year{
   font-weight: bold;
   font-weight: bold;
   font-size: larger;
-  color: #EFEFEF;
+  color: #595959;
 }
 .this_month{
   margin: 10px;
-  color : #EFEFEF;
+  color : #595959;
   font-size: larger;
 }
 
@@ -237,7 +238,7 @@ a.before_after_year{
 .modal-header{
 	display: flex;
 	justify-content: space-between;
-	color: #000127;
+	color: #ffffff;
 	position: relative;
 }
 
@@ -253,7 +254,7 @@ button.modal-close-btn {
   margin-right:20px;
   height: 35px;
   width: 70px;
-  color: #000127;
+  color: #ffffff;
   background-color: #FEBC38;
   border-style: none;
   border-radius: 4px;

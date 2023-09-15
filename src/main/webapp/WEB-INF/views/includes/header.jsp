@@ -26,21 +26,17 @@
 					<a href="/"> ShowFesta </a>
 				</h1>
 				<ul class="memberInfo_wrap">
-					<li style="display: ${not empty user ? 'inline' : 'none'}"><a href="../join/logout"> <img
-							src="https://img.cgv.co.kr/R2014/images/common/ico/loginMember.png"
-							alt="로그아웃"> <span style="display: ${not empty user ? 'inline' : 'none'}">로그아웃</span>
-					</a></li>
-					<li style="display: ${empty user ? 'inline' : 'none'}"><a href="../join/login"> <img
+					<li><a href="../join/login"> <img
 							src="https://img.cgv.co.kr/R2014/images/common/ico/loginPassword.png"
-							alt="로그인"> <span style="display: ${empty user ? 'inline' : 'none'}">로그인</span>
+							alt="로그인"> <span>로그인</span>
 					</a></li>
-					<li style="display: ${empty user ? 'inline' : 'none'}"><a href="../join/register"> <img
+					<li><a href="../join/register"> <img
 							src="https://img.cgv.co.kr/R2014/images/common/ico/loginJoin.png"
-							alt="회원가입"> <span style="display: ${empty user ? 'inline' : 'none'}">회원가입</span>
+							alt="회원가입"> <span>회원가입</span>
 					</a></li>
 					<li><a href="../join/myPage"> <img
 							src="https://img.cgv.co.kr/R2014/images/common/ico/loginMember.png"
-							alt="MY PAGE"> <span >마이페이지</span>
+							alt="MY PAGE"> <span>마이페이지</span>
 					</a></li>
 				</ul>
 			</div>
@@ -57,10 +53,10 @@
 						<h2>
 							<a href="#">카테고리</a>
 						</h2>
-						<ul class="category">
-							<li><a href="/page/mContents">뮤지컬</a></li>
-							<li><a href="/page/concertContents">콘서트</a></li>
-							<li><a href="/page/festivalContents">페스티벌</a></li>
+						<ul class="category" style="display:none;">
+							<li><a href="#">뮤지컬</a></li>
+							<li><a href="#">콘서트</a></li>
+							<li><a href="#">페스티벌</a></li>
 							<li><a href="#">지역축제</a></li>
 						</ul>
 					</li>
@@ -85,7 +81,6 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- End Header -->
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
