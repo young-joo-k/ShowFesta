@@ -13,7 +13,7 @@
 
 body, html {
     height: 100%;
-    background-color: #000127;
+    background-color: #ffffff;
     scrollbar-face-color: #a5a5a5;
     scrollbar-track-color: #1b1b1b;
     scrollbar-arrow-color: #a5a5a5;
@@ -33,8 +33,12 @@ body, html {
 .page-top {
     margin-bottom: 40px;
     padding: 10px;
-    background-color: #392310;
+    background-color: #fc7110;
     text-align : center;
+    border-radius: 15px;
+    width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .page-top-inner-wrap {
@@ -49,6 +53,7 @@ body, html {
     line-height: 36px;
     color: #fff;
     font-weight: 400;
+    margin-left: 15px;
     
 }
 
@@ -88,7 +93,7 @@ body, html {
 }
 
 .cs-1depth li.customer-1depth-on a {
-    color: #000127;
+    color: #ffffff;
 }
 
 .cs-1depth a {
@@ -96,7 +101,7 @@ body, html {
     height: 50px;
     line-height: 50px;
     font-size: 16px;
-    color : #000127;
+    color : #ffffff;
 }
 
 .cs-2depth {
@@ -221,7 +226,7 @@ table {
 
 .paging-type01 a.on, .paging-type02 a.on {
     border: 1px solid #fff;
-    color: #fff;
+    color: black;
 }
 
 .paging-type01 a, .paging-type02 a {
@@ -245,13 +250,13 @@ table {
     vertical-align: middle;
     margin-right: 10px;
     font-size: 14px;
-    color: #a5a5a5;
+    color: black;
     padding-left: 20px;
     margin-bottom : 5px;
 }
 button#regBtn {
 	font-size : 14px;
-	color : #000127;
+	color : #ffffff;
 	background-color: #febc38;
 	z-index:10;
 	float: right;
@@ -289,7 +294,7 @@ textarea {
 
 button#modiBtn {
     font-size: 14px;
-    color: #000127;
+    color: #ffffff;
     background-color: #febc38;
     z-index: 10;
     float: right;
@@ -297,7 +302,7 @@ button#modiBtn {
 }
 button#listBtn {
     font-size: 14px;
-    color: #000127;
+    color: #ffffff;
     background-color: #a5a5a5;
     z-index: 10;
     float: right;
@@ -308,7 +313,7 @@ button#listBtn {
 
 button#remoBtn {
     font-size: 14px;
-    color: #000127;
+    color: #ffffff;
     background-color: #a5a5a5;
     z-index: 10;
     float: right;

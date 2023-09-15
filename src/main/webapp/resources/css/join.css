@@ -3,7 +3,7 @@
 .member {
 	width: 100%;
 	z-index: 10;
-	background: #000127;
+	background: #ffffff;
 	overflow: hidden;
 }
 
@@ -97,7 +97,7 @@ input[type=password], input[type=tel], input[type=text], textarea {
     -moz-appearance: none;
     appearance: none;
     border-radius: 5px;
-    border: 1px solid #e5e5e5;
+    border: 2px solid #e5e5e5;
     padding: 0 20px;
     margin: 0;
     color: #a5a5a5;

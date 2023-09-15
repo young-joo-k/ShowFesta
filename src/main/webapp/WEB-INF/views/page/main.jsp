@@ -10,9 +10,6 @@
 </head>
 <body>
 	<div id="cont_wrap" class="clear_g">
-		<div class="main01-nav">
-			<button type="button aria-label="일시정지" class="btn-pause ir">슬라이더 일시정지</button>
-		</div>
 		<div class="wrap_main_slider">
 			<div class="swiper" style="width: 2959px; left: -1076px;">
 				<div class="swiper-wrapper">
@@ -87,7 +84,7 @@
 	<div class>
 		<div data-v-223ac3f7 class="middle-section">
 			<div data-v-223ac3f7 id="mitisection_index_1"
-				class="multi portrait-cell" style="background-color: #000127;">
+				class="multi portrait-cell" style="background-color: white;">
 				<div data-v-223ac3f7 class="title">
 					<h1 data-v-223ac3f7 tabindex="0" class="title-area">
 						<span data-v-223ac3f7 class="label">뮤지컬</span>
@@ -123,7 +120,7 @@
 				</div>
 			</div>
 			<div data-v-223ac3f7 id="mitisection_index_2"
-				class="multi portrait-cell" style="background-color: #000127;">
+				class="multi portrait-cell">
 				<div data-v-223ac3f7 class="title">
 					<h1 data-v-223ac3f7 tabindex="0" class="title-area">
 						<span data-v-223ac3f7 class="label">콘서트</span>
@@ -158,7 +155,7 @@
 				</div>
 			</div>
 			<div data-v-223ac3f7 id="mitisection_index_3"
-				class="multi portrait-cell" style="background-color: #000127;">
+				class="multi portrait-cell">
 				<div data-v-223ac3f7 class="title">
 					<h1 data-v-223ac3f7 tabindex="0" class="title-area">
 						<span data-v-223ac3f7 class="label">페스티벌</span>
@@ -194,7 +191,7 @@
 
 			</div>
 			<div data-v-223ac3f7 id="mitisection_index_4"
-				class="multi portrait-cell" style="background-color: #000127;">
+				class="multi portrait-cell" style=>
 				<div data-v-223ac3f7 class="title">
 					<h1 data-v-223ac3f7 tabindex="0" class="title-area">
 						<span data-v-223ac3f7 class="label">지역축제</span>
@@ -223,8 +220,9 @@
 						</div>
 					</div>
 				</div>
-				<ul>
-				</ul>
+			</div>
+		</div>
+	</div>
 </body>
 <script>
 	new Swiper('.swiper', {
