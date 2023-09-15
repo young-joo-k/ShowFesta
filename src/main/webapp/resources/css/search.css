@@ -1,6 +1,10 @@
 @charset "UTF-8";
+* {
+		text-decoration: none;
+}
 body{
 	margin:0;
+
 }
 .category>li>a{
 	color:white;
@@ -109,31 +113,42 @@ body{
 .totalSearch_wrap {
     display: inline-flex;
     position: absolute;
-    right: 0;
-    top: 45px;
+    top: 60px;
     padding: 0 36px 0 10px;
+        transition: none;
+        width: 360px;
+    right: 0;
+        overflow: hidden;
 }
 
+.totalSearch_wrap:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 1px;
+    height: 20px;
+    background-color: #cacaca;
+}
 .totalSearch_wrap label {
     display: block;
 }
 
 .totalSearch_wrap label input[type="text"] {
-    width: 272px;
-    height: 36px;
-    padding-left: 18px;
-    padding-right: 55px;
+    width: 180px;
+    height: auto;
+    padding: 0 0 0 7px;
     font-size: 16px;
     color: #222;
     line-height: 1.500em;
-    border-radius : 10px;
+    border: none;
 }
 
 .totalSearch_wrap .btn_totalSearch {
     display: block;
     position: absolute;
     right: 0px;
-    top: 7px;
+    top: -1px;
     width: 26px;
     height: 26px;
     font-size: 0;
@@ -142,24 +157,49 @@ body{
 	border: 0 none;
 	filter: invert(100%) sepia(52%) saturate(20%) hue-rotate(315deg)
     brightness(103%) contrast(108%);
-    	    cursor: pointer;
+    cursor: default;
+}
+
+
+.a11y-hidden {
+    overflow: hidden;
+    clip: rect(1px,1px,1px,1px);
+    position: absolute;
+    width: 1px;
+    height: 1px;
 }
 
 
 
+.header-gnb .search-box.active .search-inpt, .header-gnb .search-box.result .search-inpt {
+    width: 360px;
+    padding: 0 40px;
+    opacity: 1;
+}
 
+.header-gnb .search-box .search-inpt {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 40px;
+    padding: 0;
+    opacity: 0;
+    background-color: #000;
+    border: 1px solid #232323;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #fff;
+    transition: width .2s ease-out,opacity .2s ease-out;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
+.header-gnb .search-box .btn-del {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity .2s ease-out,transform .2s ease-out;
+}
 

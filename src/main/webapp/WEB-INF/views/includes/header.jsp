@@ -73,10 +73,10 @@
 				</ul>
 				<div class="totalSearch_wrap">
 					<label for="totalSearch">
-						<input type="text" id="header_keyword" value>
+						<input type="text" id="header_keyword" placeholder="검색어를 입력해 주세요">
 						<input type="hidden" id="header_ad_keyword" name="header_ad_keyword">
 					</label>
-					<button type="button" class="btn_totalSearch" id="btn_header_search">검색</button>
+					<button type="button" class="btn_totalSearch" id="btn_header_search" onclick="location.href='/page/search'">검색</button>
 				</div>
 			</div>
 		</div>
