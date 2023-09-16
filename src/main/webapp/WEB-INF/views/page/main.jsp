@@ -175,7 +175,7 @@
 											<div class="thumb-image">
 												<div class="picture-area">
 													<picture> <img
-														src=<c:out value = "${content.m_img}"/> class="thumb-img">
+														src="/resources/img/festival/${content.m_title}.jpg">
 													</picture>
 												</div>
 											</div>
