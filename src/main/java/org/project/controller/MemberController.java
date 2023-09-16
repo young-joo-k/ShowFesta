@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -163,6 +164,8 @@ public class MemberController {
 		boolean EChk;
 		IDChk = service.registerIdCheck(membervo.getId());
 		EChk = service.registerEmailCheck(membervo.getEmail());
+		log.info(IDChk);
+		log.info(EChk);
 		if (IDChk == false) {
 			rttr.addFlashAttribute("result", "중복된 ID");
 			return "redirect:/join/register";

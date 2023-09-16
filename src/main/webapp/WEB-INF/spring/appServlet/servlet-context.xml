@@ -23,13 +23,7 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="org.project.controller" />
-	    <!-- 뒤로가기 막기 설정 -->
-	<mvc:interceptors>
-	    <mvc:interceptor>
-	        <mvc:mapping path="/join/logout" /> <!-- 로그아웃 URL에 매핑 -->
-	        <beans:bean class="org.project.interceptor.Interceptor" />
-	    </mvc:interceptor>
-	</mvc:interceptors>
+
 
 	
 	
