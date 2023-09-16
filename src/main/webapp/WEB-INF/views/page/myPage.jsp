@@ -20,7 +20,8 @@ pageEncoding="UTF-8"%>
 				</div>
 				<div class = "myPage-info">
 					<div class = "myPage-name"> ${user.getId()}님 마이페이지 입니다.</div>
-					<div class = "myPage-update">회원정보 수정</div>
+					<a class = "myPage-update" href="/page/memberCorrect">회원정보 수정</a>
+
 				</div>
 			</article>
 		</section>
@@ -65,13 +66,14 @@ pageEncoding="UTF-8"%>
 <%-- 		</c:choose> --%>
 	</div>
 </div>
+<!-- 즟겨찾기 끝 -->
 
 <!-- 문의내역 눌렀을 때 나타날 내용 -->
 <div class = "myPqge-qna-wrap">
 	<div class = "myPage-qna-space">
 		<div class = "myPage-qna-button-wrap">
 			<button type = "button" class = "myPage-qna-button">
-				<a href = "#">문의하기</a>
+				<a href = "#" class = "question">문의하기</a>
 			</button>
 		</div>
 		<!-- 문의내용 있을 경우 들어갈 공간임 -->
@@ -91,7 +93,16 @@ pageEncoding="UTF-8"%>
 		</ul>
 	</div>
 </div>
+<!-- 문의내역 끝 -->
+
+
+
 
 
 </body>
-</html>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+
+<!-- </html> -->
