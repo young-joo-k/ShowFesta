@@ -13,8 +13,8 @@
 
 .list-title{
 	size: larger;
-	color: #FFFFFF;
-  font-size: xx-large;
+	color: #595959;
+	font-size: xx-large;
 }
 
 .no-data-message {
@@ -57,14 +57,16 @@
 }
 
 .list-txt{
-	color: #FFFFFF;
+	color: #595959;
   	align-items: center;
+/*   	margin-left:2em; */
 	
 }
 
 .list-tit2{
 	display:flex;
-	text-align:center;
+	align-items: center;
+	margin-left:7em;
 	
 }
 

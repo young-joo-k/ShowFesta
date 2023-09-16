@@ -17,7 +17,9 @@
 	padding: 40px 0;
 	margin: 0 auto;
 	overflow: hidden;
-	background: #252525;
+	background: #FFFFFF;
+	border-style: solid;
+	border-color: #595959;
 }
 
 .login {
@@ -30,7 +32,7 @@
 	font-weight: 400;
 	font-size: 32px;
 	text-align: center;
-	color: #fff;
+	color: #595959;
 }
 
 .join-sns-box, .sns-box {
@@ -74,6 +76,16 @@ dd, dl, dt, ol, pre, ul {
     margin: 0 0 10px;
 }
 
+.login-submit {
+  background-color: #febc38;
+  border-style: solid;
+  border-color: #febc38;
+  border-radius: 4px;;
+  color: #FFFFFF;
+  width: 5em;
+  height: 3em;
+}
+
 button, label {
     cursor: pointer;
 }
@@ -88,7 +100,9 @@ label {
     font-size: 15px;
     height: 53px;
     color: #fff;
-    background-color: #2f2f2f;
+    /* background-color: #2f2f2f; */
+    border-style: solid;
+    border-color: #595959;
     border: 0;
 }
 
@@ -97,7 +111,7 @@ input[type=password], input[type=tel], input[type=text], textarea {
     -moz-appearance: none;
     appearance: none;
     border-radius: 5px;
-    border: 2px solid #e5e5e5;
+    border: 2px solid #595959;
     padding: 0 20px;
     margin: 0;
     color: #a5a5a5;
@@ -111,7 +125,7 @@ input[type=tel], input[type=text], pre, textarea {
     text-align: center;
 }
 .btn-purple-dark>a, .btn-purple>a {
-    background: #1351f9;
+    background: #febc38;
 }
 
 .btn-purple>a {

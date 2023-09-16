@@ -26,15 +26,17 @@ pageEncoding="UTF-8"%>
 		</section>
 		<section class = "myPage-body">
 			<article class = "myPage-content-wrap">
-				<div class = "myPage-menu-wrapper">
-					<div class = "mypage-contents">
-						<button class = "like-contents">즐겨찾기(컨텐츠)</button>
-					</div>
-					<div class = "mypage-contents">
-						<button class = "like-actor">즐겨찾기(배우)</button>
-					</div>
-					<div class = "mypage-contents">
-						<button class = "myPage-qna">문의내역</button>
+				<div class = "myPage-menu">					
+					<div class = "myPage-menu-wrapper">
+						<div class = "mypage-contents">
+							<button class = "like-contents">즐겨찾기(컨텐츠)</button>
+						</div>
+						<div class = "mypage-contents">
+							<button class = "like-actor">즐겨찾기(배우)</button>
+						</div>
+						<div class = "mypage-contents">
+							<button class = "myPage-qna">문의내역</button>
+						</div>
 					</div>
 				</div>
 			</article>
@@ -66,19 +68,20 @@ pageEncoding="UTF-8"%>
 
 <!-- 문의내역 눌렀을 때 나타날 내용 -->
 <div class = "myPqge-qna-wrap">
-	<div class = "myPage-qna-list">
-		<div class = "myPage-qna-space">
-			<div class = "myPage-qna-button">
-				<button type = "button" class = "myPage-qna-button">
-					<a href = "#">문의하기</a>
-				</button>
-			</div>
+	<div class = "myPage-qna-space">
+		<div class = "myPage-qna-button-wrap">
+			<button type = "button" class = "myPage-qna-button">
+				<a href = "#">문의하기</a>
+			</button>
+		</div>
 		<!-- 문의내용 있을 경우 들어갈 공간임 -->
+		<div class = "myPage-qna-list">
 			<div class = "myQna">
 				<h1>여기에 문의사항이 있으면 넣어 줄거야</h1>
-			</div>
 		</div>
 	</div>
+	</div>
+	
 	<div class = "myPage-notice">
 		<h3>알아두세요!</h3>
 		<ul class = "myPage-ul">
