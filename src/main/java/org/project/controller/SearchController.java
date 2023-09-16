@@ -26,9 +26,16 @@ public class SearchController {
     @GetMapping("/search")
     public String search(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
         if (keyword != null && !keyword.isEmpty()) {
-            List<SearchVO> searchResults = searchService.search(keyword);
-            model.addAttribute("searchResults", searchResults);
+            List<SearchVO> musicalSearchResults = searchService.musicalsearch(keyword);
+            List<SearchVO> concertSearchResults = searchService.concertsearch(keyword);
+            List<SearchVO> festivalSearchResults = searchService.festivalsearch(keyword);
+            List<SearchVO> actorSearchResults = searchService.actorsearch(keyword);
+            model.addAttribute("musicalSearchResults", musicalSearchResults);
+            model.addAttribute("festivalSearchResults", festivalSearchResults);
+            model.addAttribute("actorSearchResults", actorSearchResults);
+            model.addAttribute("concertSearchResults", concertSearchResults);
+            log.info("Get");
         }
-        return "search"; // 검색 결과를 보여줄 뷰 이름 (search.jsp 또는 다른 이름)
+        return "page/search"; // 검색 결과를 보여줄 뷰 이름 (search.jsp 또는 다른 이름)
     }
 }

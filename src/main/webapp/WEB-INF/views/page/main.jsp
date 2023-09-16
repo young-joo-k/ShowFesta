@@ -97,7 +97,7 @@
 							<c:forEach var="content" items="${musicalContents}"
 								varStatus="loop">
 								<div data-v-54077454 class="contents-slide"
-									style="width: 240px; margin-right: 10px;">
+									style="width: 240px; margin-right: 20px;">
 									<div data-v-54077454 class="thumb portrait"
 										loaded-fn="function() { [navice cod]}" cell-index="0">
 										<a
@@ -132,7 +132,7 @@
 						<div class="contents-wrapper">
 							<c:forEach var="content" items="${concertContents}">
 								<div data-v-54077454 class="contents-slide"
-									style="width: 240px; margin-right: 10px;">
+									style="width: 240px; margin-right: 20px;">
 									<div data-v-54077454 class="thumb portrait"
 										loaded-fn="function() { [navice cod]}" cell-index="0">
 										<a
@@ -167,7 +167,7 @@
 						<div class="contents-wrapper">
 							<c:forEach var="content" items="${festivalContents}">
 								<div data-v-54077454 class="contents-slide"
-									style="width: 240px; margin-right: 10px;">
+									style="width: 240px; margin-right: 20px;">
 									<div data-v-54077454 class="thumb portrait"
 										loaded-fn="function() { [navice cod]}" cell-index="0">
 										<a
@@ -202,7 +202,7 @@
 						cell-type="band_14">
 						<div class="contents-wrapper">
 							<div data-v-54077454 class="contents-slide"
-								style="width: 240px; margin-right: 10px;">
+								style="width: 240px; margin-right: 20px;">
 								<div data-v-54077454 class="thumb portrait"
 									loaded-fn="function() { [navice cod]}" cell-index="0">
 									<a href="/page/musical_info?m_num=141" aria-label="">

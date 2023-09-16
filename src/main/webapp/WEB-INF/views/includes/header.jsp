@@ -126,5 +126,26 @@ $(document).ready(function() {
             }
         });
     });
+    $(document).ready(function() {
+    	  // Enter 키가 눌렸을 때 검색 실행
+    	  $('#header_keyword').on('keyup', function(event) {
+    	    if (event.key === 'Enter') {
+    	      search();
+    	    }
+    	  });
+
+    	  // 검색 버튼을 클릭할 때 검색 실행
+    	  $('#btn_header_search').on('click', function() {
+    	    search();
+    	  });
+
+    	  // 검색을 실행하는 함수
+    	  function search() {
+    	    var searchTerm = $('#header_keyword').val();
+    	    // 검색어(searchTerm)를 사용하여 검색 로직을 실행하거나 다른 작업을 수행합니다.
+    	    // 여기서는 단순히 예시로 검색어를 콘솔에 출력합니다.
+    	    window.location.href='search?keyword=' + searchTerm;
+    	  }
+    	});
 </script>
 </html>
