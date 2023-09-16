@@ -306,6 +306,8 @@ button.modal-close-btn {
   size: 10px;
   align-items: center;
   margin-top:10px;
+  color: #595959;
+  
 }
 
 .close-modal {
