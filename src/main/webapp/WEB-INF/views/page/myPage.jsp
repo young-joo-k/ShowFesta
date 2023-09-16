@@ -93,5 +93,13 @@ pageEncoding="UTF-8"%>
 </div>
 
 
+<!-- 회원정보 수정 눌렀을 때 화면 -->
+<div class = "memberCorrect">
+	<div class = "member-correct">
+	</div>
+
+
+</div>
+
 </body>
 </html>
