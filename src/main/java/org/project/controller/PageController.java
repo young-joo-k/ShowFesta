@@ -329,6 +329,20 @@ public class PageController {
 		return "/page/myPage";
 	}
 	
-	
+	//회원정보수정
+	@GetMapping("/memberCorrect")
+	public String memberCorrect(Model model, HttpSession session) {
+		log.info("memberCorrect get");
+		
+		//아이디 정보
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			} 
+		
+		return "/page/memberCorrect";
+	}
+
 
 }

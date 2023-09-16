@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+/* 마이페이지와 회원정보 수정에서 같이 쓰일 CSS입니다 */
+
 #myPage-wrap{
   margin-top: 150px;
 }
@@ -31,6 +33,12 @@ article{
 
 .myPage-name, .myPage-update{
 	margin: 2rem;
+	color: #595959;
+	
+}
+
+a.myPage-update{
+	color: #595959;
 }
 
 .myPage-menu-wrapper{
@@ -61,6 +69,10 @@ article{
 
 /* 마이페이지 qna */
 
+a.question{
+	color:#595959;
+}
+
 .myPage-qna-space{
 	margin:2rem;
 }
@@ -71,7 +83,6 @@ article{
 }
 
 .myPage-qna-button{
-/* 	float: right; */
 	margin-right: 20px;
 	margin:20px;
 	border-style:solid;
@@ -100,4 +111,72 @@ article{
 
 .myPage-notice{
 	margin: 2rem;
+}
+
+
+/* 회원정보 수정 */
+#myPage-memberCorrect{
+	text-align:center;
+}
+
+.myPage-member{
+	margin: auto;	
+	margin-top: 3rem;
+}
+
+.memberCorrect{
+	display:inline-block;
+	border-style: solid;
+	border-color: #ffd47f;
+	margin: auto;
+	width: 40rem;
+	height: 40rem;
+	margin-top: 8rem;
+	
+}
+
+.memTitle{
+	color:#595959;
+}
+
+th.myPage-member-info, td.myPage-myInfo{
+	padding: 1rem;
+	color:#595959;
+}
+
+a.email-edit, a.phone-edit, a.correctBtn{
+	color:#595959;
+	
+}
+	
+
+.myPage-member-info{
+	margin-top: 2rem;
+	margin-left: 2rem;
+	text-align:left;
+
+}
+
+.myPage-myInfo{
+	text-align: center;
+}
+
+.myPage-correct-btn{
+	display: flex;	
+	text-align: center;
+	padding:15px;
+	
+}
+
+.correct-btn{
+	list-style: none;
+	margin-top: 2rem;
+	margin-left:auto;
+	margin-right: auto;
+	margin-top: 2rem;
+	padding: 10px;
+	width:3rem;
+	height:20px;
+	background-color: #ffd47f;
+	border-radius: 4px;
 }
