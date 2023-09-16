@@ -211,6 +211,15 @@ public class PageController {
 		if (id != null) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
+			List<LikeVO> likeList = likeservice.getLike(membervo.getId());
+			log.info(likeList);
+			List<String> nameList = new ArrayList<String>();
+			for(LikeVO list:likeList) {
+				String name = list.getLike_name();
+				nameList.add(name);
+			}
+//			System.out.println(nameList);
+			model.addAttribute("likeList",nameList);
 		}
 //		컨텐츠 번호,이름,날짜 등등 가져오기
 		ContentsVO result = contentsservice.getConcert(m_num);
@@ -220,7 +229,6 @@ public class PageController {
 		result.setM_end_date(parseDate(e_date));
 //		상세이미지 가져오기
 		List<DImgVO> img = infoimgservice.InfoCImgList(m_num);
-		System.out.println(img);
 		model.addAttribute("concert", result);
 		model.addAttribute("ImgList",img);
 	}

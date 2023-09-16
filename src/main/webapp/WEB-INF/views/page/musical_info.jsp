@@ -30,8 +30,6 @@
 											<c:if test="${empty user}">
 										        data-empty-user="true"				
 										    </c:if>></a>
-										<h2 class="jowa">좋아요</h2>
-
 									</div>
 									<div>
 										<ul class="info">
@@ -262,6 +260,7 @@
 	    	var userId = likeBtn.attr("data-user-id");
 	    	var type = likeBtn.attr("data-type");
 	    	var img = likeBtn.attr("data-img");
+			// castingHeartBtn 토글
 		    if (likeBtn.hasClass("is-toggled")) {
 		        likeBtn.removeClass("is-toggled");
 // 		        toastMessage.text("즐겨찾기 해제되었습니다.");

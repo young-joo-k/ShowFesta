@@ -4,10 +4,11 @@
 <link href="/resources/css/goods.css?after" rel="stylesheet"
 	type="text/css">
 <%@include file="../includes/header.jsp"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <div id="container">
 	<main id="main">
 		<section class="infoSection">
-			<div class="contents" style="">
+			<div class="content" style="">
 				<div class="productWrapper">
 					<div class="productMain">
 						<div class="productMainTop">
@@ -19,11 +20,18 @@
 									<div class="posterBox">
 										<img class="posterBoxImage" src="${concert.m_img}"
 											alt="${concert.m_title }">
-										<a class="likeBtn" data-toggle="self"
-											data-toast="like" aria-checked="false"
+										<c:set var="contentsName" value="${concert.m_title}" />
+										<c:set var="list" value="${likeList }" />
+										<a
+											class="likeBtn ${fn:contains(list, contentsName) ? 'is-toggled' : ''}"
+											data-toggle="self" data-toast="like" aria-checked="false"
 											aria-label="즐겨찾기 등록" role="checkbox" href="#"
-											data-popup-hover="like"></a>
-
+											data-popup-hover="like"
+											data-contents-name="${concert.m_title } " data-type="콘서트"
+											data-user-id="${user.id }" data-img="${concert.m_img }"
+											<c:if test="${empty user}">
+										        data-empty-user="true"				
+										    </c:if>></a>
 									</div>
 									<div>
 										<ul class="info">
@@ -50,7 +58,7 @@
 							</div>
 						</div>
 						<div id="productMainBody" class="productMainBody">
-							<nav class="contents">
+							<nav class="content">
 								<div class="navInfo" style="">
 									<div class="stickyWrap">
 										<ul class="navList">
@@ -61,35 +69,8 @@
 							</nav>
 							<div>
 								<div class="prdContents detail">
-<!-- 									<div class="content casting"> -->
-<!-- 										<h3 class="contentTitle">캐스팅</h3> -->
-<!-- 										<div class="expandableWrap "> -->
-<!-- 											<ul class="castingList"> -->
-<%-- 												<c:forEach var="actor" items="${actorList}"> --%>
-<!-- 													<li class="castingItem"><div class="castingTop"> -->
-<!-- 															<a class="castingLink" -->
-<!-- 																href="http://www.playdb.co.kr/artistdb/detail.asp?ManNo=359" -->
-<!-- 																target="_blank" rel="noopener"> -->
-<!-- 																<div class="castingProfile"> -->
-<%-- 																	<img src="${actor.a_img }" class="castingImage" --%>
-<!-- 																		alt="프로필 사진"> -->
-<!-- 																</div> -->
-<!-- 															</a> <a class="castingHeartBtn " data-toggle="self" -->
-<!-- 																data-toast="cast" aria-checked="false" -->
-<!-- 																aria-label="즐겨찾기 등록/취소" role="checkbox" href="#"></a> -->
-<!-- 														</div> -->
-<!-- 														<div class="castingInfo"> -->
-<%-- 															<div class="castingActor">${actor.a_role }</div> --%>
-<%-- 															<div class="castingName">${actor.a_name }</div> --%>
-<!-- 														</div></li> -->
-<%-- 												</c:forEach> --%>
-<!-- 											</ul> -->
-<!-- 											<a class="contentToggleBtn" data-toggle="expandableWrap" -->
-<!-- 												role="button" aria-label="여닫기" href="#"></a> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
 									<div class="content description">
-										<h3 class="contentTitle">공연상세 / 캐스팅일정</h3>
+										<h3 class="contentTitle">공연상세</h3>
 										<div class="contentDetail">
 											<c:forEach var="img" items="${ImgList}">
 												<p>
@@ -116,63 +97,88 @@
 	// JavaScript 부분
 	$(document).ready(function() {
 		$(".navItem").on("click", function(e) {
-			// 기본 동작(링크 이동)을 방지합니다.
 			e.preventDefault();
 
-			// 모든 .navItem에서 is-active 클래스를 제거합니다.
 			$(".navItem").removeClass("is-active");
 
-			// 현재 클릭한 .navItem에 is-active 클래스를 추가합니다.
 			$(this).addClass("is-active");
 
-			// 여기에서 원하는 동작을 추가할 수 있습니다.
-			// 예를 들어, 클릭한 메뉴에 해당하는 내용을 화면에 표시하거나 다른 동작을 수행할 수 있습니다.
 		});
 		// contentToggleBtn를 클릭했을 때 동작하는 함수
 		$(".contentToggleBtn").on("click", function(e) {
-		    e.preventDefault();
-		    toggleContent();
+			e.preventDefault();
+			toggleContent();
 		});
 
-		// castingHeartBtn를 클릭했을 때 동작하는 함수
-		$(".castingHeartBtn").on("click", function(e) {
-		    e.preventDefault();
-		    var castingHeartBtn = $(this);
-		    toggleCasting(castingHeartBtn);
-		});
-		// castingHeartBtn를 클릭했을 때 동작하는 함수
+		// likeBtn를 클릭했을 때 동작하는 함수
 		$(".likeBtn").on("click", function(e) {
 		    e.preventDefault();
 		    var likeBtn = $(this);
-		    togglelikeBtn(likeBtn);
-		});
-		function toggleContent() {
-		    // 여닫기 상태를 토글
-		    var expandableWrap = document.querySelector(".expandableWrap");
-		    var isToggled = expandableWrap.classList.contains("is-toggled");
-		    if (isToggled) {
-		        expandableWrap.classList.remove("is-toggled");
-		    } else {
-		        expandableWrap.classList.add("is-toggled");
+		    if (checkUser(likeBtn) === "true") {
+		    	window.location.href = "/join/login";
+		    } 
+		    else {
+			    togglelikeBtn(likeBtn);
 		    }
+		});
+		function checkUser(check){
+			return check.attr("data-empty-user");
+		}
+		function toggleContent() {
+			// 여닫기 상태를 토글
+			var expandableWrap = document.querySelector(".expandableWrap");
+			var isToggled = expandableWrap.classList.contains("is-toggled");
+			if (isToggled) {
+				expandableWrap.classList.remove("is-toggled");
+			} else {
+				expandableWrap.classList.add("is-toggled");
+			}
 		}
 
-		function toggleCasting(castingHeartBtn) {
-		    // castingHeartBtn 토글
-	        if (castingHeartBtn.hasClass("is-toggled")) {
-      			castingHeartBtn.removeClass("is-toggled");
-    		} else {
-        		castingHeartBtn.addClass("is-toggled");
-    		}
-		}
-		
+
 		function togglelikeBtn(likeBtn) {
-		    // castingHeartBtn 토글
-	        if (likeBtn.hasClass("is-toggled")) {
-	        	likeBtn.removeClass("is-toggled");
-    		} else {
-    			likeBtn.addClass("is-toggled");
-    		}
+	    	var contentsName = likeBtn.attr("data-contents-name");
+	    	var userId = likeBtn.attr("data-user-id");
+	    	var type = likeBtn.attr("data-type");
+	    	var img = likeBtn.attr("data-img");
+			// castingHeartBtn 토글
+			if (likeBtn.hasClass("is-toggled")) {
+				likeBtn.removeClass("is-toggled");
+		        $.ajax({
+		            type: "GET",
+		            url: "/like/delete",
+		            data: {
+		                like_name: contentsName,
+		                id: userId,
+		                like_type: type,
+		                like_img:img
+		            },
+		            success: function() {
+		                console.log("성공 ");
+		            },
+		            error: function() {
+		                console.log("실패: ");
+		            }
+		        });				
+			} else {
+				likeBtn.addClass("is-toggled");
+		        $.ajax({
+		            type: "GET",
+		            url: "/like/insert",
+		            data: {
+		                like_name: contentsName,
+		                id: userId,
+		                like_type: type,
+		                like_img:img
+		            },
+		            success: function() {
+		                console.log("성공 ");
+		            },
+		            error: function() {
+		                console.log("실패: ");
+		            }
+		        });
+			}
 		}
 	});
 </script>
