@@ -232,19 +232,20 @@ a.before_after_year{
   transform: translate(-50%, -100%);
   width: 50rem;
   height: 50rem;
-  background-color: #F6F6F6;
+  background-color: #FFFFFF;
   border-radius: 4px;
 }
 
 .modal-header{
 	display: flex;
 	justify-content: space-between;
-	color: #ffffff;
+	color: #595959;
 	position: relative;
 }
 
 .modal-title{
 	text-align: center;
+	
 }
 
 button.modal-close-btn {
@@ -265,8 +266,10 @@ button.modal-close-btn {
 	margin: 0 auto;
 	width: 50rem;
 	height: 50rem;
-	color: #F6F6F6;
+	color: #595959;
 	margin:5px;
+  align-items: center;
+
 }
 
 .modal-body{

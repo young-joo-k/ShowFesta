@@ -57,9 +57,9 @@
 							<a href="#">카테고리</a>
 						</h2>
 						<ul class="category" style="display:none;">
-							<li><a href="#">뮤지컬</a></li>
-							<li><a href="#">콘서트</a></li>
-							<li><a href="#">페스티벌</a></li>
+							<li><a href="/page/mContents">뮤지컬</a></li>
+							<li><a href="/page/concertContents">콘서트</a></li>
+							<li><a href="/page/festivalContents">페스티벌</a></li>
 							<li><a href="#">지역축제</a></li>
 						</ul>
 					</li>

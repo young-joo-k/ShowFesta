@@ -2,7 +2,6 @@
 
 #myPage-wrap{
   margin-top: 150px;
-	margin-left:80px;
 }
 
 article{
@@ -12,6 +11,8 @@ article{
 .mypage{
 	margin-top: 100px;
 	display:flex;
+	margin-left: 10rem;
+	margin-bottom: 5rem;
 }
 
 .myPage-profile{
@@ -19,17 +20,27 @@ article{
 	
 }
 
+.myPage-img{
+	width: 2rem;
+	height: 5rem;
+}
+
 .myPage-info{
-	margin-left:30px;
+	margin-left:5rem;
 }
 
 .myPage-name, .myPage-update{
-	margin: 20px;
+	margin: 2rem;
 }
 
 .myPage-menu-wrapper{
 	display:flex;
 	margin-top: 20px;
+	margin-left: 2rem; 
+}
+
+.myPage-menu{
+	background-color:#ffd47f ;
 }
 
 .mypage-contents{
@@ -37,32 +48,58 @@ article{
 }
 
 .like-contents, .like-actor, .myPage-qna{
-  border-style: none;
-  width: 180px;
-  height: 70px;
-  font-size: larger;
-  background-color: #ffd47f;
-  border-color: #ffd47f;
-  color: #595959;
+	border-style: none;
+	width: 180px;
+	height: 70px;
+	font-size: larger;
+	background-color: #ffd47f;
+	border-color: #ffd47f;
+	color: #595959;
+	font-weight: bold;
 }
 
+
 /* 마이페이지 qna */
-.myQna{
-	width: 50rem;
-	height: 20rem;
-	text-align: center;
+
+.myPage-qna-space{
+	margin:2rem;
+	
 	
 }
-.myPage-qna-space{
-	margin:15px;
+
+.myPage-qna-button-wrap{
+	display: flex;
+	justify-content:flex-end;
 }
 
 .myPage-qna-button{
-	float: right;
-  margin-right: 20px;
-  
+/* 	float: right; */
+	margin-right: 20px;
+	margin:20px;
+	border-style:solid;
+	border-color: #ffd47f;
+	background-color: #ffd47f;
+	width: 80px;
+	height: 30px;
+	border-radius:4px;
+	color: #595959;
+	font-size: smaller;
+
 }
 
-.mypage-notice{
-	margin-left: 30px;
+.myQna{
+	width: 50rem;
+	height: 25rem;
+	text-align: center;
+}
+
+
+.myPage-qna-list{
+	border-style: solid;
+	border-color: #ffd47f;
+	border-radius:4px;
+}
+
+.myPage-notice{
+	margin: 2rem;
 }
