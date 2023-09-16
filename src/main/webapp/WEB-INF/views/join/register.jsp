@@ -8,7 +8,7 @@
 					<h3 class="panel-title" style="text-align: center;">회원가입</h3>
 				</div>
 				<div class="panel-body">
-					<form id="joinForm" action="/join/register" method="post" enctype="multipart/form-data">
+					<form id="joinForm" action="/join/register" method="post">
 						<fieldset>
 							<div class="form-group">
 								<input class="form-control" placeholder="아이디" name="id" id="id"
