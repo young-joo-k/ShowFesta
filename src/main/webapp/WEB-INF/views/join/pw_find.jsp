@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"%>
-<%@include file="../includes/header_user.jsp"%>
+<%@include file="../includes/header.jsp"%>
 
 <!DOCTYPE html>
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="/resources/css/join.css?after" rel="stylesheet">
 
-  <title>ShowFesta</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -14,57 +12,50 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-<div class="container">
-	<div class="row">
-		<div class="col-md-4 col-md-offset-4">
-			<div class="login-panel panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title" style="text-align: center;">비밀번호 찾기</h3>
+	<div class="body">
+		<div class="member">
+			<div class="join member-layout" id="g-contents">
+				<div class="idpw-find">
+					<h1 tabindex="0">비밀번호 찾기</h1>
 				</div>
-				<div class="panel-body">
-					<form id="joinForm" action="/join/pw_find" method="post" >
+				<div class="common-box">
+					<h3 class="certi-txt02">아래 정보를 입력해 주세요</h3>
+					<form id="joinForm" action="/find/id_find" method="post" name="myFrm">
 						<fieldset>
-							<div class="form-group">
-								<label class="radio-inline"> <input type="radio"
-									name="checked" value=0 checked> 개인
-								</label> <label class="radio-inline"> <input type="radio"
-									name="checked" value=1> 사업자
-								</label>
+							<div class="join-input-box modify-input-box">
+								<ul>
+									<li><label for="user-id"> <input type="text"
+											placeholder="아이디" class="input-style01" name="userId"
+											id="user-id" required>
+									</label></li>
+									<li><label for="user-name"> <input type="text"
+											placeholder="이름" class="input-style01" name="userName"
+											id="user-name" required>
+									</label></li>
+									<li><label for="user-phone"> <input type="text"
+											placeholder="휴대폰 번호(번호만 입력)" class="input-style01"
+											name="findInfo" id="user-phone">
+									</label></li>
+									<li><label for="user-email"> <input type="text"
+											placeholder="이메일 주소" class="input-style01" name="findinfo"
+											id="user-email">
+									</label></li>
+								</ul>
 							</div>
-							<div class="form-group">
-								<input class="form-control" placeholder="아이디" name="id" id="id"
-									type="text" autofocus>
-								<div id="idError" style="color: red;"></div>
+							<div class="btn-box">
+								<div class="btn-purple">
+									<a href="id_find_result" onclick="onSubmit();">확인</a>
+								</div>
 							</div>
-							<div class="form-group">
-								<input class="form-control" placeholder="이름" name="name"
-									id="name" type="text">
-								<div id="nameError" style="color: red;"></div>
-							</div>
-							<div class="form-group">
-								<input class="form-control"
-									placeholder="전화번호 (ex: 010-0000-0000)" name="phone" id="phone"
-									type="tel">
-								<div id="phoneError" style="color: red;"></div>
-							</div>
-							<div class="form-group">
-								<input class="form-control" placeholder="이메일" name="email"
-									id="email" type="email">
-								<div id="emailError" style="color: red;"></div>
-							</div>
-							<button type="submit" class="btn btn-lg btn-success btn-block">찾기</button>
 						</fieldset>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script>
+<!-- <script>
 	$(document).ready(function() {
 		
         var result = '<c:out value="${result}"/>';
@@ -127,5 +118,5 @@
 		    return true;
 		});
 	});
-</script>
+</script> -->
 <%@include file="../includes/footer_user.jsp"%>

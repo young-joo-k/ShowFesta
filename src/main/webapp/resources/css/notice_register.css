@@ -23,7 +23,7 @@
     display: inline-block;
     width: 5px;
     height: 5px;
-    background-color: #febc38;
+    background-color: #fc7110;
     border-radius: 100px;
     vertical-align: middle;
     margin-left: -10px;
@@ -109,7 +109,7 @@
     color: #fff;
 }
 .register-submit {
-    background-color: #febc38;
+    background-color: #fc7110;
     color: #fff;
 }
 
@@ -123,6 +123,6 @@
 }
 
 .login-submit {
-    background-color: #febc38;
+    background-color: #fc7110;
     color: #fff;
 }

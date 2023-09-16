@@ -15,12 +15,28 @@ public class SearchServiceImpl implements SearchService {
     private SearchMapper searchMapper; // MyBatis Mapper 인터페이스를 주입
 
     @Override
-    public List<SearchVO> search(String keyword) {
-        List<SearchVO> results = new ArrayList<>();
-        results.addAll(searchMapper.searchMusicals(keyword));
-        results.addAll(searchMapper.searchFestivals(keyword));
-        results.addAll(searchMapper.searchActors(keyword));
-        return results;
+    public List<SearchVO> musicalsearch(String keyword) {
+        List<SearchVO> musicalSearchResults = new ArrayList<>();
+        musicalSearchResults.addAll(searchMapper.searchMusicals(keyword));
+        return musicalSearchResults;
+    }
+    @Override
+    public List<SearchVO> concertsearch(String keyword) {
+    	List<SearchVO> concertSearchResults = new ArrayList<>();
+    	concertSearchResults.addAll(searchMapper.searchConcerts(keyword));
+    	return concertSearchResults;
+    }
+    @Override
+    public List<SearchVO> festivalsearch(String keyword) {
+    	List<SearchVO> festivalSearchResults = new ArrayList<>();
+    	festivalSearchResults.addAll(searchMapper.searchFestivals(keyword));
+    	return festivalSearchResults;
+    }
+    @Override
+    public List<SearchVO> actorsearch(String keyword) {
+    	List<SearchVO> actorSearchResults = new ArrayList<>();
+    	actorSearchResults.addAll(searchMapper.searchActors(keyword));
+    	return actorSearchResults;
     }
     
 }

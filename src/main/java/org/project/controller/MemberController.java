@@ -137,7 +137,6 @@ public class MemberController {
 			@RequestParam("id") String id,
 			@RequestParam("name") String name,
 			@RequestParam("email") String email,
-			@RequestParam("checked") int checked,
 			@RequestParam("phone") String phone, Model model) {
 		// MemberService를 호출하여 아이디 찾기 로직 수행
         String foundPw = service.findPw(id, name, email, phone);
