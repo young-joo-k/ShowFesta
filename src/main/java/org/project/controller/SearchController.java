@@ -25,13 +25,10 @@ public class SearchController {
 
     @GetMapping("/search")
     public String search(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
-        // 최신 데이터를 가져오는 로직을 Service를 통해 수행합니다.
-        List<SearchVO> latestData = searchService.search(keyword); // Service를 통해 데이터를 가져옵니다.
-
-        // 모델에 최신 데이터를 추가합니다.
-        model.addAttribute("searchResults", latestData);
-
-        // 다른 코드와 함께 검색 결과 페이지로 이동합니다.
-        return "page/search";
+        if (keyword != null && !keyword.isEmpty()) {
+            List<SearchVO> searchResults = searchService.search(keyword);
+            model.addAttribute("searchResults", searchResults);
+        }
+        return "search"; // 검색 결과를 보여줄 뷰 이름 (search.jsp 또는 다른 이름)
     }
 }

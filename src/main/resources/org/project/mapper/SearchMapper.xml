@@ -4,29 +4,22 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- MyBatis XML 설정 파일에서 SQL 쿼리를 정의 -->
 <mapper namespace="org.project.mapper.SearchMapper">
-   <select id="searchMusicals" parameterType="string" resultType="org.project.mapper.SearchMapper">
-SELECT * FROM tbl_musical
-WHERE m_title LIKE '%검색어%'
-    </select>
-<!--     뮤지컬 검색 결과 쿼리
-    <select id="searchMusicals" parameterType="string" resultType="org.project.mapper.SearchMapper">
-        SELECT m_title, m_image
+    <select id="searchMusicals" parameterType="string" resultType="org.project.domain.SearchVO">
+        SELECT m_title, m_img
         FROM tbl_musical
-        WHERE m_title LIKE CONCAT('%', #{keyword}, '%');
+        WHERE m_title LIKE '%'||${keyword}||'%'
     </select>
     
-    페스티벌 검색 결과 쿼리
-    <select id="searchFestivals" parameterType="string" resultType="org.project.mapper.SearchMapper">
+    <select id="searchFestivals" parameterType="string" resultType="org.project.domain.SearchVO">
         SELECT m_title, m_img
         FROM tbl_festival
-        WHERE m_title LIKE CONCAT('%', #{keyword}, '%');
+        WHERE m_title LIKE '%'||${keyword}||'%'
     </select>
     
-    배우 검색 결과 쿼리
-    <select id="searchActors" parameterType="string" resultType="org.project.mapper.SearchMapper">
-        SELECT a_name, a_image
+    <select id="searchActors" parameterType="string" resultType="org.project.domain.SearchVO">
+        SELECT a_name, a_img
         FROM tbl_actor
-        WHERE a_name LIKE CONCAT('%', #{keyword}, '%');
+        WHERE a_name LIKE '%'||${keyword}||'%'
     </select>
-     -->
+
 </mapper>
