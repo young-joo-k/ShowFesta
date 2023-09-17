@@ -43,7 +43,7 @@ article{
 
 a.myPage-update{
 	color: #595959;
-	font-size:xx-large;
+	font-size:x-large;
 }
 
 .myPage-menu-wrapper{
@@ -58,12 +58,12 @@ a.myPage-update{
 
 .mypage-contents{
 	margin: 10px;
-	font-size: x-large;
+	font-size: large;
 }
 
 .like-contents, .like-actor, .myPage-qna{
 	border-style: none;
-	width: 250px;
+	width: 200px;
 	height: 70px;
 	font-size: larger;
 	background-color: #ffd47f;
