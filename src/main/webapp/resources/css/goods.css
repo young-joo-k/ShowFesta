@@ -139,6 +139,7 @@ li {
 	font-size: 2.4rem;
 	font-weight: bold;
 	line-height: 130%;
+	padding-bottom : 3rem;
 }
 
 .productWrapper .summary .posterBox .posterBoxTop {
@@ -207,6 +208,8 @@ li {
 	margin-left: 5rem;
 	vertical-align: top;
 	flex-direction: column;
+    height: 30.1rem;
+    overflow-y: auto;
 }
 
 .productWrapper .summary .info .infoItem {
@@ -251,7 +254,7 @@ li {
 	max-width: 41.5rem;
 	color: #000;
 	font-size: 1.6rem;
-	line-height: 160%;
+	line-height: 200%;
 }
 
 .productWrapper .content {
@@ -295,7 +298,7 @@ li {
 	border-radius: 1rem;
 	text-align: center;
 	box-sizing: border-box;
-	margin-top: 13rem;
+	margin-top: 5rem;
 	margin-left: 7rem;
 }
 

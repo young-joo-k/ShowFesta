@@ -3,6 +3,7 @@ package org.project.service;
 import java.util.List;
 
 import org.project.domain.ContentsVO;
+import org.project.domain.PriceVO;
 import org.project.mapper.ContentsMapper;
 import org.springframework.stereotype.Service;
 
@@ -82,6 +83,12 @@ public class ContentsServiceImpl implements ContentsService {
 	public ContentsVO getFestival(Long m_num) {
 		// TODO Auto-generated method stub
 		return contentsmapper.FestivalRead(m_num);
+	}
+
+	@Override
+	public List<PriceVO> getPrice(String m_title) {
+		// TODO Auto-generated method stub
+		return contentsmapper.getPrice(m_title);
 	}
 
 	

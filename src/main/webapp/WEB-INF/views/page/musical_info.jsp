@@ -46,6 +46,12 @@
 													<p class="infoText">${musical.m_start_date }~
 														${musical.m_end_date }</p>
 												</div></li>
+											<li class="infoItem"><strong class="infoLabel">가격정보</strong>
+												<div class="infoDesc">
+													<c:forEach var="price" items="${priceList}">
+														<p class="infoText">${price.p_name } <span style="color: red">${price.p_price }</span>원</p>
+													</c:forEach>
+												</div></li>											
 										</ul>
 										<div class="bookBtn">
 											<a class="sideBtn is-primary" href="${musical.m_b_link }"

@@ -39,5 +39,14 @@
         SELECT pw FROM tbl_user
         WHERE id = #{id} AND name = #{name} AND email = #{email} AND phone = #{phone}
     </select>
+    
+<!--     <update id = "updateUserInfo"> -->
+<!--     	UPDATE tbl_user -->
+<!--     	SET pw = #{pw} -->
+<!-- 	    	phone= #{phone} -->
+<!-- 	    	email =#{email} -->
+<!-- 	    WHERE -->
+<!-- 	    	id = #{id} -->
+<!--     </update> -->
 
 </mapper>

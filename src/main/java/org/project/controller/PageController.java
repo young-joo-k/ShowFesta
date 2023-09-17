@@ -15,6 +15,7 @@ import org.project.domain.DImgVO;
 import org.project.domain.LikeVO;
 import org.project.domain.MemberVO;
 import org.project.domain.PlayVO;
+import org.project.domain.PriceVO;
 import org.project.service.PlayService;
 import org.project.service.ContentsService;
 import org.project.service.InfoImgService;
@@ -45,8 +46,9 @@ public class PageController {
 	private MemberService memberservice;
 	
 	@Autowired
+
 	private ContentsService contentsservice;
-	
+
 	@Autowired
 	private PlayService playservice;
 	
@@ -171,11 +173,16 @@ public class PageController {
 	public void m_info(HttpSession session,@RequestParam("m_num") Long m_num, Model model) {
 		String id = (String) session.getAttribute("id");
 		log.info("musical_info get");
+		//로그인이 되어 있는 상태라면 
 		if (id != null) {
+			// 유저 정보 가져와서 
 			MemberVO membervo = memberservice.getUserInfo(id);
+			//모델에 뿌려주고
 			model.addAttribute("user", membervo);
+			//즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
 			List<LikeVO> likeList = likeservice.getLike(membervo.getId());
 			log.info(likeList);
+			// 즐겨찾기한 애들 이름만 담을 리스트
 			List<String> nameList = new ArrayList<String>();
 			for(LikeVO list:likeList) {
 				String name = list.getLike_name();
@@ -193,7 +200,8 @@ public class PageController {
 
 //		뮤지컬에 출연한 배우이름,이미지,역할 등등 가져오기
 		List<PlayVO> actor = playservice.getActorList(m_num);
-
+//		뮤지컬 가격정보 가져오기		
+		List<PriceVO> priceList = contentsservice.getPrice(result.getM_title());
 //		System.out.println(actor);
 //		상세이미지 가져오기
 		List<DImgVO> img = infoimgservice.InfoMImgList(m_num);
@@ -201,6 +209,7 @@ public class PageController {
 		model.addAttribute("actorList", actor);
 		model.addAttribute("musical", result);
 		model.addAttribute("ImgList",img);
+		model.addAttribute("priceList",priceList);
 	}
 
 	@GetMapping("/concert_info")
@@ -229,8 +238,11 @@ public class PageController {
 		result.setM_end_date(parseDate(e_date));
 //		상세이미지 가져오기
 		List<DImgVO> img = infoimgservice.InfoCImgList(m_num);
+//		콘서트 가격정보 가져오기		
+		List<PriceVO> priceList = contentsservice.getPrice(result.getM_title());
 		model.addAttribute("concert", result);
 		model.addAttribute("ImgList",img);
+		model.addAttribute("priceList",priceList);
 	}
 	
 
@@ -358,7 +370,7 @@ public class PageController {
 	}
 	
 	//회원정보수정
-	@GetMapping("/memberCorrect")
+	@GetMapping("/memberUpdate")
 	public String memberCorrect(Model model, HttpSession session) {
 		log.info("memberCorrect get");
 		
@@ -369,7 +381,23 @@ public class PageController {
 			model.addAttribute("user", membervo);
 			} 
 		
-		return "/page/memberCorrect";
+		return "/page/memberUpdate";
+	}
+	
+	// 관리자 페이지 관리자 권한을 가진사람이 로그인 하면 마이페이지를 눌렀을 때 관리자 마이페이지가 되는건데 어떻게 할지 생각해봐야할듯
+	@GetMapping("/adminPage")
+	public String adminPage(Model model, HttpSession session) {
+		log.info("adminPage get");
+		
+
+		//아이디 정보
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			} 
+		return "/page/adminPage";
+				
 	}
 
 
