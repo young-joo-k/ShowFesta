@@ -82,4 +82,8 @@
 	<select id="FestivalRead" resultType = "org.project.domain.ContentsVO">
 		select * from tbl_festival where m_num = #{m_num}
 	</select>
+	
+	<select id="getPrice" resultType = "org.project.domain.PriceVO">
+		select * from tbl_price where m_title = #{m_title}
+	</select>
 </mapper>

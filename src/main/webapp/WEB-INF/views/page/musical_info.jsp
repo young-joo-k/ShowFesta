@@ -46,6 +46,12 @@
 													<p class="infoText">${musical.m_start_date }~
 														${musical.m_end_date }</p>
 												</div></li>
+											<li class="infoItem"><strong class="infoLabel">가격정보</strong>
+												<div class="infoDesc">
+													<c:forEach var="price" items="${priceList}">
+														<p class="infoText">${price.p_name } <span style="color: red">${price.p_price }</span>원</p>
+													</c:forEach>
+												</div></li>											
 										</ul>
 										<div class="bookBtn">
 											<a class="sideBtn is-primary" href="${musical.m_b_link }"
@@ -127,9 +133,6 @@
 					</div>
 				</div>
 <!-- 				<div class="toast is-off"><span class="toastMessage">즐겨찾기 해제되었습니다.</span></div> -->
-			</div>
-			<div class="topButtonWrapper ">
-				<a href="#" class="topButton"><span class="blind">맨 위로</span></a>
 			</div>
 		</section>
 	</main>

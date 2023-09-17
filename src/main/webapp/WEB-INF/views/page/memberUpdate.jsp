@@ -18,10 +18,10 @@ pageEncoding="UTF-8"%>
 		<table class = "myPage-member">
 			<tbody class = "myPage-edit-form">
 				<tr class = "myPage-member-info-wrap">
-					<th class = "myPage-member-info">이메일(아이디)</th>
-					<td class = "myPage-myInfo">
-						<span class = "myPage-member-info"></span>
-						<a href="#" onclick="userId" class = "email-edit">이메일 변경하기</a>
+					<th class = "myPage-member-info">아이디</th>
+					<td class = "myPage-myInfo"> ${user.getId()}
+<!-- 						<span class = "myPage-member-info"></span> -->
+<!-- 						<a href="#" onclick="userId" class = "email-edit">이메일 변경하기</a> -->
 					</td>
 				</tr>
 				<tr class = "myPage-member-info-wrap">
@@ -32,7 +32,7 @@ pageEncoding="UTF-8"%>
 				</tr>
 				<tr class = "myPage-member-info-wrap">
 					<th class = "myPage-member-info">이름</th>
-					<td> ${user.getName()}</td>
+					<td class = "myPage-myInfo"> ${user.getName()}</td>
 				</tr>
 				<tr class = "myPage-member-info-wrap">
 					<th class = "myPage-member-info">전화번호</th>
