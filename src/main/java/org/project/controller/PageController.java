@@ -12,11 +12,13 @@ import javax.servlet.http.HttpSession;
 import org.project.data.DateData;
 import org.project.domain.ContentsVO;
 import org.project.domain.DImgVO;
+import org.project.domain.LikeVO;
 import org.project.domain.MemberVO;
 import org.project.domain.PlayVO;
 import org.project.service.PlayService;
 import org.project.service.ContentsService;
 import org.project.service.InfoImgService;
+import org.project.service.LikeService;
 import org.project.service.MemberService;
 import org.project.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import lombok.extern.log4j.Log4j;
 
 @Controller
@@ -47,6 +53,8 @@ public class PageController {
 	
 	@Autowired
 	private InfoImgService infoimgservice;
+	@Autowired
+	private LikeService likeservice;
 	
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
@@ -163,12 +171,21 @@ public class PageController {
 	@GetMapping("/musical_info")
 	public void m_info(HttpSession session,@RequestParam("m_num") Long m_num, Model model) {
 		String id = (String) session.getAttribute("id");
+		log.info("musical_info get");
 		if (id != null) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
-
+			List<LikeVO> likeList = likeservice.getLike(membervo.getId());
+			log.info(likeList);
+			List<String> nameList = new ArrayList<String>();
+			for(LikeVO list:likeList) {
+				String name = list.getLike_name();
+				nameList.add(name);
+			}
+//			System.out.println(nameList);
+			model.addAttribute("likeList",nameList);
 		}
-		log.info(m_num);
+//		log.info(m_num);
 		ContentsVO result = contentsservice.getMusical(m_num);
 		String s_date = result.getM_start_date();
 		result.setM_start_date(parseDate(s_date));
@@ -178,7 +195,7 @@ public class PageController {
 //		뮤지컬에 출연한 배우이름,이미지,역할 등등 가져오기
 		List<PlayVO> actor = playservice.getActorList(m_num);
 
-		System.out.println(actor);
+//		System.out.println(actor);
 //		상세이미지 가져오기
 		List<DImgVO> img = infoimgservice.InfoMImgList(m_num);
 
@@ -188,13 +205,22 @@ public class PageController {
 	}
 
 	@GetMapping("/concert_info")
-	public void c_info(@RequestParam("m_num") Long m_num,HttpSession session, Model model) {
+	public void c_info(@RequestParam("m_num") Long m_num, HttpSession session, Model model) {
 		log.info(m_num);
 //		아이디 정보
 		String id = (String) session.getAttribute("id");
 		if (id != null) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
+			List<LikeVO> likeList = likeservice.getLike(membervo.getId());
+			log.info(likeList);
+			List<String> nameList = new ArrayList<String>();
+			for(LikeVO list:likeList) {
+				String name = list.getLike_name();
+				nameList.add(name);
+			}
+//			System.out.println(nameList);
+			model.addAttribute("likeList",nameList);
 		}
 //		컨텐츠 번호,이름,날짜 등등 가져오기
 		ContentsVO result = contentsservice.getConcert(m_num);
@@ -204,9 +230,36 @@ public class PageController {
 		result.setM_end_date(parseDate(e_date));
 //		상세이미지 가져오기
 		List<DImgVO> img = infoimgservice.InfoCImgList(m_num);
-		System.out.println(img);
 		model.addAttribute("concert", result);
 		model.addAttribute("ImgList",img);
+	}
+	
+
+	@GetMapping("/festival_info")
+	public void f_info(@RequestParam("m_num") Long m_num, HttpSession session, Model model) {
+		log.info(m_num);
+//		아이디 정보
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			List<LikeVO> likeList = likeservice.getLike(membervo.getId());
+			log.info(likeList);
+			List<String> nameList = new ArrayList<String>();
+			for(LikeVO list:likeList) {
+				String name = list.getLike_name();
+				nameList.add(name);
+			}
+//			System.out.println(nameList);
+			model.addAttribute("likeList",nameList);
+		}
+//		컨텐츠 번호,이름,날짜 등등 가져오기
+		ContentsVO result = contentsservice.getFestival(m_num);
+		String s_date = result.getM_start_date();
+		result.setM_start_date(parseDate(s_date));
+		String e_date = result.getM_end_date();
+		result.setM_end_date(parseDate(e_date));
+		model.addAttribute("festival", result);
 	}
 
 	
@@ -287,5 +340,38 @@ public class PageController {
 		}
 		 
 	}
+	
+	@GetMapping("/myPage")
+	public String myPage(Model model, HttpSession session ) {
+		log.info("mypage get");
+		
+//		아이디 정보
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+		} else if(id == null){
+			
+			return "/join/login";
+		}
+
+		return "/page/myPage";
+	}
+	
+	//회원정보수정
+	@GetMapping("/memberCorrect")
+	public String memberCorrect(Model model, HttpSession session) {
+		log.info("memberCorrect get");
+		
+		//아이디 정보
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			} 
+		
+		return "/page/memberCorrect";
+	}
+
 
 }

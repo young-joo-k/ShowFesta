@@ -1,139 +1,162 @@
 @charset "UTF-8";
 
 .multi .title {
-	margin : 0 0 20px;
+	margin: 0 0 20px;
 }
 
 .title-area .label {
 	display: inline-block;
-    vertical-align: middle;
-   color: #fff;
+	vertical-align: middle;
+	color: #black;
+	font-weight: bold;
+	font-size: 20px;
 }
 
 .title-area span {
-    font-size: 24px;
-    line-height: 36px;
-}
-.multi {
-    position: relative;
-    width: 1240px;
-    margin: 0 auto;
-    overflow: hidden;
+	font-size: 24px;
+	line-height: 36px;
 }
 
+.multi {
+	position: relative;
+	width: 1300px;
+	margin: 0 auto;
+	overflow: hidden;
+	border-radius: 8px;
+	margin-bottom: 30px;
+}
 
 .multi.portrait-cell[data-v-223ac3f7] {
-    min-height: 383px;
+	/* 	min-height: 383px; */
+	
 }
 
 .multi .title h1 {
-    display: inline-block;
-    font-size: 0;
-    line-height: 36px;
-    color: #fff;
-    font-weight: 400;
-    vertical-align: middle;
+	display: inline-block;
+	font-size: 0;
+	line-height: 36px;
+	color: #black;
+	font-weight: 400;
+	vertical-align: middle;
+	border-bottom: 2px solid;
 }
-
-.session-contents[data-v-54077454] {
-    min-height: 360px;
-}
-
 
 .session-contents {
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-
-
-.contents-wrapper{
+	margin-left: auto;
+	margin-right: auto;
 	position: relative;
-    width: 100%;
-    z-index: 1;
-    display: flex;
-    transition-property: transform;
-    box-sizing: content-box;
-    transform: translateZ(0);
+	overflow: hidden;
+	z-index: 1;
 }
 
-.contents-slide{
-    flex-shrink: 0;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition-property: transform;	
+.contents-wrapper {
+	position: relative;
+	width: 100%;
+	z-index: 1;
+	display: flex;
+	transition-property: transform;
+	box-sizing: content-box;
+	transform: translateZ(0);
 }
+
+.contents-slide {
+	flex-shrink: 0;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transition-property: transform;
+}
+
 .portrait:last-child {
-    margin-right: 0;
+	margin-right: 0;
 }
+
 .portrait {
-    position: relative;
-    float: left;
-    width: 240px;
+	position: relative;
+	float: left;
+	width: 240px;
 }
 
 .multi a:not(.btn-more) {
-    display: block;
+	display: block;
+box-shadow: 5px 5px 5px #000;
+    margin-bottom: 10px;
+    border-radius: 12px;
 }
 
 .portrait .thumb-image {
-    position: relative;
-    width: 240px;
-    height: 320px;
-    overflow: hidden;
-    will-change: transform;
-    border-radius: 12px;
-    background-color: #252525;
+	position: relative;
+	width: 240px;
+	height: 320px;
+	overflow: hidden;
+	will-change: transform;
+	border-radius: 12px;
+	background-color: #252525;
 }
 
 .thumb-image .thumb-img {
-    transition: all .15s linear;
-    transform: scaleX(1);
+	transition: all .15s linear;
+	transform: scaleX(1);
 }
 
 .picture-area img, .ppv-wrap {
-    width: 100%;
+	width: 100%;
+	height: 100%
+}
+.portrait-cell {
+	width: 1500px;
 }
 
 .multi .btn-more.all {
-    position: absolute;
-    top: 7px;
-    right: 20px;
-    padding: 5px 90px 10px 0;
-    font-size: 16px;
-    line-height: 24px;
-    color: black;
-    background: transparent url(../img/next.png) center center/26px scroll no-repeat;
-    background-size: 16px auto;
-    filter: invert(100%) sepia(52%) saturate(20%) hue-rotate(315deg)
-    brightness(103%) contrast(108%);
+	position: absolute;
+	top: 7px;
+	right: 20px;
+	padding: 5px 20px 10px 0;
+	font-size: 16px;
+	line-height: 24px;
+	color: black;
+	background: transparent url(../img/next.png) right scroll no-repeat;
+	background-size: 16px auto;
 }
 
-.middle-section{
-	background-color : #000127;
-	    padding-top: 50px;
+.middle-section {
+	padding-top: 50px;
+	position: relative;
+}
+
+.middle-section::after {
+	position: absolute;
+	content: "";
+	background-image: url('../img/bomb9.png');
+	background-repeat: no-repeat;
+	background-position: 60px 20px;
+	background-size: 90%;
+	opacity: 20%;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
 }
 
 .main01-nav button[class^=btn] {
-    display: table-cell;
-    width: 34px;
-    height: 34px;
-    vertical-align: middle;
+	display: table-cell;
+	width: 34px;
+	height: 34px;
+	vertical-align: middle;
 }
 
-.picture-area img{
+.picture-area img {
 	transition: transform 0.3s;
 }
 
 .picture-area {
-	
-	  overflow: hidden; /* 이미지 넘침 제어 */
+	overflow: hidden; /* 이미지 넘침 제어 */
 }
 
 .picture-area:hover img {
-    transform: scale(1.1); /* 호버 상태에서 이미지를 확대합니다 (1.1배로 확대). */
+	transform: scale(1.1); /* 호버 상태에서 이미지를 확대합니다 (1.1배로 확대). */
+}
+
+div#under-line {
+    border-bottom: 2px solid;
 }

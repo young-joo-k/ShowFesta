@@ -78,6 +78,12 @@ public class ContentsServiceImpl implements ContentsService {
 		return contentsmapper.ConcertRead(m_num);
 	}
 
+	@Override
+	public ContentsVO getFestival(Long m_num) {
+		// TODO Auto-generated method stub
+		return contentsmapper.FestivalRead(m_num);
+	}
+
 	
 	
 }

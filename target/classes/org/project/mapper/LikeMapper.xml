@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.project.mapper.LikeMapper">
+
+	<insert id="insert">
+		insert into tbl_like(like_name, id,like_type,like_img)
+		values(#{like_name}, #{id}, #{like_type}, #{like_img})	
+	</insert>
+	
+	<delete id="delete">
+	  	delete from tbl_like where like_name=#{like_name} and id=#{id} and like_type=#{like_type}
+	</delete>
+
+	<select id="getLike" resultType="org.project.domain.LikeVO">
+		select * from tbl_like where id = #{id}
+	</select>
+</mapper>

@@ -1,13 +1,27 @@
 @charset "UTF-8";
 .clear_g {
 	display: block;
-	overflow: visible;
+	overflow: hidden;
 	width: auto;
 	clear: both;
 	*zoom: 1;
 		margin: 0;
 	padding: 0;
 	letter-spaceing: -1px;
+	position:relative;
+}
+.clear_g::after{
+		position:absolute;
+	content:"";
+		background-image: url('../img/bomb8.png');
+	background-repeat: no-repeat;
+	background-position: 1000px 5px;
+	background-size: 25%;
+	opacity: 40%;
+	        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
 }
 
 .wrap_main_slider {
@@ -15,7 +29,7 @@
 	overflow: hidden;
 	width: 100%;
 	padding-top: 50px;
-	background-color: #000127;
+	padding-bottom:50px;
 }
 
 .wrap_main_slider #swiper {
@@ -67,7 +81,7 @@
 	height: 120px;
 	position: absolute;
 	margin-right: -91px;
-	    margin-top: -400px
+	    margin-top: -70px
 }
 
 .btn_mslider_next {
@@ -79,7 +93,7 @@
 	height: 120px;
 	position: absolute;
 	margin-left: -91px;
-	    margin-top: -400px
+	    margin-top: -70px
 }
 
 a .btn_mslider_prev, a .btn_mslider_next {
@@ -190,6 +204,8 @@ a .btn_mslider_prev, a .btn_mslider_next {
 	height: 320px;
 	margin-right: 10px;
 	margin-left: 10px;
+	box-shadow: 8px 7px 15px #000;
+    border-radius: 12px;
 	
 }
 

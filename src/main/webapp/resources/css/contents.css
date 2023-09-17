@@ -2,7 +2,7 @@
 /* 이 css는 모든 유형별 페이지에서 공통으로 사용됩니다. */
 
 .genreContents{
-	background-color : #000127;
+	background-color : #ffffff;
 }
 
 .categoryTop{
@@ -13,8 +13,8 @@
 
 .list-title{
 	size: larger;
-	color: #FFFFFF;
-  font-size: xx-large;
+	color: #595959;
+	font-size: xx-large;
 }
 
 .no-data-message {
@@ -30,7 +30,7 @@
 }
 
 .all-contents-list{
-	padding-top: 10rem;
+	padding-top: 5rem;
 }
 
 .contents-list {
@@ -57,13 +57,17 @@
 }
 
 .list-txt{
-	color: #FFFFFF;
+	color: #595959;
   	align-items: center;
+/*   	margin-left:2em; */
 	
 }
 
 .list-tit2{
 	display:flex;
+	align-items: center;
+	margin-left:7em;
+	
 }
 
 .no-data-message {

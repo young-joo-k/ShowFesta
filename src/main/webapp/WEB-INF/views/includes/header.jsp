@@ -27,18 +27,17 @@
 				</h1>
 				<ul class="memberInfo_wrap">
 					<li style="display: ${not empty user ? 'inline' : 'none'}"><a href="../join/logout"> <img
-							src="https://img.cgv.co.kr/R2014/images/common/ico/loginMember.png"
+							src="https://img.cgv.co.kr/R2014/images/common/ico/loginPassword.png"
 							alt="로그아웃"> <span style="display: ${not empty user ? 'inline' : 'none'}">로그아웃</span>
 					</a></li>
 					<li style="display: ${empty user ? 'inline' : 'none'}"><a href="../join/login"> <img
 							src="https://img.cgv.co.kr/R2014/images/common/ico/loginPassword.png"
 							alt="로그인"> <span style="display: ${empty user ? 'inline' : 'none'}">로그인</span>
-					</a></li>
 					<li style="display: ${empty user ? 'inline' : 'none'}"><a href="../join/register"> <img
-							src="https://img.cgv.co.kr/R2014/images/common/ico/loginJoin.png"
-							alt="회원가입"> <span style="display: ${empty user ? 'inline' : 'none'}">회원가입</span>
+							src="https://img.cgv.co.kr/R2014/images/common/ico/loginJoin.png"			
+							alt="회원가입"> <span style="display: ${empty user ? 'inline' : 'none'}">회원가입</span>		
 					</a></li>
-					<li><a href="../join/mypage"> <img
+					<li><a href="../page/myPage"> <img
 							src="https://img.cgv.co.kr/R2014/images/common/ico/loginMember.png"
 							alt="MY PAGE"> <span >마이페이지</span>
 					</a></li>
@@ -57,7 +56,7 @@
 						<h2>
 							<a href="#">카테고리</a>
 						</h2>
-						<ul class="category">
+						<ul class="category" style="display:none;">
 							<li><a href="/page/mContents">뮤지컬</a></li>
 							<li><a href="/page/concertContents">콘서트</a></li>
 							<li><a href="/page/festivalContents">페스티벌</a></li>
@@ -77,15 +76,14 @@
 				</ul>
 				<div class="totalSearch_wrap">
 					<label for="totalSearch">
-						<input type="text" id="header_keyword" value>
+						<input type="text" id="header_keyword" placeholder="검색어를 입력해 주세요">
 						<input type="hidden" id="header_ad_keyword" name="header_ad_keyword">
 					</label>
-					<button type="button" class="btn_totalSearch" id="btn_header_search">검색</button>
+					<button type="button" class="btn_totalSearch" id="btn_header_search" onclick="search()">검색</button>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<!-- End Header -->
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -104,5 +102,50 @@ $(document).ready(function() {
     );
     $('.dropdown ul').hide();
 });
+</script>
+
+
+<script>
+    // 페이지가 준비되면 실행할 코드
+    $(document).ready(function() {
+        // 검색 버튼 클릭 이벤트를 처리합니다.
+        $("#btn_header_search").click(function() {
+            // 검색어를 가져옵니다.
+            var keyword = $("#header_keyword").val();
+
+            // 검색어가 비어있지 않은 경우에만 검색 결과 페이지로 이동합니다.
+            if (keyword.trim() !== "") {
+                // 검색 결과 페이지 URL을 구성합니다.
+                var searchResultUrl = "/page/search?keyword=" + encodeURIComponent(keyword);
+
+                // 검색 결과 페이지로 리디렉션합니다.
+                window.location.href = searchResultUrl;
+            } else {
+                // 검색어가 비어있는 경우 경고 메시지를 표시하거나 아무 작업도 수행하지 않습니다.
+                alert("검색어를 입력하세요.");
+            }
+        });
+    });
+    $(document).ready(function() {
+    	  // Enter 키가 눌렸을 때 검색 실행
+    	  $('#header_keyword').on('keyup', function(event) {
+    	    if (event.key === 'Enter') {
+    	      search();
+    	    }
+    	  });
+
+    	  // 검색 버튼을 클릭할 때 검색 실행
+    	  $('#btn_header_search').on('click', function() {
+    	    search();
+    	  });
+
+    	  // 검색을 실행하는 함수
+    	  function search() {
+    	    var searchTerm = $('#header_keyword').val();
+    	    // 검색어(searchTerm)를 사용하여 검색 로직을 실행하거나 다른 작업을 수행합니다.
+    	    // 여기서는 단순히 예시로 검색어를 콘솔에 출력합니다.
+    	    window.location.href='search?keyword=' + searchTerm;
+    	  }
+    	});
 </script>
 </html>

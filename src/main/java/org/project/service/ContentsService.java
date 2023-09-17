@@ -23,4 +23,6 @@ public interface ContentsService {
 	public List<ContentsVO> getToday_f_contents();
 
 	public ContentsVO getConcert(Long m_num);
+
+	public ContentsVO getFestival(Long m_num);
 }
