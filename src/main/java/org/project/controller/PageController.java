@@ -359,7 +359,7 @@ public class PageController {
 	}
 	
 	//회원정보수정
-	@GetMapping("/memberCorrect")
+	@GetMapping("/memberUpdate")
 	public String memberCorrect(Model model, HttpSession session) {
 		log.info("memberCorrect get");
 		
@@ -370,7 +370,23 @@ public class PageController {
 			model.addAttribute("user", membervo);
 			} 
 		
-		return "/page/memberCorrect";
+		return "/page/memberUpdate";
+	}
+	
+	// 관리자 페이지 관리자 권한을 가진사람이 로그인 하면 마이페이지를 눌렀을 때 관리자 마이페이지가 되는건데 어떻게 할지 생각해봐야할듯
+	@GetMapping("/adminPage")
+	public String adminPage(Model model, HttpSession session) {
+		log.info("adminPage get");
+		
+
+		//아이디 정보
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			} 
+		return "/page/adminPage";
+				
 	}
 
 
