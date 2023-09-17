@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* 마이페이지와 회원정보 수정에서 같이 쓰일 CSS입니다 */
+/* 마이페이지와 회원정보 수정, 관리자 페이지에서 같이 쓰일 CSS입니다 */
 
 #myPage-wrap{
   margin-top: 150px;
@@ -205,6 +205,7 @@ a.email-edit, a.phone-edit{
 	height:40px;
 	background-color: #ffd47f;
 	border-radius: 4px;
+	border-color: #595959;
 }
 
 
