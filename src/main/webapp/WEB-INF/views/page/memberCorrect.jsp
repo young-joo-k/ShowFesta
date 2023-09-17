@@ -13,7 +13,7 @@ pageEncoding="UTF-8"%>
 <div id = "myPage-memberCorrect">
 	<div class = "memberCorrect">
 		<div class ="memberCorrect-name">
-			<h2 class ="memTitle">회원정보 수정 페이지 입니다.</h2>
+			<h1 class ="memTitle">회원정보 수정</h1>
 		</div>
 		<table class = "myPage-member">
 			<tbody class = "myPage-edit-form">
@@ -55,7 +55,7 @@ pageEncoding="UTF-8"%>
 		<ul class = "myPage-correct-btn">
 			<li class ="correct-btn">
 				<div class = "correct-btn-cancel">
-					<a href ="/page/myPage">취소</a>
+					<a href ="/page/myPage" class="myPageBack">취소</a>
 				</div>
 			</li>
 			<li class ="correct-btn">
