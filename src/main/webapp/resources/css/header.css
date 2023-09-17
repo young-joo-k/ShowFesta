@@ -3,7 +3,9 @@
 body {
 	margin: 0;
 }
-
+.category{
+	background-color : white;
+}
 .category>li>a {
 	color: black;
 }
@@ -14,14 +16,19 @@ body {
 
 .contents>ul>li>h2>a {
 	color: black;
-	font-size:20px
+	font-size:20px;
+	transition: color 0.1s;
+}
+.contents>ul>li>h2>a:hover {
+	color: #fc7110;
+	font-size:20px;
 }
 
 .header {
 	position: relative;
 	z-index: 101;
 }
-.header::after{
+body::before{
 	position:absolute;
 	content:"";
 		background-image: url('../img/bomb3.png');
@@ -84,6 +91,7 @@ body {
 	padding-bottom: 19px;
 }
 
+
 .header_content .contents .memberInfo_wrap li a img {
 	width: 36px;
 	height: 36px;
@@ -106,7 +114,6 @@ body {
 	top: 113px;
 	width: 100%;
 	padding: 5px 0;
-			background-color:white;
 	border-radius:5px;
 	
 }
@@ -176,6 +183,31 @@ dl, ul, ol, menu, li {
 	list-style: none;
 }
 
-.dropdown{
+  .dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    border: 1px white;
+    border-radius: 5px;
+        box-shadow: 6px 9px 15px #000;
+  }
 
-}
+  .dropdown ul li {
+    display: inline-block;
+    margin-right: 20px; /* 각 메뉴 아이템 사이의 간격 조정 */
+    margin: 10px;
+  }
+
+  /* 호버 시 색상 변경 */
+  .dropdown ul li a {
+    color: black;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+    border : 1px;
+    font-weight: bold;
+  }
+
+  .dropdown ul li a:hover {
+    color: #fc7110;
+  }
+  

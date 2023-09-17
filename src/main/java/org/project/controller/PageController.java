@@ -232,6 +232,34 @@ public class PageController {
 		model.addAttribute("concert", result);
 		model.addAttribute("ImgList",img);
 	}
+	
+
+	@GetMapping("/festival_info")
+	public void f_info(@RequestParam("m_num") Long m_num, HttpSession session, Model model) {
+		log.info(m_num);
+//		아이디 정보
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			List<LikeVO> likeList = likeservice.getLike(membervo.getId());
+			log.info(likeList);
+			List<String> nameList = new ArrayList<String>();
+			for(LikeVO list:likeList) {
+				String name = list.getLike_name();
+				nameList.add(name);
+			}
+//			System.out.println(nameList);
+			model.addAttribute("likeList",nameList);
+		}
+//		컨텐츠 번호,이름,날짜 등등 가져오기
+		ContentsVO result = contentsservice.getFestival(m_num);
+		String s_date = result.getM_start_date();
+		result.setM_start_date(parseDate(s_date));
+		String e_date = result.getM_end_date();
+		result.setM_end_date(parseDate(e_date));
+		model.addAttribute("festival", result);
+	}
 
 	
 	//오라클로 날짜를 받아오면 2023-08-10 00:00:00 이런식으로 가져오는데 이걸 2023.08.10 으로 바꾸는 함수

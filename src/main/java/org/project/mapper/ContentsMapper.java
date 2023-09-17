@@ -21,4 +21,6 @@ public interface ContentsMapper {
 	public List<ContentsVO> getToday_f_contents();
 	
 	public ContentsVO ConcertRead(Long m_num);
+
+	public ContentsVO FestivalRead(Long m_num);
 }

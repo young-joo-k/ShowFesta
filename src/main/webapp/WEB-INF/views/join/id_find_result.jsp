@@ -25,7 +25,7 @@
 						<fieldset>
 							<div class="btn-box">
 								<div class="btn-purple">
-									<a href="id_find_result" onclick="onSubmit();">확인</a>
+									<a href="login" onclick="onSubmit();">확인</a>
 								</div>
 							</div>
 						</fieldset>

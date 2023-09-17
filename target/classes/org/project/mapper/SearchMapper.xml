@@ -5,21 +5,26 @@
 <!-- MyBatis XML 설정 파일에서 SQL 쿼리를 정의 -->
 <mapper namespace="org.project.mapper.SearchMapper">
     <select id="searchMusicals" parameterType="string" resultType="org.project.domain.SearchVO">
-        SELECT m_title, m_img
+        SELECT m_title, m_img, m_num
         FROM tbl_musical
-        WHERE m_title LIKE '%'||${keyword}||'%'
+        WHERE m_title LIKE '%'||#{keyword}||'%'
+    </select>
+    <select id="searchConcerts" parameterType="string" resultType="org.project.domain.SearchVO">
+        SELECT m_title, m_img, m_num
+        FROM tbl_concert
+        WHERE m_title LIKE '%'||#{keyword}||'%'
     </select>
     
     <select id="searchFestivals" parameterType="string" resultType="org.project.domain.SearchVO">
-        SELECT m_title, m_img
+        SELECT m_title
         FROM tbl_festival
-        WHERE m_title LIKE '%'||${keyword}||'%'
+        WHERE m_title LIKE '%'||#{keyword}||'%'
     </select>
     
     <select id="searchActors" parameterType="string" resultType="org.project.domain.SearchVO">
-        SELECT a_name, a_img
+        SELECT a_name, a_img, a_link
         FROM tbl_actor
-        WHERE a_name LIKE '%'||${keyword}||'%'
+        WHERE a_name LIKE '%'||#{keyword}||'%'
     </select>
 
 </mapper>

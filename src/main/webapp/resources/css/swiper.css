@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .clear_g {
 	display: block;
-	overflow: visible;
+	overflow: hidden;
 	width: auto;
 	clear: both;
 	*zoom: 1;
@@ -204,6 +204,8 @@ a .btn_mslider_prev, a .btn_mslider_next {
 	height: 320px;
 	margin-right: 10px;
 	margin-left: 10px;
+	box-shadow: 8px 7px 15px #000;
+    border-radius: 12px;
 	
 }
 
