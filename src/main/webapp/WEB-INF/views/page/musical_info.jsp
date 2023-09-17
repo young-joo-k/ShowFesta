@@ -134,9 +134,6 @@
 				</div>
 <!-- 				<div class="toast is-off"><span class="toastMessage">즐겨찾기 해제되었습니다.</span></div> -->
 			</div>
-			<div class="topButtonWrapper ">
-				<a href="#" class="topButton"><span class="blind">맨 위로</span></a>
-			</div>
 		</section>
 	</main>
 </div>
