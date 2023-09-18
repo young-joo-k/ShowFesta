@@ -148,17 +148,18 @@ pageEncoding="UTF-8"%>
 <div class="admin-user-manage">
     <div class="admin-content-wrap">
         <c:choose>
-            <c:when test="${empty notice_list}">
+            <c:when test="${empty allUser}">
                 <div class="no-like-message">
                     <p class="no-like-message">회원이 없습니다.</p>
                 </div>
             </c:when>
             <c:otherwise>
-                <c:forEach var="notice" items="${notice_list}">
+                <c:forEach var="adminUserInfo" items="${allUser}">
                     <div class="myPage-qna-wrap">
                         <div class="myPage-qna-space">
                             <div class="admin-user-list">
                                 <div class="userList">
+                                	<div class = "AllUserInfo"> ${adminUserInfo.getId()} </div>
                                     <h1>회원정보를 띄워줍니다.</h1>
                                 </div>
                             </div>
