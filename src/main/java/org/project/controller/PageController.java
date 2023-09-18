@@ -284,10 +284,10 @@ public class PageController {
 		return formattedDate;
 	}
 	
-	@GetMapping("/news")
-	public void latestNewsPage() {
-		log.info("News get");
-	}
+//	@GetMapping("/news")
+//	public void latestNewsPage() {
+//		log.info("News get");
+//	}
 	
 	
 	//	뮤지컬 유형별페이지 가져옵니다
