@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"%>
-<main id="main">
+<main id="home-main">
 	<html>
 <head>
 <%@include file="../includes/header.jsp"%>

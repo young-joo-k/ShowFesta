@@ -21,6 +21,7 @@ overflow:hidden;
 text-overflow:ellipsis;
 }
 
+
 /* A:link { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:none; } */
 /* A:visited { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:none; } */
 /* 마우스 올렸을때 색 바뀌는 부분 */
@@ -330,4 +331,6 @@ button.modal-close-btn {
 
 form#calendarFrm {
     padding-top: 5px;
+    position: relative;
+    z-index: 100;
 }
