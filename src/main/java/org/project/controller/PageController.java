@@ -85,7 +85,6 @@ public class PageController {
 	         }
 	         dateList.add(calendarData);
 	      }
-
 	      // 달력 빈곳 빈 데이터로 삽입
 	      int index = 7 - dateList.size() % 7;
 
@@ -95,7 +94,12 @@ public class PageController {
 	            dateList.add(calendarData);
 	         }
 	      }
-//	      System.out.println(dateList);
+	      int list = dateList.size();
+	      System.out.println(list);
+	      System.out.println(index);
+	      for (int i=0; i<dateList.size();i++) {
+	    	  System.out.println(dateList.get(i));
+	      }
 	      int musicalCnt = scheduleservice.getMusical();
 	      int concertCnt = scheduleservice.getConcerts();
 	      int festivalCnt = scheduleservice.getFestival();

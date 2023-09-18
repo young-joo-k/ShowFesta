@@ -40,11 +40,11 @@
         WHERE id = #{id} AND name = #{name} AND email = #{email} AND phone = #{phone}
     </select>
     
-<!--     <update id = "updateUserInfo"> -->
-<!--     	UPDATE tbl_user -->
-<!--     	SET id = #{id}, pw=#{pw}, name=#{name}, phone=#{phone}, email=#{email} -->
-<!-- 	    WHERE -->
-<!-- 	    	id = #{id} -->
-<!--     </update> -->
+    <update id = "updateUserInfo">
+    	UPDATE tbl_user
+    	SET id = #{id}, pw=#{pw}, name=#{name}, phone=#{phone}, email=#{email}
+	    WHERE
+	    	id = #{id}
+    </update>
 
 </mapper>

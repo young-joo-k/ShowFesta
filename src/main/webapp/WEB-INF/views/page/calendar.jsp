@@ -90,19 +90,21 @@ pageEncoding="UTF-8"%>
                         </td>
                      </c:when>
                      <c:when test="${date_status.index%7==0}">
-            </tr>
-            <tr class = "cal-list">
-               <td class="sun_day">
-                  <div class="sun">${dateList.date}</div>
-                  <div></div>
-               </td>
+<!--             			</tr> -->
+            			<tr class = "cal-list">
+			               <td class="sun_day">
+			                  <div class="sun">${dateList.date}</div>
+			                  <div></div>
+			               </td>
                      </c:when>
-               <c:otherwise>
-                  <td class="normal_day">
-                     <div class="date">${dateList.date}</div>
-                     <!-- 여기에 매일 공연 개수 나타나야해 -->
-                  </td>
-               </c:otherwise>
+					<c:otherwise>
+						<td class="normal_day">
+							<div class="date">${dateList.date}</div>
+							<c:if test="${not empty dateList.date and dateList.date ne ''}">
+								<div>여기에 매일 공연 개수 나타나야해</div>
+							</c:if>
+						</td>
+					</c:otherwise>
                   </c:choose>
                </c:forEach>
             </tr>

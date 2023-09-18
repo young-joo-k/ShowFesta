@@ -122,17 +122,23 @@ public class MemberController {
         String foundId = service.findId(name, email, phone);
 
         if (foundId != null) {
-        	model.addAttribute("message", "아이디는 " + foundId + " 입니다.");
+        	model.addAttribute("message", foundId);
             model.addAttribute("foundId", foundId);
+            log.info(foundId);
         } else {
         	model.addAttribute("message", "일치하는 아이디를 찾을 수 없습니다.");
         }
 
-        return "id_find_result"; // 결과를 표시할 JSP 파일의 이름 반환
+        return "/join/id_find_result"; // 결과를 표시할 JSP 파일의 이름 반환
     }
 	@GetMapping("id_find_result")
 	public void findIdResult() {
 		log.info("id_find_Result Get");
+	}
+
+	@GetMapping("pw_find_result")
+	public void findPWResult() {
+		log.info("pw_find_Result Get");
 	}
 	
 	@GetMapping("pw_find")
