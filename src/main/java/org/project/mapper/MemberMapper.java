@@ -20,5 +20,5 @@ public interface MemberMapper {
 
 	public String findPw(Map<String, Object> paramMap);
 
-	
+
 }

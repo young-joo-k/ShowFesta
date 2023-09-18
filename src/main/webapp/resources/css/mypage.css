@@ -124,7 +124,7 @@ a.question{
 
 
 /* 회원정보 수정 */
-#myPage-memberCorrect{
+#myPage-memberUpdate{
 	text-align:center;
 }
 
@@ -133,7 +133,7 @@ a.question{
 	margin-top: 6rem;
 }
 
-.memberCorrect{
+.memberUpdate{
 	display:inline-block;
 	border-style: solid;
 	border-color: #ffd47f;
@@ -184,10 +184,12 @@ a.email-edit, a.phone-edit{
 .mypage-input-phone, .mypage-input-email{
 	width: 200px;
 	height: 40px;
+	border-style: solid;
 	border-radius:4px;
 	border-color: #595959;
 	font-size: large;
 	text-align:center;
+	color: #595959;
 }
 
 .myPage-correct-btn{

@@ -20,7 +20,7 @@ pageEncoding="UTF-8"%>
 				</div>
 				<div class = "myPage-info">
 					<div class = "myPage-name"> ${user.getId()}님 마이페이지 입니다.</div>
-					<a class = "myPage-update" href="/page/memberCorrect">회원정보 수정</a>
+					<a class = "myPage-update" href="/page/memberUpdate">회원정보 수정</a>
 
 				</div>
 			</article>
@@ -97,7 +97,7 @@ pageEncoding="UTF-8"%>
 
 
 
-
+<%@include file="../includes/footer.jsp"%>
 
 </body>
 

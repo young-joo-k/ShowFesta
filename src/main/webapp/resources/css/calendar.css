@@ -243,6 +243,8 @@ a.before_after_year{
 
 .modal-title{
    text-align: center;
+   color: #595959;
+   margin-left: 2rem;
 }
 
 button.modal-close-btn {
@@ -301,6 +303,8 @@ button.modal-close-btn {
   size: 10px;
   align-items: center;
   margin-top:10px;
+  color: #595959;
+  
 }
 
 .close-modal {
@@ -310,6 +314,7 @@ button.modal-close-btn {
     font-size: 24px;
     cursor: pointer;
 }
+
 
 /* 오버레이에 대한 CSS */
 .overlay {
