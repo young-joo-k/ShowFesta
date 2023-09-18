@@ -54,11 +54,11 @@ public class MemberController {
 	        // 이전 페이지의 URL을 가져옴
 	        String prevPage = (String) session.getAttribute("prevPage");
 	        System.out.println(prevPage);
-	        if (prevPage != null && !prevPage.equals("undefined")) {
+	        if (prevPage != "undefined") {
 	            // 이전 페이지로 리다이렉션
 //	            만약 마이페이지에서 로그인하면 마이페이지로 갈거야
 	            session.removeAttribute("prevPage");
-	            log.info("뜨는"+prevPage);
+	            log.info(prevPage);
 	            if(prevPage.equals("http://localhost:8080/page/myPage"))
 	            {
 	            	log.info("이전페이지가 마이페이지일때");
@@ -72,7 +72,7 @@ public class MemberController {
 	            log.info("널이 아니고 마이페이지,회원가입,로그인페이지가 아닐때");
 	            return "redirect:" + prevPage;
 	        } else {
-	        	log.info("거지"+prevPage);
+	        	log.info(prevPage);
 	            return "redirect:/page/myPage";
 	        }
 		}
