@@ -81,12 +81,10 @@ public class PageController {
 	         if (i == today_info.get("today")) {
 	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),String.valueOf(i), "today");
 	         } else {
-<<<<<<< HEAD
 	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),
 	                  String.valueOf(i), "normal_date");
 	            
 	            
-=======
 	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),String.valueOf(i), "normal_date");
 	            	 String result =String.valueOf(dateData.getYear()).substring(2) + '/' + String.valueOf(Integer.parseInt(dateData.getMonth())+1) + '/' + i;
 	            	 calendarData.setMusicalCnt(scheduleservice.getMusicalCnt(result));
@@ -97,7 +95,6 @@ public class PageController {
 	            	 calendarData.setF_all_contents(contentsservice.getAllFestival(result));
 	            	 System.out.println(result);
 	            	 System.out.println(calendarData.getMusicalCnt());
->>>>>>> 04abf9cd63be39ced0339f2c06baf4cb3f5789ac
 	         }
 	         dateList.add(calendarData);
 	      }
@@ -404,13 +401,13 @@ public class PageController {
 	@PostMapping("/memberUpdate")
 	public String editForm(HttpSession session, MemberVO member) {
 //		session.removeAttribute("id");
-		log.info("살려주세요 제발 수정되주세요");
+//		log.info("살려주세요 제발 수정되주세요");
 //		String id =(String) session.getAttribute("id");
 //		MemberVO membervo = memberservice.getUserInfo(id);
 		System.out.println(member);
 		
 		memberservice.updateUserInfo(member);
-//		
+		
 		return "redirect:/page/myPage";
 	}
 

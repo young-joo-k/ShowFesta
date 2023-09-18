@@ -54,11 +54,11 @@ public class MemberController {
 	        // 이전 페이지의 URL을 가져옴
 	        String prevPage = (String) session.getAttribute("prevPage");
 	        System.out.println(prevPage);
-	        if (prevPage != null && !prevPage.equals("undefined")) {
+	        if (prevPage != "undefined") {
 	            // 이전 페이지로 리다이렉션
 //	            만약 마이페이지에서 로그인하면 마이페이지로 갈거야
 	            session.removeAttribute("prevPage");
-	            log.info("뜨는"+prevPage);
+	            log.info(prevPage);
 	            if(prevPage.equals("http://localhost:8080/page/myPage"))
 	            {
 	            	log.info("이전페이지가 마이페이지일때");
@@ -72,7 +72,7 @@ public class MemberController {
 	            log.info("널이 아니고 마이페이지,회원가입,로그인페이지가 아닐때");
 	            return "redirect:" + prevPage;
 	        } else {
-	        	log.info("거지"+prevPage);
+	        	log.info(prevPage);
 	            return "redirect:/page/myPage";
 	        }
 		}
@@ -122,23 +122,17 @@ public class MemberController {
         String foundId = service.findId(name, email, phone);
 
         if (foundId != null) {
-        	model.addAttribute("message", foundId);
+        	model.addAttribute("message", "아이디는 " + foundId + " 입니다.");
             model.addAttribute("foundId", foundId);
-            log.info(foundId);
         } else {
         	model.addAttribute("message", "일치하는 아이디를 찾을 수 없습니다.");
         }
 
-        return "/join/id_find_result"; // 결과를 표시할 JSP 파일의 이름 반환
+        return "id_find_result"; // 결과를 표시할 JSP 파일의 이름 반환
     }
 	@GetMapping("id_find_result")
 	public void findIdResult() {
 		log.info("id_find_Result Get");
-	}
-
-	@GetMapping("pw_find_result")
-	public void findPWResult() {
-		log.info("pw_find_Result Get");
 	}
 	
 	@GetMapping("pw_find")
@@ -157,7 +151,7 @@ public class MemberController {
         String foundPw = service.findPw(id, name, email, phone);
 
         if (foundPw != null) {
-            model.addAttribute("message", foundPw );
+            model.addAttribute("message", "비밀번호는 " + foundPw + " 입니다.");
             model.addAttribute("foundPw", foundPw);
         } else {
             model.addAttribute("message", "일치하는 비밀번호를 찾을 수 없습니다.");
@@ -195,6 +189,33 @@ public class MemberController {
 		return "redirect:/join/login";
 	}
 	
-	
+	//사용자 관리 페이지
+	@GetMapping("/adminPage")
+	public String adminPage(Model model, HttpSession session, MemberVO member) {
+		log.info("adminPage usermanager");
+		
+		//아이디 정보
+		String id = (String) session.getAttribute("id");
+		
+		if (id != null) {
+			MemberVO membervo = service.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			log.info("나오는걸까");
+			
+		}if ("admin".equals(id)) {
+	        MemberVO membervo = service.getUserInfo(id);
+	        model.addAttribute("user", membervo);
+	      //사용자정보를 다 가지고 넘어갈거야 
+			List<MemberVO> memberAll = service.getAllUser();
+			model.addAttribute("allUser", memberAll);
+//	        return "/page/adminPage";
+			log.info("나오는걸까323222");
+		} else if(id == null){
 
+	       return "/join/login";
+		}
+
+		return "/page/adminPage";
+	}
 }
+

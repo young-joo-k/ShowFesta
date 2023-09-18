@@ -1,5 +1,7 @@
 package org.project.service;
 
+import java.util.List;
+
 import org.project.domain.MemberVO;
 
 public interface MemberService {
@@ -19,4 +21,9 @@ public interface MemberService {
 	public boolean registerEmailCheck(String email);
 
 	public void updateUserInfo(MemberVO member);
+
+	public List<MemberVO> getAllUser();
+
+	
+	
 }

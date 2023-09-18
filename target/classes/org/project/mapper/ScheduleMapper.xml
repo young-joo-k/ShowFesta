@@ -29,15 +29,6 @@
 	]]>
 </select>
 
-<<<<<<< HEAD
-<!-- <select> -->
-
-<!-- 	select * -->
-<!-- 	from tbl_musical -->
-<!-- 	where sysdate > m_start_date and sysdate < m_end_date -->
-
-<!-- </select> -->
-=======
 <select id = "getMusicalCnt" resultType = "int">
 <![CDATA[
 	select count(*) 
@@ -62,7 +53,6 @@
 	where TO_DATE(#{date}, 'YY/MM/DD') > m_start_date and TO_DATE(#{date}, 'YY/MM/DD') < m_end_date
 	]]>
 </select>
->>>>>>> 04abf9cd63be39ced0339f2c06baf4cb3f5789ac
 
 
 </mapper>

@@ -40,20 +40,15 @@
         WHERE id = #{id} AND name = #{name} AND email = #{email} AND phone = #{phone}
     </select>
     
-<<<<<<< HEAD
+
    <update id="updateUserInfo">
 	    UPDATE tbl_user
 	    SET pw=#{pw, jdbcType=VARCHAR}, phone=#{phone, jdbcType=VARCHAR}, email=#{email, jdbcType=VARCHAR}
 	    WHERE id=#{id, jdbcType=VARCHAR}
 	</update>
 
-=======
-    <update id = "updateUserInfo">
-    	UPDATE tbl_user
-    	SET id = #{id}, pw=#{pw}, name=#{name}, phone=#{phone}, email=#{email}
-	    WHERE
-	    	id = #{id}
-    </update>
->>>>>>> 04abf9cd63be39ced0339f2c06baf4cb3f5789ac
+	<select id = "getAllUser" resultType="org.project.domain.MemberVO">
+		select * from tbl_user;
+	</select>
 
 </mapper>
