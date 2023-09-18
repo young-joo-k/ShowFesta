@@ -4,10 +4,10 @@ import javax.servlet.http.HttpSession;
 
 import org.project.domain.Criteria;
 import org.project.domain.MemberVO;
-import org.project.domain.NoticeVO;
+import org.project.domain.QnaVO;
 import org.project.domain.PageDTO;
 import org.project.service.MemberService;
-import org.project.service.NoticeService;
+import org.project.service.QnaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,51 +23,28 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 @RequestMapping("/page/*")
-public class NoticeController {
+public class QnaController {
+	
 	@Autowired
-	private NoticeService service;
+	private QnaService service;
 	@Autowired
 	private MemberService memberservice;
 
-	@PostMapping("/notice_register")
-	public String register(NoticeVO notice, RedirectAttributes rttr) {
-		log.info("register: " + notice);
-		service.register(notice);
-		rttr.addFlashAttribute("result", notice.getB_num());
-		return "redirect:/page/notice_list";
-	}
-
-	@GetMapping({ "/notice_get", "/notice_modify" })
-	public void get(@RequestParam("b_num") Long b_num, @ModelAttribute("cri") Criteria cri, Model model) {
-		log.info("/notice_get");
-		model.addAttribute("notice", service.get(b_num));
-	}
-
-	@PostMapping("/notice_modify")
-	public String modify(NoticeVO notice, RedirectAttributes rttr) {
-		log.info("modify:" + notice);
-		if (service.modify(notice)) {
-			rttr.addFlashAttribute("result", "success");
-		}
-		return "redirect:/page/notice_list";
-	}
-
-	@PostMapping("/notice_remove")
-	public String remove(@RequestParam("b_num") Long b_num, RedirectAttributes rttr) {
-		log.info("remove....." + b_num);
-		if (service.remove(b_num)) {
-			rttr.addFlashAttribute("result", "success");
-		}
-		return "redirect:/page/notice_list";
-	}
-
-	@GetMapping("/notice_register")
-	public void register() {
+	@GetMapping("/qna_register")
+	public void qnaRegister() {
 		log.info("register Get!");
 
 	}
-
-	@GetMapping("/notice_list")
+	
+	@PostMapping("/qna_register")
+	public String register(QnaVO qna, RedirectAttributes rttr) {
+		log.info("register: " + qna);
+		service.register(qna);
+		rttr.addFlashAttribute("result", qna.getB_num());
+		return "redirect:/page/qna_list";
+	}
+	
+	@GetMapping("/qna_list")
 	public void list(Criteria cri, Model model, HttpSession session) {
 		String id = (String) session.getAttribute("id");
 		if (id != null) {
@@ -81,9 +58,10 @@ public class NoticeController {
 		int total = service.getTotal(cri);
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
-
-	@GetMapping("/user_qna")
-	public void qna() {
-		log.info("qna Get!");
+	
+	@GetMapping("/qna_get")
+	public void get(@RequestParam("b_num") Long b_num, @ModelAttribute("cri") Criteria cri, Model model) {
+		log.info("qna_get");
+		model.addAttribute("qna", service.get(b_num));
 	}
 }
