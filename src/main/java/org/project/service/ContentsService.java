@@ -6,16 +6,14 @@ import org.project.domain.PriceVO;
 
 
 public interface ContentsService {
-
+	
 	public List<ContentsVO> getMusicalContents();
 	
-	public ContentsVO getMusical(Long m_num);
-
 	public List<ContentsVO> getConcertContents();
 	
 	public List<ContentsVO> getFestivalContents();
 
-
+	public ContentsVO getMusical(Long m_num);
 //	public ContentsVO getConcert(Long m_num);
 	
 	//캘린더 모달창에 띄울 부분

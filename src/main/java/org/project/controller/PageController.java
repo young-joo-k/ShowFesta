@@ -376,6 +376,12 @@ public class PageController {
 			List<LikeVO> likeInfo = likeservice.getLike(membervo.getId());
 			model.addAttribute("likeInfo",likeInfo);
 			
+		} if ("admin".equals(id)) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			
+			return "/page/adminPage";
+			
 		} else if(id == null){
 
 	       return "/join/login";
@@ -400,22 +406,26 @@ public class PageController {
 	}
 	
 
-	
-	// 관리자 페이지 관리자 권한을 가진사람이 로그인 하면 마이페이지를 눌렀을 때 관리자 마이페이지가 되는건데 어떻게 할지 생각해봐야할듯
-	@GetMapping("/adminPage")
-	public String adminPage(Model model, HttpSession session) {
-		log.info("adminPage get");
-		
-
-		//아이디 정보
-		String id = (String) session.getAttribute("id");
-		if (id != null) {
-			MemberVO membervo = memberservice.getUserInfo(id);
-			model.addAttribute("user", membervo);
-			} 
-		return "/page/adminPage";
-				
-	}
+	//관리자페이지 마이페이지
+//	@GetMapping("/adminPage")
+//	public String adminPage(Model model, HttpSession session) {
+//		log.info("adminPage get");
+//		
+//		//아이디 정보
+//		String id = (String) session.getAttribute("id");
+//		if (id != null) {
+//			MemberVO membervo = memberservice.getUserInfo(id);
+//			model.addAttribute("user", membervo);
+//		} if ("admin".equals(id)) {
+//			MemberVO membervo = memberservice.getUserInfo(id);
+//			model.addAttribute("user", membervo);
+//		} else if(id == null){
+//
+//		       return "/join/login";
+//			}
+//		return "/page/adminPage";
+//				
+//	}
 
 
 }

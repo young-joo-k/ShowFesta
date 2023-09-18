@@ -7,10 +7,10 @@ import org.project.domain.PriceVO;
 
 public interface ContentsMapper {
 	
-	public List<ContentsVO> getConcertContents();
-
 	public List<ContentsVO> getMusicalContents();
 	
+	public List<ContentsVO> getConcertContents();
+
 	public ContentsVO MusicalRead(Long m_num);
 
 	public List<ContentsVO> getFestivalContents();
