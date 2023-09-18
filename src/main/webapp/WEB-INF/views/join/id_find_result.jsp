@@ -11,7 +11,6 @@
 <title>아이디 찾기 결과</title>
 </head>
 <body>
-<body>
 	<div class="body">
 		<div class="member">
 			<div class="join member-layout" id="g-contents">

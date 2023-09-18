@@ -157,7 +157,7 @@ public class MemberController {
         String foundPw = service.findPw(id, name, email, phone);
 
         if (foundPw != null) {
-            model.addAttribute("message", "비밀번호는 " + foundPw + " 입니다.");
+            model.addAttribute("message", foundPw );
             model.addAttribute("foundPw", foundPw);
         } else {
             model.addAttribute("message", "일치하는 비밀번호를 찾을 수 없습니다.");
