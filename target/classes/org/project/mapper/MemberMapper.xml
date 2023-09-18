@@ -42,9 +42,7 @@
     
 <!--     <update id = "updateUserInfo"> -->
 <!--     	UPDATE tbl_user -->
-<!--     	SET pw = #{pw} -->
-<!-- 	    	phone= #{phone} -->
-<!-- 	    	email =#{email} -->
+<!--     	SET id = #{id}, pw=#{pw}, name=#{name}, phone=#{phone}, email=#{email} -->
 <!-- 	    WHERE -->
 <!-- 	    	id = #{id} -->
 <!--     </update> -->

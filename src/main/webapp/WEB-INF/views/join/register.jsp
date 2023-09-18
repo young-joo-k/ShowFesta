@@ -23,7 +23,7 @@
 							<li><label> <input type="text" placeholder="이름"
 									title="이름" class="input-style01" id="name" name="name">
 							</label></li>
-							<li><label> <input type="tel" placeholder="전화번호"
+							<li><label> <input type="tel" placeholder="전화번호 ( - 제외)"
 									title="전화번호" class="input-style01" id="phone" name="phone">
 							</label></li>
 							<li><label> <input type="email" placeholder="이메일"
@@ -173,4 +173,4 @@
 										});
 					});
 </script>
-<%@include file="../includes/footer_user.jsp"%>
+<%-- <%@include file="../includes/footer_user.jsp"%> --%>

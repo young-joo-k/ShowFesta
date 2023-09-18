@@ -1,9 +1,11 @@
 @charset "UTF-8";
 
-/* 마이페이지와 회원정보 수정에서 같이 쓰일 CSS입니다 */
+/* 마이페이지와 회원정보 수정, 관리자 페이지에서 같이 쓰일 CSS입니다 */
 
 #myPage-wrap{
   margin-top: 150px;
+  position: relative;
+  z-index: 100;
 }
 
 article{
@@ -72,6 +74,9 @@ a.myPage-update{
 	font-weight: bold;
 }
 
+.my-like-actor{
+	display:none;
+}
 
 /* 마이페이지 qna */
 
@@ -102,6 +107,9 @@ a.question{
 
 }
 
+.myPage-qna-wrap{
+	display:none;
+}
 
 .myQna{
 	width: 50rem;
@@ -124,7 +132,7 @@ a.question{
 
 
 /* 회원정보 수정 */
-#myPage-memberCorrect{
+#myPage-memberUpdate{
 	text-align:center;
 }
 
@@ -133,7 +141,7 @@ a.question{
 	margin-top: 6rem;
 }
 
-.memberCorrect{
+.memberUpdate{
 	display:inline-block;
 	border-style: solid;
 	border-color: #ffd47f;
@@ -184,10 +192,12 @@ a.email-edit, a.phone-edit{
 .mypage-input-phone, .mypage-input-email{
 	width: 200px;
 	height: 40px;
+	border-style: solid;
 	border-radius:4px;
 	border-color: #595959;
 	font-size: large;
 	text-align:center;
+	color: #595959;
 }
 
 .myPage-correct-btn{
@@ -209,6 +219,7 @@ a.email-edit, a.phone-edit{
 	height:40px;
 	background-color: #ffd47f;
 	border-radius: 4px;
+	border-color: #595959;
 }
 
 

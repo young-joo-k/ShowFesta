@@ -39,7 +39,7 @@
 						</ul>
 						<div class="btn-purple btn-purple-dark">
 							<!-- <a href="#" title="로그인">로그인</a>  -->
-							<input type="submit" class="login-submit" onclick="onSubmit(); return false;" value="로그인">
+							<input type="submit" class="login-submit" value="로그인">
 								<!-- <button type="submit" id="loginBtn">로그인</button> -->
 						</div>
 					</fieldset>
@@ -68,14 +68,22 @@
             alert(result);
         }
         
-        $("#loginBtn").click(function (event) {
-//             event.preventDefault();
-
+        $("#loginpageForm").submit(function(event) {
             var id = $("#id").val();
             var pw = $("#pw").val();
 
-            $.post("/join/login", { id: id, pw: pw }, function (data) {
-            });
+            if (id === '') {
+                alert('아이디를 입력하세요.');
+                event.preventDefault();
+                return;
+            }
+
+            if (pw === '') {
+                alert('비밀번호를 입력하세요.');
+                event.preventDefault();
+                return;
+            }
+            
         });
     });
 </script>

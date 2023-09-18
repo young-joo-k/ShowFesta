@@ -352,15 +352,22 @@ public class PageController {
 		 
 	}
 	
+	//마이페이지
 	@GetMapping("/myPage")
 	public String myPage(Model model, HttpSession session ) {
 		log.info("mypage get");
-		
 //		아이디 정보
 		String id = (String) session.getAttribute("id");
 		if (id != null) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
+<<<<<<< HEAD
+=======
+			//즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
+			List<LikeVO> likeInfo = likeservice.getLike(membervo.getId());
+			model.addAttribute("likeInfo",likeInfo);
+>>>>>>> 6d87f2b237dddaba08299e980260eefca27d3c4e
+			
 		} else if(id == null){
 			
 			return "/join/login";
@@ -369,10 +376,10 @@ public class PageController {
 		return "/page/myPage";
 	}
 	
-	//회원정보수정
+	//회원정보수정페이지
 	@GetMapping("/memberUpdate")
 	public String memberCorrect(Model model, HttpSession session) {
-		log.info("memberCorrect get");
+		log.info("memberUpdate get");
 		
 		//아이디 정보
 		String id = (String) session.getAttribute("id");
@@ -383,6 +390,8 @@ public class PageController {
 		
 		return "/page/memberUpdate";
 	}
+	
+
 	
 	// 관리자 페이지 관리자 권한을 가진사람이 로그인 하면 마이페이지를 눌렀을 때 관리자 마이페이지가 되는건데 어떻게 할지 생각해봐야할듯
 	@GetMapping("/adminPage")
