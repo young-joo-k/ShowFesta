@@ -2,7 +2,6 @@ package org.project.mapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Select;
 import org.project.domain.Criteria;
 import org.project.domain.NoticeVO;
 
