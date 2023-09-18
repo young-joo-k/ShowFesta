@@ -29,4 +29,15 @@ public class LikeController {
 		log.info(likevo);
 		likeservice.LikeDelete(likevo);
 	}
+	@GetMapping("/actor_insert")
+	public void likeActorInsert(LikeVO likevo) {
+		log.info(likevo);
+		likeservice.LikeActorInsert(likevo);
+	}
+	
+	@GetMapping("/actor_delete")
+	public void likeActorDelete(LikeVO likevo) {
+		log.info(likevo);
+		likeservice.LikeActorDelete(likevo);
+	}
 }

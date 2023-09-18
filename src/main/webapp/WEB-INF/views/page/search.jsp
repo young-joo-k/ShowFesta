@@ -9,7 +9,7 @@
 <title>Home</title>
 </head>
 <body>
-<div class>
+	<div class>
 		<div data-v-223ac3f7 class="middle-section">
 			<div data-v-223ac3f7 id="mitisection_index_1"
 				class="multi portrait-cell">
@@ -40,7 +40,8 @@
 										</a>
 										<div>
 											<h3 class=content-name>
-												<span class="content-title"><c:out value = "${content.m_title}"/></span>
+												<span class="content-title"><c:out
+														value="${content.m_title}" /></span>
 											</h3>
 										</div>
 									</div>
@@ -49,7 +50,7 @@
 
 						</div>
 					</div>
-					<a data-v-223ac3f7 href="#" class="btn-more all" id="btn_more">더보기</a>
+					<a data-v-223ac3f7 href="#" class="btn-more all" id="musical_more">더보기</a>
 				</div>
 			</div>
 			<div data-v-223ac3f7 id="mitisection_index_2"
@@ -80,17 +81,18 @@
 										</a>
 										<div>
 											<h3 class=content-name>
-												<span class="content-title"><c:out value = "${content.m_title}"/></span>
+												<span class="content-title"><c:out
+														value="${content.m_title}" /></span>
 											</h3>
-										</div>										
-										
+										</div>
+
 									</div>
 								</div>
 							</c:forEach>
 
 						</div>
 					</div>
-					<a data-v-223ac3f7 href="/page/searchResult_concert" class="btn-more all">더보기</a>
+					<a data-v-223ac3f7 href="#" class="btn-more all" id="concert_more">더보기</a>
 				</div>
 			</div>
 			<div data-v-223ac3f7 id="mitisection_index_3"
@@ -121,7 +123,8 @@
 										</a>
 										<div>
 											<h3 class=content-name>
-												<span class="content-title"><c:out value = "${content.m_title}"/></span>
+												<span class="content-title"><c:out
+														value="${content.m_title}" /></span>
 											</h3>
 										</div>
 									</div>
@@ -130,7 +133,7 @@
 
 						</div>
 					</div>
-					<a data-v-223ac3f7 href="/page/searchResult_festival" class="btn-more all">더보기</a>
+					<a data-v-223ac3f7 href="#" class="btn-more all" id="festival_more">더보기</a>
 				</div>
 
 			</div>
@@ -151,8 +154,7 @@
 									style="width: 240px; margin-right: 10px;">
 									<div data-v-54077454 class="thumb portrait"
 										loaded-fn="function() { [navice cod]}" cell-index="0">
-										<a
-											href='<c:out value = "${content.a_link}"/>'target="_black">
+										<a href='<c:out value = "${content.a_link}"/>' target="_black">
 											<div class="thumb-image">
 												<div class="picture-area">
 													<picture> <img
@@ -163,7 +165,8 @@
 										</a>
 										<div>
 											<h3 class=content-name>
-												<span class="content-title"><c:out value = "${content.a_name}"/></span>
+												<span class="content-title"><c:out
+														value="${content.a_name}" /></span>
 											</h3>
 										</div>
 									</div>
@@ -172,11 +175,73 @@
 
 						</div>
 					</div>
-					<a data-v-223ac3f7 href="/page/searchResult_actor" class="btn-more all">더보기</a>
+					<a data-v-223ac3f7 href="#" class="btn-more all" id="actor_more">더보기</a>
 				</div>
 			</div>
 		</div>
 	</div>
 </body>
+<script>
+	$(document)
+			.ready(
+					function() {
+						$("#musical_more")
+								.click(
+										function(e) {
+											e.preventDefault(); // 기본 링크 동작을 막습니다.
+
+											// 현재 검색어를 가져오는 부분을 수정합니다.
+											var currentKeyword = $(
+													"#header_keyword").val();
+
+											// 더보기 링크로 이동합니다.
+											var moreLinkUrl = "/page/searchResult_musical?keyword="
+													+ encodeURIComponent(currentKeyword);
+											window.location.href = moreLinkUrl;
+										});
+						$("#concert_more")
+								.click(
+										function(e) {
+											e.preventDefault(); // 기본 링크 동작을 막습니다.
+
+											// 현재 검색어를 가져오는 부분을 수정합니다.
+											var currentKeyword = $(
+													"#header_keyword").val();
+
+											// 더보기 링크로 이동합니다.
+											var moreLinkUrl = "/page/searchResult_concert?keyword="
+													+ encodeURIComponent(currentKeyword);
+											window.location.href = moreLinkUrl;
+										});
+						$("#festival_more")
+								.click(
+										function(e) {
+											e.preventDefault(); // 기본 링크 동작을 막습니다.
+
+											// 현재 검색어를 가져오는 부분을 수정합니다.
+											var currentKeyword = $(
+													"#header_keyword").val();
+
+											// 더보기 링크로 이동합니다.
+											var moreLinkUrl = "/page/searchResult_festival?keyword="
+													+ encodeURIComponent(currentKeyword);
+											window.location.href = moreLinkUrl;
+										});
+						$("#actor_more")
+								.click(
+										function(e) {
+											e.preventDefault(); // 기본 링크 동작을 막습니다.
+
+											// 현재 검색어를 가져오는 부분을 수정합니다.
+											var currentKeyword = $(
+													"#header_keyword").val();
+
+											// 더보기 링크로 이동합니다.
+											var moreLinkUrl = "/page/searchResult_actor?keyword="
+													+ encodeURIComponent(currentKeyword);
+											window.location.href = moreLinkUrl;
+										});
+					});
+</script>
 	</html>
 </main>

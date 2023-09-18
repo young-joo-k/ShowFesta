@@ -5,6 +5,7 @@
 <%@include file="../includes/header.jsp"%>
 <link href="/resources/css/mainpage.css?after" rel="stylesheet">
 <link href="/resources/css/swiper.css?after" rel="stylesheet">
+<link href="/resources/css/searchresult.css?after" rel="stylesheet">
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 <title>Home</title>
 </head>
@@ -55,5 +56,6 @@
 		</div>
 	</div>
 </body>
+
 	</html>
 </main>

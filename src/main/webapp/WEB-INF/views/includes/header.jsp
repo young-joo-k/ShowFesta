@@ -60,7 +60,6 @@
 							<li><a href="/page/mContents">뮤지컬</a></li>
 							<li><a href="/page/concertContents">콘서트</a></li>
 							<li><a href="/page/festivalContents">페스티벌</a></li>
-							<li><a href="#">지역축제</a></li>
 						</ul>
 					</li>
 					<li>
@@ -107,39 +106,7 @@ $(document).ready(function() {
 
 <script>
     // 페이지가 준비되면 실행할 코드
-$(document).ready(function() {
-    // 현재 검색어를 가져옵니다.
-    var currentKeyword = $("#header_keyword").val();
-
-    // 검색 버튼 클릭 이벤트를 처리합니다.
-    $("#btn_header_search").click(function() {
-        // 검색어를 가져옵니다.
-        var keyword = $("#header_keyword").val();
-
-        // 검색어가 비어있지 않은 경우에만 검색 결과 페이지로 이동합니다.
-        if (keyword.trim() !== "") {
-            // 검색 결과 페이지 URL을 구성합니다.
-            var searchResultUrl = "/page/search?keyword=" + encodeURIComponent(keyword);
-
-            // 검색 결과 페이지로 리디렉션합니다.
-            window.location.href = searchResultUrl;
-        } else {
-            // 검색어가 비어있는 경우 경고 메시지를 표시하거나 아무 작업도 수행하지 않습니다.
-            alert("검색어를 입력하세요.");
-        }
-    });
-
-    // 더보기 링크 클릭 이벤트를 처리합니다.
-    $(".btn-more.all").click(function() {
-        // 현재 검색어를 사용하여 더보기 링크 URL을 생성합니다.
-        var moreLinkUrl = "/page/searchResult_musical?keyword=" + encodeURIComponent(currentKeyword);
-
-        // 더보기 링크로 이동합니다.
-        window.location.href = moreLinkUrl;
-    });
-});
-    
-    /*     $(document).ready(function() {
+    $(document).ready(function() {
         // 검색 버튼 클릭 이벤트를 처리합니다.
         $("#btn_header_search").click(function() {
             // 검색어를 가져옵니다.
@@ -157,7 +124,13 @@ $(document).ready(function() {
                 alert("검색어를 입력하세요.");
             }
         });
-    }); */
+        var urlParams = new URLSearchParams(window.location.search);
+        var 검색어 = urlParams.get("keyword");
+        if (검색어) {
+            $("#header_keyword").val(검색어);
+        }
+       
+    });
     $(document).ready(function() {
     	  // Enter 키가 눌렸을 때 검색 실행
     	  $('#header_keyword').on('keyup', function(event) {

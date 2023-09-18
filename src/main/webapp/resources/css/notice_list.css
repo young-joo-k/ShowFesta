@@ -118,7 +118,7 @@ body, html {
 }
 
 .cs-2depth li.cs-2depth-on a, .cs-2depth li.cs-2depth-on button {
-    color: #fff;
+    color: black;
     font-weight: 700;
 }
 
