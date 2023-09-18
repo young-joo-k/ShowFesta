@@ -16,7 +16,11 @@ public interface ScheduleService {
 	
 	public String genre();
 
-
+	public int getMusicalCnt(String date);
+	
+	public int getConcertsCnt(String date);
+	
+	public int getFestivalCnt(String date);
 
 
 }

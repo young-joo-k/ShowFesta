@@ -87,6 +87,11 @@ pageEncoding="UTF-8"%>
                      <c:when test="${date_status.index%7==6}">
                         <td class="sat_day">
                            <div class="sat">${dateList.date}</div>
+                           	<c:if test="${not empty dateList.date and dateList.date ne ''}">
+								<a href="#" class="contentsCnt1" data-event-type="뮤지컬">뮤지컬 : ${dateList.musicalCnt }</a><br>
+	                            <a href="#" class="contentsCnt2" data-event-type="콘서트">콘서트 : ${dateList.concertCnt }</a><br>
+	                            <a href="#" class="contentsCnt3" data-event-type="축제">축제 : ${dateList.festivalCnt }</a>
+							</c:if>
                         </td>
                      </c:when>
                      <c:when test="${date_status.index%7==0}">
@@ -94,14 +99,20 @@ pageEncoding="UTF-8"%>
             			<tr class = "cal-list">
 			               <td class="sun_day">
 			                  <div class="sun">${dateList.date}</div>
-			                  <div></div>
+            				<c:if test="${not empty dateList.date and dateList.date ne ''}">
+								<a href="#" class="contentsCnt1" data-event-type="뮤지컬">뮤지컬 : ${dateList.musicalCnt }</a><br>
+	                            <a href="#" class="contentsCnt2" data-event-type="콘서트">콘서트 : ${dateList.concertCnt }</a><br>
+	                            <a href="#" class="contentsCnt3" data-event-type="축제">축제 : ${dateList.festivalCnt }</a>
+							</c:if>
 			               </td>
                      </c:when>
 					<c:otherwise>
 						<td class="normal_day">
 							<div class="date">${dateList.date}</div>
 							<c:if test="${not empty dateList.date and dateList.date ne ''}">
-								<div>여기에 매일 공연 개수 나타나야해</div>
+								<a href="#" class="contentsCnt1" data-event-type="뮤지컬">뮤지컬 : ${dateList.musicalCnt }</a><br>
+	                            <a href="#" class="contentsCnt2" data-event-type="콘서트">콘서트 : ${dateList.concertCnt }</a><br>
+	                            <a href="#" class="contentsCnt3" data-event-type="축제">축제 : ${dateList.festivalCnt }</a>
 							</c:if>
 						</td>
 					</c:otherwise>

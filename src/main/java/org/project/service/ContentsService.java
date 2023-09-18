@@ -28,4 +28,10 @@ public interface ContentsService {
 	public ContentsVO getFestival(Long m_num);
 
 	public List<PriceVO> getPrice(String m_title);
+
+	public List<ContentsVO> getAllMusical(String result);
+
+	public List<ContentsVO> getAllConcert(String result);
+
+	public List<ContentsVO> getAllFestival(String result);
 }

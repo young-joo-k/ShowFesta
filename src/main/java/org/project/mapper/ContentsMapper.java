@@ -26,4 +26,10 @@ public interface ContentsMapper {
 	public ContentsVO FestivalRead(Long m_num);
 
 	public List<PriceVO> getPrice(String m_title);
+
+	public List<ContentsVO> getAllMusical(String date);
+
+	public List<ContentsVO> getAllConcert(String date);
+
+	public List<ContentsVO> getAllFestival(String date);
 }

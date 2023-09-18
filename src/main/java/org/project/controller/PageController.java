@@ -77,14 +77,22 @@ public class PageController {
 	      // 날짜 삽입
 	      for (int i = today_info.get("startDay"); i <= today_info.get("endDay"); i++) {
 	         if (i == today_info.get("today")) {
-	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),
-	                  String.valueOf(i), "today");
+	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),String.valueOf(i), "today");
 	         } else {
-	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),
-	                  String.valueOf(i), "normal_date");
+	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),String.valueOf(i), "normal_date");
+	            	 String result =String.valueOf(dateData.getYear()).substring(2) + '/' + String.valueOf(Integer.parseInt(dateData.getMonth())+1) + '/' + i;
+	            	 calendarData.setMusicalCnt(scheduleservice.getMusicalCnt(result));
+	            	 calendarData.setConcertCnt(scheduleservice.getConcertsCnt(result));
+	            	 calendarData.setFestivalCnt(scheduleservice.getFestivalCnt(result));
+	            	 calendarData.setM_all_contents(contentsservice.getAllMusical(result));
+	            	 calendarData.setC_all_contents(contentsservice.getAllConcert(result));
+	            	 calendarData.setF_all_contents(contentsservice.getAllFestival(result));
+	            	 System.out.println(result);
+	            	 System.out.println(calendarData.getMusicalCnt());
 	         }
 	         dateList.add(calendarData);
 	      }
+
 	      // 달력 빈곳 빈 데이터로 삽입
 	      int index = 7 - dateList.size() % 7;
 
@@ -94,12 +102,7 @@ public class PageController {
 	            dateList.add(calendarData);
 	         }
 	      }
-	      int list = dateList.size();
-	      System.out.println(list);
-	      System.out.println(index);
-	      for (int i=0; i<dateList.size();i++) {
-	    	  System.out.println(dateList.get(i));
-	      }
+//	      System.out.println(dateList);
 	      int musicalCnt = scheduleservice.getMusical();
 	      int concertCnt = scheduleservice.getConcerts();
 	      int festivalCnt = scheduleservice.getFestival();

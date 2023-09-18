@@ -86,4 +86,40 @@
 	<select id="getPrice" resultType = "org.project.domain.PriceVO">
 		select * from tbl_price where m_title = #{m_title}
 	</select>
+	
+		<!-- 캘린더 내 모달에서 사용됨 -->
+		<!-- 여기는 today를 제외한 나머지 애들 가져오는거 -->
+	<select id ="getAllMusical" resultType ="org.project.domain.ContentsVO">
+		<![CDATA[
+			select m_num,m_title,m_img,
+					to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
+					to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
+					m_place,m_b_link 
+			from tbl_musical
+			where TO_DATE(#{date}, 'YY/MM/DD') > m_start_date and TO_DATE(#{date}, 'YY/MM/DD') < m_end_date
+		]]> 
+
+	</select>
+	
+	<select id ="getAllConcert" resultType ="org.project.domain.ContentsVO">
+		<![CDATA[
+			select m_num,m_title,m_img,
+					to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
+					to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
+					m_place,m_b_link 
+ 			from tbl_concert 
+ 			where TO_DATE(#{date}, 'YY/MM/DD') > m_start_date and TO_DATE(#{date}, 'YY/MM/DD') < m_end_date 
+ 		]]> 
+	</select>
+	
+	<select id ="getAllFestival" resultType ="org.project.domain.ContentsVO">
+		<![CDATA[
+			select m_num,m_title,
+					to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
+					to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
+					m_place
+ 			from tbl_festival 
+ 			where TO_DATE(#{date}, 'YY/MM/DD') > m_start_date and TO_DATE(#{date}, 'YY/MM/DD') < m_end_date 
+ 		]]>  -->
+	</select>
 </mapper>
