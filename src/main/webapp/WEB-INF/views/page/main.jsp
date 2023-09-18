@@ -14,52 +14,52 @@
 			<div class="swiper" style="width: 2959px; left: -1076px;">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<a href="/page/musical_info"><img
+						<a href=http://localhost:8080/page/concert_info?m_num=243><img
 							src=http://tkfile.yes24.com/upload2/PerfBlog/202307/20230703/20230703-46234.jpg
 							class=img></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="/page/musical_info"><img
+						<a href=http://localhost:8080/page/musical_info?m_num=%20147><img
 							src=http://tkfile.yes24.com/upload2/PerfBlog/202308/20230804/20230804-46305.jpg
 							class=img></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="/page/musical_info"><img
+						<a href=http://localhost:8080/page/musical_info?m_num=%20248><img
 							src=https://ticketimage.interpark.com/Play/image/large/L0/L0000049_p.gif
 							class=img></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="/page/musical_info"><img
+						<a href="http://localhost:8080/page/concert_info?m_num=171"><img
 							src=http://tkfile.yes24.com/upload2/PerfBlog/202308/20230830/20230830-46927.jpg
 							class=img></a>
 					</div>
 					<div class="swiper-slide-on">
-						<a href="/page/musical_info"><img
+						<a href=http://localhost:8080/page/musical_info?m_num=%20243><img
 							src=https://ticketimage.interpark.com/Play/image/large/23/23008837_p.gif
 							class=img></a>
 					</div>
 					<div class="swiper-slide-on">
-						<a href="/page/musical_info"><img
+						<a href=http://localhost:8080/page/musical_info?m_num=%20242><img
 							src=https://ticketimage.interpark.com/Play/image/large/23/23012526_p.gif
 							class=img></a>
 					</div>
 					<div class="swiper-slide-on">
-						<a href="/page/musical_info"><img
+						<a href=http://localhost:8080/page/musical_info?m_num=%20163><img
 							src=http://tkfile.yes24.com/upload2/PerfBlog/202309/20230904/20230904-47067.jpg
 							class=img></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="/page/musical_info"><img
+						<a href=http://localhost:8080/page/concert_info?m_num=165><img
 							src=https://ticketimage.interpark.com/Play/image/large/23/23011055_p.gif
 							class=img></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="/page/musical_info"><img
+						<a href=http://localhost:8080/page/concert_info?m_num=178><img
 							src=http://tkfile.yes24.com/upload2/PerfBlog/202309/20230912/20230912-47041.jpg
 							class=img></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="/page/musical_info"><img
+						<a href=http://localhost:8080/page/musical_info?m_num=%20155><img
 							src=http://tkfile.yes24.com/upload2/PerfBlog/202309/20230907/20230907-47116.jpg
 							class=img></a>
 					</div>
@@ -116,7 +116,7 @@
 
 						</div>
 					</div>
-					<a data-v-223ac3f7 href="#" class="btn-more all">더보기</a>
+					<a data-v-223ac3f7 href="/page/mContents" class="btn-more all">더보기</a>
 				</div>
 			</div>
 			<div data-v-223ac3f7 id="mitisection_index_2"
@@ -151,7 +151,7 @@
 
 						</div>
 					</div>
-					<a data-v-223ac3f7 href="#" class="btn-more all">더보기</a>
+					<a data-v-223ac3f7 href="/page/concertContents" class="btn-more all">더보기</a>
 				</div>
 			</div>
 			<div data-v-223ac3f7 id="mitisection_index_3"
@@ -186,7 +186,7 @@
 
 						</div>
 					</div>
-					<a data-v-223ac3f7 href="#" class="btn-more all">더보기</a>
+					<a data-v-223ac3f7 href="/page/festivalContents" class="btn-more all">더보기</a>
 				</div>
 
 			</div>
