@@ -29,6 +29,14 @@
 	]]>
 </select>
 
+<!-- <select> -->
+
+<!-- 	select * -->
+<!-- 	from tbl_musical -->
+<!-- 	where sysdate > m_start_date and sysdate < m_end_date -->
+
+<!-- </select> -->
+
 
 </mapper>
 

@@ -18,6 +18,5 @@ public interface MemberService {
 	
 	public boolean registerEmailCheck(String email);
 
-	
-	
+	public void updateUserInfo(MemberVO member);
 }

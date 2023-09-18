@@ -100,9 +100,9 @@ pageEncoding="UTF-8"%>
 	<div class = "myPage-qna-wrap">
 		<div class = "myPage-qna-space">
 			<div class = "myPage-qna-button-wrap">
-				<button type = "button" class = "myPage-qna-button">
-					<a href = "/page/user_qna" class = "question">문의하기</a>
-				</button>
+<!-- 				<button type = "button" class = "myPage-qna-button"> -->
+<!-- 					<a href = "/page/user_qna" class = "question">문의하기</a> -->
+<!-- 				</button> -->
 			</div>
 			<!-- 문의내용 있을 경우 들어갈 공간임 -->
 			<div class = "myPage-qna-list">

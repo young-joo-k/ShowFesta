@@ -22,7 +22,9 @@ import org.project.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -82,6 +84,8 @@ public class PageController {
 	         } else {
 	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),
 	                  String.valueOf(i), "normal_date");
+	            
+	            
 	         }
 	         dateList.add(calendarData);
 	      }
@@ -358,6 +362,11 @@ public class PageController {
 			List<LikeVO> likeInfo = likeservice.getLike(membervo.getId());
 			model.addAttribute("likeInfo",likeInfo);
 			
+		}if ("admin".equals(id)) {
+	        MemberVO membervo = memberservice.getUserInfo(id);
+	        model.addAttribute("user", membervo);
+	        return "/page/adminPage";
+	        
 		} else if(id == null){
 
 	       return "/join/login";
@@ -366,9 +375,9 @@ public class PageController {
 		return "/page/myPage";
 	}
 	
-	//회원정보수정페이지
+	//회원정보보기
 	@GetMapping("/memberUpdate")
-	public String memberCorrect(Model model, HttpSession session) {
+	public void memberCorrect(Model model, HttpSession session) {
 		log.info("memberUpdate get");
 		
 		//아이디 정보
@@ -377,27 +386,24 @@ public class PageController {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
 			} 
-		
-		return "/page/memberUpdate";
 	}
 	
+	//회원정보 수정
+	@PostMapping("/memberUpdate")
+	public String editForm(HttpSession session, MemberVO member) {
+//		session.removeAttribute("id");
+		log.info("살려주세요 제발 수정되주세요");
+//		String id =(String) session.getAttribute("id");
+//		MemberVO membervo = memberservice.getUserInfo(id);
+		System.out.println(member);
+		
+		memberservice.updateUserInfo(member);
+//		
+		return "redirect:/page/myPage";
+	}
 
 	
-	// 관리자 페이지 관리자 권한을 가진사람이 로그인 하면 마이페이지를 눌렀을 때 관리자 마이페이지가 되는건데 어떻게 할지 생각해봐야할듯
-	@GetMapping("/adminPage")
-	public String adminPage(Model model, HttpSession session) {
-		log.info("adminPage get");
-		
 
-		//아이디 정보
-		String id = (String) session.getAttribute("id");
-		if (id != null) {
-			MemberVO membervo = memberservice.getUserInfo(id);
-			model.addAttribute("user", membervo);
-			} 
-		return "/page/adminPage";
-				
-	}
 
 
 }

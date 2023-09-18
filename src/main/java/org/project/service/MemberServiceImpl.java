@@ -93,6 +93,11 @@ public class MemberServiceImpl implements MemberService {
 	    return foundPw;
 	}
 
+	@Override
+	public void updateUserInfo(MemberVO member) {
+	    membermapper.updateUserInfo(member);
+	}
+
 
 
 
