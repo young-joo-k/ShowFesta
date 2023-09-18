@@ -3,7 +3,7 @@
 pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html>
+<html></html>
 <head>
 <title>마이페이지</title>
 <link href="/resources/css/mypage.css?after" rel="stylesheet" type="text/css">
@@ -15,7 +15,7 @@ pageEncoding="UTF-8"%>
 				<div class = "myPage-img">
 					<picture class = "myPage-img-select">
 						<source srcset = "#"></source>
-						<img src="#">
+						<img src="/resources/img/mypageimg.png">
 					</picture>			
 				</div>
 				<div class = "myPage-info">

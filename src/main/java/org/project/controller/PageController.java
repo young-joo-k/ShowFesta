@@ -79,13 +79,25 @@ public class PageController {
 	      // 날짜 삽입
 	      for (int i = today_info.get("startDay"); i <= today_info.get("endDay"); i++) {
 	         if (i == today_info.get("today")) {
-	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),
-	                  String.valueOf(i), "today");
+	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),String.valueOf(i), "today");
 	         } else {
+<<<<<<< HEAD
 	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),
 	                  String.valueOf(i), "normal_date");
 	            
 	            
+=======
+	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),String.valueOf(i), "normal_date");
+	            	 String result =String.valueOf(dateData.getYear()).substring(2) + '/' + String.valueOf(Integer.parseInt(dateData.getMonth())+1) + '/' + i;
+	            	 calendarData.setMusicalCnt(scheduleservice.getMusicalCnt(result));
+	            	 calendarData.setConcertCnt(scheduleservice.getConcertsCnt(result));
+	            	 calendarData.setFestivalCnt(scheduleservice.getFestivalCnt(result));
+	            	 calendarData.setM_all_contents(contentsservice.getAllMusical(result));
+	            	 calendarData.setC_all_contents(contentsservice.getAllConcert(result));
+	            	 calendarData.setF_all_contents(contentsservice.getAllFestival(result));
+	            	 System.out.println(result);
+	            	 System.out.println(calendarData.getMusicalCnt());
+>>>>>>> 04abf9cd63be39ced0339f2c06baf4cb3f5789ac
 	         }
 	         dateList.add(calendarData);
 	      }

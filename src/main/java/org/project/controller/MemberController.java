@@ -54,11 +54,11 @@ public class MemberController {
 	        // 이전 페이지의 URL을 가져옴
 	        String prevPage = (String) session.getAttribute("prevPage");
 	        System.out.println(prevPage);
-	        if (prevPage != "undefined") {
+	        if (prevPage != null && !prevPage.equals("undefined")) {
 	            // 이전 페이지로 리다이렉션
 //	            만약 마이페이지에서 로그인하면 마이페이지로 갈거야
 	            session.removeAttribute("prevPage");
-	            log.info(prevPage);
+	            log.info("뜨는"+prevPage);
 	            if(prevPage.equals("http://localhost:8080/page/myPage"))
 	            {
 	            	log.info("이전페이지가 마이페이지일때");
@@ -72,7 +72,7 @@ public class MemberController {
 	            log.info("널이 아니고 마이페이지,회원가입,로그인페이지가 아닐때");
 	            return "redirect:" + prevPage;
 	        } else {
-	        	log.info(prevPage);
+	        	log.info("거지"+prevPage);
 	            return "redirect:/page/myPage";
 	        }
 		}
@@ -122,17 +122,23 @@ public class MemberController {
         String foundId = service.findId(name, email, phone);
 
         if (foundId != null) {
-        	model.addAttribute("message", "아이디는 " + foundId + " 입니다.");
+        	model.addAttribute("message", foundId);
             model.addAttribute("foundId", foundId);
+            log.info(foundId);
         } else {
         	model.addAttribute("message", "일치하는 아이디를 찾을 수 없습니다.");
         }
 
-        return "id_find_result"; // 결과를 표시할 JSP 파일의 이름 반환
+        return "/join/id_find_result"; // 결과를 표시할 JSP 파일의 이름 반환
     }
 	@GetMapping("id_find_result")
 	public void findIdResult() {
 		log.info("id_find_Result Get");
+	}
+
+	@GetMapping("pw_find_result")
+	public void findPWResult() {
+		log.info("pw_find_Result Get");
 	}
 	
 	@GetMapping("pw_find")
@@ -151,7 +157,7 @@ public class MemberController {
         String foundPw = service.findPw(id, name, email, phone);
 
         if (foundPw != null) {
-            model.addAttribute("message", "비밀번호는 " + foundPw + " 입니다.");
+            model.addAttribute("message", foundPw );
             model.addAttribute("foundPw", foundPw);
         } else {
             model.addAttribute("message", "일치하는 비밀번호를 찾을 수 없습니다.");

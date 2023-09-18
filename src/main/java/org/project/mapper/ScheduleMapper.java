@@ -13,5 +13,11 @@ public interface ScheduleMapper {
 	public int getFestival();
 	
 	public String genre();
+
+	public int getMusicalCnt(String date);
+
+	public int getConcertsCnt(String date);
+
+	public int getFestivalCnt(String date);
 	
 }

@@ -11,7 +11,6 @@
 <title>아이디 찾기 결과</title>
 </head>
 <body>
-<body>
 	<div class="body">
 		<div class="member">
 			<div class="join member-layout" id="g-contents">
@@ -19,9 +18,9 @@
 					<h1 tabindex="0">결과</h1>
 				</div>
 				<div class="common-box">
-					<h3 class="certi-txt02">회원님의 아이디는</h3>
+					<h3 class="certi-txt02">회원님의 아이디는 <span style="color : blue">${message}</span>입니다.</h3>
 					<form id="joinForm" action="/find/id_find" method="post" name="myFrm">
-						<h3 class="certi-txt02">입니다</h3>
+<!-- 						<h3 class="certi-txt02">입니다</h3> -->
 						<fieldset>
 							<div class="btn-box">
 								<div class="btn-purple">

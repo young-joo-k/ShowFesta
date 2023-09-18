@@ -26,15 +26,15 @@
 							<div class="join-input-box modify-input-box">
 								<ul>
 									<li><label for="user-name"> <input type="text"
-											placeholder="이름" class="input-style01" name="userName"
+											placeholder="이름" class="input-style01" name="name"
 											id="user-name" required>
 									</label></li>
 									<li><label for="user-phone"> <input type="text"
 											placeholder="휴대폰 번호(번호만 입력)" class="input-style01"
-											name="findInfo" id="user-phone">
+											name="phone" id="user-phone">
 									</label></li>
 									<li><label for="user-email"> <input type="text"
-											placeholder="이메일 주소" class="input-style01" name="findinfo"
+											placeholder="이메일 주소" class="input-style01" name="email"
 											id="user-email">
 									</label></li>
 								</ul>

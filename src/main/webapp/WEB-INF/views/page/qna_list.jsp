@@ -14,19 +14,11 @@
 			<main id="contents" class="top-padding">
 				<div class="page-top">
 					<div class="page-top-inner-wrap">
-						<h1 tabindex="0" class="page-title">고객센터</h1>
+						<h1 tabindex="0" class="page-title">QnA</h1>
 					</div>
 				</div>
 				<div class="wrap">
 					<div class="cs-body">
-						<ul id="contents" class="cs-1depth">
-							<li class="customer-1depth-on"><a href="/page/notice_list"
-								aria-current="page"
-								class="router-link-exact-active router-link-active">공지사항</a></li>
-							<li class="customer-1depth"><a href="/page/user_qna"
-								aria-current="page"
-								class="router-link-exact-active router-link-active">1:1 문의</a></li>
-						</ul>
 						<div>
 							<ul class="cs-2depth">
 								<li class="cs-2depth-on">
@@ -48,20 +40,20 @@
 											<th>등록일</th>
 										</tr>
 									</thead>
-									<c:forEach items="${list}" var="notice">
+									<c:forEach items="${list}" var="qna">
 										<tbody>
 											<tr>
 												<td>
 													<p class="noti-type">
-														<c:out value="${notice.b_num}" />
+														<c:out value="${qna.b_num}" />
 													</p>
 												</td>
-												<td><span><a href='/page/notice_get?b_num=<c:out value="${notice.b_num }"/>'>
-											<c:out value="${notice.b_title}"/></a></span></td>
+												<td><span><a href='/page/qna_get?b_num=<c:out value="${qna.b_num }"/>'>
+											<c:out value="${qna.b_title}"/></a></span></td>
 												<td>
 													<p class="noti-date">
 														<fmt:formatDate pattern="yyyy-MM-dd"
-															value="${notice.updatedate }" />
+															value="${qna.updatedate }" />
 													</p>
 												</td>
 											</tr>
@@ -71,8 +63,6 @@
 
 								</table>
 							</div>
-							<button id='regBtn' type="button" class="btn btn-xs pull right">공지사항
-								등록</button>
 							<div class='pull-right'>
 								<ul class="pagination">
 									<c:if test="${pageMaker.prev }">
@@ -97,28 +87,15 @@
 		</div>
 	</div>
 </body>
-<form id= 'actionForm' action="/page/notice_list" method='get'>
+<form id= 'actionForm' action="/page/qna_list" method='get'>
 	<input type='hidden'  name='pageNum' value = '${pageMaker.cri.pageNum}'>
 	<input type='hidden'  name='amount' value = '${pageMaker.cri.amount}'>
 </form>
 <script type="text/javascript">
 	$(document).ready(
 			function() {
-				var result = '<c:out value="${result}"/>';
-				checkModal(result);
-				history.replaceState({},null,null);
-				function checkModal(result) {
-					if (result === ''|| history.state) {
-						return;
-					}
-					if (parseInt(result) > 0) {
-						$(".modal-body").html(
-								"게시글" + parseInt(result) + " 번이 등록되었습니다.");
-					}
-					$("#myModal").modal("show");
-				}
 				$("#regBtn").on("click", function() {
-					self.location = "/page/notice_register";
+					self.location = "/page/qna_register";
 				});
 				var actionForm = $("#actionForm");
 				$(".paginate_button a").on("click", function(e) {

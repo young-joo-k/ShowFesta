@@ -22,4 +22,5 @@ public interface MemberMapper {
 
 	public void updateUserInfo(MemberVO member);
 
+
 }
