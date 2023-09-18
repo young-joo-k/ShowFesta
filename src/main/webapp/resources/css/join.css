@@ -2,22 +2,37 @@
 
 .member {
 	width: 100%;
-	z-index: 10;
-	background: #ffffff;
+	z-index: 30;
 	overflow: hidden;
+
 }
 
-
+.member::before {
+	position: absolute;
+	content: "";
+	background-image: url('../img/bomb10.png');
+	background-repeat: no-repeat;
+	background-position: 380px 20px;
+	background-size: 60%;
+	opacity: 20%;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+}
 
 .member .member-layout {
-	margin: 80px auto;
+	margin: 120px auto;
+	z-index: 30;
+		position: relative;
 }
 
 .member-layout {
 	padding: 40px 0;
 	margin: 0 auto;
 	overflow: hidden;
-	background: #252525;
+	border-style: solid;
+	border-color: #595959;
 }
 
 .login {
@@ -30,20 +45,22 @@
 	font-weight: 400;
 	font-size: 32px;
 	text-align: center;
-	color: #fff;
+	color: #595959;
 }
 
 .join-sns-box, .sns-box {
-    float: left;
-    width: 560px;
-    padding: 0 40px;
+	float: left;
+	width: 560px;
+	padding: 0 40px;
 }
+
 .login ul.join-find {
-    margin: 20px auto 50px;
+	margin: 20px auto 50px;
 }
+
 .login ul.join-find {
-    font-size: 0;
-    text-align: center;
+	font-size: 0;
+	text-align: center;
 }
 
 body, button, dd, dl, dt, fieldset, figure, form, h1, h2, h3, h4, h5, h6,
@@ -51,191 +68,205 @@ body, button, dd, dl, dt, fieldset, figure, form, h1, h2, h3, h4, h5, h6,
 	margin: 0;
 	padding: 0;
 }
+
 abbr, acronym, fieldset, iframe, img, td, th {
-    border: 0;
+	border: 0;
 }
+
 caption, legend {
-    overflow: hidden;
-    visibility: hidden;
-    font-size: 0;
-    line-height: 0;
-    height: 0;
-    width: 0;
-    text-indent: -999em;
+	overflow: hidden;
+	visibility: hidden;
+	font-size: 0;
+	line-height: 0;
+	height: 0;
+	width: 0;
+	text-indent: -999em;
 }
 
 dd, dl, dt, ol, pre, ul {
 	margin: 0;
-    padding: 0;
-    list-style: none;
+	padding: 0;
+	list-style: none;
 }
 
 .login ul.input-wrap01 li {
-    margin: 0 0 10px;
+	margin: 0 0 10px;
+}
+
+.login-submit {
+	background-color: #fc7110;
+	border-style: solid;
+	border-color: #fc7110;
+	border-radius: 4px;;
+	color: #FFFFFF;
+	width: 5em;
+	height: 3em;
 }
 
 button, label {
-    cursor: pointer;
+	cursor: pointer;
 }
+
 label {
-    margin: 0;
-    padding: 0;
-    vertical-align: middle;
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
 }
 
-.member-layout input[type=password].input-style01, .member-layout input[type=text].input-style01 {
-    width: 100%;
-    font-size: 15px;
-    height: 53px;
-    color: #fff;
-    background-color: #2f2f2f;
-    border: 0;
+.member-layout input[type=password].input-style01, .member-layout input[type=text].input-style01
+	{
+	width: 100%;
+	font-size: 15px;
+	height: 53px;
+	color: black;
+	border-style: solid;
+	border-color: #e5e5e5;
+	border: 1;
+	outline-color: #fc7110;
+	padding-left: 20px;
 }
 
-input[type=password], input[type=tel], input[type=text], textarea {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: 5px;
-    border: 2px solid #e5e5e5;
-    padding: 0 20px;
-    margin: 0;
-    color: #a5a5a5;
+input[type=password], input[type=tel], input[type=text], input[type=email],
+	textarea {
+	width: 100%;
+	font-size: 15px;
+	height: 53px;
+	color: black;
+	border-style: solid;
+	border-color: #e5e5e5;
+	border: 1;
+	outline-color: #fc7110;
+	padding-left: 20px;
 }
 
 input[type=tel], input[type=text], pre, textarea {
-    font-weight: 400;
+	font-weight: 400;
 }
 
 .btn-purple, .btn-purple>a {
-    text-align: center;
+	text-align: center;
 }
+
 .btn-purple-dark>a, .btn-purple>a {
-    background: #1351f9;
+	background: #fc7110;
+}
+
+.btn-block {
+	background-color: #fc7110;
+	border-style: solid;
+	border-color: #fc7110;
+	border-radius: 4px;
+	color: #FFFFFF;
+	width: 5em;
+	height: 3em;
+	text-align: center;
 }
 
 .btn-purple>a {
-    display: block;
-    height: 60px;
-    line-height: 60px;
-    border-radius: 30px;
-    font-size: 18px;
-    color: #fff;
+	display: block;
+	height: 60px;
+	line-height: 60px;
+	border-radius: 30px;
+	font-size: 18px;
+	color: #fff;
 }
 
 .login ul.join-find li {
-    display: inline-block;
-    position: relative;
+	display: inline-block;
+	position: relative;
 }
 
 .login ul.join-find li:first-child a {
-    padding-left: 0;
+	padding-left: 0;
 }
 
 .login ul.join-find li a {
-    padding: 0 14px;
+	padding: 0 14px;
 }
 
 .login ul.join-find li a {
-    display: block;
-    font-size: 14px;
-    color: #a5a5a5;
+	display: block;
+	font-size: 14px;
+	color: #a5a5a5;
 }
 
 .common-box {
-    padding: 40px 40px;
+	padding: 40px 40px;
 }
 
 .join {
-    width: 560px;
-    position: relative;
-    border-radius: 20px;
+	width: 560px;
+	position: relative;
+	border-radius: 20px;
 }
+
 .idpw-find {
-    width: 100%;
-    height: 60px;
-    border-bottom: 1px solid #2f2f2f;
+	width: 100%;
+	height: 60px;
+	border-bottom: 1px solid #2f2f2f;
 }
 
 .a11y-hidden {
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-    position: absolute;
-    width: 1px;
-    height: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute;
+	width: 1px;
+	height: 1px;
 }
 
 .idpw-find ul {
-    width: 100%;
-    height: 60px;
+	width: 100%;
+	height: 60px;
 }
 
 .idpw-find ul li {
-    text-align: center;
-    width: 50%;
-    float: left;
+	text-align: center;
+	width: 50%;
+	float: left;
 }
 
 .idpw-find ul li a {
-    line-height: 58px;
-    position: relative;
-    top: -1px;
-    font-size: 16px;
-    letter-spacing: -0.3px;
+	line-height: 58px;
+	position: relative;
+	top: -1px;
+	font-size: 16px;
+	letter-spacing: -0.3px;
 }
 
 .member-layout .certi-txt02 {
-    font-size: 24px;
-    margin-bottom: 40px;
-    line-height: 36px;
-    text-align: center;
-    letter-spacing: -0.4px;
-    font-weight: 400;
-    color: #a5a5a5;
+	font-size: 24px;
+	margin-bottom: 40px;
+	line-height: 36px;
+	text-align: center;
+	letter-spacing: -0.4px;
+	font-weight: 400;
+	color: #a5a5a5;
 }
 
 .join .join-input-box {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .join .modify-input-box li {
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .join .join-input-box label {
-    font-size: 16px;
-    color: #a5a5a5;
-    display: block;
-    font-weight: 700;
+	font-size: 16px;
+	color: #a5a5a5;
+	display: block;
+	font-weight: 700;
 }
 
 .join .btn-box {
-    padding-top: 40px;
+	padding-top: 40px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 * {
 	margin: 0;
-    padding: 0;
-    word-break: break-all;
-    word-wrap: break-word;
+	padding: 0;
+	word-break: break-all;
+	word-wrap: break-word;
 }
 
 *, body, html {

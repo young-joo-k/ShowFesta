@@ -1,18 +1,18 @@
 @charset "utf-8";
-.calendarBody {
-		scrollbar-face-color: #F6F6F6;
-		scrollbar-highlight-color: #bbbbbb;
-		scrollbar-3dlight-color: #FFFFFF;
-		scrollbar-shadow-color: #bbbbbb;
-		scrollbar-darkshadow-color: #FFFFFF;
-		scrollbar-track-color: #FFFFFF;
-		scrollbar-arrow-color: #bbbbbb;
-		margin-left:"0px"; margin-right:"0px"; margin-top:"0px"; margin-bottom:"0px";
-		background-color : #ffffff;
-		}
+.calendarFrm {
+      scrollbar-face-color: #F6F6F6;
+      scrollbar-highlight-color: #bbbbbb;
+      scrollbar-3dlight-color: #FFFFFF;
+      scrollbar-shadow-color: #bbbbbb;
+      scrollbar-darkshadow-color: #FFFFFF;
+      scrollbar-track-color: #FFFFFF;
+      scrollbar-arrow-color: #bbbbbb;
+      margin-left:"0px"; margin-right:"0px"; margin-top:"0px"; margin-bottom:"0px";
+      background-color : #000127;
+      }
 
 td {font-size: 9pt; color:#595959;}
-th {font-family: "돋움"; font-size: 9pt; color:#ffffff;}
+th {font-family: "돋움"; font-size: 9pt; color:#000127;}
 select {font-family: "돋움"; font-size: 9pt; color:#595959;}
 
 
@@ -21,26 +21,27 @@ overflow:hidden;
 text-overflow:ellipsis;
 }
 
-/* A:link { font-size:9pt; font-family:"돋움";color:#ffffff; text-decoration:none; } */
-/* A:visited { font-size:9pt; font-family:"돋움";color:#ffffff; text-decoration:none; } */
+
+/* A:link { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:none; } */
+/* A:visited { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:none; } */
 /* 마우스 올렸을때 색 바뀌는 부분 */
 .contentsCount{
   margin-left: 10px;
 }
 
 .contentsCnt1:active, .contentsCnt2:active, .contentsCnt3:active { 
-	font-size:15pt; 
-	font-family:"돋움";
-	color:#FEBC38; 
-	text-decoration:none;  
-	
+   font-size:15pt; 
+   font-family:"돋움";
+   color:#FEBC38; 
+   text-decoration:none;  
+   
 }
 .contentsCnt1:hover, .contentsCnt2:hover, .contentsCnt3:hover { 
-	font-size:15pt; 
-	font-family:"돋움";
-	color:#FEBC38;
-	text-decoration:none;
-	
+   font-size:15pt; 
+   font-family:"돋움";
+   color:#FEBC38;
+   text-decoration:none;
+   
 }
 
 .day{
@@ -73,23 +74,23 @@ text-overflow:ellipsis;
 
 
 /* #typeSearch{ */
-/* 	width:80px; */
-/* 	height:30px; */
-/* 	margin-bottom: 5px; */
-/* 	border-color: #FEBC38; */
-/* 	border-radius: 4px; */
-/* 	font-size: large; */
-/*   color: #ffffff; */
+/*    width:80px; */
+/*    height:30px; */
+/*    margin-bottom: 5px; */
+/*    border-color: #FEBC38; */
+/*    border-radius: 4px; */
+/*    font-size: large; */
+/*   color: #000127; */
 /* } */
 
 
 /* 검색어 입력창 */
 /* input{ */
-/* 	width:200px; */
-/* 	height:30px; */
-/* 	border-color: #FEBC38; */
-/* 	border-radius: 4px; */
-/* 	background-color: #F6F6F6; */
+/*    width:200px; */
+/*    height:30px; */
+/*    border-color: #FEBC38; */
+/*    border-radius: 4px; */
+/*    background-color: #F6F6F6; */
 
 /* } */
 
@@ -105,11 +106,10 @@ text-overflow:ellipsis;
   text-align: center;
   border-style: solid;
   border-width: thin;
-  border-color: #febc38;
+  border-color: #FEBC38;
   border-radius: 4px;
-  background-color: #febc38;
+  background-color: #FEBC38;
   font-size: medium;
-  color: white;
 }
 
 .searchBoxBtn{
@@ -142,24 +142,23 @@ text-overflow:ellipsis;
   margin-bottom: 50px;
   border-collapse: collapse;
   padding-top: 20px;
-  border-radius: 8px;
 }
 .calendar_body .today{
-  border:1px solid #FFFFFF;
+  border:1px solid white;
   height:120px;
-/*   background-color:#febc38; */
+  background-color:#c9c9c9;
   text-align: left;
   vertical-align: top;
 }
 
 .no-data-message{
-	color:red;	
+   color:red;   
 }
 
 .contentsCnt1, .contentsCnt2, .contentsCnt3 {
-	margin-top:20px;
-	font-size:large;
-  	color : #595959;
+   margin-top:20px;
+   font-size:large;
+     color : #000127;
 }
 .calendar_body .date{
   font-weight: bold;
@@ -207,18 +206,18 @@ a.before_after_month{
   margin: 10px;
   font-weight: bold;
   font-size: larger;
-  color: #595959;
+  color: #EFEFEF;
 }
 
 a.before_after_year{
   font-weight: bold;
   font-weight: bold;
   font-size: larger;
-  color: #595959;
+  color: #EFEFEF;
 }
 .this_month{
   margin: 10px;
-  color : #595959;
+  color : #EFEFEF;
   font-size: larger;
 }
 
@@ -237,72 +236,85 @@ a.before_after_year{
 }
 
 .modal-header{
-	display: flex;
-	justify-content: space-between;
-	color: #ffffff;
-	position: relative;
+   display: flex;
+   justify-content: space-between;
+   color: #000127;
+   position: relative;
 }
 
 .modal-title{
-	text-align: center;
+   text-align: center;
+   color: #595959;
+   margin-left: 2rem;
 }
 
 button.modal-close-btn {
-	position: absolute; /* 절대 위치 지정 */
+  position: absolute; /* 절대 위치 지정 */
   right: 0; /* 오른쪽에 고정 */
   top: 0; /* 상단에 고정 (필요에 따라 조절 가능) */
   margin-top:10px;
   margin-right:20px;
   height: 35px;
   width: 70px;
-  color: #ffffff;
+  color: #000127;
   background-color: #FEBC38;
   border-style: none;
   border-radius: 4px;
 }
 
 .modal-content-wrap {
-	margin: 0 auto;
-	width: 50rem;
-	height: 50rem;
-	color: #F6F6F6;
-	margin:5px;
+   margin: 0 auto;
+   width: 50rem;
+   height: 50rem;
+   color: #F6F6F6;
+   margin:5px;
 }
 
 .modal-body{
-	margin: 0 auto;
-	width: 50rem;
-	height: 50rem;
-	color: #F6F6F6;
-	box-sizing: border-box;
-	max-height: auto; /* 원하는 높이로 조정 */
-	overflow-y: auto; /* 내용이 넘칠 때 수직 스크롤바 추가 */
+   margin: 0 auto;
+   width: 50rem;
+   height: 50rem;
+   color: #F6F6F6;
+   box-sizing: border-box;
+   max-height: auto; /* 원하는 높이로 조정 */
+   overflow-y: auto; /* 내용이 넘칠 때 수직 스크롤바 추가 */
 }
 
 .modal-content-container{
-	max-height: calc(100% - 80px); /* 모달 헤더와 푸터의 높이를 고려한 최대 높이 설정 */
-	overflow-y: auto; /* 내용이 넘칠 때 수직 스크롤바 추가 */
-	margin-right:10px;
+   max-height: calc(100% - 80px); /* 모달 헤더와 푸터의 높이를 고려한 최대 높이 설정 */
+   overflow-y: auto; /* 내용이 넘칠 때 수직 스크롤바 추가 */
+   margin-right:10px;
+}
+
+.today-contents{
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .modal-contents-list{
-	width: 25%; /* 4개 컨텐츠가 한 줄에 들어가도록 25%로 설정 */
-	float: left; /* 왼쪽으로 띄워서 나란히 표시 */
-	box-sizing: border-box; /* 요소의 width와 height에 padding과 border를 포함시킴 */
-	padding: 15px; /* 컨텐츠 간의 간격을 조절 */
-	padding-bottom: 25px;
-	text-align: center;
+	flex: 0 0 calc(25% - 10px); /* 4개의 열로 나누기 위한 스타일, 여백을 조절할 수 있습니다. */
+	margin-right: 10px;
+/*    width: 25%; 4개 컨텐츠가 한 줄에 들어가도록 25%로 설정 */
+/*    float: left; 왼쪽으로 띄워서 나란히 표시 */
+   box-sizing: border-box; /* 요소의 width와 height에 padding과 border를 포함시킴 */
+   padding: 15px; /* 컨텐츠 간의 간격을 조절 */
+   padding-bottom: 25px;
+   text-align: center;
 }
 
+
+
 .modal-comImg{
-	width:150px;
-	height:200px;	
+   width:150px;
+   height:200px;   
 }
 
 .modal-list-txt{
   size: 10px;
   align-items: center;
   margin-top:10px;
+  color: #595959;
+  
 }
 
 .close-modal {
@@ -312,6 +324,7 @@ button.modal-close-btn {
     font-size: 24px;
     cursor: pointer;
 }
+
 
 /* 오버레이에 대한 CSS */
 .overlay {
@@ -327,4 +340,6 @@ button.modal-close-btn {
 
 form#calendarFrm {
     padding-top: 5px;
+    position: relative;
+    z-index: 100;
 }

@@ -1,8 +1,11 @@
 @charset "UTF-8";
 
+/* 마이페이지와 회원정보 수정, 관리자 페이지에서 같이 쓰일 CSS입니다 */
+
 #myPage-wrap{
   margin-top: 150px;
-	margin-left:80px;
+  position: relative;
+  z-index: 100;
 }
 
 article{
@@ -12,6 +15,8 @@ article{
 .mypage{
 	margin-top: 100px;
 	display:flex;
+	margin-left: 10rem;
+	margin-bottom: 5rem;
 }
 
 .myPage-profile{
@@ -19,50 +24,277 @@ article{
 	
 }
 
+.myPage-img{
+	width: 2rem;
+	height: 5rem;
+}
+
 .myPage-info{
-	margin-left:30px;
+	margin-left:5rem;
+}
+
+.myPage-name{
+	font-size:xx-large;
 }
 
 .myPage-name, .myPage-update{
-	margin: 20px;
+	margin: 2rem;
+	color: #595959;
+	
+}
+
+a.myPage-update{
+	color: #595959;
+	font-size:x-large;
 }
 
 .myPage-menu-wrapper{
 	display:flex;
 	margin-top: 20px;
+	margin-left: 2rem; 
+}
+
+.myPage-menu{
+	background-color:#ffd47f ;
 }
 
 .mypage-contents{
 	margin: 10px;
+	font-size: large;
 }
 
 .like-contents, .like-actor, .myPage-qna{
-  border-style: none;
-  width: 180px;
-  height: 70px;
-  font-size: larger;
-  background-color: #ffd47f;
-  border-color: #ffd47f;
-  color: #595959;
+	border-style: none;
+	width: 200px;
+	height: 70px;
+	font-size: larger;
+	background-color: #ffd47f;
+	border-color: #ffd47f;
+	color: #595959;
+	font-weight: bold;
+}
+
+.my-like-content{
+	margin:2rem;
+}
+
+.my-content-wrap{
+/* 	margin:auto; */
+	border-style:solid;
+	border-color: #FFD47F;
+	border-radius:4px;
+	display:flex;
+	flex-wrap: wrap; /* 요소들이 넘칠 경우 줄바꿈 */
+    justify-content: flex-start; /* 요소들을 왼쪽 정렬 */
+}
+
+.like-list-wrap {
+    margin: 15px;
+    text-align:center; 
+}
+
+.like-list-title{
+	width:160px;
+	height:50px;
+	
+}
+
+.comImg{
+	width:150px;
+	height:200px;
+}
+
+a.myLikeContent{
+	margin:15px;
+	color: #595959;
+}
+
+.like-list-title{
+	text-align: center;
+}
+
+
+.my-like-actor{
+	display:none;
+	margin:2rem;
 }
 
 /* 마이페이지 qna */
-.myQna{
-	width: 50rem;
-	height: 20rem;
-	text-align: center;
-	
+
+a.question{
+	color:#595959;
 }
+
 .myPage-qna-space{
-	margin:15px;
+	margin:2rem;
+}
+
+.myPage-qna-button-wrap{
+	display: flex;
+	justify-content:flex-end;
 }
 
 .myPage-qna-button{
-	float: right;
-  margin-right: 20px;
-  
+	margin-right: 20px;
+	margin:20px;
+	border-style:solid;
+	border-color: #ffd47f;
+	background-color: #ffd47f;
+	width: 100px;
+	height: 40px;
+	border-radius:4px;
+	color: #595959;
+	font-size: medium;
+
 }
 
-.mypage-notice{
-	margin-left: 30px;
+.myPage-qna-wrap{
+	display:none;
 }
+
+.myQna{
+	width: 50rem;
+	height: 25rem;
+	text-align: center;
+	color: #595959;
+}
+
+
+.myPage-qna-list{
+	border-style: solid;
+	border-color: #ffd47f;
+	border-radius:4px;
+}
+
+.myPage-notice{
+	margin: 2rem;
+	color: #595959;
+}
+
+
+/* 회원정보 수정 */
+#myPage-memberUpdate{
+	text-align:center;
+}
+
+.myPage-member{
+	margin: auto;	
+	margin-top: 6rem;
+}
+
+.memberUpdate{
+	display:inline-block;
+	border-style: solid;
+	border-color: #ffd47f;
+	margin: auto;
+	width: 40rem;
+	height: 55rem;
+	margin-top: 8rem;
+	
+}
+
+.memTitle{
+	margin-top:3rem;
+	color:#595959;
+}
+
+th.myPage-member-info, td.myPage-myInfo{
+	padding: 2rem;
+	color:#595959;
+}
+
+a.email-edit, a.phone-edit{
+	color:#595959;
+	
+}
+	
+.myPage-member-info-wrap{
+	font-size: x-large;
+	
+}
+
+.myPage-member-info{
+	margin-top: 2rem;
+	
+
+}
+
+.myPage-myInfo{
+	text-align: left;
+
+	
+}
+
+a.email-edit, a.phone-edit{
+	text-decoration: none;
+	text-align:left;
+}
+
+.mypage-input-pw, .mypage-input-phone, .mypage-input-email{
+	width: 200px;
+	height: 40px;
+	border-style: solid;
+	border-radius:4px;
+	border-color: #595959;
+	font-size: large;
+	text-align:left;
+	color: #595959;
+}
+
+.myPage-correct-btn{
+	display: flex;	
+	text-align: center;
+	padding:15px;
+	
+}
+
+
+.correct-btn{
+	list-style: none;
+	margin-top: 2rem;
+	margin-left:auto;
+	margin-right: auto;
+	margin-top: 2rem;
+	padding: 10px;
+	width:7rem;
+	height:40px;
+	background-color: #ffd47f;
+	border-radius: 4px;
+	border-color: #595959;
+}
+
+
+a.myPageBack, a.correctBtn{
+	text-decoration: none;
+	font-size: 30px;
+	color:#595959;
+
+}
+
+
+
+/* 관리자 페이지  */
+.notice-contents, .admin-qna-contents, .admin-content-list, .admin-user-manager{
+	border-style: none;
+	width: 200px;
+	height: 70px;
+	font-size: larger;
+	background-color: #ffd47f;
+	border-color: #ffd47f;
+	color: #595959;
+	font-weight: bold;
+}
+
+/* 안에 내용에 따라 박스 크기가 조절됩니다 */
+.admin-content-wrap{
+	margin:2rem;
+	border-style:solid;
+	border-color: #ffd47f;
+	border-radius: 4px;
+}
+
+.no-like-message{
+	margin-left:1rem;
+}
+
+.

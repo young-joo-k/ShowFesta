@@ -1,5 +1,7 @@
 package org.project.service;
 
+import java.util.List;
+
 import org.project.domain.MemberVO;
 
 public interface MemberService {
@@ -17,7 +19,11 @@ public interface MemberService {
 	public String findPw(String id, String name, String email, String phone);
 	
 	public boolean registerEmailCheck(String email);
-	
+
+	public void updateUserInfo(MemberVO member);
+
+	public List<MemberVO> getAllUser();
+
 	
 	
 }

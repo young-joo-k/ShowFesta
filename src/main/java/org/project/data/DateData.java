@@ -5,6 +5,10 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.project.domain.ContentsVO;
+import org.project.domain.ScheduleVO;
+
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +23,13 @@ public class DateData {
 	String date = "";
 	String value = "";
 	String schedule = "";
-
+	private List<ContentsVO> m_all_contents;
+	private List<ContentsVO> c_all_contents;
+	private List<ContentsVO> f_all_contents;
+	int MusicalCnt;
+	int ConcertCnt;
+	int FestivalCnt;
+	
 	public DateData(String year, String month, String date, String value, String schedule, String schedule_detail) {
 
 		this.year = year;
@@ -30,9 +40,9 @@ public class DateData {
 
 	}
 	
-	// ³¯Â¥¿¡ °ü·ÃµÈ ´Þ·ÂÁ¤º¸¸¦ °¡Áö´Â ¸Þ¼­µå
+	// ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 	public Map<String, Integer> today_info(DateData dateData) {
-		// ³¯Â¥ Ä¶¸°´õ ÇÔ¼ö¿¡ »ðÀÔ.
+		// ï¿½ï¿½Â¥ Ä¶ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		Map<String, Integer> today_Data = new HashMap<String, Integer>();
 		Calendar cal = Calendar.getInstance();
 		cal.set(Integer.parseInt(dateData.getYear()), Integer.parseInt(dateData.getMonth()), 1);
@@ -60,9 +70,9 @@ public class DateData {
 		
 		Map<String, Integer> before_after_calendar = before_after_calendar(search_year,search_month);
 		
-		//³¯Â¥ °ü·Ã
+		//ï¿½ï¿½Â¥ ï¿½ï¿½ï¿½ï¿½
 		System.out.println("search_month : " + search_month);
-		// Ä¶¸°´õ ÇÔ¼ö end
+		// Ä¶ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ end
 		today_Data.put("start", start);
 		today_Data.put("startDay", startDay);
 		today_Data.put("endDay", endDay);
@@ -76,7 +86,7 @@ public class DateData {
 		return today_Data;
 	}
 	
-	//ÀÌÀü´Þ ´ÙÀ½´Þ ¹× ÀÌÀü³âµµ ´ÙÀ½³âµµ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½âµµ ï¿½ï¿½ï¿½ï¿½ï¿½âµµ
 	private Map<String, Integer> before_after_calendar(int search_year, int search_month){
 		Map<String, Integer> before_after_data = new HashMap<String, Integer>();
 		int before_year = search_year;
@@ -103,7 +113,7 @@ public class DateData {
 	}
 	
 
-	// ´Þ·Â¸¸ »ç¿ë½Ã »ç¿ëµÉ »ý¼ºÀÚ
+	// ï¿½Þ·Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public DateData(String year, String month, String date, String value) {
 		if ((month != null && month != "") && (date != null && date != "")) {
 			this.year = year;

@@ -25,13 +25,53 @@ public class SearchController {
 
     @GetMapping("/search")
     public String search(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
-        // 최신 데이터를 가져오는 로직을 Service를 통해 수행합니다.
-        List<SearchVO> latestData = searchService.search(keyword); // Service를 통해 데이터를 가져옵니다.
-
-        // 모델에 최신 데이터를 추가합니다.
-        model.addAttribute("searchResults", latestData);
-
-        // 다른 코드와 함께 검색 결과 페이지로 이동합니다.
-        return "page/search";
+        if (keyword != null && !keyword.isEmpty()) {
+            List<SearchVO> musicalSearchResults = searchService.musicalsearch(keyword);
+            List<SearchVO> concertSearchResults = searchService.concertsearch(keyword);
+            List<SearchVO> festivalSearchResults = searchService.festivalsearch(keyword);
+            List<SearchVO> actorSearchResults = searchService.actorsearch(keyword);
+            model.addAttribute("musicalSearchResults", musicalSearchResults);
+            model.addAttribute("festivalSearchResults", festivalSearchResults);
+            model.addAttribute("actorSearchResults", actorSearchResults);
+            model.addAttribute("concertSearchResults", concertSearchResults);
+            log.info("Get");
+        }
+        return "page/search"; // 검색 결과를 보여줄 뷰 이름 (search.jsp 또는 다른 이름)
+    }
+    @GetMapping("/searchResult_musical")
+    public String searchMusical(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
+    	if (keyword != null && !keyword.isEmpty()) {
+    		List<SearchVO> musicalSearchResults = searchService.musicalsearch(keyword);
+    		model.addAttribute("musicalSearchResults", musicalSearchResults);
+    		log.info("Get");
+    	}
+    	return "page/searchResult_musical"; // 검색 결과를 보여줄 뷰 이름 (search.jsp 또는 다른 이름)
+    }
+    @GetMapping("/searchResult_concert")
+    public String searchConcert(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
+    	if (keyword != null && !keyword.isEmpty()) {
+    		List<SearchVO> concertSearchResults = searchService.concertsearch(keyword);
+    		model.addAttribute("concertSearchResults", concertSearchResults);
+    		log.info("Get");
+    	}
+    	return "page/searchResult_concert"; // 검색 결과를 보여줄 뷰 이름 (search.jsp 또는 다른 이름)
+    }
+    @GetMapping("/searchResult_festival")
+    public String searchFestival(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
+    	if (keyword != null && !keyword.isEmpty()) {
+    		List<SearchVO> festivalSearchResults = searchService.festivalsearch(keyword);
+    		model.addAttribute("festivalSearchResults", festivalSearchResults);
+    		log.info("Get");
+    	}
+    	return "page/searchResult_festival"; // 검색 결과를 보여줄 뷰 이름 (search.jsp 또는 다른 이름)
+    }
+    @GetMapping("/searchResult_actor")
+    public String searchActor(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
+    	if (keyword != null && !keyword.isEmpty()) {
+    		List<SearchVO> actorSearchResults = searchService.actorsearch(keyword);
+    		model.addAttribute("actorSearchResults", actorSearchResults);
+    		log.info("Get");
+    	}
+    	return "page/searchResult_actor"; // 검색 결과를 보여줄 뷰 이름 (search.jsp 또는 다른 이름)
     }
 }

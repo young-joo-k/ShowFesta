@@ -3,6 +3,7 @@ package org.project.service;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.project.domain.MemberVO;
@@ -92,6 +93,21 @@ public class MemberServiceImpl implements MemberService {
 	    // �븘�씠�뵒瑜� 李얠� 紐삵븳 寃쎌슦 null�쓣 諛섑솚
 	    return foundPw;
 	}
+
+	@Override
+	public void updateUserInfo(MemberVO member) {
+	    membermapper.updateUserInfo(member);
+	}
+
+	@Override
+	public List<MemberVO> getAllUser() {
+		
+		return membermapper.getAllUser();
+	}
+
+
+
+
 
 
 }

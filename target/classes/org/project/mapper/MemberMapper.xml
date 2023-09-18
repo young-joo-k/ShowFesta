@@ -39,5 +39,16 @@
         SELECT pw FROM tbl_user
         WHERE id = #{id} AND name = #{name} AND email = #{email} AND phone = #{phone}
     </select>
+    
+
+   <update id="updateUserInfo">
+	    UPDATE tbl_user
+	    SET pw=#{pw, jdbcType=VARCHAR}, phone=#{phone, jdbcType=VARCHAR}, email=#{email, jdbcType=VARCHAR}
+	    WHERE id=#{id, jdbcType=VARCHAR}
+	</update>
+
+	<select id = "getAllUser" resultType="org.project.domain.MemberVO">
+		select * from tbl_user;
+	</select>
 
 </mapper>

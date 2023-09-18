@@ -1,13 +1,10 @@
 package org.project.controller;
 
-import java.io.IOException;
-import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.project.data.DateData;
 import org.project.domain.ContentsVO;
@@ -15,6 +12,7 @@ import org.project.domain.DImgVO;
 import org.project.domain.LikeVO;
 import org.project.domain.MemberVO;
 import org.project.domain.PlayVO;
+import org.project.domain.PriceVO;
 import org.project.service.PlayService;
 import org.project.service.ContentsService;
 import org.project.service.InfoImgService;
@@ -27,10 +25,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.log4j.Log4j;
 
@@ -45,8 +39,9 @@ public class PageController {
 	private MemberService memberservice;
 	
 	@Autowired
+
 	private ContentsService contentsservice;
-	
+
 	@Autowired
 	private PlayService playservice;
 	
@@ -55,74 +50,92 @@ public class PageController {
 	@Autowired
 	private LikeService likeservice;
 	
-	@GetMapping("/calendar")
-	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
-		log.info("calendar Get");
-		Calendar cal = Calendar.getInstance();
-		DateData calendarData;
+	   @GetMapping("/calendar")
+	   public String calendar(Model model, HttpServletRequest request, DateData dateData) {
+	      log.info("calendar Get");
+	      Calendar cal = Calendar.getInstance();
+	      DateData calendarData;
 
-		// 검색 날짜
-		if (dateData.getDate().equals("") && dateData.getMonth().equals("")) {
-			dateData = new DateData(String.valueOf(cal.get(Calendar.YEAR)), String.valueOf(cal.get(Calendar.MONTH)),
-					String.valueOf(cal.get(Calendar.DATE)), null);
-		}
-		// 검색 날짜 end
+	      // 검색 날짜
+	      if (dateData.getDate().equals("") && dateData.getMonth().equals("")) {
+	         dateData = new DateData(String.valueOf(cal.get(Calendar.YEAR)), String.valueOf(cal.get(Calendar.MONTH)),
+	               String.valueOf(cal.get(Calendar.DATE)), null);
+	      }
+	      // 검색 날짜 end
 
-		Map<String, Integer> today_info = dateData.today_info(dateData);
-		List<DateData> dateList = new ArrayList<DateData>();
+	      Map<String, Integer> today_info = dateData.today_info(dateData);
+	      List<DateData> dateList = new ArrayList<DateData>();
 
-		
-		// 실질적인 달력 데이터 리스트에 데이터 삽입 시작.
-		// 일단 시작 인덱스까지 아무것도 없는 데이터 삽입
-		for (int i = 1; i < today_info.get("start"); i++) {
-			calendarData = new DateData(null, null, null, null);
-			dateList.add(calendarData);
-		}
-
-		// 날짜 삽입
-		for (int i = today_info.get("startDay"); i <= today_info.get("endDay"); i++) {
-			if (i == today_info.get("today")) {
-				calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),
-						String.valueOf(i), "today");
-			} else {
-				calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),
-						String.valueOf(i), "normal_date");
-			}
-			dateList.add(calendarData);
-		}
-
-		// 달력 빈곳 빈 데이터로 삽입
-		int index = 7 - dateList.size() % 7;
-
-		if (dateList.size() % 7 != 0) {
-			for (int i = 0; i < index; i++) {
-				calendarData = new DateData(null, null, null, null);
-				dateList.add(calendarData);
-			}
-		}
-//		System.out.println(dateList);
-		int musicalCnt = scheduleservice.getMusical();
-		int concertCnt = scheduleservice.getConcerts();
-		int festivalCnt = scheduleservice.getFestival();
-		
-		//모달창에 띄우기 위해서 필요한 코드 입니다.
-		List<ContentsVO> today_m_contents = contentsservice.getToday_m_contents();
-		List<ContentsVO> today_c_contents = contentsservice.getToday_c_contents();
-		List<ContentsVO> today_f_contents = contentsservice.getToday_f_contents();
-		
-		// 배열에 담음
-		model.addAttribute("musicalCnt", musicalCnt);
-		model.addAttribute("concertCnt", concertCnt);
-		model.addAttribute("festivalCnt", festivalCnt);
-		model.addAttribute("dateList", dateList); // 날짜 데이터 배열
-		model.addAttribute("today_info", today_info);
-		
-		//여기 모델도 모달창에 띄우려고 쓰는거입니다
-		model.addAttribute("today_m_contents", today_m_contents);
-		model.addAttribute("today_c_contents", today_c_contents);
-		model.addAttribute("today_f_contents", today_f_contents);
-		return "/page/calendar";
-	}
+	      
+	      // 실질적인 달력 데이터 리스트에 데이터 삽입 시작.
+	      // 일단 시작 인덱스까지 아무것도 없는 데이터 삽입
+	      for (int i = 1; i < today_info.get("start"); i++) {
+	         calendarData = new DateData(null, null, null, null);
+	         dateList.add(calendarData);
+	      }
+	      int s_index = today_info.get("start")-1;
+	      // 날짜 삽입
+	      for (int i = today_info.get("startDay"); i <= today_info.get("endDay"); i++) {
+	         if (i == today_info.get("today")) {
+	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),String.valueOf(i), "today");
+	            	 String result =String.valueOf(dateData.getYear()).substring(2) + '/' + String.valueOf(Integer.parseInt(dateData.getMonth())+1) + '/' + i;
+	            	 calendarData.setMusicalCnt(scheduleservice.getMusicalCnt(result));
+		           	 calendarData.setConcertCnt(scheduleservice.getConcertsCnt(result));
+		           	 calendarData.setFestivalCnt(scheduleservice.getFestivalCnt(result));
+		           	 calendarData.setM_all_contents(contentsservice.getAllMusical(result));
+		           	 calendarData.setC_all_contents(contentsservice.getAllConcert(result));
+		           	 calendarData.setF_all_contents(contentsservice.getAllFestival(result));
+	         } else {
+	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),String.valueOf(i), "normal_date");
+	            	 String result =String.valueOf(dateData.getYear()).substring(2) + '/' + String.valueOf(Integer.parseInt(dateData.getMonth())+1) + '/' + i;
+	            	 calendarData.setMusicalCnt(scheduleservice.getMusicalCnt(result));
+	            	 calendarData.setConcertCnt(scheduleservice.getConcertsCnt(result));
+	            	 calendarData.setFestivalCnt(scheduleservice.getFestivalCnt(result));
+	            	 calendarData.setM_all_contents(contentsservice.getAllMusical(result));
+	            	 calendarData.setC_all_contents(contentsservice.getAllConcert(result));
+	            	 calendarData.setF_all_contents(contentsservice.getAllFestival(result));
+//	            	 System.out.println(result);
+//	            	 System.out.println(calendarData.getMusicalCnt());
+	         }
+	         dateList.add(calendarData);
+	      }
+	      
+	      // 달력 빈곳 빈 데이터로 삽입
+	      int index = 7 - dateList.size() % 7;
+	      int l_index = dateList.size();
+	      List<DateData> modalList = dateList.subList(s_index, l_index);
+//	      System.out.println(dateList.get(s_index));
+//	      System.out.println(modalList.get(0));
+	      if (dateList.size() % 7 != 0) {
+	         for (int i = 0; i < index; i++) {
+	            calendarData = new DateData(null, null, null, null);
+	            dateList.add(calendarData);
+	         }
+	      }
+//	      int musicalCnt = scheduleservice.getMusical();
+//	      int concertCnt = scheduleservice.getConcerts();
+//	      int festivalCnt = scheduleservice.getFestival();
+	      
+	      //모달창에 띄우기 위해서 필요한 코드 입니다.
+	      List<ContentsVO> today_m_contents = contentsservice.getToday_m_contents();
+	      List<ContentsVO> today_c_contents = contentsservice.getToday_c_contents();
+	      List<ContentsVO> today_f_contents = contentsservice.getToday_f_contents();
+	      
+	      // 배열에 담음
+//	      model.addAttribute("musicalCnt", musicalCnt);
+//	      model.addAttribute("concertCnt", concertCnt);
+//	      model.addAttribute("festivalCnt", festivalCnt);
+	      model.addAttribute("DateList", dateList); // 날짜 데이터 배열
+	      //날짜-1의 인덱스에 있는걸 가지고 오면 어떨까라는 생각을 해봐
+	      model.addAttribute("ModalList",modalList);
+	      model.addAttribute("today_info", today_info);
+//	      System.out.println(dateList.get(5));
+	      //여기 모델도 모달창에 띄우려고 쓰는거입니다
+	      model.addAttribute("today_m_contents", today_m_contents);
+	      model.addAttribute("today_c_contents", today_c_contents);
+	      model.addAttribute("today_f_contents", today_f_contents);
+	      return "/page/calendar";
+	   }
 
 	@GetMapping("/main")
 	public void main(HttpSession session, Model model) {
@@ -171,11 +184,16 @@ public class PageController {
 	public void m_info(HttpSession session,@RequestParam("m_num") Long m_num, Model model) {
 		String id = (String) session.getAttribute("id");
 		log.info("musical_info get");
+		//로그인이 되어 있는 상태라면 
 		if (id != null) {
+			// 유저 정보 가져와서 
 			MemberVO membervo = memberservice.getUserInfo(id);
+			//모델에 뿌려주고
 			model.addAttribute("user", membervo);
+			//즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
 			List<LikeVO> likeList = likeservice.getLike(membervo.getId());
 			log.info(likeList);
+			// 즐겨찾기한 애들 이름만 담을 리스트
 			List<String> nameList = new ArrayList<String>();
 			for(LikeVO list:likeList) {
 				String name = list.getLike_name();
@@ -193,7 +211,8 @@ public class PageController {
 
 //		뮤지컬에 출연한 배우이름,이미지,역할 등등 가져오기
 		List<PlayVO> actor = playservice.getActorList(m_num);
-
+//		뮤지컬 가격정보 가져오기		
+		List<PriceVO> priceList = contentsservice.getPrice(result.getM_title());
 //		System.out.println(actor);
 //		상세이미지 가져오기
 		List<DImgVO> img = infoimgservice.InfoMImgList(m_num);
@@ -201,6 +220,7 @@ public class PageController {
 		model.addAttribute("actorList", actor);
 		model.addAttribute("musical", result);
 		model.addAttribute("ImgList",img);
+		model.addAttribute("priceList",priceList);
 	}
 
 	@GetMapping("/concert_info")
@@ -229,8 +249,39 @@ public class PageController {
 		result.setM_end_date(parseDate(e_date));
 //		상세이미지 가져오기
 		List<DImgVO> img = infoimgservice.InfoCImgList(m_num);
+//		콘서트 가격정보 가져오기		
+		List<PriceVO> priceList = contentsservice.getPrice(result.getM_title());
 		model.addAttribute("concert", result);
 		model.addAttribute("ImgList",img);
+		model.addAttribute("priceList",priceList);
+	}
+	
+
+	@GetMapping("/festival_info")
+	public void f_info(@RequestParam("m_num") Long m_num, HttpSession session, Model model) {
+		log.info(m_num);
+//		아이디 정보
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			List<LikeVO> likeList = likeservice.getLike(membervo.getId());
+			log.info(likeList);
+			List<String> nameList = new ArrayList<String>();
+			for(LikeVO list:likeList) {
+				String name = list.getLike_name();
+				nameList.add(name);
+			}
+//			System.out.println(nameList);
+			model.addAttribute("likeList",nameList);
+		}
+//		컨텐츠 번호,이름,날짜 등등 가져오기
+		ContentsVO result = contentsservice.getFestival(m_num);
+		String s_date = result.getM_start_date();
+		result.setM_start_date(parseDate(s_date));
+		String e_date = result.getM_end_date();
+		result.setM_end_date(parseDate(e_date));
+		model.addAttribute("festival", result);
 	}
 
 	
@@ -244,10 +295,10 @@ public class PageController {
 		return formattedDate;
 	}
 	
-	@GetMapping("/news")
-	public void latestNewsPage() {
-		log.info("News get");
-	}
+//	@GetMapping("/news")
+//	public void latestNewsPage() {
+//		log.info("News get");
+//	}
 	
 	
 	//	뮤지컬 유형별페이지 가져옵니다
@@ -312,23 +363,59 @@ public class PageController {
 		 
 	}
 	
+	//마이페이지
 	@GetMapping("/myPage")
 	public String myPage(Model model, HttpSession session ) {
 		log.info("mypage get");
-		
 //		아이디 정보
 		String id = (String) session.getAttribute("id");
 		if (id != null) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
-		} else if(id == null){
+			//즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
+			List<LikeVO> likeInfo = likeservice.getLike(membervo.getId());
+			model.addAttribute("likeInfo",likeInfo);
 			
-			return "/join/login";
+		} else if(id == null){
+
+	       return "/join/login";
 		}
 
 		return "/page/myPage";
 	}
 	
+	//회원정보수정페이지
+	@GetMapping("/memberUpdate")
+	public String memberCorrect(Model model, HttpSession session) {
+		log.info("memberUpdate get");
+		
+		//아이디 정보
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			} 
+		
+		return "/page/memberUpdate";
+	}
 	
+
+	
+	// 관리자 페이지 관리자 권한을 가진사람이 로그인 하면 마이페이지를 눌렀을 때 관리자 마이페이지가 되는건데 어떻게 할지 생각해봐야할듯
+	@GetMapping("/adminPage")
+	public String adminPage(Model model, HttpSession session) {
+		log.info("adminPage get");
+		
+
+		//아이디 정보
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			} 
+		return "/page/adminPage";
+				
+	}
+
 
 }

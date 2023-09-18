@@ -73,15 +73,21 @@
 							</div>
 							<button id='regBtn' type="button" class="btn btn-xs pull right">공지사항
 								등록</button>
-							<div class="paging-type02">
-								<a href="#" class="on">1</a> <a href="#" class>2</a> <a href="#"
-									class>3</a> <a href="#" class>4</a> <a href="#" class>5</a> <a
-									href="#" class>6</a> <a href="#" class>7</a> <a href="#" class>8</a>
-								<a href="#" class>9</a> <a href="#" class>10</a> <a
-									id="next-page" href="#" class="arrow"> <img
-									src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAPBJREFUSA1jYBgFoyEwMkJg+fLlCuT6lIlYjf///w9bs2aNKrHqkdURbcm/f/+W/fr1K3DZsmXayAYQw2YkRhFMzcaNG8W/fPkSy8TEtDcyMvI8TJwQTbRPQAb5+/u/ZGRkXAAMOkdgHJkTMhwmT5IlIE1RUVFvODk55wGDzxNmCCGaZEtABn779s0EGGTfCRkOk2eBMYihgcHEuGrVKs+/f//K8vDwTCZGD0gN0REPtIAJGA9+QFpYSkpqqaOj4w9iLWEmVqGmpmY4MB641NXVl1pbW/8iVh9IHUnBBfTBMhMTkz+kWDCqdjQEhkEIAADVzUfIdyQB3wAAAABJRU5ErkJggg=="
-									alt="다음 10개 페이지">
-								</a>
+							<div class='pull-right'>
+								<ul class="pagination">
+									<c:if test="${pageMaker.prev }">
+										<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">이전</a>
+										</li>
+									</c:if>
+									<c:forEach var="num" begin="${pageMaker.startPage}"
+									end="${pageMaker.endPage }">
+										<li class="paginate_button ${pageMaker.cri.pageNum == num ? 'active':'' }"><a href="${num}">${num}</a>
+										</li>
+									</c:forEach>
+									<c:if test="${pageMaker.next}">
+										<li class="paginate_button next"><a href="${ pageMaker.endPage + 1}">다음</a></li>
+									</c:if>
+								</ul>
 							</div>
 
 
@@ -91,6 +97,10 @@
 		</div>
 	</div>
 </body>
+<form id= 'actionForm' action="/page/notice_list" method='get'>
+	<input type='hidden'  name='pageNum' value = '${pageMaker.cri.pageNum}'>
+	<input type='hidden'  name='amount' value = '${pageMaker.cri.amount}'>
+</form>
 <script type="text/javascript">
 	$(document).ready(
 			function() {
@@ -110,7 +120,16 @@
 				$("#regBtn").on("click", function() {
 					self.location = "/page/notice_register";
 				});
+				var actionForm = $("#actionForm");
+				$(".paginate_button a").on("click", function(e) {
+					e.preventDefault();
+					actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+					actionForm.submit();				
+				});
+				
+
 			});
+
 </script>
 </html>
 

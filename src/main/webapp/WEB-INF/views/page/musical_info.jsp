@@ -25,8 +25,9 @@
 										<a class="likeBtn ${fn:contains(list, contentsName) ? 'is-toggled' : ''}" data-toggle="self"
 											data-toast="like" aria-checked="false"
 											aria-label="즐겨찾기 등록" role="checkbox" href="#"
-											data-popup-hover="like" data-contents-name="${musical.m_title } " data-type="뮤지컬"  
+											data-popup-hover="like" data-contents-name="${musical.m_title } " data-type="musical"  
 											data-user-id="${user.id }" data-img="${musical.m_img }"  
+											data-num = "${musical.m_num }"
 											<c:if test="${empty user}">
 										        data-empty-user="true"				
 										    </c:if>></a>
@@ -46,6 +47,12 @@
 													<p class="infoText">${musical.m_start_date }~
 														${musical.m_end_date }</p>
 												</div></li>
+											<li class="infoItem"><strong class="infoLabel">가격정보</strong>
+												<div class="infoDesc">
+													<c:forEach var="price" items="${priceList}">
+														<p class="infoText">${price.p_name } <span style="color: red">${price.p_price }</span>원</p>
+													</c:forEach>
+												</div></li>											
 										</ul>
 										<div class="bookBtn">
 											<a class="sideBtn is-primary" href="${musical.m_b_link }"
@@ -92,7 +99,8 @@
 																		
 																		<a class="castingHeartBtn ${fn:contains(list, actorName) ? 'is-toggled' : ''}" data-toggle="self"
 																		   data-toast="cast" aria-checked="false" aria-label="즐겨찾기 등록/취소" role="checkbox" href="#"
-																		   data-actor-name="${actor.a_name }" data-type="배우" data-user-id="${user.id }" data-actor-img="${actor.a_img }"
+																		   data-actor-name="${actor.a_name }" data-type="actor" data-user-id="${user.id }" data-actor-img="${actor.a_img }"
+																		   data-actor-link = "${actor.a_link }"
 																		   <c:if test="${empty user}">
 																		       data-empty-user="true"				
 																		   </c:if>>
@@ -127,9 +135,6 @@
 					</div>
 				</div>
 <!-- 				<div class="toast is-off"><span class="toastMessage">즐겨찾기 해제되었습니다.</span></div> -->
-			</div>
-			<div class="topButtonWrapper ">
-				<a href="#" class="topButton"><span class="blind">맨 위로</span></a>
 			</div>
 		</section>
 	</main>
@@ -199,18 +204,20 @@
 	    	var userId = castingHeartBtn.attr("data-user-id");
 	    	var type = castingHeartBtn.attr("data-type");
 	    	var img = castingHeartBtn.attr("data-actor-img");
+	    	var link = castingHeartBtn.attr("data-actor-link");
 		    if (castingHeartBtn.hasClass("is-toggled")) {
 		        castingHeartBtn.removeClass("is-toggled");
 // 		        toastMessage.text("즐겨찾기 해제되었습니다.");
 // 		        toastIcon = "is-off"; // 아이콘 상태를 변경
 		        $.ajax({
 		            type: "GET",
-		            url: "/like/delete",
+		            url: "/like/actor_delete",
 		            data: {
 		                like_name: actorName,
 		                id: userId,
 		                like_type: type,
-		                like_img: img
+		                like_img: img,
+		                like_link: link
 		            },
 		            success: function() {
 		                console.log("성공 ");
@@ -225,12 +232,13 @@
 // 		        toastIcon = "is-on"; // 아이콘 상태를 변경
 		        $.ajax({
 		            type: "GET",
-		            url: "/like/insert",
+		            url: "/like/actor_insert",
 		            data: {
 		                like_name: actorName,
 		                id: userId,
 		                like_type: type,
-		                like_img: img
+		                like_img: img,
+		                like_link: link
 		            },
 		            success: function() {
 		                console.log("성공 ");
@@ -260,6 +268,7 @@
 	    	var userId = likeBtn.attr("data-user-id");
 	    	var type = likeBtn.attr("data-type");
 	    	var img = likeBtn.attr("data-img");
+	    	var num = likeBtn.attr("data-num");
 			// castingHeartBtn 토글
 		    if (likeBtn.hasClass("is-toggled")) {
 		        likeBtn.removeClass("is-toggled");
@@ -272,7 +281,8 @@
 		                like_name: contentsName,
 		                id: userId,
 		                like_type: type,
-		                like_img:img
+		                like_img:img,
+		                m_num:num
 		            },
 		            success: function() {
 		                console.log("성공 ");
@@ -292,7 +302,8 @@
 		                like_name: contentsName,
 		                id: userId,
 		                like_type: type,
-		                like_img:img
+		                like_img:img,
+		                m_num:num
 		            },
 		            success: function() {
 		                console.log("성공 ");
