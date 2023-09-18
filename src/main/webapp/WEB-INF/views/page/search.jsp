@@ -49,7 +49,7 @@
 
 						</div>
 					</div>
-					<a data-v-223ac3f7 href="/page/searchResult_musical?keyword='${keyword }'" class="btn-more all">더보기</a>
+					<a data-v-223ac3f7 href="#" class="btn-more all" id="btn_more">더보기</a>
 				</div>
 			</div>
 			<div data-v-223ac3f7 id="mitisection_index_2"
