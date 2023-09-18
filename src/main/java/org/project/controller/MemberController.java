@@ -48,7 +48,7 @@ public class MemberController {
 		log.info("login post, Id -> " + membervo.getId());
 		String checkId = service.login(membervo.getId(), membervo.getPw());
 		List<LikeVO> likeList = likeservice.getLike(membervo.getId());
-	    session.setAttribute("likeList", likeList);
+	    session.setAttribute("likeInfo", likeList);
 		if (checkId != null && checkId.equals(membervo.getId())) {
 		    session.setAttribute("id", checkId);
 	        // 이전 페이지의 URL을 가져옴

@@ -45,6 +45,7 @@ pageEncoding="UTF-8"%>
 	</div>
 
 
+<<<<<<< HEAD
 	<!-- 즐겨찾기 버튼 눌렀을 때 띄워줄 내용 즐겨찾기에서 사용할 예정 -->
 	<div class = "my-like-content">
 		<div class = "my-contetnt-wrap">
@@ -52,6 +53,23 @@ pageEncoding="UTF-8"%>
 				<c:when test = "${empty likeInfo} ">
 					<div class = "no-like-message">
 						<p class = "no-like-message">즐겨찾기 하신 내용이 없습니다.</p>
+=======
+<!-- 즐겨찾기 버튼 눌렀을 때 띄워줄 내용 즐겨찾기에서 사용할 예정 -->
+<div class = "my-like-content">
+	<div class = "my-contetnt-wrap">
+		<c:choose>
+			<c:when test = "${empty likeInfo} ">
+				<div class = "no-like-message">
+					<p class = "no-like-message">즐겨찾기 하신 내용이 없습니다.</p>
+				</div>
+			</c:when>
+			<c:otherwise>
+				<c:forEach var = "myLike" items="${likeInfo }">
+					<div class = "like-list-wrap">
+<%-- 						<a style="cursor:pointer;" href='/page/musical_info?m_num= <c:out value = "${myLike.like_type}"/>'></a>					 --%>
+						<img class = "comImg" src = <c:out value = "${myLike.like_img}"/>>
+						<div class = "like-list-title">${myLike.like_type}</div>
+>>>>>>> 6d87f2b237dddaba08299e980260eefca27d3c4e
 					</div>
 				</c:when>
 				<c:otherwise>

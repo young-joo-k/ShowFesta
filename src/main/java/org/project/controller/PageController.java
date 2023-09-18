@@ -356,12 +356,17 @@ public class PageController {
 	@GetMapping("/myPage")
 	public String myPage(Model model, HttpSession session ) {
 		log.info("mypage get");
-		
 //		아이디 정보
 		String id = (String) session.getAttribute("id");
 		if (id != null) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
+<<<<<<< HEAD
+=======
+			//즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
+			List<LikeVO> likeInfo = likeservice.getLike(membervo.getId());
+			model.addAttribute("likeInfo",likeInfo);
+>>>>>>> 6d87f2b237dddaba08299e980260eefca27d3c4e
 			
 		} else if(id == null){
 			
