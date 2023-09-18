@@ -55,11 +55,12 @@ pageEncoding="UTF-8"%>
 	            </c:when>
 	            <c:otherwise>
 	                <c:forEach var="myLike" items="${likeInfo}">
-	                    <c:if test="${myLike.like_type eq 'musical'}">
+	                    <c:if test="${myLike.like_type ne 'actor'}">
 	                        <div class="like-list-wrap">
-	                            <!-- <a style="cursor:pointer;" href='/page/musical_info?m_num=<c:out value="${myLike.type}"/>'></a> -->
-	                            <img class="comImg" src="<c:out value="${myLike.like_img}"/>">
-	                            <div class="like-list-title"><c:out value="${myLike.like_name}"/></div>
+	                            <a class = "myLikeContent" style="cursor:pointer;" href='/page/${myLike.like_type }_info?m_num=<c:out value="${myLike.m_num}"/>'>
+		                            <img class="comImg" src="<c:out value="${myLike.like_img}"/>">
+		                            <div class="like-list-title"><c:out value="${myLike.like_name}"/></div>
+	                            </a>
 	                        </div>
 	                    </c:if>
 	                </c:forEach>
@@ -70,25 +71,28 @@ pageEncoding="UTF-8"%>
 	<!-- 즟겨찾기 끝 -->
 	
 	<!-- 즐겨찾기 버튼 눌렀을 때 띄워줄 내용 배우 즐겨찾기 -->
-	<div class = "my-like-actor">
-		<div class = "my-actor-wrap">
-			<c:choose>
-				<c:when test = "${empty likeInfo} ">
-					<div class = "no-like-message">
-						<p class = "no-like-message">즐겨찾기 하신 내용이 없습니다.</p>
-					</div>
-				</c:when>
-				<c:otherwise>
-					<c:forEach var = "myLike" items="${likeInfo }">
-						<div class = "like-list-wrap">
-<%-- 							<a style="cursor:pointer;" href='/page/musical_info?m_num= <c:out value = "${myLike.type}"/>'></a>					 --%>
-							<img class = "comImg" src = <c:out value = "${myLike.like_img}"/>>
-							<div class = "like-list-title">${myLike.like_type}</div>
-						</div>
-					</c:forEach>
-				</c:otherwise>
-			</c:choose>
-		</div>
+	<div class="my-like-actor">
+	    <div class="my-content-wrap">
+	        <c:choose>
+	            <c:when test="${empty likeInfo}">
+	                <div class="no-like-message">
+	                    <p class="no-like-message">즐겨찾기 하신 내용이 없습니다.</p>
+	                </div>
+	            </c:when>
+	            <c:otherwise>
+	                <c:forEach var="myLike" items="${likeInfo}">
+	                    <c:if test="${myLike.like_type eq 'actor'}">
+	                        <div class="like-list-wrap">
+	                            <a class = "myLikeContent" style="cursor:pointer;" href=${myLike.like_link }>
+		                            <img class="comImg" src="<c:out value="${myLike.like_img}"/>">
+		                            <div class="like-list-title"><c:out value="${myLike.like_name}"/></div>
+	                            </a>
+	                        </div>
+	                    </c:if>
+	                </c:forEach>
+	            </c:otherwise>
+	        </c:choose>
+	    </div>
 	</div>
 	<!-- 즟겨찾기 끝 -->
 
