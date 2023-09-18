@@ -91,6 +91,24 @@ public class ContentsServiceImpl implements ContentsService {
 		return contentsmapper.getPrice(m_title);
 	}
 
+	@Override
+	public List<ContentsVO> getAllMusical(String date) {
+		// TODO Auto-generated method stub
+		return contentsmapper.getAllMusical(date);
+	}
+
+	@Override
+	public List<ContentsVO> getAllConcert(String date) {
+		// TODO Auto-generated method stub
+		return contentsmapper.getAllConcert(date);
+	}
+
+	@Override
+	public List<ContentsVO> getAllFestival(String date) {
+		// TODO Auto-generated method stub
+		return contentsmapper.getAllFestival(date);
+	}
+
 	
 	
 }
