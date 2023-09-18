@@ -117,6 +117,7 @@ box-shadow: 5px 5px 5px #000;
 	color: black;
 	background: transparent url(../img/next.png) right scroll no-repeat;
 	background-size: 16px auto;
+	z-index:100;
 }
 
 .middle-section {

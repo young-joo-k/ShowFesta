@@ -10,8 +10,8 @@ pageEncoding="UTF-8"%>
 </head>
 <!-- <body> -->
 <!-- 회원정보 수정 눌렀을 때 화면 -->
-<div id = "myPage-memberCorrect">
-	<div class = "memberCorrect">
+<div id = "myPage-memberUpdate">
+	<div class = "memberUpdate">
 		<div class ="memberCorrect-name">
 			<h1 class ="memTitle">회원정보 수정</h1>
 		</div>
@@ -59,8 +59,8 @@ pageEncoding="UTF-8"%>
 				</div>
 			</li>
 			<li class ="correct-btn">
-				<div class = "correct-btn-cancel">
-					<a href ="#" onclick="#" class = "correctBtn">수정</a>
+				<div class = "correct-btn-update">
+					<a href ="/page/myPage"  class = "correctBtn">수정</a>
 				</div>
 			</li>
 		</ul>
@@ -70,6 +70,14 @@ pageEncoding="UTF-8"%>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
+// $(document).ready(function(){
+// 	//수정 버튼 눌렀을 때 alert창
+// 	$(".correct-btn-update").click(function(e){
+// 		e.preventDefault();
+// 		alert("수정이 완료되었습니다.");
+// 		window.location.href="/page/myPage"
+// 	});
+// });
 
 
 
