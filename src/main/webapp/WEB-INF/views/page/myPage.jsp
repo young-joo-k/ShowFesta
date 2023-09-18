@@ -46,6 +46,7 @@ pageEncoding="UTF-8"%>
 
 
 	<!-- 즐겨찾기 버튼 눌렀을 때 띄워줄 내용 즐겨찾기에서 사용할 예정 -->
+
 	<div class="my-like-content">
 	    <div class="my-content-wrap">
 	        <c:choose>

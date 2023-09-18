@@ -27,8 +27,9 @@
 											data-toggle="self" data-toast="like" aria-checked="false"
 											aria-label="즐겨찾기 등록" role="checkbox" href="#"
 											data-popup-hover="like"
-											data-contents-name="${concert.m_title } " data-type="콘서트"
+											data-contents-name="${concert.m_title } " data-type="concert"
 											data-user-id="${user.id }" data-img="${concert.m_img }"
+											data-num = "${concert.m_num }"
 											<c:if test="${empty user}">
 										        data-empty-user="true"				
 										    </c:if>></a>
@@ -144,6 +145,7 @@
 	    	var userId = likeBtn.attr("data-user-id");
 	    	var type = likeBtn.attr("data-type");
 	    	var img = likeBtn.attr("data-img");
+	    	var num = likeBtn.attr("data-num");
 			// castingHeartBtn 토글
 			if (likeBtn.hasClass("is-toggled")) {
 				likeBtn.removeClass("is-toggled");
@@ -154,7 +156,8 @@
 		                like_name: contentsName,
 		                id: userId,
 		                like_type: type,
-		                like_img:img
+		                like_img:img,
+		                m_num:num
 		            },
 		            success: function() {
 		                console.log("성공 ");
@@ -172,7 +175,8 @@
 		                like_name: contentsName,
 		                id: userId,
 		                like_type: type,
-		                like_img:img
+		                like_img:img,
+		                m_num:num
 		            },
 		            success: function() {
 		                console.log("성공 ");

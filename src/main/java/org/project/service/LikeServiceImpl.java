@@ -22,6 +22,14 @@ public class LikeServiceImpl implements LikeService{
 		likemapper.delete(likevo);		
 	}
 	@Override
+	public void LikeActorInsert(LikeVO likevo) {
+		likemapper.Actorinsert(likevo);		
+	}
+	@Override
+	public void LikeActorDelete(LikeVO likevo) {
+		likemapper.Actordelete(likevo);		
+	}
+	@Override
 	public List<LikeVO> getLike(String id) {
 		return likemapper.getLike(id);
 	}
