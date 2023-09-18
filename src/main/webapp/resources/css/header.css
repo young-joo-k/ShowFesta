@@ -28,19 +28,22 @@ body {
 	position: relative;
 	z-index: 101;
 }
-/* body::before{ */
-/* 	position:absolute; */
-/* 	content:""; */
-/* 		background-image: url('../img/bomb3.png'); */
-/* 	background-repeat: no-repeat; */
-/* 	background-position: 200px 35px; */
-/* 	background-size: 12%; */
-/* 	opacity: 50%; */
-/* 	        top: 0px; */
-/*         left: 0px; */
-/*         right: 0px; */
-/*         bottom: 0px; */
-/* } */
+body{
+	position : relative;
+}
+body::before{
+	position:absolute;
+	content:"";
+		background-image: url('../img/bomb3.png');
+	background-repeat: no-repeat;
+	background-position: 200px 35px;
+	background-size: 12%;
+	opacity: 50%;
+	        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+}
 .header .contents {
 	width: 1200px;
 	margin: 0 auto;
