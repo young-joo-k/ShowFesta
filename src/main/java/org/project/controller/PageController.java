@@ -1,13 +1,10 @@
 package org.project.controller;
 
-import java.io.IOException;
-import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.project.data.DateData;
 import org.project.domain.ContentsVO;
@@ -28,10 +25,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.log4j.Log4j;
 
@@ -366,8 +359,8 @@ public class PageController {
 			model.addAttribute("likeInfo",likeInfo);
 			
 		} else if(id == null){
-			
-			return "/join/login";
+
+	       return "/join/login";
 		}
 
 		return "/page/myPage";
