@@ -83,7 +83,14 @@ public class NoticeController {
 	}
 
 	@GetMapping("/user_qna")
-	public void qna() {
+	public void qna(Model model, HttpSession session) {
 		log.info("qna Get!");
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			//즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
+			
+		} 
 	}
 }

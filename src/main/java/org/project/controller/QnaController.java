@@ -1,8 +1,11 @@
 package org.project.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.project.domain.Criteria;
+import org.project.domain.LikeVO;
 import org.project.domain.MemberVO;
 import org.project.domain.QnaVO;
 import org.project.domain.PageDTO;
@@ -31,8 +34,20 @@ public class QnaController {
 	private MemberService memberservice;
 
 	@GetMapping("/qna_register")
-	public void qnaRegister() {
+	public String qnaRegister(Model model, HttpSession session ) {
 		log.info("register Get!");
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			//즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
+			
+		} else if(id == null){
+
+	       return "join/login";
+		}
+
+		return "/page/qna_register";
 
 	}
 	
