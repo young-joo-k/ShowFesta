@@ -56,11 +56,12 @@ pageEncoding="UTF-8"%>
 	            </c:when>
 	            <c:otherwise>
 	                <c:forEach var="myLike" items="${likeInfo}">
-	                    <c:if test="${myLike.like_type eq 'musical'}">
+	                    <c:if test="${myLike.like_type ne 'actor'}">
 	                        <div class="like-list-wrap">
-	                            <!-- <a style="cursor:pointer;" href='/page/musical_info?m_num=<c:out value="${myLike.type}"/>'></a> -->
+	                            <a href='/page/${myLike.like_type }_info?m_num=<c:out value="${myLike.m_num}"/>'>
 	                            <img class="comImg" src="<c:out value="${myLike.like_img}"/>">
 	                            <div class="like-list-title"><c:out value="${myLike.like_name}"/></div>
+	                            </a>
 	                        </div>
 	                    </c:if>
 	                </c:forEach>

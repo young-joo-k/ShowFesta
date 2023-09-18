@@ -366,8 +366,8 @@ public class PageController {
 			model.addAttribute("likeInfo",likeInfo);
 			
 		} else if(id == null){
-			
-			return "/join/login";
+
+	       return "/join/login";
 		}
 
 		return "/page/myPage";

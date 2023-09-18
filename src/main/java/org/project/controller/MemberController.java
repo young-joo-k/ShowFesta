@@ -36,7 +36,7 @@ public class MemberController {
 	public void login(@RequestHeader(value = "Referer", required = false) String referrer, HttpSession session) {
 		log.info("loginget");
         String prevPage = (String) session.getAttribute("prevPage");
-        log.info(prevPage);
+        log.info("이전페이지 : " + prevPage);
 	    if (referrer != null && !referrer.isEmpty()) {
 	        // 이전 페이지의 URL을 세션에 저장
 	        session.setAttribute("prevPage", referrer);
@@ -54,24 +54,26 @@ public class MemberController {
 	        // 이전 페이지의 URL을 가져옴
 	        String prevPage = (String) session.getAttribute("prevPage");
 	        System.out.println(prevPage);
-	        if (prevPage != null) {
+	        if (prevPage != "undefined") {
 	            // 이전 페이지로 리다이렉션
 //	            만약 마이페이지에서 로그인하면 마이페이지로 갈거야
 	            session.removeAttribute("prevPage");
-	            if(prevPage.equals("http://localhost:8080/page/myPage") || prevPage==null)
+	            log.info(prevPage);
+	            if(prevPage.equals("http://localhost:8080/page/myPage"))
 	            {
-	            	log.info("ififif");
+	            	log.info("이전페이지가 마이페이지일때");
 	            	return "redirect:/page/myPage";
 	            }
 	            //마이페이지가 아니면 이전페이지로 갈거야
-	            else if(prevPage.equals("http://localhost:8080/join/register")){
+	            else if(prevPage.equals("http://localhost:8080/join/register") || prevPage.contains("/login")){
+	            	log.info("이전페이지가 회원가입일때랑 login이라는 단어를 포함할때");
 	            	return "redirect:/page/main";
 	            }
+	            log.info("널이 아니고 마이페이지,회원가입,로그인페이지가 아닐때");
 	            return "redirect:" + prevPage;
 	        } else {
 	        	log.info(prevPage);
-			    log.info(checkId + "->main");
-	            return "redirect:/page/main";
+	            return "redirect:/page/myPage";
 	        }
 		}
 		rttr.addFlashAttribute("result", checkId);
