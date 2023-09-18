@@ -78,6 +78,7 @@ public class PageController {
 	      for (int i = today_info.get("startDay"); i <= today_info.get("endDay"); i++) {
 	         if (i == today_info.get("today")) {
 	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),String.valueOf(i), "today");
+	            	 String result =String.valueOf(dateData.getYear()).substring(2) + '/' + String.valueOf(Integer.parseInt(dateData.getMonth())+1) + '/' + i;
 	         } else {
 	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),String.valueOf(i), "normal_date");
 	            	 String result =String.valueOf(dateData.getYear()).substring(2) + '/' + String.valueOf(Integer.parseInt(dateData.getMonth())+1) + '/' + i;
@@ -92,7 +93,7 @@ public class PageController {
 	         }
 	         dateList.add(calendarData);
 	      }
-
+	      
 	      // 달력 빈곳 빈 데이터로 삽입
 	      int index = 7 - dateList.size() % 7;
 
@@ -102,7 +103,6 @@ public class PageController {
 	            dateList.add(calendarData);
 	         }
 	      }
-//	      System.out.println(dateList);
 	      int musicalCnt = scheduleservice.getMusical();
 	      int concertCnt = scheduleservice.getConcerts();
 	      int festivalCnt = scheduleservice.getFestival();
@@ -118,7 +118,6 @@ public class PageController {
 	      model.addAttribute("festivalCnt", festivalCnt);
 	      model.addAttribute("dateList", dateList); // 날짜 데이터 배열
 	      model.addAttribute("today_info", today_info);
-	      
 	      //여기 모델도 모달창에 띄우려고 쓰는거입니다
 	      model.addAttribute("today_m_contents", today_m_contents);
 	      model.addAttribute("today_c_contents", today_c_contents);
