@@ -57,9 +57,9 @@ pageEncoding="UTF-8"%>
 			<c:otherwise>
 				<c:forEach var = "myLike" items="${likeInfo }">
 					<div class = "like-list-wrap">
-						<a style="cursor:pointer;" href='/page/musical_info?m_num= <c:out value = "${myLike.type}"/>'></a>					
-						<img class = "comImg" src = <c:out value = "${myLike.m_img}"/>>
-						<div class = "like-list-title">${myLike.type}</div>
+<%-- 						<a style="cursor:pointer;" href='/page/musical_info?m_num= <c:out value = "${myLike.like_type}"/>'></a>					 --%>
+						<img class = "comImg" src = <c:out value = "${myLike.like_img}"/>>
+						<div class = "like-list-title">${myLike.like_type}</div>
 					</div>
 				</c:forEach>
 			</c:otherwise>
