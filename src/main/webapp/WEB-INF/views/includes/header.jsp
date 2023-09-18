@@ -60,7 +60,6 @@
 							<li><a href="/page/mContents">뮤지컬</a></li>
 							<li><a href="/page/concertContents">콘서트</a></li>
 							<li><a href="/page/festivalContents">페스티벌</a></li>
-							<li><a href="#">지역축제</a></li>
 						</ul>
 					</li>
 					<li>
@@ -125,6 +124,12 @@ $(document).ready(function() {
                 alert("검색어를 입력하세요.");
             }
         });
+        var urlParams = new URLSearchParams(window.location.search);
+        var 검색어 = urlParams.get("keyword");
+        if (검색어) {
+            $("#header_keyword").val(검색어);
+        }
+       
     });
     $(document).ready(function() {
     	  // Enter 키가 눌렸을 때 검색 실행
