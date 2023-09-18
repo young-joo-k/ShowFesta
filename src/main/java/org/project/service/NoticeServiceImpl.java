@@ -3,6 +3,7 @@ package org.project.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.project.domain.Criteria;
 import org.project.domain.NoticeVO;
 import org.project.mapper.NoticeMapper;
 
@@ -39,10 +40,20 @@ public class NoticeServiceImpl implements NoticeService{
 		return mapper.delete(b_num) == 1;
 	}
 
-	@Override
-	public List<NoticeVO> getList() {
-		// TODO Auto-generated method stub
-		log.info("getList........");
-		return mapper.getList();
-	}
+	/*
+	 * @Override public List<NoticeVO> getList() { // TODO Auto-generated method
+	 * stub log.info("getList........"); return mapper.getList(); }
+	 */
+    @Override
+    public List<NoticeVO> getList(Criteria cri) {
+    	log.info("get List with criteria: " + cri);
+    	return mapper.getListWithPaging(cri);
+    }
+    
+    @Override
+    public int getTotal(Criteria cri) {
+    	
+    	log.info("get total count");
+    	return mapper.getTotalCount(cri);
+    }
 }

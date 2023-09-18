@@ -321,3 +321,26 @@ button#remoBtn {
     margin-top: 15px;
         border-radius: 10px;
 }
+
+.pagination{
+	    padding-bottom: 80px;
+    margin: 0 auto;
+    text-align: center;
+    clear: both;
+    display : flex;
+    justify-content: center;
+}
+
+.paginate_button {
+	margin-right : 10px;
+	margin-left : 10px;
+}
+
+
+
+
+
+
+
+
+

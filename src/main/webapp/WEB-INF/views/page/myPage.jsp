@@ -57,9 +57,9 @@ pageEncoding="UTF-8"%>
 	                <c:forEach var="myLike" items="${likeInfo}">
 	                    <c:if test="${myLike.like_type ne 'actor'}">
 	                        <div class="like-list-wrap">
-	                            <a style="cursor:pointer;" href='/page/${myLike.like_type }_info?m_num=<c:out value="${myLike.m_num}"/>'>
-	                            <img class="comImg" src="<c:out value="${myLike.like_img}"/>">
-	                            <div class="like-list-title"><c:out value="${myLike.like_name}"/></div>
+	                            <a class = "myLikeContent" style="cursor:pointer;" href='/page/${myLike.like_type }_info?m_num=<c:out value="${myLike.m_num}"/>'>
+		                            <img class="comImg" src="<c:out value="${myLike.like_img}"/>">
+		                            <div class="like-list-title"><c:out value="${myLike.like_name}"/></div>
 	                            </a>
 	                        </div>
 	                    </c:if>
@@ -72,7 +72,7 @@ pageEncoding="UTF-8"%>
 	
 	<!-- 즐겨찾기 버튼 눌렀을 때 띄워줄 내용 배우 즐겨찾기 -->
 	<div class="my-like-actor">
-	    <div class="my-actor-wrap">
+	    <div class="my-content-wrap">
 	        <c:choose>
 	            <c:when test="${empty likeInfo}">
 	                <div class="no-like-message">
@@ -83,9 +83,9 @@ pageEncoding="UTF-8"%>
 	                <c:forEach var="myLike" items="${likeInfo}">
 	                    <c:if test="${myLike.like_type eq 'actor'}">
 	                        <div class="like-list-wrap">
-	                            <a style="cursor:pointer;" href="${myLike.like_link }">
-	                            <img class="comImg" src="<c:out value="${myLike.like_img}"/>">
-	                            <div class="like-list-title"><c:out value="${myLike.like_name}"/></div>
+	                            <a class = "myLikeContent" style="cursor:pointer;" href=${myLike.like_link }>
+		                            <img class="comImg" src="<c:out value="${myLike.like_img}"/>">
+		                            <div class="like-list-title"><c:out value="${myLike.like_name}"/></div>
 	                            </a>
 	                        </div>
 	                    </c:if>

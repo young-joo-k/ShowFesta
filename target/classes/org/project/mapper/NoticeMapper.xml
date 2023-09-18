@@ -11,6 +11,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="read" resultType="org.project.domain.NoticeVO">
 select * from tbl_notice where b_num = #{b_num}
 </select>
+<select id="getTotalCount" resultType="int">
+	select count(*) from tbl_notice where b_num > 0
+</select>
+
+<select id="getListWithPaging" resultType="org.project.domain.NoticeVO">
+<![CDATA[ select b_num, b_title, b_content, b_writer, regdate, updatedate from ( select /*+INDEX_DESC(tbl_notice pk_board) */
+rownum rn, b_num, b_title, b_content, b_writer, regdate, updatedate from tbl_notice where rownum <= #{pageNum} * #{amount})
+where rn > (#{pageNum} -1) * #{amount}
+]]>
+</select>
 
 <insert id="insert">
 	insert into tbl_notice (b_num, b_title, b_content, b_writer)

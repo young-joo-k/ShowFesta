@@ -74,9 +74,45 @@ a.myPage-update{
 	font-weight: bold;
 }
 
-.myPage-like-content{
+.my-like-content{
 	margin:2rem;
 }
+
+.my-content-wrap{
+/* 	margin:auto; */
+	border-style:solid;
+	border-color: #FFD47F;
+	border-radius:4px;
+	display:flex;
+	flex-wrap: wrap; /* 요소들이 넘칠 경우 줄바꿈 */
+    justify-content: flex-start; /* 요소들을 왼쪽 정렬 */
+}
+
+.like-list-wrap {
+    margin: 15px;
+    text-align:center; 
+}
+
+.like-list-title{
+	width:160px;
+	height:50px;
+	
+}
+
+.comImg{
+	width:150px;
+	height:200px;
+}
+
+a.myLikeContent{
+	margin:15px;
+	color: #595959;
+}
+
+.like-list-title{
+	text-align: center;
+}
+
 
 .my-like-actor{
 	display:none;
@@ -234,3 +270,31 @@ a.myPageBack, a.correctBtn{
 	color:#595959;
 
 }
+
+
+
+/* 관리자 페이지  */
+.notice-contents, .admin-qna-contents, .admin-content-list, .admin-user-manager{
+	border-style: none;
+	width: 200px;
+	height: 70px;
+	font-size: larger;
+	background-color: #ffd47f;
+	border-color: #ffd47f;
+	color: #595959;
+	font-weight: bold;
+}
+
+/* 안에 내용에 따라 박스 크기가 조절됩니다 */
+.admin-content-wrap{
+	margin:2rem;
+	border-style:solid;
+	border-color: #ffd47f;
+	border-radius: 4px;
+}
+
+.no-like-message{
+	margin-left:1rem;
+}
+
+.
