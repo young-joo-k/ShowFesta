@@ -74,8 +74,13 @@ a.myPage-update{
 	font-weight: bold;
 }
 
+.myPage-like-content{
+	margin:2rem;
+}
+
 .my-like-actor{
 	display:none;
+	margin:2rem;
 }
 
 /* 마이페이지 qna */
