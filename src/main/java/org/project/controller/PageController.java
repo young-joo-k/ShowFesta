@@ -362,6 +362,7 @@ public class PageController {
 		if (id != null) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
+			
 		} else if(id == null){
 			
 			return "/join/login";

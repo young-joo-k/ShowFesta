@@ -45,55 +45,78 @@ pageEncoding="UTF-8"%>
 	</div>
 
 
-<!-- 즐겨찾기 버튼 눌렀을 때 띄워줄 내용 즐겨찾기에서 사용할 예정 -->
-<div class = "my-like-content">
-	<div class = "my-contetnt-wrap">
-		<c:choose>
-			<c:when test = "${empty likeInfo} ">
-				<div class = "no-like-message">
-					<p class = "no-like-message">즐겨찾기 하신 내용이 없습니다.</p>
-				</div>
-			</c:when>
-			<c:otherwise>
-				<c:forEach var = "myLike" items="${likeInfo }">
-					<div class = "like-list-wrap">
-						<a style="cursor:pointer;" href='/page/musical_info?m_num= <c:out value = "${myLike.type}"/>'></a>					
-						<img class = "comImg" src = <c:out value = "${myLike.m_img}"/>>
-						<div class = "like-list-title">${myLike.type}</div>
+	<!-- 즐겨찾기 버튼 눌렀을 때 띄워줄 내용 즐겨찾기에서 사용할 예정 -->
+	<div class = "my-like-content">
+		<div class = "my-contetnt-wrap">
+			<c:choose>
+				<c:when test = "${empty likeInfo} ">
+					<div class = "no-like-message">
+						<p class = "no-like-message">즐겨찾기 하신 내용이 없습니다.</p>
 					</div>
-				</c:forEach>
-			</c:otherwise>
-		</c:choose>
-	</div>
-</div>
-<!-- 즟겨찾기 끝 -->
-
-<!-- 문의내역 눌렀을 때 나타날 내용 -->
-<div class = "myPqge-qna-wrap">
-	<div class = "myPage-qna-space">
-		<div class = "myPage-qna-button-wrap">
-			<button type = "button" class = "myPage-qna-button">
-				<a href = "#" class = "question">문의하기</a>
-			</button>
-		</div>
-		<!-- 문의내용 있을 경우 들어갈 공간임 -->
-		<div class = "myPage-qna-list">
-			<div class = "myQna">
-				<h1>문의사항이 있으면 내용을 넣어 줄 예정입니다.</h1>
+				</c:when>
+				<c:otherwise>
+					<c:forEach var = "myLike" items="${likeInfo }">
+						<div class = "like-list-wrap">
+							<a style="cursor:pointer;" href='/page/musical_info?m_num= <c:out value = "${myLike.type}"/>'></a>					
+							<img class = "comImg" src = <c:out value = "${myLike.m_img}"/>>
+							<div class = "like-list-title">${myLike.type}</div>
+						</div>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</div>
-	</div>
+	<!-- 즟겨찾기 끝 -->
 	
-	<div class = "myPage-notice">
-		<h3>알아두세요!</h3>
-		<ul class = "myPage-ul">
-			<li class = "myPage-li">
-				- 문의 사항은 상황에 따라 답변이 지연될 수 있습니다.
-			</li>
-		</ul>
+	<!-- 즐겨찾기 버튼 눌렀을 때 띄워줄 내용 배우 즐겨찾기 -->
+	<div class = "my-like-actor">
+		<div class = "my-actor-wrap">
+			<c:choose>
+				<c:when test = "${empty likeInfo} ">
+					<div class = "no-like-message">
+						<p class = "no-like-message">즐겨찾기 하신 내용이 없습니다.</p>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<c:forEach var = "myLike" items="${likeInfo }">
+						<div class = "like-list-wrap">
+							<a style="cursor:pointer;" href='/page/musical_info?m_num= <c:out value = "${myLike.type}"/>'></a>					
+							<img class = "comImg" src = <c:out value = "${myLike.m_img}"/>>
+							<div class = "like-list-title">${myLike.type}</div>
+						</div>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+		</div>
 	</div>
-</div>
-<!-- 문의내역 끝 -->
+	<!-- 즟겨찾기 끝 -->
+
+	<!-- 문의내역 눌렀을 때 나타날 내용 -->
+	<div class = "myPage-qna-wrap">
+		<div class = "myPage-qna-space">
+			<div class = "myPage-qna-button-wrap">
+				<button type = "button" class = "myPage-qna-button">
+					<a href = "/page/user_qna" class = "question">문의하기</a>
+				</button>
+			</div>
+			<!-- 문의내용 있을 경우 들어갈 공간임 -->
+			<div class = "myPage-qna-list">
+				<div class = "myQna">
+					<h1>문의사항이 있으면 내용을 넣어 줄 예정입니다.</h1>
+			</div>
+		</div>
+		</div>
+		
+		<div class = "myPage-notice">
+			<h3>알아두세요!</h3>
+			<ul class = "myPage-ul">
+				<li class = "myPage-li">
+					- 문의 사항은 상황에 따라 답변이 지연될 수 있습니다.
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 문의내역 끝 -->
 
 
 
@@ -104,13 +127,40 @@ pageEncoding="UTF-8"%>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$(".myPage-qna").click(function(){
-		$(".myPqge-qna-wrap").toggle();
-	});
-	
-});
+    // 기본 화면 설정
+    $(".my-like-actor").hide();
+    $(".myPage-qna-wrap").hide();
 
+    $(".like-contents").click(function(){
+        // 즐겨찾기(컨텐츠) 버튼 클릭 시
+        $(".my-like-content").show(); // my-like-content를 보이게 함
+        $(".my-like-actor").hide(); // my-like-actor를 숨김
+        $(".myPage-qna-wrap").hide(); // myPage-qna-wrap을 숨김
+    });
+    
+    $(".like-actor").click(function(){
+        // 즐겨찾기(배우) 버튼 클릭 시
+        $(".my-like-content").hide(); // my-like-content를 숨김
+        $(".my-like-actor").show(); // my-like-actor를 보이게 함
+        $(".myPage-qna-wrap").hide(); // myPage-qna-wrap을 숨김
+    });
+    
+    $(".myPage-qna").click(function(){
+        // 문의내역 버튼 클릭 시
+        $(".my-like-content").hide(); // my-like-content를 숨김
+        $(".my-like-actor").hide(); // my-like-actor를 숨김
+        $(".myPage-qna-wrap").show(); // myPage-qna-wrap을 보이게 함
+    });
+});
 </script>
+이렇게 하면 my-like-content가 기본 화면으로 띄워지며, like-actor나 myPage-qna 버튼을 클릭할 때 각각 해당 화면만 표시되고 나머지는 숨겨집니다.
+
+
+
+
+
+
+
 
 
 <!-- </html> -->

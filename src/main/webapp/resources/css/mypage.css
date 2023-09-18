@@ -4,6 +4,8 @@
 
 #myPage-wrap{
   margin-top: 150px;
+  position: relative;
+  z-index: 100;
 }
 
 article{
@@ -72,6 +74,9 @@ a.myPage-update{
 	font-weight: bold;
 }
 
+.my-like-actor{
+	display:none;
+}
 
 /* 마이페이지 qna */
 
@@ -102,6 +107,9 @@ a.question{
 
 }
 
+.myPage-qna-wrap{
+	display:none;
+}
 
 .myQna{
 	width: 50rem;
