@@ -249,7 +249,7 @@ a.before_after_year{
 }
 
 button.modal-close-btn {
-   position: absolute; /* 절대 위치 지정 */
+  position: absolute; /* 절대 위치 지정 */
   right: 0; /* 오른쪽에 고정 */
   top: 0; /* 상단에 고정 (필요에 따라 조절 가능) */
   margin-top:10px;
@@ -286,14 +286,23 @@ button.modal-close-btn {
    margin-right:10px;
 }
 
+.today-contents{
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .modal-contents-list{
-   width: 25%; /* 4개 컨텐츠가 한 줄에 들어가도록 25%로 설정 */
-   float: left; /* 왼쪽으로 띄워서 나란히 표시 */
+	flex: 0 0 calc(25% - 10px); /* 4개의 열로 나누기 위한 스타일, 여백을 조절할 수 있습니다. */
+	margin-right: 10px;
+/*    width: 25%; 4개 컨텐츠가 한 줄에 들어가도록 25%로 설정 */
+/*    float: left; 왼쪽으로 띄워서 나란히 표시 */
    box-sizing: border-box; /* 요소의 width와 height에 padding과 border를 포함시킴 */
    padding: 15px; /* 컨텐츠 간의 간격을 조절 */
    padding-bottom: 25px;
    text-align: center;
 }
+
+
 
 .modal-comImg{
    width:150px;

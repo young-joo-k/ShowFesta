@@ -31,18 +31,23 @@
 
 .all-contents-list{
 	padding-top: 5rem;
+	display: flex;
+	flex-wrap: wrap;
+	
 }
 
 .contents-list {
-  margin-left: auto;
-  margin-right: auto;
-  width: auto;
-  width: 25%; /* 4개 컨텐츠가 한 줄에 들어가도록 25%로 설정 */
-  float: right; /* 오른쪽으로 띄워서 나란히 표시 */
-  box-sizing: border-box; /* 요소의 width와 height에 padding과 border를 포함시킴 */
-  padding: 15px; /* 컨텐츠 간의 간격을 조절 */
-  padding-bottom: 25px;
-  text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: auto;
+	/*   width: 25%; 4개 컨텐츠가 한 줄에 들어가도록 25%로 설정 */
+	/*   float: right; 오른쪽으로 띄워서 나란히 표시 */
+	box-sizing: border-box; /* 요소의 width와 height에 padding과 border를 포함시킴 */
+	padding: 15px; /* 컨텐츠 간의 간격을 조절 */
+	padding-bottom: 25px;
+	text-align: center;
+	flex: 0 0 calc(25% - 10px); /* 4개의 열로 나누기 위한 스타일, 여백을 조절할 수 있습니다. */
+	margin-right: 10px;
   
 }
 

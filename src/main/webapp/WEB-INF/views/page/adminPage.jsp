@@ -19,7 +19,7 @@ pageEncoding="UTF-8"%>
 					</picture>			
 				</div>
 				<div class = "myPage-info">
-					<div class = "myPage-name"> ${user.getId()}님 마이페이지 입니다.(관리자)</div>
+					<div class = "myPage-name"> ${user.getId()}님 관리자페이지 입니다.</div>
 <!-- 					<a class = "myPage-update" href="/page/memberUpdate">회원정보 수정</a> -->
 
 				</div>
