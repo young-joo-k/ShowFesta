@@ -23,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -303,8 +304,26 @@ public class PageController {
 
 	// 뮤지컬 유형별페이지 가져옵니다
 	@GetMapping("/mContents")
-	public void musicalContent(Model model) {
+	public void musicalContent(HttpSession session, Model model) {
 		log.info("musical contents get");
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			// 유저 정보 가져와서
+			MemberVO membervo = memberservice.getUserInfo(id);
+			// 모델에 뿌려주고
+			model.addAttribute("user", membervo);
+			// 즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
+			List<LikeVO> likeList = likeservice.getLike(membervo.getId());
+			log.info(likeList);
+			// 즐겨찾기한 애들 이름만 담을 리스트
+			List<String> nameList = new ArrayList<String>();
+			for (LikeVO list : likeList) {
+				String name = list.getLike_name();
+				nameList.add(name);
+			}
+//			System.out.println(nameList);
+			model.addAttribute("likeList", nameList);
+		}
 
 		List<ContentsVO> musicalList = contentsservice.getMusicalContents();
 
@@ -315,6 +334,7 @@ public class PageController {
 
 			model.addAttribute("musicalContents", musicalList);
 		}
+		
 		model.addAttribute("musicalContents", musicalList);
 	}
 
@@ -380,12 +400,12 @@ public class PageController {
 			MemberVO membervo = memberservice.getUserInfo(id);
 //			rttr.addF("manager", membervo);
 			rttr.addFlashAttribute("manager", membervo);
-			// 사용자정보를 다 가지고 넘어갈거야
+			// 사용자정보를 다 가지고 마이페이지로 넘어갑니다.
 			List<MemberVO> memberAll = memberservice.getAllUser();
 //			model.addAttribute("allUser", memberAll);
 
 			rttr.addFlashAttribute("allUser", memberAll);
-			log.info("회원정보 전달 되나요");
+			log.info("회원정보 전달");
 			return "redirect:/page/adminPage";
 
 		} else if (id == null) {
@@ -448,6 +468,28 @@ public class PageController {
 			model.addAttribute("user", membervo);
 		}
 
+	}
+	
+	@PostMapping("/deleteUsers")
+	public String deleteUsers(@RequestParam("selectedUsers") String[] selectedUsers, HttpServletRequest request) {
+		log.info("deleteUsers Post");
+		if (selectedUsers != null && selectedUsers.length > 0) {
+			for (String userId : selectedUsers) {
+				// 각 사용자를 삭제하는 로직을 호출 (UserService를 통해)
+
+				System.out.println(userId);
+				try{
+					memberservice.deleteUserById(userId);
+				}
+				catch (Exception e){
+					System.out.println(e);
+				}
+				
+			}
+		}
+
+		// 삭제 후 관리자 페이지로 리디렉션
+		return "redirect:/page/adminPage";
 	}
 
 }

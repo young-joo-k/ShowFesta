@@ -108,8 +108,14 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int deleteUserById(String id) {
-		return membermapper.deleteUser(id);
+	public void deleteUserById(String id) {
+		System.out.println("서비스 실행");
+		System.out.println(id);
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("id", id);
+		System.out.println(paramMap);
+		membermapper.deleteUser(paramMap);
+		System.out.println("매퍼 실행 완료");
 	}
 
 	

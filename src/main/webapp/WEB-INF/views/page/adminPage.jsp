@@ -144,7 +144,7 @@ pageEncoding="UTF-8"%>
 <!-- 컨텐츠관리 끝 -->
 
 <!-- 사용자 관리 -->
-<form role = "form" id="deleteForm" action="/join/deleteUsers" method="post">
+<form role = "form" id="deleteForm" action="/page/deleteUsers" method="post">
 	<div class="userManage">
 		<div class = "userDeleteButtonWrap">
 <!-- 			<button class = "userDeleteBtn">선택한 사용자 삭제</button> -->
