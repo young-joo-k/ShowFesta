@@ -190,14 +190,21 @@ public class MemberController {
 		return "redirect:/join/login";
 	}
 	
-	//관리자 페이지에서 사용자 삭제
-	@PostMapping("/deleteUser")
-	public String deleteUser(@RequestParam("id") String[] id, RedirectAttributes rttr) {
-	    for (String i : id) {
-	        log.info("사용자 삭제: " + i);
-	        service.deleteUser(i);    
-	    }
-	    return "redirect:/page/myPage";
+	/*
+	 * //관리자 페이지에서 사용자 삭제
+	 * 
+	 * @PostMapping("/deleteUser") public String deleteUser(@RequestParam("id")
+	 * String[] id, RedirectAttributes rttr) { for (String i : id) {
+	 * log.info("사용자 삭제: " + i); service.deleteUser(i); } return
+	 * "redirect:/page/myPage"; }
+	 */
+	@PostMapping("/userDelete")
+	public String deleteUser(@RequestParam("id") String id, RedirectAttributes rttr) {
+		log.info("remove....." + id);
+		if (service.removeUser(id)) {
+			rttr.addFlashAttribute("result", "success");
+		}
+		return "redirect:/page/adminPage";
 	}
 
 

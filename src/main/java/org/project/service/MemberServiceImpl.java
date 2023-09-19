@@ -104,12 +104,12 @@ public class MemberServiceImpl implements MemberService {
 		
 		return membermapper.getAllUser();
 	}
-
+	
 	@Override
-	public void deleteUser(String id) {
-		log.info("delete"+ id);
-		
-		membermapper.deleteUser(id);
+	public boolean removeUser(String id) {
+	    log.info("delete " + id);
+	    membermapper.deleteUser(id);
+	    return true; // 또는 다른 적절한 값을 반환하세요.
 	}
 
 
