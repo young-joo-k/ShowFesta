@@ -6,6 +6,7 @@ import lombok.Data;
 
 @Data
 public class QnaVO {
+	private String id;
 	private Long b_num;
 	private String b_title;
 	private String b_content;

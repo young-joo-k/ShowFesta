@@ -41,10 +41,13 @@ public class QnaServiceImpl implements QnaService{
     	return mapper.getListWithPaging(cri);
     }
     
-    @Override
-    public int getTotal(Criteria cri) {
-    	
-    	log.info("get total count");
-    	return mapper.getTotalCount(cri);
+
+	@Override
+	public int qnaTotal(Criteria cri) {
+		// TODO Auto-generated method stub
+    	log.info("get qna total count");
+    	return mapper.qnaTotalCount(cri);
     }
-}
+	}
+
+
