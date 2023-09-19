@@ -144,11 +144,11 @@ pageEncoding="UTF-8"%>
 <!-- 컨텐츠관리 끝 -->
 
 <!-- 사용자 관리 -->
-
+<form role = "form" id="deleteForm" action="/join/deleteUsers" method="post">
 	<div class="userManage">
 		<div class = "userDeleteButtonWrap">
 <!-- 			<button class = "userDeleteBtn">선택한 사용자 삭제</button> -->
-			<button type="submit" class = "userDeleteBtn">선택한 사용자 삭제</button>
+			<button type = "submit" class = "userDeleteBtn">선택한 사용자 삭제</button>
 		</div>
 	    <div class="admin-content-wrap">
 	        <c:choose>
@@ -171,25 +171,13 @@ pageEncoding="UTF-8"%>
 		                <c:forEach var="adminUserInfo" items="${allUser}">
 			                <tr class="allUserInfo">
 			                	<td class = "checkBtn">
-			                	<form role = "form" id="deleteForm"  method="post">
-									<input type="hidden" name="id" value="${adminUserInfo.getId()}"/>
-			                		<button type="submit"  data-oper='remove'
-										class="btn btn-delete" action="/page/adminPage" method="get">삭제</button>
-										</form>
-			                	</td>
-			                    <td class="allUserInfoId"><c:out value="${adminUserInfo.id}"/></td>
-			                    <td class="allUserInfoName"><c:out value="${adminUserInfo.name}"/></td>
-			                    <td class="allUserInfoPhone"><c:out value="${adminUserInfo.phone}"/></td>
-			                    <td class="allUserInfoEmail"><c:out value="${adminUserInfo.email}"/></td>
-
-			                </tr>
-			                
 		                </c:forEach>
 	                </table>
 	            </c:otherwise>
 	        </c:choose>
 	    </div>
 	</div>
+	</form>
 
 <!-- 사용자 관리 끝 -->
 

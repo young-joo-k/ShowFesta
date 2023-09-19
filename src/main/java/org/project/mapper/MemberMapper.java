@@ -25,7 +25,9 @@ public interface MemberMapper {
 
 	public List<MemberVO> getAllUser();
 
-	public void deleteUser(String id);
+
+	public int deleteUser(String userId);
+
 	
 
 

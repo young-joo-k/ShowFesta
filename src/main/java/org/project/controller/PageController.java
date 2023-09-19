@@ -446,10 +446,6 @@ public class PageController {
 		if (id != null) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
-			// 즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
-			List<LikeVO> likeInfo = likeservice.getLike(membervo.getId());
-			model.addAttribute("likeInfo", likeInfo);
-
 		}
 
 	}

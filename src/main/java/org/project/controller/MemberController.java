@@ -2,6 +2,7 @@ package org.project.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.project.domain.LikeVO;
@@ -190,24 +191,22 @@ public class MemberController {
 		return "redirect:/join/login";
 	}
 	
-	/*
-	 * //관리자 페이지에서 사용자 삭제
-	 * 
-	 * @PostMapping("/deleteUser") public String deleteUser(@RequestParam("id")
-	 * String[] id, RedirectAttributes rttr) { for (String i : id) {
-	 * log.info("사용자 삭제: " + i); service.deleteUser(i); } return
-	 * "redirect:/page/myPage"; }
-	 */
-	@PostMapping("/userDelete")
-	public String deleteUser(@RequestParam("id") String id, RedirectAttributes rttr) {
-		log.info("remove....." + id);
-		if (service.removeUser(id)) {
-			rttr.addFlashAttribute("result", "success");
-		}
-		return "redirect:/page/adminPage";
-	}
 
+	//관리자 페이지에서 사용자 삭제
+	@PostMapping("/deleteUsers")
+	  public String deleteUsers(@RequestParam("selectedUsers") String[] selectedUsers, HttpServletRequest request) {
+	    if (selectedUsers != null && selectedUsers.length > 0) {
+	      for (String userId : selectedUsers) {
+	        // 각 사용자를 삭제하는 로직을 호출 (UserService를 통해)
+	    	  
+	    	  System.out.println(userId);
+	        service.deleteUserById(userId);
+	      }
+	    }
 
+	    // 삭제 후 관리자 페이지로 리디렉션
+	    return "redirect:/page/adminPage";
+	  }
 	
 }
 
