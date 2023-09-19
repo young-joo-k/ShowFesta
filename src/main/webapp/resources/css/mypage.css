@@ -16,7 +16,7 @@ article{
 	margin-top: 100px;
 	display:flex;
 	margin-left: 10rem;
-	margin-bottom: 5rem;
+	margin-bottom: 2rem;
 }
 
 .myPage-profile{
@@ -24,9 +24,15 @@ article{
 	
 }
 
-.myPage-img{
-	width: 2rem;
-	height: 5rem;
+.myPage-img-select source {
+    width: 150px; /* 최대 너비를 100%로 설정하여 이미지 비율 유지 */
+    height: 150px; /* 높이를 자동으로 조정하여 이미지 비율 유지 */
+}
+
+/* img 태그에 스타일 추가 */
+.myPage-img-select img {
+    width: 150px; 
+    height: 150px; 
 }
 
 .myPage-info{
@@ -292,12 +298,77 @@ a.myPageBack, a.correctBtn{
 	border-style:solid;
 	border-color: #ffd47f;
 	border-radius: 4px;
-/* 	width: 100rem; */
-/*     height: 30rem; */
+	height:auto;
+	
+}
+
+.userDeleteButtonWrap{
+	display: flex;
+	justify-content:flex-end;
+	margin-right: 2rem;
+}
+
+.userDeleteBtn{
+	border-style:none;
+	background-color: #FFD47F;
+	border-radius:4px;
+	margin-top:20px;
+	width: auto;
+	height:50px;
+	color: #595959;
+	font-size: medium;
+	font-weight: bold;
 }
 
 .no-like-message{
 	margin-left:1rem;
 }
 
-.
+.userList{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 2rem;
+	width:100%;
+}
+
+.userManagement{
+	font-size:x-large;
+	color: #595959;
+	margin-bottom: 2rem;
+}
+
+.allUserInfoId, .allUserInfoName, .allUserInfoPhone, .allUserInfoEmail{
+	padding-left: 1rem;
+	padding-right: 1rem;
+	font-size: large;
+	
+}
+
+input[type="checkbox"] {
+    width: 18px; 
+    height: 18px; 
+}
+
+.allUserInfo{
+	text-align:center;
+}
+
+.allUserInfoId{
+	width: 100px;
+	height: 50px;
+}
+
+.allUserInfoName{
+	width:100px;
+	height:50px;
+}
+
+.allUserInfoPhone{
+	width: 250px;
+	height:50px;
+}
+
+.allUserInfoEmail{
+	width:300px;
+	height:50px;
+}

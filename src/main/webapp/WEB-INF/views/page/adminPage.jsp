@@ -14,14 +14,13 @@ pageEncoding="UTF-8"%>
 			<article class = "myPage-profile">
 				<div class = "myPage-img">
 					<picture class = "myPage-img-select">
-						<source srcset = "#"></source>
+						<source srcset = "/resources/img/mypageimg.png"></source>
 						<img src="#">
 					</picture>			
 				</div>
 				<div class = "myPage-info">
 					<div class = "myPage-name"> ${user.getId()}님 관리자페이지 입니다.</div>
 <!-- 					<a class = "myPage-update" href="/page/memberUpdate">회원정보 수정</a> -->
-
 				</div>
 			</article>
 		</section>
@@ -59,7 +58,7 @@ pageEncoding="UTF-8"%>
             </c:when>
             <c:otherwise>
                 <c:forEach var="notice" items="${notice_list}">
-                    <div class="myPage-qna-wrap">
+                    <div class="admin-wrap">
                         <div class="myPage-qna-space">
                             <div class="myPage-qna-button-wrap">
                                 <button type="button" class="myPage-qna-button">
@@ -91,7 +90,7 @@ pageEncoding="UTF-8"%>
             </c:when>
             <c:otherwise>
                 <c:forEach var="notice" items="${notice_list}">
-                    <div class="myPage-qna-wrap">
+                    <div class="admin-wrap">
                         <div class="myPage-qna-space">
                             <div class="myPage-qna-button-wrap">
                                 <button type="button" class="myPage-qna-button">
@@ -123,7 +122,7 @@ pageEncoding="UTF-8"%>
             </c:when>
             <c:otherwise>
                 <c:forEach var="notice" items="${notice_list}">
-                    <div class="myPage-qna-wrap">
+                    <div class="admin-wrap">
                         <div class="myPage-qna-space">
                             <div class="myPage-qna-button-wrap">
                                 <button type="button" class="myPage-qna-button">
@@ -145,31 +144,49 @@ pageEncoding="UTF-8"%>
 <!-- 컨텐츠관리 끝 -->
 
 <!-- 사용자 관리 -->
-<div class="admin-user-manage">
-    <div class="admin-content-wrap">
-        <c:choose>
-            <c:when test="${empty allUser}">
-                <div class="no-like-message">
-                    <p class="no-like-message">회원이 없습니다.</p>
-                </div>
-            </c:when>
-            <c:otherwise>
-                <c:forEach var="adminUserInfo" items="${allUser}">
-                    <div class="myPage-qna-wrap">
-                        <div class="myPage-qna-space">
-                            <div class="admin-user-list">
-                                <div class="userList">
-                                	<div class = "AllUserInfo"> ${adminUserInfo.id} </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
-            </c:otherwise>
-        </c:choose>
-    </div>
-</div>
+<form role = "form" id="deleteForm" action="/join/deleteUser" method="post">
+	<div class="userManage">
+		<div class = "userDeleteButtonWrap">
+<!-- 			<button class = "userDeleteBtn">선택한 사용자 삭제</button> -->
+			<button type="submit" class = "userDeleteBtn">선택한 사용자 삭제</button>
+		</div>
+	    <div class="admin-content-wrap">
+	        <c:choose>
+	            <c:when test="${empty allUser}">
+	                <div class="no-like-message">
+	                    <p class="no-like-message">회원이 없습니다.</p>
+	                </div>
+	            </c:when>
+	            <c:otherwise>
+	            
+	            	<table class="userList" style="border-collapse: collapse;">
+	               		<tr class="userManagement">
+	               			<th class = "userChoice"></th>
+	                 		<th class="adminUserId">아이디</th>
+	                 		<th class="adminUserName">이름</th>
+	                 		<th class="adminPhone">전화번호</th>
+	                 		<th class="adminEmail">이메일</th>
+	                 	</tr>
+		                <c:forEach var="adminUserInfo" items="${allUser}">
+			                <tr class="allUserInfo">
+			                	<td class = "checkBtn">
+			                		<input type = "checkbox" value= "${adminUserInfo.id}" >
+			                	</td>
+			                    <td class="allUserInfoId"><c:out value="${adminUserInfo.id}"/></td>
+			                    <td class="allUserInfoName"><c:out value="${adminUserInfo.name}"/></td>
+			                    <td class="allUserInfoPhone"><c:out value="${adminUserInfo.phone}"/></td>
+			                    <td class="allUserInfoEmail"><c:out value="${adminUserInfo.email}"/></td>
+			                </tr>
+			                <input type="hidden" name="id" value="${adminUserInfo.getId()}"/>
+		                </c:forEach>
+	                </table>
+	            </c:otherwise>
+	        </c:choose>
+	    </div>
+	</div>
+</form>
 <!-- 사용자 관리 끝 -->
+
 
 	
 	
@@ -187,14 +204,14 @@ $(document).ready(function(){
     $(".admin-notice").show();
     $(".admin-qna").hide();
     $(".admin-content-manage").hide();
-    $(".admin-user-manage").hide();
+    $(".userManage").hide();
     
     $(".notice-contents").click(function(){
         // 공지사항 관리 버튼 클릭 시
         $(".admin-notice").show();
         $(".admin-qna").hide();
         $(".admin-content-manage").hide();
-        $(".admin-user-manage").hide();
+        $(".userManage").hide();
     });
     
     $(".admin-qna-contents").click(function(){
@@ -202,7 +219,7 @@ $(document).ready(function(){
         $(".admin-notice").hide();
         $(".admin-qna").show();
         $(".admin-content-manage").hide();
-        $(".admin-user-manage").hide();
+        $(".userManage").hide();
     });
     
     $(".admin-content-list").click(function(){
@@ -210,7 +227,7 @@ $(document).ready(function(){
         $(".admin-notice").hide();
         $(".admin-qna").hide();
         $(".admin-content-manage").show();
-        $(".admin-user-manage").hide();
+        $(".userManage").hide();
     });
     
     $(".admin-user-manager").click(function(){
@@ -218,8 +235,18 @@ $(document).ready(function(){
         $(".admin-notice").hide();
         $(".admin-qna").hide();
         $(".admin-content-manage").hide();
-        $(".admin-user-manage").show();
+        $(".userManage").show();
     });
+    
+//     if(operation ==='userDeleteBtn'){
+//     	formObj.attr("action", "/page/deleteUser");
+//     }
+//     $(".userDeleteBtn").click(function(){
+//         $("input[type='checkbox']:checked").each(function(){
+//             $(this).closest("tr").remove();
+//         });
+//         $("#deleteForm").submit();
+//     });
 });
 </script>
 

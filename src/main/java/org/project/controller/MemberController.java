@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.extern.log4j.Log4j;
@@ -189,33 +190,17 @@ public class MemberController {
 		return "redirect:/join/login";
 	}
 	
-	//사용자 관리 페이지
-//	@GetMapping("/adminPage")
-//	public String adminPage(Model model, HttpSession session, MemberVO member) {
-//		log.info("adminPage usermanager");
-//		
-//		//아이디 정보
-//		String id = (String) session.getAttribute("id");
-//		
-//		if (id != null) {
-//			MemberVO membervo = service.getUserInfo(id);
-//			model.addAttribute("user", membervo);
-//			log.info("나오는걸까");
-//			
-//		}if ("admin".equals(id)) {
-//	        MemberVO membervo = service.getUserInfo(id);
-//	        model.addAttribute("user", membervo);
-//	      //사용자정보를 다 가지고 넘어갈거야 
-//			List<MemberVO> memberAll = service.getAllUser();
-//			model.addAttribute("allUser", memberAll);
-////	        return "/page/adminPage";
-//			log.info("나오는걸까323222");
-//		} else if(id == null){
-//
-//	       return "/join/login";
-//		}
-//
-//		return "/page/adminPage";
-//	}
+	//관리자 페이지에서 사용자 삭제
+	@PostMapping("/deleteUser")
+	public String deleteUser(@RequestParam("id") String[] id, RedirectAttributes rttr) {
+	    for (String i : id) {
+	        log.info("사용자 삭제: " + i);
+	        service.deleteUser(i);    
+	    }
+	    return "redirect:/page/myPage";
+	}
+
+
+	
 }
 

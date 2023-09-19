@@ -14,8 +14,8 @@ pageEncoding="UTF-8"%>
 			<article class = "myPage-profile">
 				<div class = "myPage-img">
 					<picture class = "myPage-img-select">
-						<source srcset = "#"></source>
-						<img src="/resources/img/mypageimg.png">
+						<source srcset = "/resources/img/mypageimg.png"></source>
+						<img src="#">
 					</picture>			
 				</div>
 				<div class = "myPage-info">

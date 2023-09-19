@@ -105,6 +105,13 @@ public class MemberServiceImpl implements MemberService {
 		return membermapper.getAllUser();
 	}
 
+	@Override
+	public void deleteUser(String id) {
+		log.info("delete"+ id);
+		
+		membermapper.deleteUser(id);
+	}
+
 
 
 
