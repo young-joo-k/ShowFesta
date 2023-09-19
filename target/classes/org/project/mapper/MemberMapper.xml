@@ -48,7 +48,7 @@
 	</update>
 
 	<select id = "getAllUser" resultType="org.project.domain.MemberVO">
-		select * from tbl_user;
+		select * from tbl_user
 	</select>
 
 </mapper>

@@ -22,9 +22,7 @@ import org.project.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -75,16 +73,19 @@ public class PageController {
 	         calendarData = new DateData(null, null, null, null);
 	         dateList.add(calendarData);
 	      }
-
+	      int s_index = today_info.get("start")-1;
 	      // 날짜 삽입
 	      for (int i = today_info.get("startDay"); i <= today_info.get("endDay"); i++) {
 	         if (i == today_info.get("today")) {
 	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),String.valueOf(i), "today");
+	            	 String result =String.valueOf(dateData.getYear()).substring(2) + '/' + String.valueOf(Integer.parseInt(dateData.getMonth())+1) + '/' + i;
+	            	 calendarData.setMusicalCnt(scheduleservice.getMusicalCnt(result));
+		           	 calendarData.setConcertCnt(scheduleservice.getConcertsCnt(result));
+		           	 calendarData.setFestivalCnt(scheduleservice.getFestivalCnt(result));
+		           	 calendarData.setM_all_contents(contentsservice.getAllMusical(result));
+		           	 calendarData.setC_all_contents(contentsservice.getAllConcert(result));
+		           	 calendarData.setF_all_contents(contentsservice.getAllFestival(result));
 	         } else {
-	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),
-	                  String.valueOf(i), "normal_date");
-	            
-	            
 	            calendarData = new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()),String.valueOf(i), "normal_date");
 	            	 String result =String.valueOf(dateData.getYear()).substring(2) + '/' + String.valueOf(Integer.parseInt(dateData.getMonth())+1) + '/' + i;
 	            	 calendarData.setMusicalCnt(scheduleservice.getMusicalCnt(result));
@@ -93,25 +94,27 @@ public class PageController {
 	            	 calendarData.setM_all_contents(contentsservice.getAllMusical(result));
 	            	 calendarData.setC_all_contents(contentsservice.getAllConcert(result));
 	            	 calendarData.setF_all_contents(contentsservice.getAllFestival(result));
-	            	 System.out.println(result);
-	            	 System.out.println(calendarData.getMusicalCnt());
+//	            	 System.out.println(result);
+//	            	 System.out.println(calendarData.getMusicalCnt());
 	         }
 	         dateList.add(calendarData);
 	      }
-
+	      
 	      // 달력 빈곳 빈 데이터로 삽입
 	      int index = 7 - dateList.size() % 7;
-
+	      int l_index = dateList.size();
+	      List<DateData> modalList = dateList.subList(s_index, l_index);
+//	      System.out.println(dateList.get(s_index));
+//	      System.out.println(modalList.get(0));
 	      if (dateList.size() % 7 != 0) {
 	         for (int i = 0; i < index; i++) {
 	            calendarData = new DateData(null, null, null, null);
 	            dateList.add(calendarData);
 	         }
 	      }
-//	      System.out.println(dateList);
-	      int musicalCnt = scheduleservice.getMusical();
-	      int concertCnt = scheduleservice.getConcerts();
-	      int festivalCnt = scheduleservice.getFestival();
+//	      int musicalCnt = scheduleservice.getMusical();
+//	      int concertCnt = scheduleservice.getConcerts();
+//	      int festivalCnt = scheduleservice.getFestival();
 	      
 	      //모달창에 띄우기 위해서 필요한 코드 입니다.
 	      List<ContentsVO> today_m_contents = contentsservice.getToday_m_contents();
@@ -119,12 +122,14 @@ public class PageController {
 	      List<ContentsVO> today_f_contents = contentsservice.getToday_f_contents();
 	      
 	      // 배열에 담음
-	      model.addAttribute("musicalCnt", musicalCnt);
-	      model.addAttribute("concertCnt", concertCnt);
-	      model.addAttribute("festivalCnt", festivalCnt);
-	      model.addAttribute("dateList", dateList); // 날짜 데이터 배열
+//	      model.addAttribute("musicalCnt", musicalCnt);
+//	      model.addAttribute("concertCnt", concertCnt);
+//	      model.addAttribute("festivalCnt", festivalCnt);
+	      model.addAttribute("DateList", dateList); // 날짜 데이터 배열
+	      //날짜-1의 인덱스에 있는걸 가지고 오면 어떨까라는 생각을 해봐
+	      model.addAttribute("ModalList",modalList);
 	      model.addAttribute("today_info", today_info);
-	      
+//	      System.out.println(dateList.get(5));
 	      //여기 모델도 모달창에 띄우려고 쓰는거입니다
 	      model.addAttribute("today_m_contents", today_m_contents);
 	      model.addAttribute("today_c_contents", today_c_contents);
@@ -371,11 +376,16 @@ public class PageController {
 			List<LikeVO> likeInfo = likeservice.getLike(membervo.getId());
 			model.addAttribute("likeInfo",likeInfo);
 			
-		}if ("admin".equals(id)) {
-	        MemberVO membervo = memberservice.getUserInfo(id);
-	        model.addAttribute("user", membervo);
-	        return "/page/adminPage";
-	        
+		} if ("admin".equals(id)) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			 
+		      //사용자정보를 다 가지고 넘어갈거야 
+			List<MemberVO> memberAll = memberservice.getAllUser();
+			model.addAttribute("allUser", memberAll);
+			log.info("회원정보 전달 되나요");
+			return "/page/adminPage";
+			
 		} else if(id == null){
 
 	       return "/join/login";
@@ -384,9 +394,9 @@ public class PageController {
 		return "/page/myPage";
 	}
 	
-	//회원정보보기
+	//회원정보수정페이지
 	@GetMapping("/memberUpdate")
-	public void memberCorrect(Model model, HttpSession session) {
+	public String memberCorrect(Model model, HttpSession session) {
 		log.info("memberUpdate get");
 		
 		//아이디 정보
@@ -395,24 +405,10 @@ public class PageController {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
 			} 
+		
+		return "/page/memberUpdate";
 	}
 	
-	//회원정보 수정
-	@PostMapping("/memberUpdate")
-	public String editForm(HttpSession session, MemberVO member) {
-//		session.removeAttribute("id");
-//		log.info("살려주세요 제발 수정되주세요");
-//		String id =(String) session.getAttribute("id");
-//		MemberVO membervo = memberservice.getUserInfo(id);
-		System.out.println(member);
-		
-		memberservice.updateUserInfo(member);
-		
-		return "redirect:/page/myPage";
-	}
-
-	
-
 
 
 }

@@ -159,8 +159,7 @@ pageEncoding="UTF-8"%>
                         <div class="myPage-qna-space">
                             <div class="admin-user-list">
                                 <div class="userList">
-                                	<div class = "AllUserInfo"> ${adminUserInfo.getId()} </div>
-                                    <h1>회원정보를 띄워줍니다.</h1>
+                                	<div class = "AllUserInfo"> ${adminUserInfo.id} </div>
                                 </div>
                             </div>
                         </div>
@@ -181,8 +180,6 @@ pageEncoding="UTF-8"%>
 
 </body>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){

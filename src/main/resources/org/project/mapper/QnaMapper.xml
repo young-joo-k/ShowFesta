@@ -11,20 +11,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="read" resultType="org.project.domain.QnaVO">
 select * from tbl_qna where b_num = #{b_num}
 </select>
-<select id="getTotalCount" resultType="int">
-	select count(*) from tbl_qna where b_num > 0
+<select id="qnaTotalCount" resultType="int">
+	select count(*) from tbl_qna where id = #{id, jdbcType=VARCHAR}
 </select>
 
 <select id="getListWithPaging" resultType="org.project.domain.QnaVO">
-<![CDATA[ select b_num, b_title, b_content, b_writer, regdate, updatedate from ( select /*+INDEX_DESC(tbl_qna pk_board) */
-rownum rn, b_num, b_title, b_content, b_writer, regdate, updatedate from tbl_qna where rownum <= #{pageNum} * #{amount})
-where rn > (#{pageNum} -1) * #{amount}
-]]>
+  <![CDATA[
+    select b_num, b_title, b_content, b_writer, regdate, updatedate, id 
+    from (
+      select /*+INDEX_DESC(tbl_qna pk_board) */
+      rownum rn, b_num, b_title, b_content, b_writer, regdate, updatedate, id 
+      from tbl_qna 
+      where rownum <= #{pageNum} * #{amount}
+      and id = #{id, jdbcType=VARCHAR}
+    )
+    where rn > (#{pageNum} - 1) * #{amount}
+  ]]>
 </select>
 
 <insert id="insert">
-	insert into tbl_qna (b_num, b_title, b_content, b_writer)
-	values (seq_board.nextval, #{b_title}, #{b_content}, #{b_writer})
+    insert into tbl_qna (b_num, b_title, b_content, b_writer, id) 
+    values (seq_board.nextval, #{b_title}, #{b_content}, #{b_writer}, #{id})
 </insert>
 
 <delete id="delete">
@@ -46,8 +53,8 @@ where rn > (#{pageNum} -1) * #{amount}
 	select seq_board.nextval from dual
 	</selectKey>
 	
-	insert into tbl_qna (b_num, b_title, b_content, b_writer) 
-	values (#{b_num}, #{b_title}, #{b_content}, #{b_writer})
+	insert into tbl_qna (b_num, b_title, b_content, b_writer, id) 
+	values (#{b_num}, #{b_title}, #{b_content}, #{b_writer}, #{id})
 </insert>
 
 </mapper>

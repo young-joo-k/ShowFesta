@@ -26,9 +26,9 @@ public class DateData {
 	private List<ContentsVO> m_all_contents;
 	private List<ContentsVO> c_all_contents;
 	private List<ContentsVO> f_all_contents;
-	private int MusicalCnt;
-	private int ConcertCnt;
-	private int FestivalCnt;
+	int MusicalCnt;
+	int ConcertCnt;
+	int FestivalCnt;
 	
 	public DateData(String year, String month, String date, String value, String schedule, String schedule_detail) {
 

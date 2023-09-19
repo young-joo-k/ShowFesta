@@ -72,15 +72,15 @@ pageEncoding="UTF-8"%>
          </thead>
          <tbody class = "calendar-body">
             <tr class = "cal-list">
-               <c:forEach var="dateList" items="${dateList}" varStatus="date_status">
+               <c:forEach var="dateList" items="${DateList}" varStatus="date_status">
                   <c:choose>
                      <c:when test="${dateList.value=='today'}">
                         <td class="today">
                            <div class="date">${dateList.date}</div> 
                            <div class="contentsCount">
-                              <a href="#" class="contentsCnt1" data-event-type="뮤지컬">뮤지컬 : ${musicalCnt}</a><br>
-                              <a href="#" class="contentsCnt2" data-event-type="콘서트">콘서트 : ${concertCnt}</a><br>
-                              <a href="#" class="contentsCnt3" data-event-type="축제">축제 : ${festivalCnt}</a>
+                              <a href="#" class="contentsCnt1" data-event-type="뮤지컬">뮤지컬 : ${dateList.musicalCnt}</a><br>
+                              <a href="#" class="contentsCnt2" data-event-type="콘서트">콘서트 : ${dateList.concertCnt}</a><br>
+                              <a href="#" class="contentsCnt3" data-event-type="축제">축제 : ${dateList.festivalCnt}</a>
                            </div>
                         </td>
                      </c:when>
