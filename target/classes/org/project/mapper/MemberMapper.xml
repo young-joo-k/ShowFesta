@@ -53,7 +53,7 @@
 	</select>
 	
 	<delete id = "deleteUser" >
-		delete from tbl_user where id = #{id}
+		delete from tbl_user where id = #{id, jdbcType=VARCHAR}
 	</delete>
 	
 	

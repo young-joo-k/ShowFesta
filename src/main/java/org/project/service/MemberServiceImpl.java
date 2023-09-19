@@ -1,5 +1,6 @@
 package org.project.service;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -15,6 +16,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
 @AllArgsConstructor
+@Component
 public class MemberServiceImpl implements MemberService {
 	
 	private MemberMapper membermapper;
@@ -106,11 +108,13 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public void deleteUser(String id) {
-		log.info("delete"+ id);
-		
-		membermapper.deleteUser(id);
+	public int deleteUserById(String id) {
+		return membermapper.deleteUser(id);
 	}
+
+	
+
+	
 
 
 
