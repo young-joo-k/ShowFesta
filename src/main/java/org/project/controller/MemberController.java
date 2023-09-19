@@ -190,32 +190,32 @@ public class MemberController {
 	}
 	
 	//사용자 관리 페이지
-	@GetMapping("/adminPage")
-	public String adminPage(Model model, HttpSession session, MemberVO member) {
-		log.info("adminPage usermanager");
-		
-		//아이디 정보
-		String id = (String) session.getAttribute("id");
-		
-		if (id != null) {
-			MemberVO membervo = service.getUserInfo(id);
-			model.addAttribute("user", membervo);
-			log.info("나오는걸까");
-			
-		}if ("admin".equals(id)) {
-	        MemberVO membervo = service.getUserInfo(id);
-	        model.addAttribute("user", membervo);
-	      //사용자정보를 다 가지고 넘어갈거야 
-			List<MemberVO> memberAll = service.getAllUser();
-			model.addAttribute("allUser", memberAll);
-//	        return "/page/adminPage";
-			log.info("나오는걸까323222");
-		} else if(id == null){
-
-	       return "/join/login";
-		}
-
-		return "/page/adminPage";
-	}
+//	@GetMapping("/adminPage")
+//	public String adminPage(Model model, HttpSession session, MemberVO member) {
+//		log.info("adminPage usermanager");
+//		
+//		//아이디 정보
+//		String id = (String) session.getAttribute("id");
+//		
+//		if (id != null) {
+//			MemberVO membervo = service.getUserInfo(id);
+//			model.addAttribute("user", membervo);
+//			log.info("나오는걸까");
+//			
+//		}if ("admin".equals(id)) {
+//	        MemberVO membervo = service.getUserInfo(id);
+//	        model.addAttribute("user", membervo);
+//	      //사용자정보를 다 가지고 넘어갈거야 
+//			List<MemberVO> memberAll = service.getAllUser();
+//			model.addAttribute("allUser", memberAll);
+////	        return "/page/adminPage";
+//			log.info("나오는걸까323222");
+//		} else if(id == null){
+//
+//	       return "/join/login";
+//		}
+//
+//		return "/page/adminPage";
+//	}
 }
 

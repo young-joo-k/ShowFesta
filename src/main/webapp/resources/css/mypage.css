@@ -152,6 +152,7 @@ a.question{
 	display:none;
 }
 
+
 .myQna{
 	width: 50rem;
 	height: 25rem;
@@ -291,6 +292,8 @@ a.myPageBack, a.correctBtn{
 	border-style:solid;
 	border-color: #ffd47f;
 	border-radius: 4px;
+/* 	width: 100rem; */
+/*     height: 30rem; */
 }
 
 .no-like-message{

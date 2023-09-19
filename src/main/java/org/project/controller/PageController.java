@@ -379,7 +379,11 @@ public class PageController {
 		} if ("admin".equals(id)) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
-			
+			 
+		      //사용자정보를 다 가지고 넘어갈거야 
+			List<MemberVO> memberAll = memberservice.getAllUser();
+			model.addAttribute("allUser", memberAll);
+			log.info("회원정보 전달 되나요");
 			return "/page/adminPage";
 			
 		} else if(id == null){
@@ -405,27 +409,6 @@ public class PageController {
 		return "/page/memberUpdate";
 	}
 	
-
-	//관리자페이지 마이페이지
-//	@GetMapping("/adminPage")
-//	public String adminPage(Model model, HttpSession session) {
-//		log.info("adminPage get");
-//		
-//		//아이디 정보
-//		String id = (String) session.getAttribute("id");
-//		if (id != null) {
-//			MemberVO membervo = memberservice.getUserInfo(id);
-//			model.addAttribute("user", membervo);
-//		} if ("admin".equals(id)) {
-//			MemberVO membervo = memberservice.getUserInfo(id);
-//			model.addAttribute("user", membervo);
-//		} else if(id == null){
-//
-//		       return "/join/login";
-//			}
-//		return "/page/adminPage";
-//				
-//	}
 
 
 }
