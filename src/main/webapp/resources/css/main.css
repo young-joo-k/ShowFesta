@@ -6,18 +6,18 @@
 	position : relative;
 }
 body::before{
-	position:absolute;
-	content:"";
-		background-image: url('../img/bomb3.png');
-	background-repeat: no-repeat;
-	background-position: 200px 35px;
-	background-size: 12%;
-	opacity: 50%;
-	        top: 0px;
-        left: 0px;
-        right: 0px;
-        bottom: 0px;
-        z-index:-10;
+    position: absolute;
+    content: "";
+    background-image: url(../img/bomb3.png);
+    background-repeat: no-repeat;
+    background-position: 150px 52px;
+    background-size: 46%;
+    opacity: 30%;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: -10;
         
 }
 /* @charset "UTF-8";

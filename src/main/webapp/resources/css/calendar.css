@@ -203,13 +203,27 @@ text-overflow:ellipsis;
 a.before_after_month{
   margin: 10px;
   font-weight: bold;
+<<<<<<< HEAD
+  font-size: larger;
+  color: black;
+=======
   font-size: x-large;
   color: #595959;
+>>>>>>> 5394943a40a2c563ebf7e4d5a384c4015ae9ffe5
 }
 
 a.before_after_year{
   font-weight: bold;
   font-weight: bold;
+<<<<<<< HEAD
+  font-size: larger;
+  color: black;
+}
+.this_month{
+  margin: 10px;
+  color : black;
+  font-size: larger;
+=======
   font-size: x-large;
   color: #595959;
 }
@@ -217,6 +231,7 @@ a.before_after_year{
   margin: 10px;
   color : #595959;
   font-size: x-large;
+>>>>>>> 5394943a40a2c563ebf7e4d5a384c4015ae9ffe5
 }
 
 /* 모달에 대한 CSS */
@@ -337,7 +352,6 @@ button.modal-close-btn {
 }
 
 form#calendarFrm {
-    padding-top: 5px;
     position: relative;
     z-index: 100;
 }

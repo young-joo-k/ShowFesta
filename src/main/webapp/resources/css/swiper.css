@@ -10,7 +10,7 @@
 	letter-spaceing: -1px;
 	position:relative;
 }
-.clear_g::after{
+/* .clear_g::after{
 		position:absolute;
 	content:"";
 		background-image: url('../img/bomb8.png');
@@ -22,7 +22,7 @@
         left: 0px;
         right: 0px;
         bottom: 0px;
-}
+} */
 
 .wrap_main_slider {
 	display: block;
@@ -81,7 +81,7 @@
 	height: 120px;
 	position: absolute;
 	margin-right: -91px;
-	    margin-top: -70px
+	    margin-top: -10px
 }
 
 .btn_mslider_next {
@@ -93,7 +93,7 @@
 	height: 120px;
 	position: absolute;
 	margin-left: -91px;
-	    margin-top: -70px
+	    margin-top: -10px
 }
 
 a .btn_mslider_prev, a .btn_mslider_next {
