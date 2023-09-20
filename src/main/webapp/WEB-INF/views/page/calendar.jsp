@@ -24,7 +24,12 @@
 					&lt; <!-- 이전 달 -->
 				</a> <span class="this_month"> &nbsp;${today_info.search_year}. <c:if
 						test="${today_info.search_month<10}">0</c:if>${today_info.search_month}
-				</span> <a class="before_after_month"
+				</span> 			<!--오늘날짜로 가는 버튼 -->
+			<div class="today_button_div">
+				<input type="button" class="today_button"
+					onclick="javascript:location.href='./calendar'" value="오늘" />
+			</div>
+			<!--오늘날짜로 가는 버튼 끝 --><a class="before_after_month"
 					href="./calendar?year=${today_info.after_year}&month=${today_info.after_month}">
 					<!-- 다음달 --> &gt;
 				</a> <a class="before_after_year"
@@ -51,24 +56,19 @@
 			<!--       </div> -->
 			<!--유형선택 페이지 끝 -->
 
-			<!--오늘날짜로 가는 버튼 -->
-			<div class="today_button_div">
-				<input type="button" class="today_button"
-					onclick="javascript:location.href='./calendar'" value="오늘날짜로" />
-			</div>
-			<!--오늘날짜로 가는 버튼 끝 -->
+
 
 			<!--달력 몸체 -->
 			<table class="calendar_body">
 				<thead>
-					<tr bgcolor="#CECECE">
-						<td class="day sun">일</td>
+					<tr class=week>
+						<td class="day sunday">일</td>
 						<td class="day">월</td>
 						<td class="day">화</td>
 						<td class="day">수</td>
 						<td class="day">목</td>
 						<td class="day">금</td>
-						<td class="day sat">토</td>
+						<td class="day satday">토</td>
 					</tr>
 				</thead>
 				<tbody class="calendar-body">
@@ -78,7 +78,7 @@
 							<c:choose>
 								<c:when test="${dateList.value=='today'}">
 									<td class="today">
-										<div class="date">${dateList.date}</div>
+										<div class="date">${dateList.date}일</div>
 										<div class="contentsCount">
 											<a href="#" class="contentsCnt1" data-event-type="뮤지컬"
 												data-date="${dateList.date }">뮤지컬 :
@@ -94,7 +94,7 @@
 								</c:when>
 								<c:when test="${date_status.index%7==6}">
 									<td class="sat_day">
-										<div class="sat">${dateList.date}</div> <c:if
+										<div class="sat">${dateList.date}일</div> <c:if
 											test="${not empty dateList.date and dateList.date ne ''}">
 											<a href="#" class="contentsCnt1" data-event-type="뮤지컬"
 												data-date="${dateList.date }">뮤지컬 :
@@ -114,7 +114,7 @@
 									<!--             			</tr> -->
 									<tr class="cal-list">
 										<td class="sun_day">
-											<div class="sun">${dateList.date}</div> <c:if
+											<div class="sun">${dateList.date}일</div> <c:if
 												test="${not empty dateList.date and dateList.date ne ''}">
 												<a href="#" class="contentsCnt1" data-event-type="뮤지컬"
 													data-date="${dateList.date }">뮤지컬 :
@@ -132,7 +132,7 @@
 								</c:when>
 								<c:otherwise>
 									<td class="normal_day">
-										<div class="date">${dateList.date}</div> <c:if
+										<div class="date">${dateList.date}일</div> <c:if
 											test="${not empty dateList.date and dateList.date ne ''}">
 											<a href="#" class="contentsCnt1" data-event-type="뮤지컬"
 												data-date="${dateList.date }">뮤지컬 :
@@ -374,6 +374,7 @@
 			$('#modal-festival-' + mdate).removeAttr('style');
 			$('#overlay').removeAttr('style');
 		});
+		
 
 	});
 </script>

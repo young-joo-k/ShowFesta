@@ -48,23 +48,44 @@ text-overflow:ellipsis;
   width:100px; 
   height:30px;
   font-weight: bold;
-  font-size:15px;
+  font-size:18px;
   font-weight:bold;
-  text-align: center;
+  text-align: right;
+  margin-right:10px;
+  padding-right:10px;
 }
 
 
 
 
 .sat{
-  color:#529dbc;
+  color:#a5a5a5;
+  text-align : right;
+  margin-bottom : 25px;
+  margin-right: 10px;
 }
 .sun{
-  color:red;
+  color:#a5a5a5;
+  text-align: right;
+  margin-bottom:25px;
+  margin-right:10px;
 }
 
 .searchBox{
   float:right;
+}
+
+.sunday{
+	    color: #a5a5a5;
+    text-align: right;
+    margin-bottom: 10px;
+    padding-right: 10px;
+}
+.satday{
+	    color: #a5a5a5;
+    text-align: right;
+    margin-bottom: 10px;
+    padding-right: 10px;
 }
 
 
@@ -90,21 +111,24 @@ text-overflow:ellipsis;
 /* } */
 
 .today_button_div{
-  float: left;
-  margin-bottom: 15px;
+  float: right;
+  padding-top: 25px;
   
 }
 
 .today_button{
-  width: 100px; 
-  height:30px;
-  text-align: center;
-  border-style: solid;
-  border-width: thin;
-  border-color: #FEBC38;
-  border-radius: 4px;
-  background-color: #FEBC38;
-  font-size: medium;
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border-style: solid;
+    border-width: thin;
+    border-color: #a5a5a5;
+    border-radius: 4px;
+    background-color: white;
+    font-size: medium;
+    box-shadow: 5px 3px 3px #a5a5a5;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .searchBoxBtn{
@@ -135,8 +159,6 @@ text-overflow:ellipsis;
 }
 .calendar_body{
   width:100%;
-  background-color: #FFFFFF;
-  border:1px solid white;
   margin-bottom: 50px;
   border-collapse: collapse;
   padding-top: 20px;
@@ -155,48 +177,54 @@ text-overflow:ellipsis;
 
 .contentsCnt1, .contentsCnt2, .contentsCnt3 {
    margin-top:20px;
-   font-size:large;
+   font-size:15px;
      color : #000127;
+     
 }
 .calendar_body .date{
   font-weight: bold;
-  font-size: 15px;
+  font-size: 18px;
   padding-left: 3px;
   padding-top: 3px;
-  padding-bottom:5px;
+  text-align : right;
+  margin-bottom : 25px;
+  margin-right: 8px;
 }
 .calendar_body .sat_day{
-  border:1px solid white;
+  border:1px solid #a5a5a5;
+  border-right-color: white;
   height:120px;
   background-color:#EFEFEF;
   text-align:left;
   vertical-align: top;
 }
 .calendar_body .sat_day .sat{
-  color: #529dbc; 
+  color: #a5a5a5; 
   font-weight: bold;
-  font-size: 15px;
+  font-size: 18px;
   padding-left: 3px;
   padding-top: 3px;
+
 }
 .calendar_body .sun_day{
-  border:1px solid white;
+  border:0.1px solid #a5a5a5;
+  border-left-color: white;
   height:120px;
   background-color:#EFEFEF;
   text-align: left;
   vertical-align: top;
 }
 .calendar_body .sun_day .sun{
-  color: red; 
+  color: #a5a5a5; 
   font-weight: bold;
-  font-size: 15px;
+  font-size: 18px;
   padding-left: 3px;
   padding-top: 3px;
 }
 .calendar_body .normal_day{
-  border:1px solid white;
+  border:1px solid #a5a5a5;
   height:120px;
-  background-color:#EFEFEF;
+  background-color:white;
   vertical-align: top;
   text-align: left;
 }
@@ -354,4 +382,7 @@ button.modal-close-btn {
 form#calendarFrm {
     position: relative;
     z-index: 100;
+        padding-left: 300px;
+    padding-right: 300px;
+    font-family: 'Noto Sans KR', sans-serif;
 }
