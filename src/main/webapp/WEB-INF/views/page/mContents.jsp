@@ -26,13 +26,14 @@ pageEncoding="UTF-8"%>
 
 <!-- 날짜 선택할 수 있는 곳 -->
 <div class="contentSearchBox">
-	<div class = "contentSearchBox-wrap">기간검색: &nbsp;&nbsp;
+	<div class = "contentSearchBox-wrap">
 	  <label for="startDate">시작일
-	    <input type="date" id="search-startDate" max="2026-12-31" min="2023-01-01" value="2023-09-20">
+	    <input type="date" id="search-startDate" max="2026-12-31" min="2023-01-01" value="2023-09-20" required pattern="\d{4}-\d{2}-\d{2}">
 	  </label>&nbsp;&nbsp;
 	  <label for="endDate">종료일
-	    <input type="date" id="search-endDate" max="2026-12-31" min="2023-01-01" value="2023-09-20">
+	    <input type="date" id="search-endDate" max="2026-12-31" min="2023-01-01" value="2023-09-20" required pattern="\d{4}-\d{2}-\d{2}">
 	  </label>
+	  <button type ="button" class = "contentSearchBtn">검색</button>
   </div>
 </div>
 
@@ -86,76 +87,87 @@ pageEncoding="UTF-8"%>
 </html>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-	// JavaScript 부분
-	$(document).ready(function() {
-		$(".likeBtn").on("click", function(e) {
-		    e.preventDefault();
-		    var likeBtn = $(this);
-		    if (checkUser(likeBtn) === "true") {
-		    	window.location.href = "/join/login";
-		    } 
-		    else {
-			    togglelikeBtn(likeBtn);
-		    }
-		});
-		function checkUser(check){
-			return check.attr("data-empty-user");
-		}
+$(document).ready(function() {
+	  // 현재 날짜를 가져오는 함수
+	  function getCurrentDate() {
+	    var today = new Date();
+	    var year = today.getFullYear();
+	    var month = (today.getMonth() + 1).toString().padStart(2, '0');
+	    var day = today.getDate().toString().padStart(2, '0');
+	    return year + "-" + month + "-" + day;
+	  }
 
-		function togglelikeBtn(likeBtn) {
-// 		    var toast = $(".toast");
-// 		    var toastMessage = $(".toastMessage");
-// 		    var toastIcon = toast.hasClass("is-off") ? "is-off" : "is-on"; // 현재 아이콘 상태 확인
-	    	var contentsName = likeBtn.attr("data-contents-name");
-	    	var userId = likeBtn.attr("data-user-id");
-	    	var type = likeBtn.attr("data-type");
-	    	var img = likeBtn.attr("data-img");
-	    	var num = likeBtn.attr("data-num");
-			// castingHeartBtn 토글
-		    if (likeBtn.hasClass("is-toggled")) {
-		        likeBtn.removeClass("is-toggled");
-// 		        toastMessage.text("즐겨찾기 해제되었습니다.");
-// 		        toastIcon = "is-off"; // 아이콘 상태를 변경
-		        $.ajax({
-		            type: "GET",
-		            url: "/like/delete",
-		            data: {
-		                like_name: contentsName,
-		                id: userId,
-		                like_type: type,
-		                like_img:img,
-		                m_num:num
-		            },
-		            success: function() {
-		                console.log("성공 ");
-		            },
-		            error: function() {
-		                console.log("실패: ");
-		            }
-		        });
-		    } else {
-		        likeBtn.addClass("is-toggled");
-// 		        toastMessage.text("즐겨찾기 등록되었습니다.");
-// 		        toastIcon = "is-on"; // 아이콘 상태를 변경
-		        $.ajax({
-		            type: "GET",
-		            url: "/like/insert",
-		            data: {
-		                like_name: contentsName,
-		                id: userId,
-		                like_type: type,
-		                like_img:img,
-		                m_num:num
-		            },
-		            success: function() {
-		                console.log("성공 ");
-		            },
-		            error: function() {
-		                console.log("실패: ");
-		            }
-		        });
-		    }
-		}
+	  // 오늘 날짜를 가져와서 input 요소의 value에 설정
+	  var currentDate = getCurrentDate();
+	  $("#date").val(currentDate);
 
+	  //즐겨찾기에 쓰이는
+	  $(".likeBtn").on("click", function(e) {
+	    e.preventDefault();
+	    var likeBtn = $(this);
+	    if (checkUser(likeBtn) === "true") {
+	      window.location.href = "/join/login";
+	    } else {
+	      togglelikeBtn(likeBtn);
+	    }
+	  });
+	  function checkUser(check) {
+	    return check.attr("data-empty-user");
+	  }
+
+	  function togglelikeBtn(likeBtn) {
+	    // 		    var toast = $(".toast");
+	    // 		    var toastMessage = $(".toastMessage");
+	    // 		    var toastIcon = toast.hasClass("is-off") ? "is-off" : "is-on"; // 현재 아이콘 상태 확인
+	    var contentsName = likeBtn.attr("data-contents-name");
+	    var userId = likeBtn.attr("data-user-id");
+	    var type = likeBtn.attr("data-type");
+	    var img = likeBtn.attr("data-img");
+	    var num = likeBtn.attr("data-num");
+	    // castingHeartBtn 토글
+	    if (likeBtn.hasClass("is-toggled")) {
+	      likeBtn.removeClass("is-toggled");
+	      // 		        toastMessage.text("즐겨찾기 해제되었습니다.");
+	      // 		        toastIcon = "is-off"; // 아이콘 상태를 변경
+	      $.ajax({
+	        type : "GET",
+	        url : "/like/delete",
+	        data : {
+	          like_name : contentsName,
+	          id : userId,
+	          like_type : type,
+	          like_img : img,
+	          m_num : num
+	        },
+	        success : function() {
+	          console.log("성공 ");
+	        },
+	        error : function() {
+	          console.log("실패: ");
+	        }
+	      });
+	    } else {
+	      likeBtn.addClass("is-toggled");
+	      // 		        toastMessage.text("즐겨찾기 등록되었습니다.");
+	      // 		        toastIcon = "is-on"; // 아이콘 상태를 변경
+	      $.ajax({
+	        type : "GET",
+	        url : "/like/insert",
+	        data : {
+	          like_name : contentsName,
+	          id : userId,
+	          like_type : type,
+	          like_img : img,
+	          m_num : num
+	        },
+	        success : function() {
+	          console.log("성공 ");
+	        },
+	        error : function() {
+	          console.log("실패: ");
+	        }
+	      });
+	    }
+	  }
 	});
 </script>
