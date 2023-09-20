@@ -123,14 +123,15 @@
  		]]>  -->
 	</select>
 	
-	<select id = "getmusicalContentsByDate" resultType ="org.project.domain.ContentsVO">
-		<![CDATA[
-			select m_num,m_title,
-					to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
-					to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
-					m_place
- 			from tbl_musical 
- 			where sysdate > m_start_date and sysdate < m_end_date 
-		]]>	
+	<select id="getMusicalContentsByDate" resultType="org.project.domain.ContentsVO">
+	    <![CDATA[
+	       SELECT m_num, m_title, m_img,
+	               TO_CHAR(m_start_date, 'YYYY.MM.DD') AS m_start_date,
+	               TO_CHAR(m_end_date, 'YYYY.MM.DD') AS m_end_date,
+	               m_place
+	        FROM tbl_musical
+	        WHERE TO_DATE(#{arg0}, 'YYYY-MM-DD') >= m_start_date
+	        AND TO_DATE(#{arg1}, 'YYYY-MM-DD') <= m_end_date
+	    ]]>
 	</select>
 </mapper>

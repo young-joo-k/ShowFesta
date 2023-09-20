@@ -29,12 +29,12 @@ pageEncoding="UTF-8"%>
 	<div class = "contentSearchBox-wrap">
 		<form action="/page/contentSearchDate" method="post">
 		  <label for="startDate">시작일
-		    <input type="date" id="search-startDate" max="2026-12-31" min="2023-01-01" required pattern="\d{4}-\d{2}-\d{2}">
+		    <input type="date" id="startDate" name = "startDate" max="2026-12-31" min="2023-01-01" required>
 		  </label>&nbsp;&nbsp;
 		  <label for="endDate">종료일
-		    <input type="date" id="search-endDate" max="2026-12-31" min="2023-01-01" required pattern="\d{4}-\d{2}-\d{2}">
+		    <input type="date" id="endDate" name = "endDate" max="2026-12-31" min="2023-01-01" required>
 		  </label>
-		  <button type ="button" class = "contentSearchBtn">검색</button>
+		  <button type ="submit" class = "contentSearchBtn">검색</button>
 		</form>
 	</div>
 </div>
@@ -74,9 +74,6 @@ pageEncoding="UTF-8"%>
 						</div>
 				     </div>
 				</div>
-		<%-- 		<c:if test = "${loop.index % 4 == 3 && loop.last}"> --%>
-		<!-- 			<div style="clear:both;"></div> -->
-		<%-- 		</c:if> --%>
 			</c:forEach>
 		</c:otherwise>
 	</c:choose>
@@ -84,6 +81,42 @@ pageEncoding="UTF-8"%>
 <div class="clear"></div>
 
 	<!--all-contents-list 끝 -->
+	
+<!-- 여기서부터 검색 결과를 표시할 부분 -->
+<div class="search-contents-list">
+    <c:choose>
+        <c:when test="${empty searchResult}">
+            <div class="no-data-message">
+                <p class="no-message">검색 결과가 없습니다.</p>
+            </div>
+        </c:when>
+        <c:otherwise>
+            <c:forEach var="content" items="${searchResult}" varStatus="loop">
+                <div class="contents-list">
+                    <!-- 여기에 검색 결과를 표시하는 코드를 작성 -->
+                    <a style="cursor:pointer;" href='/page/musical_info?m_num=<c:out value="${content.m_num}"/>'>
+                        <div class="list-inner-wrap">
+                            <!--DB에 저장된 이미지 링크 가져올겁니다 -->
+                            <img class="comImg" src="<c:out value="${content.m_img}"/>">
+                            <div class="list-txt">
+                                <div class="list-tit1">
+                                    ${content.m_title}
+                                </div>
+                                <div class="list-tit2">
+                                    <p class="dateDate">${content.m_start_date}&nbsp;~&nbsp;</p>
+                                    <p class="dateDate">${content.m_end_date}</p>
+                                </div>
+                                <div class="list-tit3">${content.m_place}</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </c:forEach>
+        </c:otherwise>
+    </c:choose>
+</div>
+<div class="clear"></div>
+<!-- 검색 결과 표시 부분 끝 -->
 
 </body>
 </html>
@@ -101,10 +134,10 @@ $(document).ready(function() {
 
 	  // 오늘 날짜를 가져와서 input 요소의 value에 설정
 	  var currentDate = getCurrentDate();
-	  $("#search-startDate").val(currentDate); // 시작일 input 요소에 설정
-	  $("#search-endDate").val(currentDate);   // 종료일 input 요소에 설정
-
-
+	  $("#startDate").val(currentDate); // 시작일 input 요소에 설정
+	  $("#endDate").val(currentDate);   // 종료일 input 요소에 설정
+	  
+	  
 	  //즐겨찾기에 쓰이는
 	  $(".likeBtn").on("click", function(e) {
 	    e.preventDefault();

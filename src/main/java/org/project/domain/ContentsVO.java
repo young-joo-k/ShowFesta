@@ -11,4 +11,6 @@ public class ContentsVO {
 	private String m_end_date;
 	private String m_place;
 	private String m_b_link;
+	private String startDate;
+	private String endDate;
 }
