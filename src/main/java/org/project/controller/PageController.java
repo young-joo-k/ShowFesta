@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.project.data.DateData;
 import org.project.domain.ContentsVO;
 import org.project.domain.DImgVO;
+import org.project.domain.FestaVO;
 import org.project.domain.LikeVO;
 import org.project.domain.MemberVO;
 import org.project.domain.PlayVO;
@@ -73,8 +74,6 @@ public class PageController {
 			calendarData = new DateData(null, null, null, null);
 			dateList.add(calendarData);
 		}
-		int s_index = today_info.get("start") - 1;
-
 		// 날짜 삽입
 		for (int i = today_info.get("startDay"); i <= today_info.get("endDay"); i++) {
 			if (i == today_info.get("today")) {
@@ -107,8 +106,6 @@ public class PageController {
 
 		// 달력 빈곳 빈 데이터로 삽입
 		int index = 7 - dateList.size() % 7;
-		int l_index = dateList.size();
-		List<DateData> modalList = dateList.subList(s_index, l_index);
 //	      log.info(modalList.get(0).getM_all_contents());
 //	      System.out.println(dateList.get(s_index));
 //	      System.out.println(modalList.get(0));
@@ -132,8 +129,8 @@ public class PageController {
 //	      model.addAttribute("concertCnt", concertCnt);
 //	      model.addAttribute("festivalCnt", festivalCnt);
 		model.addAttribute("DateList", dateList); // 날짜 데이터 배열
-		model.addAttribute("ModalList", modalList);
 		model.addAttribute("today_info", today_info);
+		model.addAttribute("endDay", today_info.get("endDay"));
 //	      System.out.println(dateList.get(5));
 		// 여기 모델도 모달창에 띄우려고 쓰는거입니다
 //	      model.addAttribute("today_m_contents", today_m_contents);
@@ -518,6 +515,23 @@ public class PageController {
 	            return null;
 	        }
 	 }
+	// 페스티벌 유형별페이지 가져옵니다
+	@GetMapping("/festaContents")
+	public void festaContent(Model model) {
+		log.info("festa contents get");
+		try {
+			List<FestaVO> festaList = contentsservice.getFestaContents();
+
+//			System.out.println(festaList.get(0).getM_num());
+
+			model.addAttribute("festivalContents", festaList);
+
+		} catch (IndexOutOfBoundsException e) {
+			e.printStackTrace();
+			log.info("배열이 비어있습니다.");
+		}
+
+	}
 }
 
 

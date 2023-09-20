@@ -235,7 +235,7 @@ a.before_after_year{
 }
 
 /* 모달에 대한 CSS */
-.modal-musical, .modal-concert, .modal-festival {
+#modal-musical, #modal-concert, #modal-festival {
   display: none;
   position: relative;
   z-index: 9999;
@@ -354,4 +354,9 @@ button.modal-close-btn {
 form#calendarFrm {
     position: relative;
     z-index: 100;
+}
+
+.list-inner-wrap{
+	width: 10.82rem;
+    margin: 10px;
 }
