@@ -9,11 +9,12 @@
     z-index: 1;
     position: relative;
     min-height: 100%;
+    padding-right: 450px;
+    padding-left: 450px;
 }
 
 body, html {
     height: 100%;
-    background-color: #ffffff;
     scrollbar-face-color: #a5a5a5;
     scrollbar-track-color: #1b1b1b;
     scrollbar-arrow-color: #a5a5a5;
@@ -25,46 +26,44 @@ body, html {
 }
 
 .top-padding {
-    padding-top: 109px;
+    padding-top: 30px;
     height: 100%;
     min-height: 550px;
 }
 
 .page-top {
-    margin-bottom: 40px;
-    padding: 10px;
-    background-color: #fc7110;
-    text-align : center;
-    border-radius: 15px;
-    width: 1240px;
-    margin-left: auto;
-    margin-right: auto;
+margin-bottom: 20px;
+    padding: 3px;
+    background-color: #f9f9f9;
+    border: 1px solid#ddd;
+    text-align: center;
+    border-radius: 7px;
+    width: 100px;
 }
 
 .page-top-inner-wrap {
     position: relative;
-    max-width: 1240px;
     margin: 0 auto;
     text-align: left;
 }
 
 .page-title {
-    font-size: 24px;
+font-size: 20px;
     line-height: 36px;
-    color: #fff;
-    font-weight: 400;
-    margin-left: 15px;
+    color: #808080;
+    font-weight: bold;
+    text-align: center;
     
 }
 
 .wrap {
-    width: 1240px;
+    width: 100%;
     margin: 0 auto;
     position: relative;
 }
 
 .cs-body {
-    width: 1240px;
+    width: 100%;
     margin: 0 auto;
     padding-bottom: 80px;
 }
@@ -72,36 +71,44 @@ body, html {
 .cs-1depth {
     overflow: hidden;
     margin-bottom: 40px;
-    background-color: #ffd47f;
-    border-radius: 4px;
 }
 
-.cs-1depth li:first-child {
-    border-radius: 8px 0 0 8px;
-}
+
 
 .cs-1depth li.customer-1depth-on {
-    background-color: #febc38;
     position: relative;
     z-index: 10;
+        border-top: 1px solid;
+        border-right: 1px solid;
+        border-left: 1px solid;
+    border-top-color: #ddd;
+    border-left-color: #ddd;
+    border-right-color: #ddd;
+    background-color: white;
 }
-
+.cs-1depth li.customer-1depth-off {
+    position: relative;
+    z-index: 10;
+    border:1px solid;
+ 	border-color: #ddd;   
+ 	background-color:#f9f9f9;
+}
 .cs-1depth li {
     float: left;
     width: 50%;
     text-align: center;
+
 }
 
 .cs-1depth li.customer-1depth-on a {
-    color: #ffffff;
+    color: black;
 }
 
 .cs-1depth a {
     display: block;
     height: 50px;
     line-height: 50px;
-    font-size: 16px;
-    color : #ffffff;
+    font-size: 18px;
 }
 
 .cs-2depth {
@@ -120,6 +127,7 @@ body, html {
 .cs-2depth li.cs-2depth-on a, .cs-2depth li.cs-2depth-on button {
     color: black;
     font-weight: 700;
+        margin-left: 20px;
 }
 
 .cs-2depth a, .cs-2depth button {
@@ -198,7 +206,7 @@ table {
 
 .noti-date, .noti-type {
     text-align: center;
-    font-size: 14px;
+    font-size: 18px;
     color: #black;
 }
 
@@ -206,9 +214,10 @@ table {
     display: inline-block;
     vertical-align: middle;
     margin-right: 10px;
-    font-size: 14px;
-    color: #a5a5a5;
+    font-size: 18px;
+    color: black;
     padding-left: 20px;
+    font-weight:700;
 }
 
 .cs-table-02 tbody a {

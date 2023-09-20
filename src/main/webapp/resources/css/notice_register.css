@@ -7,9 +7,9 @@
 
 .register-top h4 {
     margin-bottom: 14px;
-    font-weight: 400;
+    font-weight: bold;
     font-size: 26px;
-    color: #a5a5a5;
+    color: black;
 }
 
 .es-text {
@@ -19,16 +19,6 @@
     margin-bottom: 10px;
 }
 
-.es-dot {
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    background-color: #fc7110;
-    border-radius: 100px;
-    vertical-align: middle;
-    margin-left: -10px;
-    margin-right: 5px;
-}
 
 .register-table {
     border-top: 1px solid #2f2f2f;
@@ -37,11 +27,10 @@
 }
 
 .register-table th {
-    text-align: left;
     padding: 24px 0 12px 40px;
     font-weight: 700;
-    font-size: 16px;
-    color: #a5a5a5;
+    font-size: 25px;
+    color: black;
     vertical-align: top;
 }
 
@@ -55,12 +44,13 @@
     border-radius: 6px;
     font-size: 16px;
     letter-spacing: -0.3px;
-    color: #fff;
+    color: black;
     padding-left: 20px;
     box-sizing: inherit;
     margin: auto;
-    background-color: #252525;
-    border: none;
+    background-color: white;
+    border: 1px solid;
+    border-color: #959595;
 }
 
 .register-table-wrap textarea.register-table-textarea03 {
@@ -69,12 +59,12 @@
 }
 
 .register-table-wrap textarea {
-    width: 715px;
+width: 715px;
     border-radius: 6px;
-    background-color: #252525;
-    border: none;
-    resize: none;
-    color: #fff;
+    background-color: white;
+    border: 1px solid;
+    border-color: #959595;
+    color: black;
     padding: 12px 20px;
     font-size: 16px;
 }

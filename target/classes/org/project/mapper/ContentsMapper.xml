@@ -134,4 +134,13 @@
 	        AND TO_DATE(#{arg1}, 'YYYY-MM-DD') <= m_end_date
 	    ]]>
 	</select>
+	
+	<!--페스티벌 -->
+	<select id="getFestaContents" resultType = "org.project.domain.FestaVO">
+		SELECT m_num,m_title,
+				to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
+				to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
+				m_place
+		FROM tbl_festival ORDER BY m_start_date DESC
+	</select>
 </mapper>

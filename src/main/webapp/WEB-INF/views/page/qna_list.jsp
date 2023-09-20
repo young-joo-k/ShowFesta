@@ -12,11 +12,6 @@
 	<div id="app">
 		<div class="body">
 			<main id="contents" class="top-padding">
-				<div class="page-top">
-					<div class="page-top-inner-wrap">
-						<h1 tabindex="0" class="page-title">QnA</h1>
-					</div>
-				</div>
 				<div class="wrap">
 					<div class="cs-body">
 						<div>

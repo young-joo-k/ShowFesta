@@ -14,18 +14,14 @@
 	<div id="app">
 		<div class="body">
 			<main id="contents" class="top-padding">
-				<div class="page-top">
-					<div class="page-top-inner-wrap">
-						<h1 tabindex="0" class="page-title">고객센터</h1>
-					</div>
-				</div>
+
 			<div class="wrap">
 				<div class="cs-body">
 					<ul id="contents" class="cs-1depth">
-						<li class="customer-1depth-on">
+						<li class="customer-1depth-off">
 							<a href="/page/notice_list" aria-current="page" class="router-link-exact-active router-link-active">공지사항</a>
 						</li> 
-						<li class="customer-1depth">
+						<li class="customer-1depth-on">
 							<a href="/page/user_qna" aria-current="page" class="router-link-exact-active router-link-active">1:1 문의</a>
 						</li> 
 					</ul>
