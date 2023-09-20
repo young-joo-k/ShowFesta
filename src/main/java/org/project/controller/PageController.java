@@ -57,7 +57,12 @@ public class PageController {
 		log.info("calendar Get");
 		Calendar cal = Calendar.getInstance();
 		DateData calendarData;
-
+	      // 검색 날짜
+		if (dateData.getDate().equals("") && dateData.getMonth().equals("")) {
+			dateData = new DateData(String.valueOf(cal.get(Calendar.YEAR)), String.valueOf(cal.get(Calendar.MONTH)),
+					String.valueOf(cal.get(Calendar.DATE)), null);
+		}
+	      // 검색 날짜 end
 		Map<String, Integer> today_info = dateData.today_info(dateData);
 		List<DateData> dateList = new ArrayList<DateData>();
 
