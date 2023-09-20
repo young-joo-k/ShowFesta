@@ -2,6 +2,7 @@
 
 body {
 	margin: 0;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 .category{
 	background-color : white;
@@ -118,6 +119,7 @@ body {
 	line-height: 1.462em;
 	white-space: nowrap;
 	transform: translate(-50%, 0);
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 .nav {
@@ -131,7 +133,7 @@ body {
 
 .nav .contents {
 	position: relative;
-	
+	font-family: 'Noto Sans KR', sans-serif;
 }
 #calendarCss{
 	width:80px;
@@ -175,6 +177,7 @@ body {
 	outline-color: #fc7110;
 	border: 2px solid #e5e5e5;
 	margin-top : 20px;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 .totalSearch_wrap .btn_totalSearch {
