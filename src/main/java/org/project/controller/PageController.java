@@ -474,10 +474,6 @@ public class PageController {
 	    return "/page/adminPage"; // 수정된 부분: 뷰 이름을 반환
 	}
 
-
-	
-
-	
 	@PostMapping("/deleteUsers")
 	public String deleteUsers(@RequestParam(value = "selectedUsers", required = false) String[] selectedUsers, HttpServletRequest request) {
 	    log.info("deleteUsers Post");
@@ -500,6 +496,19 @@ public class PageController {
 	    // 삭제 후 관리자 페이지로 리디렉션
 	    return "redirect:/page/myPage"; 
 	}
+	
+	 @PostMapping("/contentSearchDate")
+	    public String searchMContents(@RequestParam("startDate") String startDate,@RequestParam("endDate") String endDate,Model model) {
+	        // startDate와 endDate를 사용하여 mContents를 가져오는 로직을 작성
+	        if (startDate != null && endDate != null) {
+	            // 데이터베이스에서 mContents를 가져오는 작업 수행
+	            // 가져온 결과를 searchResult에 할당
+	            List<ContentsVO> searchResult = contentsservice.getmusicalContentsByDate(startDate, endDate);
+	            model.addAttribute("searchResult", searchResult);
+	        }
+
+	        return "/page/mContents";
+	    }
 }
 
 

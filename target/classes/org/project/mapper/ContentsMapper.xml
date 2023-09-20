@@ -72,7 +72,7 @@
 					m_place
  			from tbl_festival 
  			where sysdate > m_start_date and sysdate < m_end_date 
- 		]]>  -->
+ 		]]>  
 	</select>
 
 	<select id="ConcertRead" resultType = "org.project.domain.ContentsVO">
@@ -121,5 +121,16 @@
  			from tbl_festival 
  			where TO_DATE(#{date}, 'YY/MM/DD') > m_start_date and TO_DATE(#{date}, 'YY/MM/DD') < m_end_date 
  		]]>  -->
+	</select>
+	
+	<select id = "getmusicalContentsByDate" resultType ="org.project.domain.ContentsVO">
+		<![CDATA[
+			select m_num,m_title,
+					to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
+					to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
+					m_place
+ 			from tbl_musical 
+ 			where sysdate > m_start_date and sysdate < m_end_date 
+		]]>	
 	</select>
 </mapper>

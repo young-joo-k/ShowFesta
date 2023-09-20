@@ -1,6 +1,7 @@
 package org.project.service;
 
 import java.util.List;
+
 import org.project.domain.ContentsVO;
 import org.project.domain.PriceVO;
 
@@ -32,4 +33,7 @@ public interface ContentsService {
 	public List<ContentsVO> getAllConcert(String result);
 
 	public List<ContentsVO> getAllFestival(String result);
+
+	public List<ContentsVO> getmusicalContentsByDate(String startDate, String endDate);
+
 }

@@ -109,6 +109,12 @@ public class ContentsServiceImpl implements ContentsService {
 		return contentsmapper.getAllFestival(date);
 	}
 
+	@Override
+	public List<ContentsVO> getmusicalContentsByDate(String startDate, String endDate) {
+		// TODO Auto-generated method stub
+		return contentsmapper.getmusicalContentsByDate(startDate, endDate);
+	}
+
 	
 	
 }

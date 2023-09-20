@@ -27,14 +27,16 @@ pageEncoding="UTF-8"%>
 <!-- 날짜 선택할 수 있는 곳 -->
 <div class="contentSearchBox">
 	<div class = "contentSearchBox-wrap">
-	  <label for="startDate">시작일
-	    <input type="date" id="search-startDate" max="2026-12-31" min="2023-01-01" value="2023-09-20" required pattern="\d{4}-\d{2}-\d{2}">
-	  </label>&nbsp;&nbsp;
-	  <label for="endDate">종료일
-	    <input type="date" id="search-endDate" max="2026-12-31" min="2023-01-01" value="2023-09-20" required pattern="\d{4}-\d{2}-\d{2}">
-	  </label>
-	  <button type ="button" class = "contentSearchBtn">검색</button>
-  </div>
+		<form action="/page/contentSearchDate" method="post">
+		  <label for="startDate">시작일
+		    <input type="date" id="search-startDate" max="2026-12-31" min="2023-01-01" required pattern="\d{4}-\d{2}-\d{2}">
+		  </label>&nbsp;&nbsp;
+		  <label for="endDate">종료일
+		    <input type="date" id="search-endDate" max="2026-12-31" min="2023-01-01" required pattern="\d{4}-\d{2}-\d{2}">
+		  </label>
+		  <button type ="button" class = "contentSearchBtn">검색</button>
+		</form>
+	</div>
 </div>
 
 
@@ -88,7 +90,7 @@ pageEncoding="UTF-8"%>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
-	  // 현재 날짜를 가져오는 함수
+	// 현재 날짜를 가져오는 함수
 	  function getCurrentDate() {
 	    var today = new Date();
 	    var year = today.getFullYear();
@@ -99,7 +101,9 @@ $(document).ready(function() {
 
 	  // 오늘 날짜를 가져와서 input 요소의 value에 설정
 	  var currentDate = getCurrentDate();
-	  $("#date").val(currentDate);
+	  $("#search-startDate").val(currentDate); // 시작일 input 요소에 설정
+	  $("#search-endDate").val(currentDate);   // 종료일 input 요소에 설정
+
 
 	  //즐겨찾기에 쓰이는
 	  $(".likeBtn").on("click", function(e) {
