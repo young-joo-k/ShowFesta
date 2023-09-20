@@ -144,11 +144,11 @@ pageEncoding="UTF-8"%>
 <!-- 컨텐츠관리 끝 -->
 
 <!-- 사용자 관리 -->
-<form id="deleteForm" action="/page/deleteUsers" method="post">
+
 	<div class="userManage">
 		<div class = "userDeleteButtonWrap">
 <!-- 			<button class = "userDeleteBtn">선택한 사용자 삭제</button> -->
-			<button type = "button" class = "userDeleteBtn" data-oper="userDeleteBtn">선택한 사용자 삭제</button>
+			<button type="submit" class = "userDeleteBtn">선택한 사용자 삭제</button>
 		</div>
 	    <div class="admin-content-wrap">
 	        <c:choose>
@@ -158,7 +158,9 @@ pageEncoding="UTF-8"%>
 	                </div>
 	            </c:when>
 	            <c:otherwise>
+	            
 	            	<table class="userList" style="border-collapse: collapse;">
+	            	
 	               		<tr class="userManagement">
 	               			<th class = "userChoice"></th>
 	                 		<th class="adminUserId">아이디</th>
@@ -168,18 +170,26 @@ pageEncoding="UTF-8"%>
 	                 	</tr>
 		                <c:forEach var="adminUserInfo" items="${allUser}">
 			                <tr class="allUserInfo">
-			                	<td class = "checkBtn"><input type = "checkbox" name = "selectedUsers"></td>
-			                	<td class="allUserInfoId"><c:out value="${adminUserInfo.id}"/></td>
+			                	<td class = "checkBtn">
+			                	<form role = "form" id="deleteForm" action="/page/adminPage" method="post">
+									<input type="hidden" name="id" value="${adminUserInfo.getId()}"/>
+			                		<button type="submit"  data-oper='remove'
+										class="btn btn-delete">삭제</button>
+										</form>
+			                	</td>
+			                    <td class="allUserInfoId"><c:out value="${adminUserInfo.id}"/></td>
 			                    <td class="allUserInfoName"><c:out value="${adminUserInfo.name}"/></td>
 			                    <td class="allUserInfoPhone"><c:out value="${adminUserInfo.phone}"/></td>
 			                    <td class="allUserInfoEmail"><c:out value="${adminUserInfo.email}"/></td>
+
+			                </tr>
+			                
 		                </c:forEach>
 	                </table>
 	            </c:otherwise>
 	        </c:choose>
 	    </div>
 	</div>
-	</form>
 
 <!-- 사용자 관리 끝 -->
 
@@ -234,30 +244,29 @@ $(document).ready(function(){
         $(".userManage").show();
     });
     
-    $(".userDeleteBtn").click(function(){
-        var operation = $(this).data("oper"); // data-oper 속성 값을 읽어옵니다.
-        
-        if (operation === 'userDeleteBtn') {
-            $("input[type='checkbox']:checked").each(function(){
-                $(this).closest("tr").remove();
-            });
-            $("#deleteForm").submit();
+//     if(operation ==='userDeleteBtn'){
+//     	formObj.attr("action", "/page/deleteUser");
+//     }
+//     $(".userDeleteBtn").click(function(){
+//         $("input[type='checkbox']:checked").each(function(){
+//             $(this).closest("tr").remove();
+//         });
+//         $("#deleteForm").submit();
+//     });
+$(document).ready(function() {
+    // 삭제 버튼 클릭 시
+    $(".btn-delete").on("click", function(event) {
+        event.preventDefault(); // 링크의 기본 동작을 막습니다.
+        var operation = $(this).data("oper");
+        console.log(operation);
+
+        if (operation === 'remove') {
+            // 해당 삭제 버튼이 속한 form을 선택합니다.
+            var formObj = $(this).closest("form");
+            formObj.attr("action", "/page/adminPage"); // 삭제 처리 서블릿 또는 컨트롤러 URL로 변경
+            formObj.submit(); // form을 제출하여 삭제 요청을 서버로 전송합니다.
         }
     });
-    // 삭제 버튼 클릭 시
-//     var formObj = $("form");
-//     $(".btn-delete").on("click", function(event) {
-//         event.preventDefault(); // 링크의 기본 동작을 막습니다.
-//         var operation = $(this).data("oper");
-//         console.log(operation);
-
-//         if (operation === 'remove') {
-//             // 해당 삭제 버튼이 속한 form을 선택합니다.
-//             var formObj = $(this).closest("form");
-//             formObj.attr("action", "/page/adminPage"); // 삭제 처리 서블릿 또는 컨트롤러 URL로 변경
-//             formObj.submit(); // form을 제출하여 삭제 요청을 서버로 전송합니다.
-//         }
-//     });
 });
 </script>
 

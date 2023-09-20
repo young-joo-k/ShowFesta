@@ -71,8 +71,7 @@ public class QnaController {
 		if (id != null) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
-			
-		}
+			}
 		cri.setId(id);
 		log.info("list: " + cri);
 		model.addAttribute("list", service.getList(cri));

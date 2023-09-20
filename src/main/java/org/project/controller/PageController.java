@@ -461,35 +461,41 @@ public class PageController {
 	}
 
 	@GetMapping("/adminPage")
-	public void adminPage(Model model, HttpSession session) {
-		String id = (String) session.getAttribute("id");
-		if (id != null) {
-			MemberVO membervo = memberservice.getUserInfo(id);
-			model.addAttribute("user", membervo);
-		}
-
+	public String adminPage(Model model, HttpSession session) {
+	    String id = (String) session.getAttribute("id");
+	    if (id != null) {
+	        MemberVO membervo = memberservice.getUserInfo(id);
+	        model.addAttribute("user", membervo);
+	    }
+	    return "/page/adminPage"; // 수정된 부분: 뷰 이름을 반환
 	}
+
+
+	
+
 	
 	@PostMapping("/deleteUsers")
-	public String deleteUsers(@RequestParam("selectedUsers") String[] selectedUsers, HttpServletRequest request) {
-		log.info("deleteUsers Post");
-		if (selectedUsers != null && selectedUsers.length > 0) {
-			for (String userId : selectedUsers) {
-				// 각 사용자를 삭제하는 로직을 호출 (UserService를 통해)
-
-				System.out.println(userId);
-				try{
-					memberservice.deleteUserById(userId);
-				}
-				catch (Exception e){
-					System.out.println(e);
-				}
-				
-			}
-		}
-
-		// 삭제 후 관리자 페이지로 리디렉션
-		return "redirect:/page/adminPage";
+	public String deleteUsers(@RequestParam(value = "selectedUsers", required = false) String[] selectedUsers, HttpServletRequest request) {
+	    log.info("deleteUsers Post");
+	    log.info(selectedUsers);
+	    if (selectedUsers != null && selectedUsers.length > 0) {
+	        log.info("selectedUsers 배열의 길이: " + selectedUsers.length); // 배열의 길이 출력
+	        for (String userId : selectedUsers) {
+	            log.info("선택된 사용자 ID: " + userId); // 각 사용자 ID 출력
+	        
+	            try {
+	                memberservice.deleteUserById(userId);
+	            } catch (Exception e) {
+	                log.error("사용자 삭제 중 오류 발생: " + e.getMessage(), e); // 예외 정보 로그로 출력
+	            }
+	        }
+	    } else {
+	    	log.info("선택된 사용자가 없습니다.");
+	    }
+	    
+	    // 삭제 후 관리자 페이지로 리디렉션
+	    return "redirect:/page/adminPage"; 
 	}
-
 }
+
+

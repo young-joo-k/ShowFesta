@@ -74,6 +74,7 @@ public class NoticeController {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
 		}
+		cri.setId(id);
 		log.info("list: " + cri);
 		model.addAttribute("list", service.getList(cri));
 //		model.addAttribute("pageMaker", new PageDTO(cri, 123));

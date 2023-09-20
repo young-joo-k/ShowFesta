@@ -26,6 +26,7 @@ public interface MemberService {
 
 	public void deleteUserById(String id);
 
+
 	
 	
 }
