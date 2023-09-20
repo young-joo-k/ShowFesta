@@ -33,7 +33,7 @@
 	margin-left: 1rem;
 }
 
-#search-startDate, #search-endDate{
+#startDate, #endDate{
 	width:130px;
 	height: 30px;
 	font-size: 17px;
@@ -55,9 +55,18 @@
 .all-contents-list{
 	display: flex;
 	flex-wrap: wrap;
+<<<<<<< HEAD
 	width:100%;
 	justify-content: center;
 	
+=======
+}
+
+.search-contents-list{
+	padding-top: 5rem;
+	display: flex;
+	flex-wrap: wrap;
+>>>>>>> 5ac11a99f1707e1970f18ccb96f56f4dd605b9e5
 }
 
 .contents-list {

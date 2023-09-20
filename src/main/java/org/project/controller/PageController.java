@@ -327,6 +327,7 @@ public class PageController {
 
 		List<ContentsVO> musicalList = contentsservice.getMusicalContents();
 
+
 		if (musicalList == null || musicalList.isEmpty()) {
 
 			System.out.println(musicalList.get(0).getM_num());
@@ -498,17 +499,25 @@ public class PageController {
 	}
 	
 	 @PostMapping("/contentSearchDate")
-	    public String searchMContents(@RequestParam("startDate") String startDate,@RequestParam("endDate") String endDate,Model model) {
+	    public String contentSearchDate(@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, Model model) {
 	        // startDate와 endDate를 사용하여 mContents를 가져오는 로직을 작성
-	        if (startDate != null && endDate != null) {
-	            // 데이터베이스에서 mContents를 가져오는 작업 수행
-	            // 가져온 결과를 searchResult에 할당
-	            List<ContentsVO> searchResult = contentsservice.getmusicalContentsByDate(startDate, endDate);
-	            model.addAttribute("searchResult", searchResult);
+		 
+		 try {
+	            if (startDate != null && endDate != null) {
+	            	log.info(startDate);
+	            	log.info(endDate);
+	                List<ContentsVO> searchResult = contentsservice.getMusicalContentsByDate(startDate, endDate);
+	                
+	                model.addAttribute("searchResult", searchResult);
+	                log.info(searchResult + "searchResult");
+	            } 
+	            return "/page/mContents"; 
+	            
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            return null;
 	        }
-
-	        return "/page/mContents";
-	    }
+	 }
 }
 
 

@@ -42,15 +42,6 @@ public class ContentsServiceImpl implements ContentsService {
 	@Override
 	public List<ContentsVO> getFestivalContents() {
 	
-//		 List<ContentsVO> festivalContents = contentsmapper.getFestivalContents();
-//
-//		    // 占쏙옙占쏙옙占싶곤옙 占쏙옙占쏙옙 占쏙옙占� 占쌨쏙옙占쏙옙 占쌩곤옙
-//		    if (festivalContents == null || festivalContents.isEmpty()) {
-//		        festivalContents = new ArrayList<>();
-//		    }
-//
-//		    return festivalContents;
-		
 		return contentsmapper.getFestivalContents();
 	}
 
@@ -109,12 +100,19 @@ public class ContentsServiceImpl implements ContentsService {
 		return contentsmapper.getAllFestival(date);
 	}
 
-	@Override
-	public List<ContentsVO> getmusicalContentsByDate(String startDate, String endDate) {
-		// TODO Auto-generated method stub
-		return contentsmapper.getmusicalContentsByDate(startDate, endDate);
-	}
+	 @Override
+	    public List<ContentsVO> getMusicalContentsByDate(String startDate, String endDate) {
+	        try {
+	            // startDate와 endDate를 사용하여 동적 쿼리 생성 및 실행
+	            List<ContentsVO> searchResult = contentsmapper.getMusicalContentsByDate(startDate, endDate);
+	            
+	            return searchResult;
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            log.info(e +"여기나오냐");
+	            return null; 
+	    }
 
 	
-	
+	 }
 }

@@ -34,6 +34,6 @@ public interface ContentsService {
 
 	public List<ContentsVO> getAllFestival(String result);
 
-	public List<ContentsVO> getmusicalContentsByDate(String startDate, String endDate);
+	public List<ContentsVO> getMusicalContentsByDate(String startDate, String endDate);
 
 }

@@ -24,6 +24,7 @@
 			<c:if test="${empty user}">
 							        data-empty-user="true"				
 							    </c:if>></a>
+<<<<<<< HEAD
 		<div class="contentSearchBox">
 			<div class="contentSearchBox-wrap">
 				<form action="/page/contentSearchDate" method="post">
@@ -36,6 +37,32 @@
 					</label>
 					<button type="button" class="contentSearchBtn">검색</button>
 				</form>
+=======
+</div>
+
+<!-- 날짜 선택할 수 있는 곳 -->
+<div class="contentSearchBox">
+	<div class = "contentSearchBox-wrap">
+		<form action="/page/contentSearchDate" method="post">
+		  <label for="startDate">시작일
+		    <input type="date" id="startDate" name = "startDate" max="2026-12-31" min="2023-01-01" required>
+		  </label>&nbsp;&nbsp;
+		  <label for="endDate">종료일
+		    <input type="date" id="endDate" name = "endDate" max="2026-12-31" min="2023-01-01" required>
+		  </label>
+		  <button type ="submit" class = "contentSearchBtn">검색</button>
+		</form>
+	</div>
+</div>
+
+
+<!-- 여기서부터 컨텐츠 리스트 입니다. 한 줄에 네 개의 컨텐츠가 들어갑니다. -->
+<div class = all-contents-list>
+	<c:choose>
+		<c:when test = "${empty musicalContents }">
+			<div class = "no-data-message">
+				<p class = "no-message">표시할 내용이 없습니다.</p>
+>>>>>>> 5ac11a99f1707e1970f18ccb96f56f4dd605b9e5
 			</div>
 		</div>
 	</div>
@@ -51,6 +78,7 @@
 				<div class="no-data-message">
 					<p class="no-message">표시할 내용이 없습니다.</p>
 				</div>
+<<<<<<< HEAD
 			</c:when>
 			<c:otherwise>
 				<c:forEach var="content" items="${musicalContents}" varStatus="loop">
@@ -84,8 +112,51 @@
 		</c:choose>
 	</div>
 	<div class="clear"></div>
+=======
+			</c:forEach>
+		</c:otherwise>
+	</c:choose>
+</div>
+<div class="clear"></div>
+>>>>>>> 5ac11a99f1707e1970f18ccb96f56f4dd605b9e5
 
 	<!--all-contents-list 끝 -->
+	
+<!-- 여기서부터 검색 결과를 표시할 부분 -->
+<div class="search-contents-list">
+    <c:choose>
+        <c:when test="${empty searchResult}">
+            <div class="no-data-message">
+                <p class="no-message">검색 결과가 없습니다.</p>
+            </div>
+        </c:when>
+        <c:otherwise>
+            <c:forEach var="content" items="${searchResult}" varStatus="loop">
+                <div class="contents-list">
+                    <!-- 여기에 검색 결과를 표시하는 코드를 작성 -->
+                    <a style="cursor:pointer;" href='/page/musical_info?m_num=<c:out value="${content.m_num}"/>'>
+                        <div class="list-inner-wrap">
+                            <!--DB에 저장된 이미지 링크 가져올겁니다 -->
+                            <img class="comImg" src="<c:out value="${content.m_img}"/>">
+                            <div class="list-txt">
+                                <div class="list-tit1">
+                                    ${content.m_title}
+                                </div>
+                                <div class="list-tit2">
+                                    <p class="dateDate">${content.m_start_date}&nbsp;~&nbsp;</p>
+                                    <p class="dateDate">${content.m_end_date}</p>
+                                </div>
+                                <div class="list-tit3">${content.m_place}</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </c:forEach>
+        </c:otherwise>
+    </c:choose>
+</div>
+<div class="clear"></div>
+<!-- 검색 결과 표시 부분 끝 -->
 
 </body>
 </html>
@@ -103,10 +174,10 @@ $(document).ready(function() {
 
 	  // 오늘 날짜를 가져와서 input 요소의 value에 설정
 	  var currentDate = getCurrentDate();
-	  $("#search-startDate").val(currentDate); // 시작일 input 요소에 설정
-	  $("#search-endDate").val(currentDate);   // 종료일 input 요소에 설정
-
-
+	  $("#startDate").val(currentDate); // 시작일 input 요소에 설정
+	  $("#endDate").val(currentDate);   // 종료일 input 요소에 설정
+	  
+	  
 	  //즐겨찾기에 쓰이는
 	  $(".likeBtn").on("click", function(e) {
 	    e.preventDefault();

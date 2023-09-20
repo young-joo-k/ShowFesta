@@ -33,5 +33,5 @@ public interface ContentsMapper {
 
 	public List<ContentsVO> getAllFestival(String date);
 
-	public List<ContentsVO> getmusicalContentsByDate(String startDate, String endDate);
+	public List<ContentsVO> getMusicalContentsByDate(String startDate, String endDate);
 }
