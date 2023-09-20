@@ -17,12 +17,25 @@
 	font-size: xx-large;
 }
 
+
+/* 기간검색에 쓰이는 부분 */
+.contentSearchBox{
+	margin-top: 2rem;
+	margin-right: 7rem;
+}
+
+.contentSearchBox-wrap{
+	display: flex;
+	justify-content:flex-end;
+}
+
+
 .no-data-message {
-        text-align: center;
-        padding: 20px;
-        font-size: 18rem;
-        color: #FEBC38;
-    }
+    text-align: center;
+    padding: 20px;
+    font-size: 18rem;
+    color: #FEBC38;
+}
 
 
 .no-message{

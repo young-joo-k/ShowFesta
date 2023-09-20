@@ -24,6 +24,19 @@ pageEncoding="UTF-8"%>
 							    </c:if>></a>
 </div>
 
+<!-- 날짜 선택할 수 있는 곳 -->
+<div class="contentSearchBox">
+	<div class = "contentSearchBox-wrap">기간검색: &nbsp;&nbsp;
+	  <label for="startDate">시작일
+	    <input type="date" id="search-startDate" max="2026-12-31" min="2023-01-01" value="2023-09-20">
+	  </label>&nbsp;&nbsp;
+	  <label for="endDate">종료일
+	    <input type="date" id="search-endDate" max="2026-12-31" min="2023-01-01" value="2023-09-20">
+	  </label>
+  </div>
+</div>
+
+
 <!-- 여기서부터 컨텐츠 리스트 입니다. 한 줄에 네 개의 컨텐츠가 들어갑니다. -->
 <div class = all-contents-list>
 	<c:choose>
