@@ -71,7 +71,12 @@ public class MemberController {
 	            	log.info("이전페이지가 회원가입일때랑 login이라는 단어를 포함할때");
 	            	return "redirect:/page/main";
 	            }
-	            log.info("널이 아니고 마이페이지,회원가입,로그인페이지가 아닐때");
+	            else if(prevPage != null && (prevPage.equals("http://localhost:8080/page/user_qna")))
+	            {
+	            	log.info("1:1문의에서 로그인을 했을때 qna_register로 갈 수 있게");
+	            	return "redirect:/page/qna_register";
+	            }
+	            log.info("널이 아니고 마이페이지,회원가입,로그인페이지,1:1문의가 아닐때");
 	            return "redirect:" + prevPage;
 	        } else {
 	        	log.info(prevPage);
