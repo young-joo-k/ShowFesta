@@ -37,18 +37,24 @@ public class QnaController {
 	public String qnaRegister(Model model, HttpSession session ) {
 		log.info("register Get!");
 		String id = (String) session.getAttribute("id");
+		log.info(id);
 		if (id != null) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
-			//즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
 			
-		} else if(id == null){
+			//즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
+			QnaVO qna = new QnaVO();
+	        qna.setId(id); // 사용자 ID를 QnaVO 객체에 설정
+
+	        model.addAttribute("qna", qna);
+		} else{
 
 	       return "join/login";
 		}
 
 		return "/page/qna_register";
-
+		
+		
 	}
 	
 	@PostMapping("/qna_register")
@@ -65,12 +71,13 @@ public class QnaController {
 		if (id != null) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
-		}
+			}
+		cri.setId(id);
 		log.info("list: " + cri);
 		model.addAttribute("list", service.getList(cri));
 //		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 		
-		int total = service.getTotal(cri);
+		int total = service.qnaTotal(cri);
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	

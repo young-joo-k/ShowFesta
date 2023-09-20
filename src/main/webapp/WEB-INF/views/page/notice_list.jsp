@@ -56,8 +56,10 @@
 														<c:out value="${notice.b_num}" />
 													</p>
 												</td>
-												<td><span><a href='/page/notice_get?b_num=<c:out value="${notice.b_num }"/>'>
-											<c:out value="${notice.b_title}"/></a></span></td>
+												<td><span><a
+														href='/page/notice_get?b_num=<c:out value="${notice.b_num }"/>'>
+															<c:out value="${notice.b_title}" />
+													</a></span></td>
 												<td>
 													<p class="noti-date">
 														<fmt:formatDate pattern="yyyy-MM-dd"
@@ -71,44 +73,49 @@
 
 								</table>
 							</div>
-							<button id='regBtn' type="button" class="btn btn-xs pull right">공지사항
-								등록</button>
+							<%
+							String id = (String) session.getAttribute("id");
+							%>
+
+							<button id='regBtn' type="button" class="btn btn-xs pull-right"
+								<%if ("admin".equals(id)) {%> style="display: block;"
+								<%} else {%> style="display: none;" <%}%>>공지사항 등록</button>
 							<div class='pull-right'>
 								<ul class="pagination">
 									<c:if test="${pageMaker.prev }">
-										<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">이전</a>
-										</li>
+										<li class="paginate_button previous"><a
+											href="${pageMaker.startPage -1}">이전</a></li>
 									</c:if>
 									<c:forEach var="num" begin="${pageMaker.startPage}"
-									end="${pageMaker.endPage }">
-										<li class="paginate_button ${pageMaker.cri.pageNum == num ? 'active':'' }"><a href="${num}">${num}</a>
-										</li>
+										end="${pageMaker.endPage }">
+										<li
+											class="paginate_button ${pageMaker.cri.pageNum == num ? 'active':'' }"><a
+											href="${num}">${num}</a></li>
 									</c:forEach>
 									<c:if test="${pageMaker.next}">
-										<li class="paginate_button next"><a href="${ pageMaker.endPage + 1}">다음</a></li>
+										<li class="paginate_button next"><a
+											href="${ pageMaker.endPage + 1}">다음</a></li>
 									</c:if>
 								</ul>
 							</div>
-
-
 						</div>
 					</div>
 			</main>
 		</div>
 	</div>
 </body>
-<form id= 'actionForm' action="/page/notice_list" method='get'>
-	<input type='hidden'  name='pageNum' value = '${pageMaker.cri.pageNum}'>
-	<input type='hidden'  name='amount' value = '${pageMaker.cri.amount}'>
+<form id='actionForm' action="/page/notice_list" method='get'>
+	<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+	<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 </form>
 <script type="text/javascript">
 	$(document).ready(
 			function() {
 				var result = '<c:out value="${result}"/>';
 				checkModal(result);
-				history.replaceState({},null,null);
+				history.replaceState({}, null, null);
 				function checkModal(result) {
-					if (result === ''|| history.state) {
+					if (result === '' || history.state) {
 						return;
 					}
 					if (parseInt(result) > 0) {
@@ -121,15 +128,16 @@
 					self.location = "/page/notice_register";
 				});
 				var actionForm = $("#actionForm");
-				$(".paginate_button a").on("click", function(e) {
-					e.preventDefault();
-					actionForm.find("input[name='pageNum']").val($(this).attr("href"));
-					actionForm.submit();				
-				});
-				
+				$(".paginate_button a").on(
+						"click",
+						function(e) {
+							e.preventDefault();
+							actionForm.find("input[name='pageNum']").val(
+									$(this).attr("href"));
+							actionForm.submit();
+						});
 
 			});
-
 </script>
 </html>
 

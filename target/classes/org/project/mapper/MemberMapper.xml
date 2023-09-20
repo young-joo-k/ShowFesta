@@ -47,8 +47,15 @@
 	    WHERE id=#{id, jdbcType=VARCHAR}
 	</update>
 
+<!-- 	관리자 페이지에서 사용합니다. -->
 	<select id = "getAllUser" resultType="org.project.domain.MemberVO">
 		select * from tbl_user
 	</select>
+	
+	<delete id = "deleteUser" >
+		delete from tbl_user where id = #{id, jdbcType=VARCHAR}
+	</delete>
+	
+	
 
 </mapper>

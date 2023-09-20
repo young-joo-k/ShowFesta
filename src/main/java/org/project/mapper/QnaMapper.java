@@ -20,5 +20,5 @@ public interface QnaMapper {
 	
 	public int delete(Long b_num);
 	
-	public int getTotalCount(Criteria cri);
+	public int qnaTotalCount(Criteria cri);
 }

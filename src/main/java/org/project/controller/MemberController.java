@@ -2,6 +2,7 @@ package org.project.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.project.domain.LikeVO;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.extern.log4j.Log4j;
@@ -189,33 +191,22 @@ public class MemberController {
 		return "redirect:/join/login";
 	}
 	
-	//사용자 관리 페이지
-//	@GetMapping("/adminPage")
-//	public String adminPage(Model model, HttpSession session, MemberVO member) {
-//		log.info("adminPage usermanager");
-//		
-//		//아이디 정보
-//		String id = (String) session.getAttribute("id");
-//		
-//		if (id != null) {
-//			MemberVO membervo = service.getUserInfo(id);
-//			model.addAttribute("user", membervo);
-//			log.info("나오는걸까");
-//			
-//		}if ("admin".equals(id)) {
-//	        MemberVO membervo = service.getUserInfo(id);
-//	        model.addAttribute("user", membervo);
-//	      //사용자정보를 다 가지고 넘어갈거야 
-//			List<MemberVO> memberAll = service.getAllUser();
-//			model.addAttribute("allUser", memberAll);
-////	        return "/page/adminPage";
-//			log.info("나오는걸까323222");
-//		} else if(id == null){
-//
-//	       return "/join/login";
-//		}
-//
-//		return "/page/adminPage";
-//	}
+
+	//관리자 페이지에서 사용자 삭제
+	@PostMapping("/deleteUsers")
+	  public String deleteUsers(@RequestParam("selectedUsers") String[] selectedUsers, HttpServletRequest request) {
+	    if (selectedUsers != null && selectedUsers.length > 0) {
+	      for (String userId : selectedUsers) {
+	        // 각 사용자를 삭제하는 로직을 호출 (UserService를 통해)
+	    	  
+	    	  System.out.println(userId);
+	        service.deleteUserById(userId);
+	      }
+	    }
+
+	    // 삭제 후 관리자 페이지로 리디렉션
+	    return "redirect:/page/adminPage";
+	  }
+	
 }
 

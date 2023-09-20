@@ -144,11 +144,11 @@ pageEncoding="UTF-8"%>
 <!-- 컨텐츠관리 끝 -->
 
 <!-- 사용자 관리 -->
-<form role = "form" id="deleteForm" action="/join/deleteUsers" method="post">
+
 	<div class="userManage">
 		<div class = "userDeleteButtonWrap">
 <!-- 			<button class = "userDeleteBtn">선택한 사용자 삭제</button> -->
-			<button type = "submit" class = "userDeleteBtn">선택한 사용자 삭제</button>
+			<button type="submit" class = "userDeleteBtn">선택한 사용자 삭제</button>
 		</div>
 	    <div class="admin-content-wrap">
 	        <c:choose>
@@ -171,13 +171,25 @@ pageEncoding="UTF-8"%>
 		                <c:forEach var="adminUserInfo" items="${allUser}">
 			                <tr class="allUserInfo">
 			                	<td class = "checkBtn">
+			                	<form role = "form" id="deleteForm" action="/page/adminPage" method="post">
+									<input type="hidden" name="id" value="${adminUserInfo.getId()}"/>
+			                		<button type="submit"  data-oper='remove'
+										class="btn btn-delete">삭제</button>
+										</form>
+			                	</td>
+			                    <td class="allUserInfoId"><c:out value="${adminUserInfo.id}"/></td>
+			                    <td class="allUserInfoName"><c:out value="${adminUserInfo.name}"/></td>
+			                    <td class="allUserInfoPhone"><c:out value="${adminUserInfo.phone}"/></td>
+			                    <td class="allUserInfoEmail"><c:out value="${adminUserInfo.email}"/></td>
+
+			                </tr>
+			                
 		                </c:forEach>
 	                </table>
 	            </c:otherwise>
 	        </c:choose>
 	    </div>
 	</div>
-	</form>
 
 <!-- 사용자 관리 끝 -->
 
@@ -187,7 +199,7 @@ pageEncoding="UTF-8"%>
 
 
 
-<%-- <%@include file="../includes/footer.jsp"%> --%>
+<%@include file="../includes/footer.jsp"%>
 
 </body>
 
@@ -241,8 +253,8 @@ $(document).ready(function(){
 //         });
 //         $("#deleteForm").submit();
 //     });
+$(document).ready(function() {
     // 삭제 버튼 클릭 시
-    var formObj = $("form");
     $(".btn-delete").on("click", function(event) {
         event.preventDefault(); // 링크의 기본 동작을 막습니다.
         var operation = $(this).data("oper");

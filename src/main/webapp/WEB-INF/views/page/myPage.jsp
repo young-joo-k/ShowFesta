@@ -14,14 +14,13 @@ pageEncoding="UTF-8"%>
 			<article class = "myPage-profile">
 				<div class = "myPage-img">
 					<picture class = "myPage-img-select">
-						<source srcset = "#"></source>
-						<img src="/resources/img/mypageimg.png">
+						<source srcset = "/resources/img/mypageimg.png"></source>
+						<img src="#">
 					</picture>			
 				</div>
 				<div class = "myPage-info">
 					<div class = "myPage-name"> ${user.getId()}님 마이페이지 입니다.</div>
 					<a class = "myPage-update" href="/page/memberUpdate">회원정보 수정</a>
-
 				</div>
 			</article>
 		</section>
