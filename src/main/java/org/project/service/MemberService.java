@@ -24,8 +24,8 @@ public interface MemberService {
 
 	public List<MemberVO> getAllUser();
 
+	public void deleteUserById(String id);
 
-	public int deleteUserById(String id);
 
 	
 	

@@ -108,10 +108,26 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public int deleteUserById(String id) {
-		return membermapper.deleteUser(id);
-	}
+	public void deleteUserById(String id) {
+        try {
+            log.info("사용자 삭제 서비스 실행");
 
+            // 유효성 검사: ID가 null 또는 빈 문자열이 아닌지 확인
+            if (id == null || id.isEmpty()) {
+                throw new IllegalArgumentException("유효하지 않은 사용자 ID입니다.");
+            }
+
+            Map<String, Object> paramMap = new HashMap<>();
+            paramMap.put("id", id);
+
+            // 데이터베이스에서 사용자 삭제
+            membermapper.deleteUser(paramMap);
+
+            log.info("사용자 삭제 서비스 실행 완료");
+        } catch (Exception e) {
+            log.info("오류발생:", e);
+        }
+    }
 	
 
 	

@@ -55,11 +55,6 @@ text-overflow:ellipsis;
 
 
 
-.cal-navigation{
-  font-size: larger;
-  font-weight: bold;
-  color: #FEBC38;  
-}
 
 .sat{
   color:#529dbc;
@@ -134,6 +129,9 @@ text-overflow:ellipsis;
   text-align: center;
   font-size: 25px;
   vertical-align: middle;
+  font-size: larger;
+  font-weight: bold;
+  color: #595959; 
 }
 .calendar_body{
   width:100%;
@@ -205,20 +203,20 @@ text-overflow:ellipsis;
 a.before_after_month{
   margin: 10px;
   font-weight: bold;
-  font-size: larger;
-  color: #EFEFEF;
+  font-size: x-large;
+  color: #595959;
 }
 
 a.before_after_year{
   font-weight: bold;
   font-weight: bold;
-  font-size: larger;
-  color: #EFEFEF;
+  font-size: x-large;
+  color: #595959;
 }
 .this_month{
   margin: 10px;
-  color : #EFEFEF;
-  font-size: larger;
+  color : #595959;
+  font-size: x-large;
 }
 
 /* 모달에 대한 CSS */

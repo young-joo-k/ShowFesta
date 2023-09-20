@@ -82,3 +82,50 @@
         color: #FEBC38;
     }
 
+a.likeBtn{
+	text-size-adjust: none;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "맑은 고딕", "Malgun Gothic", "돋움", Dotum, Helvetica, "Apple SD Gothic Neo", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    background: transparent;
+    text-decoration: none;
+    color: inherit;
+    outline-offset: -1px;
+    position: absolute;
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: inherit;
+    line-height: 2.4rem;
+    outline-style: none;
+    cursor: pointer;
+    top: 96%;
+    left: 1%;
+    z-index: 999991;
+    } 
+
+.likeBtn:focus-visible {
+	outline-style: auto;
+}
+
+.likeBtn:before {
+	background-image: url('../img/heart.png');
+	background-repeat: no-repeat;
+	position: relative;
+	display: inline-block;
+	top: 0.2rem;
+	width: 3rem;
+	height: 3rem;
+	padding-right: 0.6rem; background-position : 0 0;
+	content: '';
+	background-position: 0 0;
+}
+
+.likeBtn.is-toggled:before {
+	background-position: 0 -3rem;
+}
+
+.likeBtn:disabled {
+	color: inherit;
+}

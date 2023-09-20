@@ -12,6 +12,7 @@ import org.project.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -195,23 +196,10 @@ public class MemberController {
 		// redirect login
 		return "redirect:/join/login";
 	}
-	
 
-	//관리자 페이지에서 사용자 삭제
-	@PostMapping("/deleteUsers")
-	  public String deleteUsers(@RequestParam("selectedUsers") String[] selectedUsers, HttpServletRequest request) {
-	    if (selectedUsers != null && selectedUsers.length > 0) {
-	      for (String userId : selectedUsers) {
-	        // 각 사용자를 삭제하는 로직을 호출 (UserService를 통해)
-	    	  
-	    	  System.out.println(userId);
-	        service.deleteUserById(userId);
-	      }
-	    }
-
-	    // 삭제 후 관리자 페이지로 리디렉션
-	    return "redirect:/page/adminPage";
-	  }
-	
 }
+
+	
+
+
 
