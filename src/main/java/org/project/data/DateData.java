@@ -23,13 +23,13 @@ public class DateData {
 	String date = "";
 	String value = "";
 	String schedule = "";
-	private List<ContentsVO> m_all_contents;
-	private List<ContentsVO> c_all_contents;
-	private List<ContentsVO> f_all_contents;
+	List<ContentsVO> m_all_contents;
+	List<ContentsVO> c_all_contents;
+	List<ContentsVO> f_all_contents;
 	int MusicalCnt;
 	int ConcertCnt;
 	int FestivalCnt;
-	
+	int s_index;
 	public DateData(String year, String month, String date, String value, String schedule, String schedule_detail) {
 
 		this.year = year;

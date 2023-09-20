@@ -25,9 +25,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.extern.log4j.Log4j;
-
 @Controller
 @Log4j
 @RequestMapping("/page/*")
@@ -65,7 +65,6 @@ public class PageController {
 
 	      Map<String, Integer> today_info = dateData.today_info(dateData);
 	      List<DateData> dateList = new ArrayList<DateData>();
-
 	      
 	      // 실질적인 달력 데이터 리스트에 데이터 삽입 시작.
 	      // 일단 시작 인덱스까지 아무것도 없는 데이터 삽입
@@ -74,6 +73,7 @@ public class PageController {
 	         dateList.add(calendarData);
 	      }
 	      int s_index = today_info.get("start")-1;
+	      
 	      // 날짜 삽입
 	      for (int i = today_info.get("startDay"); i <= today_info.get("endDay"); i++) {
 	         if (i == today_info.get("today")) {
@@ -104,6 +104,7 @@ public class PageController {
 	      int index = 7 - dateList.size() % 7;
 	      int l_index = dateList.size();
 	      List<DateData> modalList = dateList.subList(s_index, l_index);
+//	      log.info(modalList.get(0).getM_all_contents());
 //	      System.out.println(dateList.get(s_index));
 //	      System.out.println(modalList.get(0));
 	      if (dateList.size() % 7 != 0) {
@@ -117,23 +118,22 @@ public class PageController {
 //	      int festivalCnt = scheduleservice.getFestival();
 	      
 	      //모달창에 띄우기 위해서 필요한 코드 입니다.
-	      List<ContentsVO> today_m_contents = contentsservice.getToday_m_contents();
-	      List<ContentsVO> today_c_contents = contentsservice.getToday_c_contents();
-	      List<ContentsVO> today_f_contents = contentsservice.getToday_f_contents();
+//	      List<ContentsVO> today_m_contents = contentsservice.getToday_m_contents();
+//	      List<ContentsVO> today_c_contents = contentsservice.getToday_c_contents();
+//	      List<ContentsVO> today_f_contents = contentsservice.getToday_f_contents();
 	      
 	      // 배열에 담음
 //	      model.addAttribute("musicalCnt", musicalCnt);
 //	      model.addAttribute("concertCnt", concertCnt);
 //	      model.addAttribute("festivalCnt", festivalCnt);
 	      model.addAttribute("DateList", dateList); // 날짜 데이터 배열
-	      //날짜-1의 인덱스에 있는걸 가지고 오면 어떨까라는 생각을 해봐
 	      model.addAttribute("ModalList",modalList);
 	      model.addAttribute("today_info", today_info);
 //	      System.out.println(dateList.get(5));
 	      //여기 모델도 모달창에 띄우려고 쓰는거입니다
-	      model.addAttribute("today_m_contents", today_m_contents);
-	      model.addAttribute("today_c_contents", today_c_contents);
-	      model.addAttribute("today_f_contents", today_f_contents);
+//	      model.addAttribute("today_m_contents", today_m_contents);
+//	      model.addAttribute("today_c_contents", today_c_contents);
+//	      model.addAttribute("today_f_contents", today_f_contents);
 	      return "/page/calendar";
 	   }
 
@@ -180,6 +180,7 @@ public class PageController {
 		}
 		 
 	}
+	
 	@GetMapping("/musical_info")
 	public void m_info(HttpSession session,@RequestParam("m_num") Long m_num, Model model) {
 		String id = (String) session.getAttribute("id");
