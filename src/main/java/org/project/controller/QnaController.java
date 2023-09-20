@@ -42,14 +42,14 @@ public class QnaController {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
 			
-			//Áñ°ÜÃ£±âÅ×ÀÌºí¿¡ Áñ°ÜÃ£±âÇÑ Ç×¸ñÀÇ ¸ðµç Á¤º¸¸¦ °¡Á®¿Í
+			//ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			QnaVO qna = new QnaVO();
-	        qna.setId(id); // »ç¿ëÀÚ ID¸¦ QnaVO °´Ã¼¿¡ ¼³Á¤
+	        qna.setId(id); // ï¿½ï¿½ï¿½ï¿½ï¿½ IDï¿½ï¿½ QnaVO ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	        model.addAttribute("qna", qna);
 		} else{
 
-	       return "join/login";
+	       return "redirect:/join/login";
 		}
 
 		return "/page/qna_register";

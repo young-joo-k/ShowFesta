@@ -29,7 +29,6 @@ public class DateData {
 	int MusicalCnt;
 	int ConcertCnt;
 	int FestivalCnt;
-	int s_index;
 	public DateData(String year, String month, String date, String value, String schedule, String schedule_detail) {
 
 		this.year = year;
