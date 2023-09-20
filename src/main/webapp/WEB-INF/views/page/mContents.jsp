@@ -152,59 +152,59 @@ $(document).ready(function() {
 	    return check.attr("data-empty-user");
 	  }
 
-	  function togglelikeBtn(likeBtn) {
-	    // 		    var toast = $(".toast");
-	    // 		    var toastMessage = $(".toastMessage");
-	    // 		    var toastIcon = toast.hasClass("is-off") ? "is-off" : "is-on"; // 현재 아이콘 상태 확인
-	    var contentsName = likeBtn.attr("data-contents-name");
-	    var userId = likeBtn.attr("data-user-id");
-	    var type = likeBtn.attr("data-type");
-	    var img = likeBtn.attr("data-img");
-	    var num = likeBtn.attr("data-num");
-	    // castingHeartBtn 토글
-	    if (likeBtn.hasClass("is-toggled")) {
-	      likeBtn.removeClass("is-toggled");
-	      // 		        toastMessage.text("즐겨찾기 해제되었습니다.");
-	      // 		        toastIcon = "is-off"; // 아이콘 상태를 변경
-	      $.ajax({
-	        type : "GET",
-	        url : "/like/delete",
-	        data : {
-	          like_name : contentsName,
-	          id : userId,
-	          like_type : type,
-	          like_img : img,
-	          m_num : num
-	        },
-	        success : function() {
-	          console.log("성공 ");
-	        },
-	        error : function() {
-	          console.log("실패: ");
-	        }
-	      });
-	    } else {
-	      likeBtn.addClass("is-toggled");
-	      // 		        toastMessage.text("즐겨찾기 등록되었습니다.");
-	      // 		        toastIcon = "is-on"; // 아이콘 상태를 변경
-	      $.ajax({
-	        type : "GET",
-	        url : "/like/insert",
-	        data : {
-	          like_name : contentsName,
-	          id : userId,
-	          like_type : type,
-	          like_img : img,
-	          m_num : num
-	        },
-	        success : function() {
-	          console.log("성공 ");
-	        },
-	        error : function() {
-	          console.log("실패: ");
-	        }
-	      });
-	    }
-	  }
+// 	  function togglelikeBtn(likeBtn) {
+// 	    // 		    var toast = $(".toast");
+// 	    // 		    var toastMessage = $(".toastMessage");
+// 	    // 		    var toastIcon = toast.hasClass("is-off") ? "is-off" : "is-on"; // 현재 아이콘 상태 확인
+// 	    var contentsName = likeBtn.attr("data-contents-name");
+// 	    var userId = likeBtn.attr("data-user-id");
+// 	    var type = likeBtn.attr("data-type");
+// 	    var img = likeBtn.attr("data-img");
+// 	    var num = likeBtn.attr("data-num");
+// 	    // castingHeartBtn 토글
+// 	    if (likeBtn.hasClass("is-toggled")) {
+// 	      likeBtn.removeClass("is-toggled");
+// 	      // 		        toastMessage.text("즐겨찾기 해제되었습니다.");
+// 	      // 		        toastIcon = "is-off"; // 아이콘 상태를 변경
+// 	      $.ajax({
+// 	        type : "GET",
+// 	        url : "/like/delete",
+// 	        data : {
+// 	          like_name : contentsName,
+// 	          id : userId,
+// 	          like_type : type,
+// 	          like_img : img,
+// 	          m_num : num
+// 	        },
+// 	        success : function() {
+// 	          console.log("성공 ");
+// 	        },
+// 	        error : function() {
+// 	          console.log("실패: ");
+// 	        }
+// 	      });
+// 	    } else {
+// 	      likeBtn.addClass("is-toggled");
+// 	      // 		        toastMessage.text("즐겨찾기 등록되었습니다.");
+// 	      // 		        toastIcon = "is-on"; // 아이콘 상태를 변경
+// 	      $.ajax({
+// 	        type : "GET",
+// 	        url : "/like/insert",
+// 	        data : {
+// 	          like_name : contentsName,
+// 	          id : userId,
+// 	          like_type : type,
+// 	          like_img : img,
+// 	          m_num : num
+// 	        },
+// 	        success : function() {
+// 	          console.log("성공 ");
+// 	        },
+// 	        error : function() {
+// 	          console.log("실패: ");
+// 	        }
+// 	      });
+// 	    }
+// 	  }
 	});
 </script>
