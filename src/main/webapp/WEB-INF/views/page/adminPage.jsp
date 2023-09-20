@@ -28,9 +28,9 @@ pageEncoding="UTF-8"%>
 			<article class = "myPage-content-wrap">
 				<div class = "myPage-menu">					
 					<div class = "myPage-menu-wrapper">
-						<div class = "mypage-contents">
-							<button class = "notice-contents">공지사항관리</button>
-						</div>
+<!-- 						<div class = "mypage-contents"> -->
+<!-- 							<button class = "notice-contents">공지사항관리</button> -->
+<!-- 						</div> -->
 						<div class = "mypage-contents">
 							<button class = "admin-qna-contents">문의내용</button>
 						</div>
@@ -48,35 +48,35 @@ pageEncoding="UTF-8"%>
 
 
 <!-- 공지사항 관리 화면 -->
-<div class="admin-notice">
-    <div class="admin-content-wrap">
-        <c:choose>
-            <c:when test="${empty notice_list}">
-                <div class="no-like-message">
-                    <p class="no-like-message">공지사항 내용이 없습니다.</p>
-                </div>
-            </c:when>
-            <c:otherwise>
-                <c:forEach var="notice" items="${notice_list}">
-                    <div class="admin-wrap">
-                        <div class="myPage-qna-space">
-                            <div class="myPage-qna-button-wrap">
-                                <button type="button" class="myPage-qna-button">
-                                    <a href="/page/notice_list" class="question">공지사항</a>
-                                </button>
-                            </div>
-                            <div class="myPage-qna-list">
-                                <div class="myQna">
-                                    <h1>공지사항 내용을 띄워줍니다.</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
-            </c:otherwise>
-        </c:choose>
-    </div>
-</div>
+<!-- <div class="admin-notice"> -->
+<!--     <div class="admin-content-wrap"> -->
+<%--         <c:choose> --%>
+<%--             <c:when test="${empty notice_list}"> --%>
+<!--                 <div class="no-like-message"> -->
+<!--                     <p class="no-like-message">공지사항 내용이 없습니다.</p> -->
+<!--                 </div> -->
+<%--             </c:when> --%>
+<%--             <c:otherwise> --%>
+<%--                 <c:forEach var="notice" items="${notice_list}"> --%>
+<!--                     <div class="admin-wrap"> -->
+<!--                         <div class="myPage-qna-space"> -->
+<!--                             <div class="myPage-qna-button-wrap"> -->
+<!--                                 <button type="button" class="myPage-qna-button"> -->
+<!--                                     <a href="/page/notice_list" class="question">공지사항</a> -->
+<!--                                 </button> -->
+<!--                             </div> -->
+<!--                             <div class="myPage-qna-list"> -->
+<!--                                 <div class="myQna"> -->
+<!--                                     <h1>공지사항 내용을 띄워줍니다.</h1> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<%--                 </c:forEach> --%>
+<%--             </c:otherwise> --%>
+<%--         </c:choose> --%>
+<!--     </div> -->
+<!-- </div> -->
 <!-- 공지사항 -->
 
 <!-- 문의내역 눌렀을 때 나타날 내용 -->
@@ -197,30 +197,30 @@ pageEncoding="UTF-8"%>
 <script type="text/javascript">
 $(document).ready(function(){
     // 기본 화면 설정
-    $(".admin-notice").show();
-    $(".admin-qna").hide();
+//     $(".admin-notice").show();
+    $(".admin-qna").show();
     $(".admin-content-manage").hide();
     $(".userManage").hide();
     
-    $(".notice-contents").click(function(){
-        // 공지사항 관리 버튼 클릭 시
-        $(".admin-notice").show();
-        $(".admin-qna").hide();
-        $(".admin-content-manage").hide();
-        $(".userManage").hide();
-    });
+//     $(".notice-contents").click(function(){
+//         // 공지사항 관리 버튼 클릭 시
+//         $(".admin-notice").show();
+//         $(".admin-qna").hide();
+//         $(".admin-content-manage").hide();
+//         $(".userManage").hide();
+//     });
     
-    $(".admin-qna-contents").click(function(){
-        // 문의내용 버튼 클릭 시
-        $(".admin-notice").hide();
-        $(".admin-qna").show();
-        $(".admin-content-manage").hide();
-        $(".userManage").hide();
-    });
+//     $(".admin-qna-contents").click(function(){
+//         // 문의내용 버튼 클릭 시
+//         $(".admin-notice").hide();
+//         $(".admin-qna").show();
+//         $(".admin-content-manage").hide();
+//         $(".userManage").hide();
+//     });
     
     $(".admin-content-list").click(function(){
         // 컨텐츠 관리 버튼 클릭 시
-        $(".admin-notice").hide();
+//         $(".admin-notice").hide();
         $(".admin-qna").hide();
         $(".admin-content-manage").show();
         $(".userManage").hide();
@@ -228,7 +228,7 @@ $(document).ready(function(){
     
     $(".admin-user-manager").click(function(){
         // 사용자 관리 버튼 클릭 시
-        $(".admin-notice").hide();
+//         $(".admin-notice").hide();
         $(".admin-qna").hide();
         $(".admin-content-manage").hide();
         $(".userManage").show();

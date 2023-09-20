@@ -6,7 +6,7 @@
 }
 
 .categoryTop{
-	padding-top: 150px;
+	padding-top: 80px;
 	text-align: center;
   
 }
@@ -17,12 +17,36 @@
 	font-size: xx-large;
 }
 
+
+/* 기간검색에 쓰이는 부분 */
+.contentSearchBox{
+	margin-top: 2rem;
+	margin-right: 7rem;
+}
+
+.contentSearchBox-wrap{
+	display: flex;
+	justify-content:flex-end;
+	font-size: larger;
+}
+
+.contentSearchBtn{
+	margin-left: 1rem;
+}
+
+#search-startDate, #search-endDate{
+	width:130px;
+	height: 30px;
+	font-size: 17px;
+}
+
+
 .no-data-message {
-        text-align: center;
-        padding: 20px;
-        font-size: 18rem;
-        color: #FEBC38;
-    }
+    text-align: center;
+    padding: 20px;
+    font-size: 18rem;
+    color: #FEBC38;
+}
 
 
 .no-message{
@@ -103,7 +127,7 @@ a.likeBtn{
     top: 96%;
     left: 1%;
     z-index: 999991;
-    } 
+} 
 
 .likeBtn:focus-visible {
 	outline-style: auto;
