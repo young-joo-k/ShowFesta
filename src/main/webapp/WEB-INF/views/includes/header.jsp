@@ -27,14 +27,21 @@
 <body>
 	<div class="header">
 		<div class="header_content">
-							<ul class="memberInfo_wrap">
-					<li style="display: ${not empty user ? 'inline' : 'none'}"><a href="../join/logout"> <img
+						
+			<div class="contents">
+				
+				<h1 onclick>
+					<a href="/">ShowFesta</a>
+				</h1>
+				<ul class="memberInfo_wrap">
+					<li id="first-member" style="display: ${not empty user ? 'inline' : 'none'}"><a href="../join/logout"> <img
 							src="https://img.cgv.co.kr/R2014/images/common/ico/loginPassword.png"
 							alt="로그아웃"> <span style="display: ${not empty user ? 'inline' : 'none'}">로그아웃</span>
 					</a></li>
-					<li style="display: ${empty user ? 'inline' : 'none'}"><a href="../join/login"> <img
+					<li id="second-member" style="display: ${empty user ? 'inline' : 'none'}"><a href="../join/login"> <img
 							src="https://img.cgv.co.kr/R2014/images/common/ico/loginPassword.png"
 							alt="로그인"> <span style="display: ${empty user ? 'inline' : 'none'}">로그인</span>
+							</a></li>
 					<li style="display: ${empty user ? 'inline' : 'none'}"><a href="../join/register"> <img
 							src="https://img.cgv.co.kr/R2014/images/common/ico/loginJoin.png"			
 							alt="회원가입"> <span style="display: ${empty user ? 'inline' : 'none'}">회원가입</span>		
@@ -44,10 +51,7 @@
 							alt="MY PAGE"> <span >마이페이지</span>
 					</a></li>
 				</ul>
-			<div class="contents">
-				<h1 onclick>
-					<a href="/">ShowFesta</a>
-				</h1>
+			
 
 			</div>
 		</div>
@@ -69,9 +73,9 @@
 							<li><a href="/page/festivalContents">페스티벌</a></li>
 						</ul>
 					</li>
-					<li>
+					<li id="calendarCss">
 						<h2>
-							<a href="/page/calendar">캘린더</a>
+							<a href="/page/calendar" >캘린더</a>
 						</h2>
 					</li>
 					<li>

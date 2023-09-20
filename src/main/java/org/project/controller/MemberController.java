@@ -12,6 +12,7 @@ import org.project.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -56,22 +57,27 @@ public class MemberController {
 	        // 이전 페이지의 URL을 가져옴
 	        String prevPage = (String) session.getAttribute("prevPage");
 	        System.out.println(prevPage);
-	        if (prevPage != "undefined") {
+	        if (prevPage != null&&prevPage != "undefined") {
 	            // 이전 페이지로 리다이렉션
 //	            만약 마이페이지에서 로그인하면 마이페이지로 갈거야
 	            session.removeAttribute("prevPage");
 	            log.info(prevPage);
-	            if(prevPage.equals("http://localhost:8080/page/myPage"))
+	            if(prevPage != null && prevPage.equals("http://localhost:8080/page/myPage"))
 	            {
 	            	log.info("이전페이지가 마이페이지일때");
 	            	return "redirect:/page/myPage";
 	            }
 	            //마이페이지가 아니면 이전페이지로 갈거야
-	            else if(prevPage.equals("http://localhost:8080/join/register") || prevPage.contains("/login")){
+	            else if(prevPage != null&& (prevPage.equals("http://localhost:8080/join/register") || prevPage.contains("/login"))){
 	            	log.info("이전페이지가 회원가입일때랑 login이라는 단어를 포함할때");
 	            	return "redirect:/page/main";
 	            }
-	            log.info("널이 아니고 마이페이지,회원가입,로그인페이지가 아닐때");
+	            else if(prevPage != null && (prevPage.equals("http://localhost:8080/page/user_qna")))
+	            {
+	            	log.info("1:1문의에서 로그인을 했을때 qna_register로 갈 수 있게");
+	            	return "redirect:/page/qna_register";
+	            }
+	            log.info("널이 아니고 마이페이지,회원가입,로그인페이지,1:1문의가 아닐때");
 	            return "redirect:" + prevPage;
 	        } else {
 	        	log.info(prevPage);
@@ -190,23 +196,10 @@ public class MemberController {
 		// redirect login
 		return "redirect:/join/login";
 	}
-	
 
-	//관리자 페이지에서 사용자 삭제
-	@PostMapping("/deleteUsers")
-	  public String deleteUsers(@RequestParam("selectedUsers") String[] selectedUsers, HttpServletRequest request) {
-	    if (selectedUsers != null && selectedUsers.length > 0) {
-	      for (String userId : selectedUsers) {
-	        // 각 사용자를 삭제하는 로직을 호출 (UserService를 통해)
-	    	  
-	    	  System.out.println(userId);
-	        service.deleteUserById(userId);
-	      }
-	    }
-
-	    // 삭제 후 관리자 페이지로 리디렉션
-	    return "redirect:/page/adminPage";
-	  }
-	
 }
+
+	
+
+
 

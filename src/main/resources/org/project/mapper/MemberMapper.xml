@@ -45,17 +45,15 @@
 	    UPDATE tbl_user
 	    SET pw=#{pw, jdbcType=VARCHAR}, phone=#{phone, jdbcType=VARCHAR}, email=#{email, jdbcType=VARCHAR}
 	    WHERE id=#{id, jdbcType=VARCHAR}
-	</update>
+	</update> 
 
-<!-- 	관리자 페이지에서 사용합니다. -->
+<!-- 관리자 페이지에서 사용합니다. -->
 	<select id = "getAllUser" resultType="org.project.domain.MemberVO">
 		select * from tbl_user
 	</select>
 	
-	<delete id = "deleteUser" >
-		delete from tbl_user where id = #{id, jdbcType=VARCHAR}
+	<delete id = "deleteUser" parameterType="map">
+		delete from tbl_user where id=#{id}
 	</delete>
-	
-	
 
 </mapper>

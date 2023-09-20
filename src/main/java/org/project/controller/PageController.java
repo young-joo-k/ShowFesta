@@ -23,6 +23,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -56,14 +58,12 @@ public class PageController {
 		log.info("calendar Get");
 		Calendar cal = Calendar.getInstance();
 		DateData calendarData;
-
-		// 검색 날짜
+	      // 검색 날짜
 		if (dateData.getDate().equals("") && dateData.getMonth().equals("")) {
 			dateData = new DateData(String.valueOf(cal.get(Calendar.YEAR)), String.valueOf(cal.get(Calendar.MONTH)),
 					String.valueOf(cal.get(Calendar.DATE)), null);
 		}
-		// 검색 날짜 end
-
+	      // 검색 날짜 end
 		Map<String, Integer> today_info = dateData.today_info(dateData);
 		List<DateData> dateList = new ArrayList<DateData>();
 
@@ -74,6 +74,7 @@ public class PageController {
 			dateList.add(calendarData);
 		}
 		int s_index = today_info.get("start") - 1;
+
 		// 날짜 삽입
 		for (int i = today_info.get("startDay"); i <= today_info.get("endDay"); i++) {
 			if (i == today_info.get("today")) {
@@ -108,6 +109,7 @@ public class PageController {
 		int index = 7 - dateList.size() % 7;
 		int l_index = dateList.size();
 		List<DateData> modalList = dateList.subList(s_index, l_index);
+//	      log.info(modalList.get(0).getM_all_contents());
 //	      System.out.println(dateList.get(s_index));
 //	      System.out.println(modalList.get(0));
 		if (dateList.size() % 7 != 0) {
@@ -121,23 +123,22 @@ public class PageController {
 //	      int festivalCnt = scheduleservice.getFestival();
 
 		// 모달창에 띄우기 위해서 필요한 코드 입니다.
-		List<ContentsVO> today_m_contents = contentsservice.getToday_m_contents();
-		List<ContentsVO> today_c_contents = contentsservice.getToday_c_contents();
-		List<ContentsVO> today_f_contents = contentsservice.getToday_f_contents();
+//	      List<ContentsVO> today_m_contents = contentsservice.getToday_m_contents();
+//	      List<ContentsVO> today_c_contents = contentsservice.getToday_c_contents();
+//	      List<ContentsVO> today_f_contents = contentsservice.getToday_f_contents();
 
 		// 배열에 담음
 //	      model.addAttribute("musicalCnt", musicalCnt);
 //	      model.addAttribute("concertCnt", concertCnt);
 //	      model.addAttribute("festivalCnt", festivalCnt);
 		model.addAttribute("DateList", dateList); // 날짜 데이터 배열
-		// 날짜-1의 인덱스에 있는걸 가지고 오면 어떨까라는 생각을 해봐
 		model.addAttribute("ModalList", modalList);
 		model.addAttribute("today_info", today_info);
 //	      System.out.println(dateList.get(5));
 		// 여기 모델도 모달창에 띄우려고 쓰는거입니다
-		model.addAttribute("today_m_contents", today_m_contents);
-		model.addAttribute("today_c_contents", today_c_contents);
-		model.addAttribute("today_f_contents", today_f_contents);
+//	      model.addAttribute("today_m_contents", today_m_contents);
+//	      model.addAttribute("today_c_contents", today_c_contents);
+//	      model.addAttribute("today_f_contents", today_f_contents);
 		return "/page/calendar";
 	}
 
@@ -303,8 +304,26 @@ public class PageController {
 
 	// 뮤지컬 유형별페이지 가져옵니다
 	@GetMapping("/mContents")
-	public void musicalContent(Model model) {
+	public void musicalContent(HttpSession session, Model model) {
 		log.info("musical contents get");
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			// 유저 정보 가져와서
+			MemberVO membervo = memberservice.getUserInfo(id);
+			// 모델에 뿌려주고
+			model.addAttribute("user", membervo);
+			// 즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
+			List<LikeVO> likeList = likeservice.getLike(membervo.getId());
+			log.info(likeList);
+			// 즐겨찾기한 애들 이름만 담을 리스트
+			List<String> nameList = new ArrayList<String>();
+			for (LikeVO list : likeList) {
+				String name = list.getLike_name();
+				nameList.add(name);
+			}
+//			System.out.println(nameList);
+			model.addAttribute("likeList", nameList);
+		}
 
 		List<ContentsVO> musicalList = contentsservice.getMusicalContents();
 
@@ -315,6 +334,7 @@ public class PageController {
 
 			model.addAttribute("musicalContents", musicalList);
 		}
+		
 		model.addAttribute("musicalContents", musicalList);
 	}
 
@@ -379,14 +399,15 @@ public class PageController {
 		if ("admin".equals(id)) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 //			rttr.addF("manager", membervo);
-			rttr.addFlashAttribute("manager", membervo);
-			// 사용자정보를 다 가지고 넘어갈거야
+			model.addAttribute("manager", membervo);
+			// 사용자정보를 다 가지고 마이페이지로 넘어갑니다.
 			List<MemberVO> memberAll = memberservice.getAllUser();
 //			model.addAttribute("allUser", memberAll);
 
-			rttr.addFlashAttribute("allUser", memberAll);
-			log.info("회원정보 전달 되나요");
-			return "redirect:/page/adminPage";
+			model.addAttribute("allUser", memberAll);
+			log.info("회원정보 전달");
+			log.info("너는 관리자니까 관리자 화면으로 가");
+			return "/page/adminPage";
 
 		} else if (id == null) {
 
@@ -441,13 +462,44 @@ public class PageController {
 	}
 
 	@GetMapping("/adminPage")
-	public void adminPage(Model model, HttpSession session) {
-		String id = (String) session.getAttribute("id");
-		if (id != null) {
-			MemberVO membervo = memberservice.getUserInfo(id);
-			model.addAttribute("user", membervo);
-		}
-
+	public String adminPage(Model model, HttpSession session) {
+	    String id = (String) session.getAttribute("id");
+	    if (id != null) {
+	        MemberVO membervo = memberservice.getUserInfo(id);
+	        model.addAttribute("user", membervo);
+	    }
+	    else {
+	    	return "redirect:/page/main";
+	    }
+	    return "/page/adminPage"; // 수정된 부분: 뷰 이름을 반환
 	}
 
+
+	
+
+	
+	@PostMapping("/deleteUsers")
+	public String deleteUsers(@RequestParam(value = "selectedUsers", required = false) String[] selectedUsers, HttpServletRequest request) {
+	    log.info("deleteUsers Post");
+	    log.info(selectedUsers);
+	    if (selectedUsers != null && selectedUsers.length > 0) {
+	        log.info("selectedUsers 배열의 길이: " + selectedUsers.length); // 배열의 길이 출력
+	        for (String userId : selectedUsers) {
+	            log.info("선택된 사용자 ID: " + userId); // 각 사용자 ID 출력
+	        
+	            try {
+	                memberservice.deleteUserById(userId);
+	            } catch (Exception e) {
+	                log.error("사용자 삭제 중 오류 발생: " + e.getMessage(), e); // 예외 정보 로그로 출력
+	            }
+	        }
+	    } else {
+	    	log.info("선택된 사용자가 없습니다.");
+	    }
+	    
+	    // 삭제 후 관리자 페이지로 리디렉션
+	    return "redirect:/page/myPage"; 
+	}
 }
+
+

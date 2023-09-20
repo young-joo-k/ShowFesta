@@ -30,14 +30,13 @@ body {
 }
 
 .header .contents {
-	width: 1200px;
+	width: 1400px;
 	margin: 0 auto;
 }
 
 .header_content {
 	position:relative;
 	margin-bottom: 50px;
-	border-bottom: 1px solid #eee;
 	z-index: 1;
 
 }
@@ -46,16 +45,19 @@ body {
 
 .header_content .contents {
 	display: flex;
-	justify-content: space-between;
-	padding: 30px 6px 25px 5px;
+	padding: 0px 6px 25px 5px;
+	margin-top:50px;
 }
 
 .header_content .contents h1 {
 	display: inline-flex;
 	align-items: flex-end;
 	height: 53px;
+	margin-left: 550px;
 }
-
+.memberInfo_wrap {
+	display:flex;
+}
 .header_content .contents h1 a {
 	display: block;
 	float: left;
@@ -63,35 +65,51 @@ body {
 	font-size: 55px;
 	    font-family: 'Fjalla One', sans-serif;
     letter-spacing: 3px;
-        text-shadow: 4px 0 0 black;
+        text-shadow: 2px 0 0 black;
 }
 
-.header_content .contents .memberInfo_wrap {
+.memberInfo_wrap {
 	display: flex;
 	align-items: center;
-	    margin-top: 22px;
     margin-right: 16px;
+        float: right;
+    margin-right: 0px;
+    margin-top: 70px;
+        margin-bottom: 0px;
+        margin-left: 340px;
+        
 }
 
-.header_content .contents .memberInfo_wrap li {
+.memberInfo_wrap li {
+	margin-left: 44px;
+	margin-top: 2px;
+	
+}
+#first-member{
+	margin-left: 0px;
+}
+#second-member{
+	margin-left: 0px;
+}
+.memberInfo_wrap li {
 	margin-left: 44px;
 	margin-top: 2px;
 	
 }
 
-.header_content .contents .memberInfo_wrap li a {
+.memberInfo_wrap li a {
 	display: block;
 	position: relative;
 	padding-bottom: 19px;
 }
 
 
-.header_content .contents .memberInfo_wrap li a img {
+.memberInfo_wrap li a img {
 	width: 36px;
 	height: 36px;
 }
 
-.header_content .contents .memberInfo_wrap li a span {
+.memberInfo_wrap li a span {
 	position: absolute;
 	bottom: 0;
 	left: 50%;
@@ -107,7 +125,6 @@ body {
 	left: 0;
 	top: 113px;
 	width: 100%;
-	padding: 5px 0;
 	border-radius:5px;
 	
 }
@@ -116,19 +133,21 @@ body {
 	position: relative;
 	
 }
-
+#calendarCss{
+	width:80px;
+}
 .nav_menu {
 	display: inline-flex;
 	padding-inline-start: 0px;
+	margin-top: 35px;
 }
 
 .nav_menu>li:first-child {
-	width: 80px;
+	width: 60px;
 }
 
 .nav_menu>li {
-	width: 132px;
-	padding: 20px 0;
+	width: 112px;
 	
 	
 }
@@ -137,8 +156,7 @@ body {
 	display: inline-flex;
 	position: absolute;
 	right: 0;
-	top: 45px;
-	padding: 0 36px 0 10px;
+	padding: 25px 36px 0 10px;
 }
 
 .totalSearch_wrap label {
@@ -156,13 +174,14 @@ body {
 	border-radius: 10px;
 	outline-color: #fc7110;
 	border: 2px solid #e5e5e5;
+	margin-top : 20px;
 }
 
 .totalSearch_wrap .btn_totalSearch {
 	display: block;
 	position: absolute;
 	right: 0px;
-	top: 7px;
+	top: 28px;
 	width: 26px;
 	height: 26px;
 	font-size: 0;
@@ -171,6 +190,7 @@ body {
 		no-repeat;
 	border: 0 none;
 	cursor: pointer;
+	margin-top : 20px;
 }
 
 dl, ul, ol, menu, li {

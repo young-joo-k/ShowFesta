@@ -125,6 +125,7 @@
 			    togglelikeBtn(likeBtn);
 		    }
 		});
+		
 		function checkUser(check){
 			return check.attr("data-empty-user");
 		}
