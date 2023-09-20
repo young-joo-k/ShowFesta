@@ -189,7 +189,7 @@ pageEncoding="UTF-8"%>
 
 
 
-<%@include file="../includes/footer.jsp"%>
+<%-- <%@include file="../includes/footer.jsp"%> --%>
 
 </body>
 
