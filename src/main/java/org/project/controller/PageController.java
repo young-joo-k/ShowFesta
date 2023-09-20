@@ -23,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -398,14 +399,15 @@ public class PageController {
 		if ("admin".equals(id)) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 //			rttr.addF("manager", membervo);
-			rttr.addFlashAttribute("manager", membervo);
+			model.addAttribute("manager", membervo);
 			// 사용자정보를 다 가지고 마이페이지로 넘어갑니다.
 			List<MemberVO> memberAll = memberservice.getAllUser();
 //			model.addAttribute("allUser", memberAll);
 
-			rttr.addFlashAttribute("allUser", memberAll);
+			model.addAttribute("allUser", memberAll);
 			log.info("회원정보 전달");
-			return "redirect:/page/adminPage";
+			log.info("너는 관리자니까 관리자 화면으로 가");
+			return "/page/adminPage";
 
 		} else if (id == null) {
 
@@ -466,6 +468,9 @@ public class PageController {
 	        MemberVO membervo = memberservice.getUserInfo(id);
 	        model.addAttribute("user", membervo);
 	    }
+	    else {
+	    	return "redirect:/page/main";
+	    }
 	    return "/page/adminPage"; // 수정된 부분: 뷰 이름을 반환
 	}
 
@@ -493,7 +498,7 @@ public class PageController {
 	    }
 	    
 	    // 삭제 후 관리자 페이지로 리디렉션
-	    return "redirect:/page/adminPage"; 
+	    return "redirect:/page/myPage"; 
 	}
 }
 
