@@ -60,17 +60,23 @@ body {
 	display: block;
 	float: left;
 	height: 100%;
-	font-size: 45px;
+	font-size: 55px;
+	    font-family: 'Fjalla One', sans-serif;
+    letter-spacing: 3px;
+        text-shadow: 4px 0 0 black;
 }
 
 .header_content .contents .memberInfo_wrap {
 	display: flex;
 	align-items: center;
+	    margin-top: 22px;
+    margin-right: 16px;
 }
 
 .header_content .contents .memberInfo_wrap li {
 	margin-left: 44px;
 	margin-top: 2px;
+	
 }
 
 .header_content .contents .memberInfo_wrap li a {

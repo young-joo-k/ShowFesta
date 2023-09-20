@@ -3,6 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=IBM+Plex+Sans+KR&family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 <link href="/resources/css/header.css?after" rel="stylesheet">
 <link href="/resources/css/style.css?after" rel="stylesheet">
 <link href="/resources/css/main.css?after" rel="stylesheet">
@@ -16,16 +19,15 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
 	rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Gamja+Flower&family=IBM+Plex+Sans+KR&family=Noto+Sans+KR:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <!-- ======= Header ======= -->
 <body>
 	<div class="header">
 		<div class="header_content">
-			<div class="contents">
-				<h1 onclick>
-					<a href="/"> ShowFesta </a>
-				</h1>
-				<ul class="memberInfo_wrap">
+							<ul class="memberInfo_wrap">
 					<li style="display: ${not empty user ? 'inline' : 'none'}"><a href="../join/logout"> <img
 							src="https://img.cgv.co.kr/R2014/images/common/ico/loginPassword.png"
 							alt="로그아웃"> <span style="display: ${not empty user ? 'inline' : 'none'}">로그아웃</span>
@@ -42,6 +44,11 @@
 							alt="MY PAGE"> <span >마이페이지</span>
 					</a></li>
 				</ul>
+			<div class="contents">
+				<h1 onclick>
+					<a href="/">ShowFesta</a>
+				</h1>
+
 			</div>
 		</div>
 		<div class="nav">

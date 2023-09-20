@@ -125,7 +125,7 @@ box-shadow: 5px 5px 5px #000;
 	position: relative;
 }
 
-.middle-section::after {
+/* .middle-section::after {
 	position: absolute;
 	content: "";
 	background-image: url('../img/bomb9.png');
@@ -137,7 +137,7 @@ box-shadow: 5px 5px 5px #000;
 	left: 0px;
 	right: 0px;
 	bottom: 0px;
-}
+} */
 
 .main01-nav button[class^=btn] {
 	display: table-cell;

@@ -10,7 +10,7 @@
 	letter-spaceing: -1px;
 	position:relative;
 }
-.clear_g::after{
+/* .clear_g::after{
 		position:absolute;
 	content:"";
 		background-image: url('../img/bomb8.png');
@@ -22,7 +22,7 @@
         left: 0px;
         right: 0px;
         bottom: 0px;
-}
+} */
 
 .wrap_main_slider {
 	display: block;

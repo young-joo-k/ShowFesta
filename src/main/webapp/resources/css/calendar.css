@@ -206,18 +206,18 @@ a.before_after_month{
   margin: 10px;
   font-weight: bold;
   font-size: larger;
-  color: #EFEFEF;
+  color: black;
 }
 
 a.before_after_year{
   font-weight: bold;
   font-weight: bold;
   font-size: larger;
-  color: #EFEFEF;
+  color: black;
 }
 .this_month{
   margin: 10px;
-  color : #EFEFEF;
+  color : black;
   font-size: larger;
 }
 
@@ -339,7 +339,6 @@ button.modal-close-btn {
 }
 
 form#calendarFrm {
-    padding-top: 5px;
     position: relative;
     z-index: 100;
 }

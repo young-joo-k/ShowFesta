@@ -184,7 +184,7 @@ table {
 .cs-table-02 th {
     text-align: center;
     font-size: 15px;
-    color: #a5a5a5;
+    color: black;
     padding: 15px 0;
 }
 
@@ -199,7 +199,7 @@ table {
 .noti-date, .noti-type {
     text-align: center;
     font-size: 14px;
-    color: #a5a5a5;
+    color: #black;
 }
 
 .cs-table-02 tbody a, .noti-detail-title {
