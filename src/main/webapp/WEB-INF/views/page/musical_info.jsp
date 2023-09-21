@@ -30,7 +30,7 @@
 											data-num = "${musical.m_num }"
 											<c:if test="${empty user}">
 										        data-empty-user="true"				
-										    </c:if>></a>
+										    </c:if>>&nbsp;&nbsp;&nbsp;좋아요</a>
 									</div>
 									<div>
 										<ul class="info">
