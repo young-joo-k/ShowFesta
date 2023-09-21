@@ -44,12 +44,7 @@
 	padding-top: 5rem;
 /* 	화면에 맞춰서 크기 조절됨 */
 	display: flex;
-<<<<<<< HEAD
 	flex-wrap: wrap;
->>>>>>> 5ac11a99f1707e1970f18ccb96f56f4dd605b9e5
-=======
-	flex-wrap: wrap; 
->>>>>>> a1037d4fbf8154e6497295d756156275f8d41467
 }
 
 .contents-list {
@@ -79,15 +74,11 @@ float: left;
 /*   position: absolute; */
 /*   width: 100%; */
 /*   height: 100%; */
-<<<<<<< HEAD
+
   width: 180px;
   height: 250px;
-=======
-  width: 18.75rem;
-  height: 25rem;
-  margin: 0.625rem;
 
->>>>>>> 7c43da4f85cf2f0332dbdf432e3e3f0ca0c01b16
+
 }
 .list-txt{
 	color: #595959;
