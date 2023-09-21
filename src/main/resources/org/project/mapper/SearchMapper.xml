@@ -16,9 +16,9 @@
     </select>
     
     <select id="searchFestivals" parameterType="string" resultType="org.project.domain.SearchVO">
-        SELECT m_title
-        FROM tbl_festival
-        WHERE m_title LIKE '%'||#{keyword}||'%'
+        SELECT contentid as m_num, f_title as m_title, f_link as m_b_link, f_img as m_img
+        FROM tbl_festa
+        WHERE f_title LIKE '%'||#{keyword}||'%'
     </select>
     
     <select id="searchActors" parameterType="string" resultType="org.project.domain.SearchVO">

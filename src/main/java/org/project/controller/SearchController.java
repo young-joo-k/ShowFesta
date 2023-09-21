@@ -21,7 +21,7 @@ import lombok.extern.log4j.Log4j;
 public class SearchController {
 
     @Autowired
-    private SearchService searchService; // SearchService¸¦ ÁÖÀÔÇÏ¼¼¿ä.
+    private SearchService searchService; // SearchServiceï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½.
 
     @GetMapping("/search")
     public String search(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
@@ -36,7 +36,7 @@ public class SearchController {
             model.addAttribute("concertSearchResults", concertSearchResults);
             log.info("Get");
         }
-        return "page/search"; // °Ë»ö °á°ú¸¦ º¸¿©ÁÙ ºä ÀÌ¸§ (search.jsp ¶Ç´Â ´Ù¸¥ ÀÌ¸§)
+        return "page/search"; // ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì¸ï¿½ (search.jsp ï¿½Ç´ï¿½ ï¿½Ù¸ï¿½ ï¿½Ì¸ï¿½)
     }
     @GetMapping("/searchResult_musical")
     public String searchMusical(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
@@ -45,7 +45,7 @@ public class SearchController {
     		model.addAttribute("musicalSearchResults", musicalSearchResults);
     		log.info("Get");
     	}
-    	return "page/searchResult_musical"; // °Ë»ö °á°ú¸¦ º¸¿©ÁÙ ºä ÀÌ¸§ (search.jsp ¶Ç´Â ´Ù¸¥ ÀÌ¸§)
+    	return "page/searchResult_musical"; // ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì¸ï¿½ (search.jsp ï¿½Ç´ï¿½ ï¿½Ù¸ï¿½ ï¿½Ì¸ï¿½)
     }
     @GetMapping("/searchResult_concert")
     public String searchConcert(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
@@ -54,16 +54,18 @@ public class SearchController {
     		model.addAttribute("concertSearchResults", concertSearchResults);
     		log.info("Get");
     	}
-    	return "page/searchResult_concert"; // °Ë»ö °á°ú¸¦ º¸¿©ÁÙ ºä ÀÌ¸§ (search.jsp ¶Ç´Â ´Ù¸¥ ÀÌ¸§)
+    	return "page/searchResult_concert"; // ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì¸ï¿½ (search.jsp ï¿½Ç´ï¿½ ï¿½Ù¸ï¿½ ï¿½Ì¸ï¿½)
     }
     @GetMapping("/searchResult_festival")
     public String searchFestival(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
     	if (keyword != null && !keyword.isEmpty()) {
     		List<SearchVO> festivalSearchResults = searchService.festivalsearch(keyword);
     		model.addAttribute("festivalSearchResults", festivalSearchResults);
+    		int fsList = festivalSearchResults.size();
+    		model.addAttribute("length",fsList);
     		log.info("Get");
     	}
-    	return "page/searchResult_festival"; // °Ë»ö °á°ú¸¦ º¸¿©ÁÙ ºä ÀÌ¸§ (search.jsp ¶Ç´Â ´Ù¸¥ ÀÌ¸§)
+    	return "page/searchResult_festival"; // ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì¸ï¿½ (search.jsp ï¿½Ç´ï¿½ ï¿½Ù¸ï¿½ ï¿½Ì¸ï¿½)
     }
     @GetMapping("/searchResult_actor")
     public String searchActor(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
@@ -72,6 +74,6 @@ public class SearchController {
     		model.addAttribute("actorSearchResults", actorSearchResults);
     		log.info("Get");
     	}
-    	return "page/searchResult_actor"; // °Ë»ö °á°ú¸¦ º¸¿©ÁÙ ºä ÀÌ¸§ (search.jsp ¶Ç´Â ´Ù¸¥ ÀÌ¸§)
+    	return "page/searchResult_actor"; // ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì¸ï¿½ (search.jsp ï¿½Ç´ï¿½ ï¿½Ù¸ï¿½ ï¿½Ì¸ï¿½)
     }
 }

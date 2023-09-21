@@ -146,4 +146,18 @@ public class ContentsServiceImpl implements ContentsService {
             return null; 
         }
 	}
+
+	@Override
+	public List<FestaVO> getFestaContentSearchDate(String startDate, String endDate) {
+		try {
+            // startDate와 endDate를 사용하여 동적 쿼리 생성 및 실행
+            List<FestaVO> searchResult = contentsmapper.getFestaContentsByDate(startDate, endDate);
+            
+            return searchResult;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; 
+        }
+	}
+
 }

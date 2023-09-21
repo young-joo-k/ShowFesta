@@ -73,7 +73,7 @@
 						<ul class="category" style="display:none;">
 							<li><a href="/page/mContents">뮤지컬</a></li>
 							<li><a href="/page/concertContents">콘서트</a></li>
-							<li><a href="/page/festivalContents">페스티벌</a></li>
+							<li><a href="/page/festaContents">페스티벌</a></li>
 						</ul>
 					</li>
 					<li id="calendarCss">
