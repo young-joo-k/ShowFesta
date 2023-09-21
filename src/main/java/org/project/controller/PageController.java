@@ -56,7 +56,7 @@ public class PageController {
 	private InfoImgService infoimgservice;
 	@Autowired
 	private LikeService likeservice;
-	
+
 	@Autowired
 	private QnaService qnaservice;
 
@@ -65,12 +65,12 @@ public class PageController {
 		log.info("calendar Get");
 		Calendar cal = Calendar.getInstance();
 		DateData calendarData;
-	      // 검색 날짜
+		// 검색 날짜
 		if (dateData.getDate().equals("") && dateData.getMonth().equals("")) {
 			dateData = new DateData(String.valueOf(cal.get(Calendar.YEAR)), String.valueOf(cal.get(Calendar.MONTH)),
 					String.valueOf(cal.get(Calendar.DATE)), null);
 		}
-	      // 검색 날짜 end
+		// 검색 날짜 end
 		Map<String, Integer> today_info = dateData.today_info(dateData);
 		List<DateData> dateList = new ArrayList<DateData>();
 
@@ -330,7 +330,6 @@ public class PageController {
 
 		List<ContentsVO> musicalList = contentsservice.getMusicalContents();
 
-
 		if (musicalList == null || musicalList.isEmpty()) {
 
 			System.out.println(musicalList.get(0).getM_num());
@@ -338,7 +337,7 @@ public class PageController {
 
 			model.addAttribute("musicalContents", musicalList);
 		}
-		
+
 		model.addAttribute("musicalContents", musicalList);
 	}
 
@@ -398,12 +397,12 @@ public class PageController {
 			// 즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
 			List<LikeVO> likeInfo = likeservice.getLike(membervo.getId());
 			model.addAttribute("likeInfo", likeInfo);
-			
+
 			cri.setId(id);
 			log.info("list: " + cri);
 			model.addAttribute("list", qnaservice.getList(cri));
 //			model.addAttribute("pageMaker", new PageDTO(cri, 123));
-			
+
 			int total = qnaservice.qnaTotal(cri);
 			model.addAttribute("pageMaker", new PageDTO(cri, total));
 
@@ -428,7 +427,7 @@ public class PageController {
 
 		return "/page/myPage";
 	}
-	
+
 	// 회원정보수정페이지
 	@GetMapping("/memberUpdate")
 	public String memberCorrect(Model model, HttpSession session) {
@@ -446,67 +445,70 @@ public class PageController {
 
 	@GetMapping("/adminPage")
 	public String adminPage(Model model, HttpSession session) {
-	    String id = (String) session.getAttribute("id");
-	    if (id != null) {
-	        MemberVO membervo = memberservice.getUserInfo(id);
-	        model.addAttribute("user", membervo);
-	    }
-	    else {
-	    	return "redirect:/page/main";
-	    }
-	    return "/page/adminPage"; // 수정된 부분: 뷰 이름을 반환
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+		} else {
+			return "redirect:/page/main";
+		}
+		return "/page/adminPage"; // 수정된 부분: 뷰 이름을 반환
 	}
 
 	@PostMapping("/deleteUsers")
-	public String deleteUsers(@RequestParam(value = "selectedUsers", required = false) String[] selectedUsers, HttpServletRequest request) {
-	    log.info("deleteUsers Post");
-	    log.info(selectedUsers);
-	    if (selectedUsers != null && selectedUsers.length > 0) {
-	        log.info("selectedUsers 배열의 길이: " + selectedUsers.length); // 배열의 길이 출력
-	        for (String userId : selectedUsers) {
-	            log.info("선택된 사용자 ID: " + userId); // 각 사용자 ID 출력
-	        
-	            try {
-	                memberservice.deleteUserById(userId);
-	            } catch (Exception e) {
-	                log.error("사용자 삭제 중 오류 발생: " + e.getMessage(), e); // 예외 정보 로그로 출력
-	            }
-	        }
-	    } else {
-	    	log.info("선택된 사용자가 없습니다.");
-	    }
-	    
-	    // 삭제 후 관리자 페이지로 리디렉션
-	    return "redirect:/page/myPage"; 
+	public String deleteUsers(@RequestParam(value = "selectedUsers", required = false) String[] selectedUsers,
+			HttpServletRequest request) {
+		log.info("deleteUsers Post");
+		log.info(selectedUsers);
+		if (selectedUsers != null && selectedUsers.length > 0) {
+			log.info("selectedUsers 배열의 길이: " + selectedUsers.length); // 배열의 길이 출력
+			for (String userId : selectedUsers) {
+				log.info("선택된 사용자 ID: " + userId); // 각 사용자 ID 출력
+
+				try {
+					memberservice.deleteUserById(userId);
+				} catch (Exception e) {
+					log.error("사용자 삭제 중 오류 발생: " + e.getMessage(), e); // 예외 정보 로그로 출력
+				}
+			}
+		} else {
+			log.info("선택된 사용자가 없습니다.");
+		}
+
+		// 삭제 후 관리자 페이지로 리디렉션
+		return "redirect:/page/myPage";
 	}
-	
-	 @PostMapping("/musicalContentSearchDate")
-	    public String musicalContentSearchDate(@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, Model model) {
-	        // startDate와 endDate를 사용하여 mContents를 가져오는 로직을 작성
-		 
-		 try {
-	            if (startDate != null && endDate != null) {
-	            	log.info(startDate);
-	            	log.info(endDate);
-	                List<ContentsVO> searchResult = contentsservice.getMusicalContentsByDate(startDate, endDate);
-	                
-	                model.addAttribute("searchResult", searchResult);
-	                log.info(searchResult + "searchResult");
-	            } 
-	            return "/page/mContents"; 
-	            
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	            return null;
-	        }
-	 }
+
+	@PostMapping("/musicalContentSearchDate")
+	public String musicalContentSearchDate(@RequestParam("startDate") String startDate,
+			@RequestParam("endDate") String endDate, Model model) {
+		// startDate와 endDate를 사용하여 mContents를 가져오는 로직을 작성
+
+		try {
+			if (startDate != null && endDate != null) {
+				log.info(startDate);
+				log.info(endDate);
+				List<ContentsVO> searchResult = contentsservice.getMusicalContentsByDate(startDate, endDate);
+
+				model.addAttribute("searchResult", searchResult);
+				log.info(searchResult + "searchResult");
+			}
+			return "/page/mContents";
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 	// 페스티벌 유형별페이지 가져옵니다
 	@GetMapping("/festaContents")
 	public void festaContent(Model model) {
 		log.info("festa contents get");
 		try {
 			List<FestaVO> festaList = contentsservice.getFestaContents();
-
+			int length = festaList.size();
+			model.addAttribute("length", length);
 			model.addAttribute("festaContents", festaList);
 
 		} catch (IndexOutOfBoundsException e) {
@@ -515,51 +517,72 @@ public class PageController {
 		}
 
 	}
-	
-	 @PostMapping("/concertContentSearchDate")
-	    public String concertContentSearchDate(@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, Model model) {
-	        // startDate와 endDate를 사용하여 mContents를 가져오는 로직을 작성
-		 
-		 try {
-	            if (startDate != null && endDate != null) {
-	            	log.info(startDate);
-	            	log.info(endDate);
-	                List<ContentsVO> searchResult = contentsservice.getConcertContentsByDate(startDate, endDate);
-	                
-	                model.addAttribute("searchResult", searchResult);
-	                log.info(searchResult + "searchResult");
-	            } 
-	            return "/page/concertContents"; 
-	            
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	            return null;
-	        }
-	 }
-	 
-	 @PostMapping("/festivalContentSearchDate")
-	    public String festivalContentSearchDate(@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, Model model) {
-	        // startDate와 endDate를 사용하여 mContents를 가져오는 로직을 작성
-		 
-		 try {
-	            if (startDate != null && endDate != null) {
-	            	log.info(startDate);
-	            	log.info(endDate);
-	                List<ContentsVO> searchResult = contentsservice.getFestivalContentSearchDate(startDate, endDate);
-	                
-	                model.addAttribute("searchResult", searchResult);
-	                log.info(searchResult + "searchResult");
-	            } 
-	            return "/page/festivalContents"; 
-	            
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	            return null;
-	        }
-	 }
-	
-	
-	
+
+	@PostMapping("/concertContentSearchDate")
+	public String concertContentSearchDate(@RequestParam("startDate") String startDate,
+			@RequestParam("endDate") String endDate, Model model) {
+		// startDate와 endDate를 사용하여 mContents를 가져오는 로직을 작성
+
+		try {
+			if (startDate != null && endDate != null) {
+				log.info(startDate);
+				log.info(endDate);
+				List<ContentsVO> searchResult = contentsservice.getConcertContentsByDate(startDate, endDate);
+
+				model.addAttribute("searchResult", searchResult);
+				log.info(searchResult + "searchResult");
+			}
+			return "/page/concertContents";
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@PostMapping("/festivalContentSearchDate")
+	public String festivalContentSearchDate(@RequestParam("startDate") String startDate,
+			@RequestParam("endDate") String endDate, Model model) {
+		// startDate와 endDate를 사용하여 mContents를 가져오는 로직을 작성
+
+		try {
+			if (startDate != null && endDate != null) {
+				log.info(startDate);
+				log.info(endDate);
+				List<ContentsVO> searchResult = contentsservice.getFestivalContentSearchDate(startDate, endDate);
+
+				model.addAttribute("searchResult", searchResult);
+				log.info(searchResult + "searchResult");
+			}
+			return "/page/festivalContents";
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@PostMapping("/festaContentSearchDate")
+	public String festaContentSearchDate(@RequestParam("startDate") String startDate,
+			@RequestParam("endDate") String endDate, Model model) {
+		// startDate와 endDate를 사용하여 mContents를 가져오는 로직을 작성
+
+		try {
+			if (startDate != null && endDate != null) {
+				log.info(startDate);
+				log.info(endDate);
+				List<FestaVO> searchResult = contentsservice.getFestaContentSearchDate(startDate, endDate);
+				int length2 = searchResult.size();
+				model.addAttribute("searchLength", length2);
+				model.addAttribute("searchResult", searchResult);
+				log.info(searchResult + "searchResult");
+			}
+			return "/page/festaContents";
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 }
-
-

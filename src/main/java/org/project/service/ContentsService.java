@@ -43,4 +43,7 @@ public interface ContentsService {
 
 	public List<ContentsVO> getFestivalContentSearchDate(String startDate, String endDate);
 
+	public List<FestaVO> getFestaContentSearchDate(String startDate, String endDate);
+
+
 }
