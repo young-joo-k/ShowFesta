@@ -414,36 +414,7 @@ public class PageController {
 
 		return "/page/myPage";
 	}
-//	@GetMapping("/myPage")
-//	public String myPage(Model model, HttpSession session ) {
-//		log.info("mypage get");
-////		아이디 정보
-//		String id = (String) session.getAttribute("id");
-//		if (id != null) {
-//			MemberVO membervo = memberservice.getUserInfo(id);
-//			model.addAttribute("user", membervo);
-//			//즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
-//			List<LikeVO> likeInfo = likeservice.getLike(membervo.getId());
-//			model.addAttribute("likeInfo",likeInfo);
-//			
-//		} if ("admin".equals(id)) {
-//			MemberVO membervo = memberservice.getUserInfo(id);
-//			model.addAttribute("manager", membervo);
-//			
-//			//사용자정보를 다 가지고 넘어갈거야 
-//			List<MemberVO> memberAll = memberservice.getAllUser();
-//			model.addAttribute("allUser", memberAll);
-//			log.info("회원정보 전달 되나요");
-//			return "redirect:/page/adminPage";
-//			
-//		} else if(id == null){
-//			
-//			return "/join/login";
-//		}
-//		
-//		return "/page/myPage";
-//	}
-
+	
 	// 회원정보수정페이지
 	@GetMapping("/memberUpdate")
 	public String memberCorrect(Model model, HttpSession session) {
@@ -495,8 +466,8 @@ public class PageController {
 	    return "redirect:/page/myPage"; 
 	}
 	
-	 @PostMapping("/contentSearchDate")
-	    public String contentSearchDate(@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, Model model) {
+	 @PostMapping("/musicalContentSearchDate")
+	    public String musicalContentSearchDate(@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, Model model) {
 	        // startDate와 endDate를 사용하여 mContents를 가져오는 로직을 작성
 		 
 		 try {
@@ -532,6 +503,51 @@ public class PageController {
 		}
 
 	}
+	
+	 @PostMapping("/concertContentSearchDate")
+	    public String concertContentSearchDate(@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, Model model) {
+	        // startDate와 endDate를 사용하여 mContents를 가져오는 로직을 작성
+		 
+		 try {
+	            if (startDate != null && endDate != null) {
+	            	log.info(startDate);
+	            	log.info(endDate);
+	                List<ContentsVO> searchResult = contentsservice.getConcertContentsByDate(startDate, endDate);
+	                
+	                model.addAttribute("searchResult", searchResult);
+	                log.info(searchResult + "searchResult");
+	            } 
+	            return "/page/mContents"; 
+	            
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            return null;
+	        }
+	 }
+	 
+	 @PostMapping("/festivalContentSearchDate")
+	    public String festivalContentSearchDate(@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, Model model) {
+	        // startDate와 endDate를 사용하여 mContents를 가져오는 로직을 작성
+		 
+		 try {
+	            if (startDate != null && endDate != null) {
+	            	log.info(startDate);
+	            	log.info(endDate);
+	                List<ContentsVO> searchResult = contentsservice.getFestivalContentSearchDate(startDate, endDate);
+	                
+	                model.addAttribute("searchResult", searchResult);
+	                log.info(searchResult + "searchResult");
+	            } 
+	            return "/page/mContents"; 
+	            
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            return null;
+	        }
+	 }
+	
+	
+	
 }
 
 
