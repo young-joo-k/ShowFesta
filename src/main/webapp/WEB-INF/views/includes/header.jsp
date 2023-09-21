@@ -81,7 +81,7 @@
 							<a href="/page/calendar" >캘린더</a>
 						</h2>
 					</li>
-					<li>
+					<li id="qnaCss">
 						<h2>
 							<a href="/page/notice_list">고객센터</a>
 						</h2>

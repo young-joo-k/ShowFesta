@@ -26,6 +26,9 @@
 	z-index: 30;
 		position: relative;
 		    background-color: white;
+		            border-radius: 18px;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    border-color:white
 }
 
 .member-layout {

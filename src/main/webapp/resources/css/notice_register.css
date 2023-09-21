@@ -19,11 +19,12 @@
     margin-bottom: 10px;
 }
 
-
+.qna_register{
+}
 .register-table {
-    border-top: 1px solid #2f2f2f;
-    border-bottom: 1px solid #2f2f2f;
     width: 100%;
+    justify-content: center;
+    display: flex;
 }
 
 .register-table th {
@@ -39,9 +40,9 @@
 }
 
 .register-table-wrap input[type="text"], .register-table-wrap input[type="tel"], .register-table-wrap select {
-    width: 435px;
+width: 435px;
     height: 46px;
-    border-radius: 6px;
+    border-radius: 18px;
     font-size: 16px;
     letter-spacing: -0.3px;
     color: black;
@@ -50,7 +51,10 @@
     margin: auto;
     background-color: white;
     border: 1px solid;
-    border-color: #959595;
+    border-color: white;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    margin-left: 20px;
 }
 
 .register-table-wrap textarea.register-table-textarea03 {
@@ -59,14 +63,17 @@
 }
 
 .register-table-wrap textarea {
-width: 715px;
-    border-radius: 6px;
+    width: 715px;
+    border-radius: 18px;
     background-color: white;
     border: 1px solid;
-    border-color: #959595;
+    border-color: white;
     color: black;
     padding: 12px 20px;
     font-size: 16px;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    margin-left:20px;
 }
 
 .register-btn-wrap {

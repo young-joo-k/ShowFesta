@@ -138,11 +138,18 @@ font-family: 'Jua', sans-serif !important;
 	width:80px;
 }
 .nav_menu {
-	display: inline-flex;
-	padding-inline-start: 0px;
-	margin-top: 35px;
+    display: inline-flex;
+    padding-inline-start: 0px;
+    margin-top: 64px;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    border-radius: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
-
+#qnaCss{
+	width:75px;
+}
 .nav_menu>li:first-child {
 	width: 60px;
 }
@@ -177,6 +184,9 @@ font-family: 'Jua', sans-serif !important;
 	border: 2px solid #e5e5e5;
 	margin-top : 20px;
 	font-family: 'Noto Sans KR', sans-serif;
+	box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    border-radius: 18px;
 }
 
 .totalSearch_wrap .btn_totalSearch {
@@ -200,11 +210,12 @@ dl, ul, ol, menu, li {
 }
 
   .dropdown ul {
+    border-radius: 8px;
     list-style-type: none;
     padding: 0;
     border: 1px white;
-    border-radius: 5px;
-        box-shadow: 6px 9px 15px #000;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
   }
 
   .dropdown ul li {
