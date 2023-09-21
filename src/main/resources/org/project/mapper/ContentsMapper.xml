@@ -123,6 +123,7 @@
  		]]>  -->
 	</select>
 	
+<!-- 	검색결과 표시해줄 부분 -->
 	<select id="getMusicalContentsByDate" resultType="org.project.domain.ContentsVO">
 	    <![CDATA[
 	       SELECT m_num, m_title, m_img,
@@ -134,6 +135,31 @@
 	        AND TO_DATE(#{arg1}, 'YYYY-MM-DD') <= m_end_date
 	    ]]>
 	</select>
+	
+	<select id="getConcertContentsByDate" resultType="org.project.domain.ContentsVO">
+	    <![CDATA[
+	       SELECT m_num, m_title, m_img,
+	               TO_CHAR(m_start_date, 'YYYY.MM.DD') AS m_start_date,
+	               TO_CHAR(m_end_date, 'YYYY.MM.DD') AS m_end_date,
+	               m_place
+	        FROM tbl_concert
+	        WHERE TO_DATE(#{arg0}, 'YYYY-MM-DD') >= m_start_date
+	        AND TO_DATE(#{arg1}, 'YYYY-MM-DD') <= m_end_date
+	    ]]>
+	</select>
+	
+	<select id="getFoestivalContentsByDate" resultType="org.project.domain.ContentsVO">
+	    <![CDATA[
+	       SELECT m_num, m_title, m_img,
+	               TO_CHAR(m_start_date, 'YYYY.MM.DD') AS m_start_date,
+	               TO_CHAR(m_end_date, 'YYYY.MM.DD') AS m_end_date,
+	               m_place
+	        FROM tbl_concert
+	        WHERE TO_DATE(#{arg0}, 'YYYY-MM-DD') >= m_start_date
+	        AND TO_DATE(#{arg1}, 'YYYY-MM-DD') <= m_end_date
+	    ]]>
+	</select>
+<!-- 	검색결과 보여주기 끝 -->
 	
 	<!--페스티벌 -->
 	<select id="getFestaContents" resultType = "org.project.domain.FestaVO">

@@ -110,7 +110,6 @@ public class ContentsServiceImpl implements ContentsService {
 	            return searchResult;
 	        } catch (Exception e) {
 	            e.printStackTrace();
-	            log.info(e +"여기나오냐");
 	            return null; 
 	    }
 
@@ -120,5 +119,31 @@ public class ContentsServiceImpl implements ContentsService {
 	@Override
 	public List<FestaVO> getFestaContents() {
 		return contentsmapper.getFestaContents();
+	}
+
+	@Override
+	public List<ContentsVO> getConcertContentsByDate(String startDate, String endDate) {
+		try {
+            // startDate와 endDate를 사용하여 동적 쿼리 생성 및 실행
+            List<ContentsVO> searchResult = contentsmapper.getConcertContentsByDate(startDate, endDate);
+            
+            return searchResult;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; 
+        }
+	}
+
+	@Override
+	public List<ContentsVO> getFestivalContentSearchDate(String startDate, String endDate) {
+		try {
+            // startDate와 endDate를 사용하여 동적 쿼리 생성 및 실행
+            List<ContentsVO> searchResult = contentsmapper.getFestivalContentSearchDate(startDate, endDate);
+            
+            return searchResult;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; 
+        }
 	}
 }
