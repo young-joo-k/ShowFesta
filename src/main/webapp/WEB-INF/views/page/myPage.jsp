@@ -106,7 +106,7 @@ pageEncoding="UTF-8"%>
 			<!-- 문의내용 있을 경우 들어갈 공간임 -->
 			<div class = "myPage-qna-list">
 				<div class = "myQna">
-					<h1>문의사항이 있으면 내용을 넣어 줄 예정입니다.</h1>
+<!-- 				게시판 내가 1:1 문의사항 남긴거 리스트 불러오기 						 -->
 			</div>
 		</div>
 		</div>
@@ -126,7 +126,7 @@ pageEncoding="UTF-8"%>
 
 <%-- <%@include file="../includes/footer.jsp"%> --%>
 
-</body>
+<!-- </body> -->
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
