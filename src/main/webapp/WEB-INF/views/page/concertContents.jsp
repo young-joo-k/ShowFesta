@@ -73,7 +73,7 @@ pageEncoding="UTF-8"%>
 	<!--all-contents-list 끝 -->
 	
 	<!-- 여기서부터 검색 결과를 표시할 부분 -->
-	<c:if test = "${empty musicalContents }">
+	<c:if test = "${empty concertContents }">
 		<div class="search-contents-list">
 		    <c:choose>
 		        <c:when test="${empty searchResult}">

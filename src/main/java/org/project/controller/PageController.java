@@ -517,7 +517,7 @@ public class PageController {
 	                model.addAttribute("searchResult", searchResult);
 	                log.info(searchResult + "searchResult");
 	            } 
-	            return "/page/mContents"; 
+	            return "/page/concertContents"; 
 	            
 	        } catch (Exception e) {
 	            e.printStackTrace();
@@ -538,7 +538,7 @@ public class PageController {
 	                model.addAttribute("searchResult", searchResult);
 	                log.info(searchResult + "searchResult");
 	            } 
-	            return "/page/mContents"; 
+	            return "/page/festivalContents"; 
 	            
 	        } catch (Exception e) {
 	            e.printStackTrace();
