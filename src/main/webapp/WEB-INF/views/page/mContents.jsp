@@ -11,23 +11,12 @@ pageEncoding="UTF-8"%>
 <!-- 어떤 유형인지 나타냄 -->
 <div class = categoryTop>
 	<p class = list-title>뮤지컬</p>
-								<c:set var="contentsName" value="${content.m_title}" />
-							<c:set var="list" value="${likeList }"/>
-							<a class="likeBtn ${fn:contains(list, contentsName) ? 'is-toggled' : ''}" data-toggle="self"
-								data-toast="like" aria-checked="false"
-								aria-label="즐겨찾기 등록" role="checkbox" href="#"
-								data-popup-hover="like" data-contents-name="${content.m_title } " data-type="musical"  
-								data-user-id="${user.id }" data-img="${content.m_img }"  
-								data-num = "${content.m_num }"
-								<c:if test="${empty user}">
-							        data-empty-user="true"				
-							    </c:if>></a>
 </div>
 
 <!-- 날짜 선택할 수 있는 곳 -->
 <div class="contentSearchBox">
 	<div class = "contentSearchBox-wrap">
-		<form action="/page/musicalcontentSearchDate" method="post">
+		<form action="/page/musicalContentSearchDate" method="post">
 		  <label for="startDate">시작일
 		    <input type="date" id="startDate" name = "startDate" max="2026-12-31" min="2023-01-01" required>
 		  </label>&nbsp;&nbsp;
@@ -119,7 +108,6 @@ pageEncoding="UTF-8"%>
 		        </c:otherwise>
 		    </c:choose>
 		</div>
-	
 	<div class="clear"></div>
 	<!-- 검색 결과 표시 부분 끝 -->
 	</c:if>
