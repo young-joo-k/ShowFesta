@@ -25,6 +25,7 @@
 	margin: 120px auto;
 	z-index: 30;
 		position: relative;
+		    background-color: white;
 }
 
 .member-layout {

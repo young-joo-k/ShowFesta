@@ -42,9 +42,14 @@
 
 .search-contents-list{
 	padding-top: 5rem;
+/* 	화면에 맞춰서 크기 조절됨 */
 	display: flex;
+<<<<<<< HEAD
 	flex-wrap: wrap;
 >>>>>>> 5ac11a99f1707e1970f18ccb96f56f4dd605b9e5
+=======
+	flex-wrap: wrap; 
+>>>>>>> a1037d4fbf8154e6497295d756156275f8d41467
 }
 
 .contents-list {
