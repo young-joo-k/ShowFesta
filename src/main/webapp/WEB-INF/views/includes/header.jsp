@@ -5,6 +5,9 @@
 <html lang="ko">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Arvo:wght@700&family=Black+Han+Sans&family=Concert+One&family=EB+Garamond:wght@800&family=Fugaz+One&family=Josefin+Sans:wght@700&family=Jua&family=Kanit:wght@500&family=Lilita+One&family=Paytone+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=IBM+Plex+Sans+KR&family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 <link href="/resources/css/header.css?after" rel="stylesheet">
 <link href="/resources/css/style.css?after" rel="stylesheet">
@@ -30,7 +33,7 @@
 						
 			<div class="contents">
 				
-				<h1 onclick>
+				<h1 onclick class="showfesta">
 					<a href="/">ShowFesta</a>
 				</h1>
 				<ul class="memberInfo_wrap">
