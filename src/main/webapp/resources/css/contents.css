@@ -4,32 +4,25 @@
 .genreContents{
 	background-color : #ffffff;
 }
-
 .categoryTop{
-	padding-top: 80px;
-	text-align: center;
-  
+	padding-top: 10px;
+	margin-left: 200px  
 }
-
 .list-title{
 	size: larger;
 	color: #595959;
 	font-size: xx-large;
 }
-
-
 /* 기간검색에 쓰이는 부분 */
 .contentSearchBox{
 	margin-top: 2rem;
 	margin-right: 7rem;
 }
-
 .contentSearchBox-wrap{
 	display: flex;
 	justify-content:flex-end;
 	font-size: larger;
 }
-
 .contentSearchBtn{
 	margin-left: 1rem;
 }
@@ -39,79 +32,78 @@
 	height: 30px;
 	font-size: 17px;
 }
-
-
-.no-data-message {
-    text-align: center;
-    padding: 20px;
-    font-size: 18rem;
-    color: #FEBC38;
-}
-
-
-.no-message{
-  font-size: x-large;
-}
-
 .all-contents-list{
-	padding-top: 5rem;
 	display: flex;
 	flex-wrap: wrap;
+	width:100%;
+	justify-content: center;
+
 }
 
 .search-contents-list{
 	padding-top: 5rem;
 /* 	화면에 맞춰서 크기 조절됨 */
 	display: flex;
-	flex-wrap: wrap; 
+	flex-wrap: wrap;
 }
 
 .contents-list {
-	margin-left: auto;
-	margin-right: auto;
-	width: auto;
-	/*   width: 25%; 4개 컨텐츠가 한 줄에 들어가도록 25%로 설정 */
-	/*   float: right; 오른쪽으로 띄워서 나란히 표시 */
-	box-sizing: border-box; /* 요소의 width와 height에 padding과 border를 포함시킴 */
-	padding: 15px; /* 컨텐츠 간의 간격을 조절 */
-	padding-bottom: 25px;
-	text-align: center;
-	flex: 0 0 calc(25% - 10px); /* 4개의 열로 나누기 위한 스타일, 여백을 조절할 수 있습니다. */
-	margin-right: 10px;
+float: left;
+    margin-left: 28px;
+    padding-top: 30px;
   
 }
-
+.list_wrap{
+	position: relative;
+    display: block;
+    width: 180px;
+    height: 358px;
+    padding: 24px 24px 21px;
+    border: 1px solid #eee;
+}
+.list-inner-wrap{
+	    position: relative;
+    display: block;
+    width: 248px;
+    height: px;
+    padding: 24px 24px 21px;
+    border: 1px solid #eee;
+    text-align:center;
+}
 .comImg{
 /*   position: absolute; */
 /*   width: 100%; */
 /*   height: 100%; */
-  width: 18.75rem;
-  height: 25rem;
-  margin: 0.625rem;
+
+  width: 180px;
+  height: 250px;
+
 
 }
-
 .list-txt{
 	color: #595959;
-  	align-items: center;
-/*   	margin-left:2em; */
-	
+	text-align:center;	
 }
-
+.list-tit1{
+	font-size:16px;
+	display:-webkit-inline-box;
+	font-weight:bold;
+	margin-top : 15px;
+}
 .list-tit2{
-	display:flex;
-	align-items: center;
-	margin-left:7em;
+	display:-webkit-inline-box;
+	font-size:14px;
 	
 }
-
+.list-tit3{
+	font-size:13px;
+}
 .no-data-message {
         text-align: center;
         padding: 20px;
         font-size: 18px;
         color: #FEBC38;
     }
-
 a.likeBtn{
 	text-size-adjust: none;
     font-family: -apple-system, system-ui, BlinkMacSystemFont, "맑은 고딕", "Malgun Gothic", "돋움", Dotum, Helvetica, "Apple SD Gothic Neo", sans-serif;
@@ -134,11 +126,9 @@ a.likeBtn{
     left: 1%;
     z-index: 999991;
 } 
-
 .likeBtn:focus-visible {
 	outline-style: auto;
 }
-
 .likeBtn:before {
 	background-image: url('../img/heart.png');
 	background-repeat: no-repeat;
@@ -151,11 +141,9 @@ a.likeBtn{
 	content: '';
 	background-position: 0 0;
 }
-
 .likeBtn.is-toggled:before {
 	background-position: 0 -3rem;
 }
-
 .likeBtn:disabled {
 	color: inherit;
 }

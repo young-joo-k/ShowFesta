@@ -192,11 +192,12 @@
 			</div>
 		</div>
 	</div>
+	
 </body>
 <script>
 	new Swiper('.swiper', {
 		autoplay : {
-			delay : 1000
+			delay : 1500
 		},
 		loop : true,
 		slidesPerView : 10,
