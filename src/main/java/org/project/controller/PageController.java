@@ -174,18 +174,6 @@ public class PageController {
 		}
 		model.addAttribute("concertContents", concertList);
 
-		try {
-			List<ContentsVO> festivaltList = contentsservice.getFestivalContents();
-
-			System.out.println(festivaltList.get(0).getM_num());
-
-			model.addAttribute("festivalContents", festivaltList);
-
-		} catch (IndexOutOfBoundsException e) {
-			e.printStackTrace();
-			log.info("배열이 비어있습니다.");
-		}
-
 	}
 
 	@GetMapping("/musical_info")
@@ -264,33 +252,6 @@ public class PageController {
 		model.addAttribute("priceList", priceList);
 	}
 
-	@GetMapping("/festival_info")
-	public void f_info(@RequestParam("m_num") Long m_num, HttpSession session, Model model) {
-		log.info(m_num);
-//		아이디 정보
-		String id = (String) session.getAttribute("id");
-		if (id != null) {
-			MemberVO membervo = memberservice.getUserInfo(id);
-			model.addAttribute("user", membervo);
-			List<LikeVO> likeList = likeservice.getLike(membervo.getId());
-			log.info(likeList);
-			List<String> nameList = new ArrayList<String>();
-			for (LikeVO list : likeList) {
-				String name = list.getLike_name();
-				nameList.add(name);
-			}
-//			System.out.println(nameList);
-			model.addAttribute("likeList", nameList);
-		}
-//		컨텐츠 번호,이름,날짜 등등 가져오기
-		ContentsVO result = contentsservice.getFestival(m_num);
-		String s_date = result.getM_start_date();
-		result.setM_start_date(parseDate(s_date));
-		String e_date = result.getM_end_date();
-		result.setM_end_date(parseDate(e_date));
-		model.addAttribute("festival", result);
-	}
-
 	// 오라클로 날짜를 받아오면 2023-08-10 00:00:00 이런식으로 가져오는데 이걸 2023.08.10 으로 바꾸는 함수
 	public String parseDate(String inputString) {
 		String[] parts = inputString.split(" "); // 공백을 기준으로 문자열을 나눔
@@ -357,26 +318,14 @@ public class PageController {
 	}
 
 	// 페스티벌 유형별페이지 가져옵니다
-	@GetMapping("/festivalContents")
-	public void festivalContent(Model model) {
-		log.info("festival contents get");
-
-//		List<ContentsVO> festivaltList = contentsservice.getFestivalContents();
-//		
-//		if (festivaltList == null || festivaltList.isEmpty()) {
-//			log.info("배열이 비어있습니다.");
-//	        model.addAttribute("emptyContents", festivaltList);
-//	        
-//	    } else {
-//	        model.addAttribute("festivalContents", festivaltList);
-//	    }
-
+	@GetMapping("/festaContents")
+	public void festaContent(Model model) {
+		log.info("festa contents get");
 		try {
-			List<ContentsVO> festivaltList = contentsservice.getFestivalContents();
-
-			System.out.println(festivaltList.get(0).getM_num());
-
-			model.addAttribute("festivalContents", festivaltList);
+			List<FestaVO> festaList = contentsservice.getFestaContents();
+			int length = festaList.size();
+			model.addAttribute("length", length);
+			model.addAttribute("festaContents", festaList);
 
 		} catch (IndexOutOfBoundsException e) {
 			e.printStackTrace();
@@ -384,7 +333,7 @@ public class PageController {
 		}
 
 	}
-
+	
 	// 마이페이지
 	@GetMapping("/myPage")
 	public String myPage(Model model, HttpSession session, RedirectAttributes rttr, Criteria cri) {
@@ -501,23 +450,6 @@ public class PageController {
 		}
 	}
 
-	// 페스티벌 유형별페이지 가져옵니다
-	@GetMapping("/festaContents")
-	public void festaContent(Model model) {
-		log.info("festa contents get");
-		try {
-			List<FestaVO> festaList = contentsservice.getFestaContents();
-			int length = festaList.size();
-			model.addAttribute("length", length);
-			model.addAttribute("festaContents", festaList);
-
-		} catch (IndexOutOfBoundsException e) {
-			e.printStackTrace();
-			log.info("배열이 비어있습니다.");
-		}
-
-	}
-
 	@PostMapping("/concertContentSearchDate")
 	public String concertContentSearchDate(@RequestParam("startDate") String startDate,
 			@RequestParam("endDate") String endDate, Model model) {
@@ -533,28 +465,6 @@ public class PageController {
 				log.info(searchResult + "searchResult");
 			}
 			return "/page/concertContents";
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
-	@PostMapping("/festivalContentSearchDate")
-	public String festivalContentSearchDate(@RequestParam("startDate") String startDate,
-			@RequestParam("endDate") String endDate, Model model) {
-		// startDate와 endDate를 사용하여 mContents를 가져오는 로직을 작성
-
-		try {
-			if (startDate != null && endDate != null) {
-				log.info(startDate);
-				log.info(endDate);
-				List<ContentsVO> searchResult = contentsservice.getFestivalContentSearchDate(startDate, endDate);
-
-				model.addAttribute("searchResult", searchResult);
-				log.info(searchResult + "searchResult");
-			}
-			return "/page/festivalContents";
 
 		} catch (Exception e) {
 			e.printStackTrace();
