@@ -493,9 +493,7 @@ public class PageController {
 		try {
 			List<FestaVO> festaList = contentsservice.getFestaContents();
 
-//			System.out.println(festaList.get(0).getM_num());
-
-			model.addAttribute("festivalContents", festaList);
+			model.addAttribute("festaContents", festaList);
 
 		} catch (IndexOutOfBoundsException e) {
 			e.printStackTrace();
