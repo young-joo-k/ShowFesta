@@ -15,12 +15,13 @@
 				<div class="wrap">
 					<div class="cs-body">
 						<div>
-							<ul class="cs-2depth">
-								<li class="cs-2depth-on">
-									<button>전체</button>
-								</li>
-							</ul>
+
 							<div class="cs-table02-wrap">
+								<ul class="cs-2depth">
+									<li class="cs-2depth-on">
+										<button>전체</button>
+									</li>
+								</ul>
 								<table class="cs-table-02">
 									<caption>공지사항 리스트</caption>
 									<colgroup>
@@ -43,8 +44,10 @@
 														<c:out value="${qna.b_num}" />
 													</p>
 												</td>
-												<td><span><a href='/page/qna_get?b_num=<c:out value="${qna.b_num }"/>'>
-											<c:out value="${qna.b_title}"/></a></span></td>
+												<td><span><a
+														href='/page/qna_get?b_num=<c:out value="${qna.b_num }"/>'>
+															<c:out value="${qna.b_title}" />
+													</a></span></td>
 												<td>
 													<p class="noti-date">
 														<fmt:formatDate pattern="yyyy-MM-dd"
@@ -61,16 +64,18 @@
 							<div class='pull-right'>
 								<ul class="pagination">
 									<c:if test="${pageMaker.prev }">
-										<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">이전</a>
-										</li>
+										<li class="paginate_button previous"><a
+											href="${pageMaker.startPage -1}">이전</a></li>
 									</c:if>
 									<c:forEach var="num" begin="${pageMaker.startPage}"
-									end="${pageMaker.endPage }">
-										<li class="paginate_button ${pageMaker.cri.pageNum == num ? 'active':'' }"><a href="${num}">${num}</a>
-										</li>
+										end="${pageMaker.endPage }">
+										<li
+											class="paginate_button ${pageMaker.cri.pageNum == num ? 'active':'' }"><a
+											href="${num}">${num}</a></li>
 									</c:forEach>
 									<c:if test="${pageMaker.next}">
-										<li class="paginate_button next"><a href="${ pageMaker.endPage + 1}">다음</a></li>
+										<li class="paginate_button next"><a
+											href="${ pageMaker.endPage + 1}">다음</a></li>
 									</c:if>
 								</ul>
 							</div>
@@ -83,24 +88,22 @@
 		</div>
 	</div>
 </body>
-<form id= 'actionForm' action="/page/qna_list" method='get'>
-	<input type='hidden'  name='pageNum' value = '${pageMaker.cri.pageNum}'>
-	<input type='hidden'  name='amount' value = '${pageMaker.cri.amount}'>
+<form id='actionForm' action="/page/qna_list" method='get'>
+	<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+	<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 </form>
 <script type="text/javascript">
-	$(document).ready(
-			function() {
-				$("#regBtn").on("click", function() {
-					self.location = "/page/qna_register";
-				});
-				var actionForm = $("#actionForm");
-				$(".paginate_button a").on("click", function(e) {
-					e.preventDefault();
-					actionForm.find("input[name='pageNum']").val($(this).attr("href"));
-					actionForm.submit();				
-				});
-			});
-
+	$(document).ready(function() {
+		$("#regBtn").on("click", function() {
+			self.location = "/page/qna_register";
+		});
+		var actionForm = $("#actionForm");
+		$(".paginate_button a").on("click", function(e) {
+			e.preventDefault();
+			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+			actionForm.submit();
+		});
+	});
 </script>
 </html>
 

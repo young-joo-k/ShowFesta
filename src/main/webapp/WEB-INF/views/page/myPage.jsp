@@ -111,15 +111,7 @@ pageEncoding="UTF-8"%>
 			</div>
 		</div>
 		</div>
-		
-		<div class = "myPage-notice">
-			<h3>알아두세요!</h3>
-			<ul class = "myPage-ul">
-				<li class = "myPage-li">
-					- 문의 사항은 상황에 따라 답변이 지연될 수 있습니다.
-				</li>
-			</ul>
-		</div>
+	
 	</div>
 	<!-- 문의내역 끝 -->
 

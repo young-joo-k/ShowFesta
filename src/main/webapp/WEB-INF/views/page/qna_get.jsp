@@ -12,20 +12,17 @@
 	<div id="app">
 		<div class="body">
 			<main id="contents" class="top-padding">
-				<div class="page-top">
-					<div class="page-top-inner-wrap">
-						<h1 tabindex="0" class="page-title">QnA</h1>
-					</div>
-				</div>
+
 				<div class="wrap">
 					<div class="cs-body">
 						<div>
-							<ul class="cs-2depth">
-								<li class="cs-2depth-on">
-									<button>전체</button>
-								</li>
-							</ul>
+
 							<div class="cs-table02-wrap">
+								<ul class="cs-2depth">
+									<li class="cs-2depth-on">
+										<button>전체</button>
+									</li>
+								</ul>
 								<table class="cs-table-02">
 									<caption>공지사항 리스트</caption>
 									<colgroup>
@@ -60,29 +57,31 @@
 								<div class="noti-detail-wrap">
 									<textarea name='b_content' readonly="readonly"><c:out
 											value="${qna.b_content}" /></textarea>
+									<button id=listBtn data-oper='list' class="btn btn-info"
+										onclick="location.href='/page/qna_list'">목록</button>
 								</div>
-								<button  id = listBtn data-oper='list' class="btn btn-info" onclick="location.href='/page/qna_list'">목록</button>
 
-							</div>	
+
+							</div>
 
 						</div>
 					</div>
-				</div>	
+				</div>
 			</main>
 		</div>
 	</div>
 </body>
 <script type="text/javascript"">
-$(document).ready(function() {
+	$(document).ready(function() {
 
-var operForm = $("#operForm");
+		var operForm = $("#operForm");
 
-$("button[data-oper='list']").on("click", function(e){
-operForm.find("#b_num").remove();
-operForm.attr("action", "/page/qna_list")
-operForm.submit();
-});
-});
+		$("button[data-oper='list']").on("click", function(e) {
+			operForm.find("#b_num").remove();
+			operForm.attr("action", "/page/qna_list")
+			operForm.submit();
+		});
+	});
 </script>
 </html>
 

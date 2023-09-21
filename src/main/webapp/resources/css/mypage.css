@@ -3,7 +3,6 @@
 /* 마이페이지와 회원정보 수정, 관리자 페이지에서 같이 쓰일 CSS입니다 */
 
 #myPage-wrap{
-  margin-top: 150px;
   position: relative;
   z-index: 100;
 }
@@ -15,7 +14,7 @@ article{
 .mypage{
 	margin-top: 100px;
 	display:flex;
-	margin-left: 10rem;
+	margin-left: 53rem;
 	margin-bottom: 2rem;
 }
 
@@ -33,10 +32,10 @@ article{
 .myPage-img-select img {
     width: 150px; 
     height: 150px; 
+    margin-left : 25px
 }
 
 .myPage-info{
-	margin-left:5rem;
 }
 
 .myPage-name{
@@ -44,7 +43,6 @@ article{
 }
 
 .myPage-name, .myPage-update{
-	margin: 2rem;
 	color: #595959;
 	
 }
@@ -55,13 +53,20 @@ a.myPage-update{
 }
 
 .myPage-menu-wrapper{
-	display:flex;
-	margin-top: 20px;
-	margin-left: 2rem; 
+    display: flex;
+    background-color: white;
+    width: 800px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    /* text-align: center; */
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    /* text-align: center; */
+    padding-left: 160px;
 }
 
 .myPage-menu{
-	background-color:#ffd47f ;
+    display: flex;
+    justify-content: center;
 }
 
 .mypage-contents{
@@ -70,28 +75,26 @@ a.myPage-update{
 }
 
 .like-contents, .like-actor, .myPage-qna{
-	border-style: none;
 	width: 200px;
 	height: 70px;
 	font-size: larger;
-	background-color: #ffd47f;
-	border-color: #ffd47f;
 	color: #595959;
 	font-weight: bold;
 }
 
 .my-like-content{
 	margin:2rem;
+	display:flex;
+	    justify-content: center;
 }
 
 .my-content-wrap{
-/* 	margin:auto; */
-	border-style:solid;
-	border-color: #FFD47F;
-	border-radius:4px;
-	display:flex;
-	flex-wrap: wrap; /* 요소들이 넘칠 경우 줄바꿈 */
-    justify-content: flex-start; /* 요소들을 왼쪽 정렬 */
+    border-radius: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 1300px;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
 }
 
 .like-list-wrap {
@@ -123,6 +126,8 @@ a.myLikeContent{
 .my-like-actor{
 	display:none;
 	margin:2rem;
+	    display: flex;
+    justify-content: center;
 }
 
 /* 마이페이지 qna */
@@ -155,24 +160,22 @@ a.question{
 }
 
 .myPage-qna-wrap{
-	display:none;
+	display: flex;
+    justify-content: center;
 }
 
 
 .myQna{
 	width: 50rem;
 	height: 25rem;
-	text-align: center;
 	color: #595959;
 }
 
 
 .myPage-qna-list{
-	border-style: solid;
-	border-color: #ffd47f;
-	border-radius:4px;
+    display: flex;
+    justify-content: center;
 }
-
 .myPage-notice{
 	margin: 2rem;
 	color: #595959;
@@ -279,56 +282,58 @@ a.myPageBack, a.correctBtn{
 }
 
 
-
+#deleteForm {
+	    display: flex;
+    justify-content: space-around;
+}
 /* 관리자 페이지  */
 .notice-contents, .admin-qna-contents, .admin-content-list, .admin-user-manager{
-	border-style: none;
-	width: 200px;
-	height: 70px;
-	font-size: larger;
-	background-color: #ffd47f;
-	border-color: #ffd47f;
-	color: #595959;
-	font-weight: bold;
+    width: 130px;
+    height: 45px;
+    font-size: larger;
+    color: black;
+    font-weight: bold;
+    border-radius: 15px;
+        border: none;
+            background-color: white;
 }
 
 /* 안에 내용에 따라 박스 크기가 조절됩니다 */
 .admin-content-wrap{
-	margin:2rem;
-	border-style:solid;
-	border-color: #ffd47f;
-	border-radius: 4px;
 	height:auto;
 	
 }
 
 .userDeleteButtonWrap{
 	display: flex;
-	justify-content:flex-end;
-	margin-right: 2rem;
+	float:right;
 }
 
 .userDeleteBtn{
-	border-style:none;
-	background-color: #FFD47F;
-	border-radius:4px;
-	margin-top:20px;
-	width: auto;
-	height:50px;
-	color: #595959;
-	font-size: medium;
-	font-weight: bold;
+border-radius: 4px;
+    margin-top: 20px;
+    width: 64px;
+    height: 38px;
+    color: black;
+    font-size: medium;
+    font-weight: bold;
+    border-color: #959595;
+    margin-left:20px;
 }
 
 .no-like-message{
-	margin-left:1rem;
 }
 
 .userList{
-	display: flex;
-	flex-wrap: wrap;
-	margin: 2rem;
-	width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem;
+    width: 700px;
+    border-radius: 18px;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    padding-left: 10px;
+    padding-top:10px;
 }
 
 .userManagement{
@@ -351,11 +356,13 @@ input[type="checkbox"] {
 
 .allUserInfo{
 	text-align:center;
+	color:#959595;
 }
 
 .allUserInfoId{
 	width: 100px;
 	height: 50px;
+	
 }
 
 .allUserInfoName{
@@ -371,4 +378,24 @@ input[type="checkbox"] {
 .allUserInfoEmail{
 	width:300px;
 	height:50px;
+}
+.contentsManager{
+	width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#contentsBtn{
+	height: 50px;
+    width: 100px;
+    margin: 50px;
+    border: 1px solid;
+    border-radius: 10px;
+	background-color:#fc7110;
+    border-color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    color:white;
 }

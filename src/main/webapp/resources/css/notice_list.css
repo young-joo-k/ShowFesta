@@ -71,6 +71,9 @@ font-size: 20px;
 .cs-1depth {
     overflow: hidden;
     margin-bottom: 40px;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    border-radius: 18px;
 }
 
 
@@ -171,6 +174,11 @@ button, input, select {
 .cs-table02-wrap {
     position: relative;
     padding-bottom: 40px;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all 30s cubic-bezier(0,0,.5,1);
+    background-color: white;
 }
 
 .cs-table-02 {
@@ -310,14 +318,16 @@ button#modiBtn {
     margin-top: 15px;
 }
 button#listBtn {
-    font-size: 14px;
+font-size: 14px;
     color: #ffffff;
     background-color: #a5a5a5;
     z-index: 10;
     float: right;
-    margin-right : 10px;
-    margin-top: 15px;
-        border-radius: 10px;
+    margin-right: -40px;
+    margin-top: 0px;
+    border-radius: 10px;
+    width: 55px;
+    height: 32px;
 }
 
 button#remoBtn {

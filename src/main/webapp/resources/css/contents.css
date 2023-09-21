@@ -16,7 +16,7 @@
 /* 기간검색에 쓰이는 부분 */
 .contentSearchBox{
 	margin-top: 2rem;
-	margin-right: 7rem;
+	margin-right: 10rem;
 }
 .contentSearchBox-wrap{
 	display: flex;
@@ -31,6 +31,8 @@
 	width:130px;
 	height: 30px;
 	font-size: 17px;
+	    border-radius: 4px;
+    text-align: center;
 }
 .all-contents-list{
 	display: flex;
@@ -62,13 +64,14 @@ float: left;
     border: 1px solid #eee;
 }
 .list-inner-wrap{
-	    position: relative;
+position: relative;
     display: block;
     width: 248px;
     height: px;
     padding: 24px 24px 21px;
-    border: 1px solid #eee;
-    text-align:center;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
 }
 .comImg{
 /*   position: absolute; */
