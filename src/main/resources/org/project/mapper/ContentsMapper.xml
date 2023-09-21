@@ -154,7 +154,7 @@
 	               TO_CHAR(m_start_date, 'YYYY.MM.DD') AS m_start_date,
 	               TO_CHAR(m_end_date, 'YYYY.MM.DD') AS m_end_date,
 	               m_place
-	        FROM tbl_concert
+	        FROM tbl_festival
 	        WHERE TO_DATE(#{arg0}, 'YYYY-MM-DD') >= m_start_date
 	        AND TO_DATE(#{arg1}, 'YYYY-MM-DD') <= m_end_date
 	    ]]>
@@ -163,10 +163,10 @@
 	
 	<!--페스티벌 -->
 	<select id="getFestaContents" resultType = "org.project.domain.FestaVO">
-		SELECT m_num,m_title,
-				to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
-				to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
-				m_place
-		FROM tbl_festival ORDER BY m_start_date DESC
+		SELECT contentId,f_title,f_img,
+				to_char(f_s_date,'YY/MM/DD') AS f_s_date,
+				to_char(f_e_date,'YY/MM/DD') AS f_e_date,
+				f_tel,f_infoadr,f_text,f_link,f_adress,f_time
+		FROM tbl_festa ORDER BY f_s_date DESC
 	</select>
 </mapper>
