@@ -4,10 +4,10 @@ import java.util.List;
 import org.project.domain.SearchVO;
 
 public interface SearchService {
-    List<SearchVO> musicalsearch(String keyword); // °Ë»ö ¸Þ¼­µå Á¤ÀÇ
-    List<SearchVO> concertsearch(String keyword); // °Ë»ö ¸Þ¼­µå Á¤ÀÇ
-    List<SearchVO> festivalsearch(String keyword); // °Ë»ö ¸Þ¼­µå Á¤ÀÇ
-    List<SearchVO> actorsearch(String keyword); // °Ë»ö ¸Þ¼­µå Á¤ÀÇ
+    List<SearchVO> musicalsearch(String keyword); // ï¿½Ë»ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    List<SearchVO> concertsearch(String keyword); // ï¿½Ë»ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    List<SearchVO> festivalsearch(String keyword); // ï¿½Ë»ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    List<SearchVO> actorsearch(String keyword); // ï¿½Ë»ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-    // ´Ù¸¥ ¸Þ¼­µå´Â Á¦°ÅÇÕ´Ï´Ù.
+    // ï¿½Ù¸ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 }

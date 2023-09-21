@@ -186,7 +186,7 @@
 
 						</div>
 					</div>
-					<a data-v-223ac3f7 href="/page/festivalContents" class="btn-more all">더보기</a>
+					<a data-v-223ac3f7 href="/page/festaContents" class="btn-more all">더보기</a>
 				</div>
 
 			</div>

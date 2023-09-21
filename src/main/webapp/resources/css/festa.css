@@ -1,0 +1,298 @@
+@charset "UTF-8";
+/* 이 css는 모든 유형별 페이지에서 공통으로 사용됩니다. */
+.genreContents {
+	background-color: #ffffff;
+}
+
+.categoryTop {
+	padding-top: 10px;
+	margin-left: 200px
+}
+
+.list-title {
+	size: larger;
+	color: #595959;
+	font-size: xx-large;
+}
+/* 기간검색에 쓰이는 부분 */
+.contentSearchBox {
+	margin-top: 2rem;
+	margin-right: 7rem;
+}
+
+.contentSearchBox-wrap {
+	display: flex;
+	justify-content: flex-end;
+	font-size: larger;
+}
+
+.contentSearchBtn {
+	margin-left: 1rem;
+}
+
+#startDate, #endDate {
+	width: 130px;
+	height: 30px;
+	font-size: 17px;
+}
+
+.all-contents-list {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: center;
+}
+
+.search-contents-list {
+	padding-top: 5rem;
+	/* 	화면에 맞춰서 크기 조절됨 */
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.contents-list {
+	float: left;
+	margin-left: 28px;
+	padding-top: 30px;
+}
+
+.list_wrap {
+	position: relative;
+	display: block;
+	width: 180px;
+	height: 358px;
+	padding: 24px 24px 21px;
+	border: 1px solid #eee;
+}
+
+.list-inner-wrap {
+	position: relative;
+	display: block;
+	width: 248px;
+	height: px;
+	padding: 24px 24px 21px;
+	border: 1px solid #eee;
+	text-align: center;
+}
+
+.comImg {
+	/*   position: absolute; */
+	/*   width: 100%; */
+	/*   height: 100%; */
+	width: 180px;
+	height: 250px;
+}
+
+.list-txt {
+	color: #595959;
+	text-align: center;
+}
+
+.list-tit1 {
+	font-size: 16px;
+	display: -webkit-inline-box;
+	font-weight: bold;
+	margin-top: 15px;
+}
+
+.list-tit2 {
+	display: -webkit-inline-box;
+	font-size: 14px;
+}
+
+.list-tit3 {
+	font-size: 13px;
+}
+
+.no-data-message {
+	text-align: center;
+	padding: 20px;
+	font-size: 18px;
+	color: #FEBC38;
+}
+
+a.likeBtn {
+	text-size-adjust: none;
+	font-family: -apple-system, system-ui, BlinkMacSystemFont, "맑은 고딕",
+		"Malgun Gothic", "돋움", Dotum, Helvetica, "Apple SD Gothic Neo",
+		sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+	background: transparent;
+	text-decoration: none;
+	color: inherit;
+	outline-offset: -1px;
+	position: absolute;
+	display: inline-block;
+	font-size: 1.4rem;
+	font-weight: inherit;
+	line-height: 2.4rem;
+	outline-style: none;
+	cursor: pointer;
+	top: 96%;
+	left: 1%;
+	z-index: 999991;
+}
+
+.likeBtn:focus-visible {
+	outline-style: auto;
+}
+
+.likeBtn:before {
+	background-image: url('../img/heart.png');
+	background-repeat: no-repeat;
+	position: relative;
+	display: inline-block;
+	top: 0.2rem;
+	width: 3rem;
+	height: 3rem;
+	padding-right: 0.6rem;
+	background-position: 0 0;
+	content: '';
+	background-position: 0 0;
+}
+
+.likeBtn.is-toggled:before {
+	background-position: 0 -3rem;
+}
+
+.likeBtn:disabled {
+	color: inherit;
+}
+.slide-wrap{
+	width: 57.5rem;
+}
+#modal-festa {
+	display: none;
+	position: fixed;
+	z-index: 9999;
+	left: 24%;
+	top: 9%;
+	width: 60rem;
+	height: 50rem;
+	background-color: #F6F6F6;
+	border-radius: 10px;
+	box-shadow: 0 0 6px rgba(0, 0, 0, .2);
+	padding: 15px;
+	background-color: #fff;
+}
+
+.modal-header {
+	display: flex;
+	justify-content: space-between;
+	color: #000127;
+	position: relative;
+}
+
+button.modal-close-btn {
+	position: absolute; /* 절대 위치 지정 */
+	left:52rem; /* 오른쪽에 고정 */
+	top: 0; /* 상단에 고정 (필요에 따라 조절 가능) */
+	margin-right: 20px;
+	height: 35px;
+	width: 70px;
+	color: #000127;
+	background-color: #FEBC38;
+	border-style: none;
+	border-radius: 4px;
+}
+
+.modal-content-wrap {
+	margin: 0 auto;
+	width: 50rem;
+	height: 50rem;
+	color: #F6F6F6;
+	margin: 5px;
+}
+
+.modal-body {
+	margin: 0 auto;
+	width: 50rem;
+	height: 50rem;
+	color: black;
+	box-sizing: border-box;
+	max-height: auto; /* 원하는 높이로 조정 */
+	overflow-y: auto; /* 내용이 넘칠 때 수직 스크롤바 추가 */
+}
+
+.modal-content-container {
+	max-height: calc(100% - 80px); /* 모달 헤더와 푸터의 높이를 고려한 최대 높이 설정 */
+	overflow-y: auto; /* 내용이 넘칠 때 수직 스크롤바 추가 */
+	margin-right: 1px;
+}
+
+.today-contents {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.big-img {
+	background-color: rgb(242, 242, 242);
+	background-position-x: 50%;
+	background-position-y: 50%;
+	background-repeat-x: no-repeat;
+	background-repeat-y: no-repeat;
+	color: rgb(0, 0, 0);
+	display: block;
+	font-family: "Noto Sans KR", sans-serif;
+	font-size: 16px;
+	height: 205px;
+	letter-spacing: normal;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	text-align: center;
+	vertical-align: baseline;
+	width: 320px;
+}
+
+.slide-wrap .big-img img {
+	height: 100%;
+}
+
+.app-title{
+	width:100%;
+}
+.top {
+	margin-bottom: 20px;
+}
+
+.cb-type1 .bot ul>li strong {
+	font-weight: 500;
+	font-size: 18px;
+	margin-bottom: 10px;
+	text-align: left;
+	vertical-align: baseline;
+	letter-spacing: normal;
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+}
+
+.gaeyo {
+	color: rgb(0, 0, 0);
+	font-size: 16px;
+	letter-spacing: normal;
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	text-align: left;
+	vertical-align: baseline;
+}
+
+/* 오버레이에 대한 CSS */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 9995;
+}

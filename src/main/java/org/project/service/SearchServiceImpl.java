@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class SearchServiceImpl implements SearchService {
 
     @Autowired
-    private SearchMapper searchMapper; // MyBatis Mapper ÀÎÅÍÆäÀÌ½º¸¦ ÁÖÀÔ
+    private SearchMapper searchMapper; // MyBatis Mapper ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     @Override
     public List<SearchVO> musicalsearch(String keyword) {
@@ -28,9 +28,7 @@ public class SearchServiceImpl implements SearchService {
     }
     @Override
     public List<SearchVO> festivalsearch(String keyword) {
-    	List<SearchVO> festivalSearchResults = new ArrayList<>();
-    	festivalSearchResults.addAll(searchMapper.searchFestivals(keyword));
-    	return festivalSearchResults;
+    	return searchMapper.searchFestivals(keyword);
     }
     @Override
     public List<SearchVO> actorsearch(String keyword) {

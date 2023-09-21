@@ -13,6 +13,6 @@ public class FestaVO {
 	String f_infoadr;
 	String f_text;
 	String f_link;
-	String f_address;
+	String f_adress;
 	String f_time;
 }
