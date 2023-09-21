@@ -16,6 +16,9 @@ position: relative;
     padding: 48px 60px;
     background-color: white;
     font-size: 0;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    border-radius: 18px;
 }
 
 .my-user-qna-info .cs-number {
@@ -63,10 +66,12 @@ position: relative;
     bottom: 48px;
     width: 178px;
     height: 44px;
-    border-radius: 100px;
     font-size: 16px;
     line-height: 42px;
     color: rgb(255, 255, 255);
     text-align: center;
     text-decoration: none;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    border-radius: 18px;
 }

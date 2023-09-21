@@ -30,7 +30,7 @@
 											data-num = "${musical.m_num }"
 											<c:if test="${empty user}">
 										        data-empty-user="true"				
-										    </c:if>>&nbsp;&nbsp;&nbsp;좋아요</a>
+										    </c:if>>좋아요</a>
 									</div>
 									<div>
 										<ul class="info">
@@ -75,7 +75,7 @@
 							<div>
 								<div class="prdContents detail">
 									<div class="content casting">
-										<h3 class="contentTitle">캐스팅</h3>
+										<h3 class="contentTitle" id="casting">캐스팅</h3>
 											<c:choose>
 												<c:when test = "${empty actorList }">
 													<div class = "no-data-message">

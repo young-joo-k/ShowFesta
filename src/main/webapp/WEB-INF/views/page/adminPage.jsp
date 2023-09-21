@@ -17,11 +17,12 @@ pageEncoding="UTF-8"%>
 						<source srcset = "/resources/img/mypageimg.png"></source>
 						<img src="#">
 					</picture>			
-				</div>
-				<div class = "myPage-info">
-					<div class = "myPage-name"> ${user.getId()}님 관리자페이지 입니다.</div>
+					<div class = "myPage-info">
+					<div class = "myPage-name"> ${user.getId()} 관리자</div>
 <!-- 					<a class = "myPage-update" href="/page/memberUpdate">회원정보 수정</a> -->
 				</div>
+				</div>
+				
 			</article>
 		</section>
 		<section class = "myPage-body">
@@ -114,31 +115,12 @@ pageEncoding="UTF-8"%>
 <!-- 컨텐츠관리 눌렀을 때 나타날 내용 -->
 <div class="admin-content-manage">
     <div class="admin-content-wrap">
-        <c:choose>
-            <c:when test="${empty notice_list}">
-                <div class="no-like-message">
-                    <p class="no-like-message">컨텐츠내용이 없습니다.</p>
-                </div>
-            </c:when>
-            <c:otherwise>
-                <c:forEach var="notice" items="${notice_list}">
-                    <div class="admin-wrap">
-                        <div class="myPage-qna-space">
-                            <div class="myPage-qna-button-wrap">
-                                <button type="button" class="myPage-qna-button">
-                                    <a href="/page/user_qna" class="question">문의사항</a>
-                                </button>
-                            </div>
-                            <div class="myPage-qna-list">
-                                <div class="myQna">
-                                    <h1>컨텐츠 관리 내용을 띄워줍니다.</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
-            </c:otherwise>
-        </c:choose>
+		<div class="contentsManager">
+			<a class="contentsPlus" id="contentsBtn" href="/page/contentsPlus">추가
+			</a>
+			<a class="contentsMinus" id="contentsBtn" >삭제
+			</a>
+		</div>
     </div>
 </div>
 <!-- 컨텐츠관리 끝 -->
@@ -146,10 +128,7 @@ pageEncoding="UTF-8"%>
 <!-- 사용자 관리 -->
 <form id="deleteForm" action="/page/deleteUsers" method="post">
 	<div class="userManage">
-		<div class = "userDeleteButtonWrap">
-<!-- 			<button class = "userDeleteBtn">선택한 사용자 삭제</button> -->
-			<button type = "button" class = "userDeleteBtn" data-oper="userDeleteBtn">선택한 사용자 삭제</button>
-		</div>
+		
 	    <div class="admin-content-wrap">
 	        <c:choose>
 	            <c:when test="${empty allUser}">
@@ -173,7 +152,13 @@ pageEncoding="UTF-8"%>
 			                    <td class="allUserInfoName"><c:out value="${adminUserInfo.name}"/></td>
 			                    <td class="allUserInfoPhone"><c:out value="${adminUserInfo.phone}"/></td>
 			                    <td class="allUserInfoEmail"><c:out value="${adminUserInfo.email}"/></td>
+			                  </tr>
+			                  
 		                </c:forEach>
+		                <div class = "userDeleteButtonWrap">
+<!-- 			<button class = "userDeleteBtn">선택한 사용자 삭제</button> -->
+			<button type = "button" class = "userDeleteBtn" data-oper="userDeleteBtn">삭제</button>
+		</div>
 	                </table>
 	            </c:otherwise>
 	        </c:choose>

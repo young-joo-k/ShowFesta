@@ -79,9 +79,13 @@ li {
 }
 
 .productWrapper .summary {
-	position: relative;
-	padding-bottom: 3.5rem;
-	font-size: 0;
+    position: relative;
+    font-size: 0;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    padding: 3.5rem;
+    border-radius: 18px;
+    background-color: white;
 }
 
 .productWrapper .summary .summaryTop {
@@ -161,16 +165,16 @@ li {
 }
 
 .productWrapper .summary .likeBtn {
-	position: absolute;
-	display: inline-block;
-	font-size: 1.4rem;
-	font-weight: inherit;
-	line-height: 2.4rem;
-	outline-style: none;
-	cursor: pointer;
-	top: 96%;
-	left: 1%;
-	z-index: 1;
+position: absolute;
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: inherit;
+    line-height: 2.4rem;
+    outline-style: none;
+    cursor: pointer;
+    top: 70%;
+    left: 50%;
+    z-index: 1;
 }
 
 .productWrapper .summary .likeBtn:focus-visible {
@@ -178,16 +182,18 @@ li {
 }
 
 .productWrapper .summary .likeBtn:before {
-	background-image: url('../img/heart.png');
-	background-repeat: no-repeat;
-	position: relative;
-	display: inline-block;
-	top: 0.2rem;
-	width: 3rem;
-	height: 3rem;
-	padding-right: 0.6rem; background-position : 0 0;
-	content: '';
-	background-position: 0 0;
+background-image: url(../img/heart.png);
+    background-repeat: no-repeat;
+    position: relative;
+    display: inline-block;
+    top: 1rem;
+    left: -1rem;;
+    width: 3rem;
+    height: 3rem;
+    padding-right: 0.6rem;
+    background-position: 0 0;
+    content: '';
+    background-position: 0 0;
 }
 
 .productWrapper .summary .likeBtn.is-toggled:before {
@@ -204,7 +210,6 @@ li {
 
 .productWrapper .summary .info {
 	display: flex;
-	width: 70rem;
 	margin-left: 5rem;
 	vertical-align: top;
 	flex-direction: column;
@@ -325,7 +330,11 @@ li {
 	background-color: #ccc;
 	cursor: default;
 }
-
+#casting{
+	    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    border-radius: 18px;
+}
 .productWrapper .detail {
 	position: relative;
 	padding-bottom: 0;
@@ -333,7 +342,10 @@ li {
 
 .productWrapper .detail .content {
 	position: relative;
-	margin: 0 0 10rem 0;
+    margin: 0 0 10rem 0;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    border-radius: 18px;
 }
 
 .productWrapper .detail .content .contentTitle {
@@ -341,6 +353,7 @@ li {
 	font-size: 2rem;
 	font-weight: bold;
 	line-height: 120%;
+	padding: 10px;
 }
 
 .productWrapper .detail .content .contentTitle .countNum {

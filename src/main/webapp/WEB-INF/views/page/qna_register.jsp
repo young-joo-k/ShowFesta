@@ -23,12 +23,7 @@
 								<span class="es-dot"></span>
 							</p>
 							<table class="register-table">
-								<caption class="blind">1:1 문의</caption>
-								<colgroup>
-									<col width="280">
-									<col>
-								</colgroup>
-								<tbody>
+								<tbody class=qna_register>
 									<tr>
 										<th scope="row"><span class="es-dot"></span> 이름</th>
 										<td><input type="hidden" id="id" name="id"

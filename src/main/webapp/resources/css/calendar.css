@@ -162,6 +162,9 @@ text-overflow:ellipsis;
   margin-bottom: 50px;
   border-collapse: collapse;
   padding-top: 20px;
+  box-shadow: 13px 15px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    border-radius: 18px;
 }
 .calendar_body .today{
   border:1px solid white;
@@ -176,9 +179,10 @@ text-overflow:ellipsis;
 }
 
 .contentsCnt1, .contentsCnt2, .contentsCnt3 {
-   margin-top:20px;
-   font-size:15px;
-     color : #000127;
+  margin-top: 20px;
+    font-size: 15px;
+    color: #000127;
+    margin-left: 5px;
      
 }
 .calendar_body .date{
@@ -231,35 +235,20 @@ text-overflow:ellipsis;
 a.before_after_month{
   margin: 10px;
   font-weight: bold;
-<<<<<<< HEAD
-  font-size: larger;
-  color: black;
-=======
   font-size: x-large;
   color: #595959;
->>>>>>> 5394943a40a2c563ebf7e4d5a384c4015ae9ffe5
 }
 
 a.before_after_year{
   font-weight: bold;
   font-weight: bold;
-<<<<<<< HEAD
   font-size: larger;
   color: black;
 }
 .this_month{
   margin: 10px;
-  color : black;
-  font-size: larger;
-=======
-  font-size: x-large;
-  color: #595959;
-}
-.this_month{
-  margin: 10px;
   color : #595959;
-  font-size: x-large;
->>>>>>> 5394943a40a2c563ebf7e4d5a384c4015ae9ffe5
+  font-size: 35px;
 }
 
 /* 모달에 대한 CSS */
@@ -290,17 +279,19 @@ a.before_after_year{
 }
 
 button.modal-close-btn {
-  position: absolute; /* 절대 위치 지정 */
-  right: 0; /* 오른쪽에 고정 */
-  top: 0; /* 상단에 고정 (필요에 따라 조절 가능) */
-  margin-top:10px;
-  margin-right:20px;
-  height: 35px;
-  width: 70px;
-  color: #000127;
-  background-color: #FEBC38;
-  border-style: none;
-  border-radius: 4px;
+position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 10px;
+    margin-right: 20px;
+    height: 35px;
+    width: 70px;
+    color: white;
+    background-color: #FEBC38;
+    border-style: none;
+    border-radius: 11px;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
 }
 
 .modal-content-wrap {
@@ -388,6 +379,10 @@ form#calendarFrm {
 }
 
 .list-inner-wrap{
-	width: 10.82rem;
+    width: 10.82rem;
     margin: 10px;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    padding: 5px;
+    text-align: center;
 }
