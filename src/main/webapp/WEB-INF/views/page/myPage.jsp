@@ -3,7 +3,7 @@
 pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html></html>
+<html>
 <head>
 <title>마이페이지</title>
 <link href="/resources/css/mypage.css?after" rel="stylesheet" type="text/css">
@@ -107,6 +107,7 @@ pageEncoding="UTF-8"%>
 			<div class = "myPage-qna-list">
 				<div class = "myQna">
 <!-- 				게시판 내가 1:1 문의사항 남긴거 리스트 불러오기 						 -->
+				<%@include file = "myPage_qna_list.jsp" %>
 			</div>
 		</div>
 		</div>

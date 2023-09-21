@@ -8,13 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.project.data.DateData;
 import org.project.domain.ContentsVO;
+import org.project.domain.Criteria;
 import org.project.domain.DImgVO;
 import org.project.domain.FestaVO;
 import org.project.domain.LikeVO;
 import org.project.domain.MemberVO;
+import org.project.domain.PageDTO;
 import org.project.domain.PlayVO;
 import org.project.domain.PriceVO;
 import org.project.service.PlayService;
+import org.project.service.QnaService;
 import org.project.service.ContentsService;
 import org.project.service.InfoImgService;
 import org.project.service.LikeService;
@@ -53,6 +56,9 @@ public class PageController {
 	private InfoImgService infoimgservice;
 	@Autowired
 	private LikeService likeservice;
+	
+	@Autowired
+	private QnaService qnaservice;
 
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
@@ -382,7 +388,7 @@ public class PageController {
 
 	// 마이페이지
 	@GetMapping("/myPage")
-	public String myPage(Model model, HttpSession session, RedirectAttributes rttr) {
+	public String myPage(Model model, HttpSession session, RedirectAttributes rttr, Criteria cri) {
 		log.info("mypage get");
 //		아이디 정보
 		String id = (String) session.getAttribute("id");
@@ -392,6 +398,14 @@ public class PageController {
 			// 즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
 			List<LikeVO> likeInfo = likeservice.getLike(membervo.getId());
 			model.addAttribute("likeInfo", likeInfo);
+			
+			cri.setId(id);
+			log.info("list: " + cri);
+			model.addAttribute("list", qnaservice.getList(cri));
+//			model.addAttribute("pageMaker", new PageDTO(cri, 123));
+			
+			int total = qnaservice.qnaTotal(cri);
+			model.addAttribute("pageMaker", new PageDTO(cri, total));
 
 		}
 		if ("admin".equals(id)) {
