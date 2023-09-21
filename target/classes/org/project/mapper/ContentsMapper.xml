@@ -148,7 +148,7 @@
 	    ]]>
 	</select>
 	
-	<select id="getFoestivalContentsByDate" resultType="org.project.domain.ContentsVO">
+	<select id="getFestivalContentsByDate" resultType="org.project.domain.ContentsVO">
 	    <![CDATA[
 	       SELECT m_num, m_title, m_img,
 	               TO_CHAR(m_start_date, 'YYYY.MM.DD') AS m_start_date,
