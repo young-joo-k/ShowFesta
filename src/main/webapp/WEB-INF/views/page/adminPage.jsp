@@ -202,6 +202,13 @@ $(document).ready(function(){
 //         $(".admin-content-manage").hide();
 //         $(".userManage").hide();
 //     });
+     $(".admin-qna-contents").click(function(){
+        // 컨텐츠 관리 버튼 클릭 시
+//         $(".admin-notice").hide();
+        $(".admin-qna").show();
+        $(".admin-content-manage").hide();
+        $(".userManage").hide();
+    });
     
     $(".admin-content-list").click(function(){
         // 컨텐츠 관리 버튼 클릭 시
@@ -218,7 +225,7 @@ $(document).ready(function(){
         $(".admin-content-manage").hide();
         $(".userManage").show();
     });
-    
+       
     $(".userDeleteBtn").click(function () {
         var operation = $(this).data("oper");
 

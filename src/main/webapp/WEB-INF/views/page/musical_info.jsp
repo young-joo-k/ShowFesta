@@ -303,7 +303,7 @@
 		                id: userId,
 		                like_type: type,
 		                like_img:img,
-		                m_num:num
+		                m_num:numgi
 		            },
 		            success: function() {
 		                console.log("성공 ");
