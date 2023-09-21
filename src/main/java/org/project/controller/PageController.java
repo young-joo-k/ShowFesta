@@ -492,7 +492,8 @@ public class PageController {
 		log.info("festa contents get");
 		try {
 			List<FestaVO> festaList = contentsservice.getFestaContents();
-
+			int length = festaList.size();
+			model.addAttribute("length",length);
 			model.addAttribute("festaContents", festaList);
 
 		} catch (IndexOutOfBoundsException e) {
