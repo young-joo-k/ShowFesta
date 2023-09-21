@@ -1,43 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page language="java" contentType="text/html;charset=UTF-8"
-	pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<link href="/resources/css/contents.css?after" rel="stylesheet"
-	type="text/css">
-<body class="genreContents">
-	<!-- 유형별 페이지 입니다. 뮤지컬 -->
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<link href="/resources/css/contents.css?after" rel="stylesheet" type="text/css">
+<body class = "genreContents">
+<!-- 유형별 페이지 입니다. 뮤지컬 -->
 
-	<!-- 어떤 유형인지 나타냄 -->
-	<div class=categoryTop>
-		<p class=list-title>뮤지컬</p>
-		<c:set var="contentsName" value="${content.m_title}" />
-		<c:set var="list" value="${likeList }" />
-		<a
-			class="likeBtn ${fn:contains(list, contentsName) ? 'is-toggled' : ''}"
-			data-toggle="self" data-toast="like" aria-checked="false"
-			aria-label="즐겨찾기 등록" role="checkbox" href="#" data-popup-hover="like"
-			data-contents-name="${content.m_title } " data-type="musical"
-			data-user-id="${user.id }" data-img="${content.m_img }"
-			data-num="${content.m_num }"
-			<c:if test="${empty user}">
+<!-- 어떤 유형인지 나타냄 -->
+<div class = categoryTop>
+	<p class = list-title>뮤지컬</p>
+								<c:set var="contentsName" value="${content.m_title}" />
+							<c:set var="list" value="${likeList }"/>
+							<a class="likeBtn ${fn:contains(list, contentsName) ? 'is-toggled' : ''}" data-toggle="self"
+								data-toast="like" aria-checked="false"
+								aria-label="즐겨찾기 등록" role="checkbox" href="#"
+								data-popup-hover="like" data-contents-name="${content.m_title } " data-type="musical"  
+								data-user-id="${user.id }" data-img="${content.m_img }"  
+								data-num = "${content.m_num }"
+								<c:if test="${empty user}">
 							        data-empty-user="true"				
 							    </c:if>></a>
-<<<<<<< HEAD
-		<div class="contentSearchBox">
-			<div class="contentSearchBox-wrap">
-				<form action="/page/contentSearchDate" method="post">
-					<label for="startDate">시작일 <input type="date"
-						id="search-startDate" max="2026-12-31" min="2023-01-01" required
-						pattern="\d{4}-\d{2}-\d{2}">
-					</label>&nbsp;&nbsp; <label for="endDate">종료일 <input type="date"
-						id="search-endDate" max="2026-12-31" min="2023-01-01" required
-						pattern="\d{4}-\d{2}-\d{2}">
-					</label>
-					<button type="button" class="contentSearchBtn">검색</button>
-				</form>
-=======
 </div>
 
 <!-- 날짜 선택할 수 있는 곳 -->
@@ -62,63 +46,39 @@
 		<c:when test = "${empty musicalContents }">
 			<div class = "no-data-message">
 				<p class = "no-message">표시할 내용이 없습니다.</p>
->>>>>>> 5ac11a99f1707e1970f18ccb96f56f4dd605b9e5
 			</div>
-		</div>
-	</div>
-
-	<!-- 날짜 선택할 수 있는 곳 -->
-
-
-
-	<!-- 여기서부터 컨텐츠 리스트 입니다. 한 줄에 네 개의 컨텐츠가 들어갑니다. -->
-	<div class=all-contents-list>
-		<c:choose>
-			<c:when test="${empty musicalContents }">
-				<div class="no-data-message">
-					<p class="no-message">표시할 내용이 없습니다.</p>
-				</div>
-<<<<<<< HEAD
-			</c:when>
-			<c:otherwise>
-				<c:forEach var="content" items="${musicalContents}" varStatus="loop">
-					<div class=contents-list>
-						<div class="contents">
-							<div class=list-wrap>
-								<!-- 상세페이지로 들어가는 링크 넣기 -->
-								<a style="cursor: pointer;"
-									href='/page/musical_info?m_num= <c:out value = "${content.m_num}"/>'>
-									<div class=list-inner-wrap>
-										<!--DB에 저장된 이미지 링크 가져올겁니다 -->
-										<img class="comImg" src=<c:out value = "${content.m_img}"/>>
-										<div class=list-txt>
-											<div class="list-tit1">${content.m_title}</div>
-											<div class="list-tit2">
-												<p class="dateDate">${content.m_start_date}&nbsp;~&nbsp;</p>
-												<p class="dateDate">${content.m_end_date}</p>
-											</div>
-											<div class="list-tit3">${content.m_place}</div>
-										</div>
+		</c:when>
+		<c:otherwise>
+			<c:forEach var = "content" items = "${musicalContents}" varStatus="loop">
+				<div class = contents-list>
+				    <div class="contents">
+				    	<div class = list-wrap>
+						<!-- 상세페이지로 들어가는 링크 넣기 -->
+					      <a style="cursor:pointer;" href='/page/musical_info?m_num= <c:out value = "${content.m_num}"/>'>
+					        <div class = list-inner-wrap>
+								<!--DB에 저장된 이미지 링크 가져올겁니다 -->
+						        <img class ="comImg" src= <c:out value = "${content.m_img}"/>>
+						        <div class = list-txt>
+									<div class = "list-tit1">
+										
+										${content.m_title}
 									</div>
-								</a>
+									<div class = "list-tit2">
+   										 <p class="dateDate">${content.m_start_date}&nbsp;~&nbsp;</p>
+   										 <p class="dateDate"> ${content.m_end_date}</p>
+									</div>
+									<div class = "list-tit3">${content.m_place}</div>
+						        </div>
 							</div>
+					      </a>
 						</div>
-					</div>
-					<%-- 		<c:if test = "${loop.index % 4 == 3 && loop.last}"> --%>
-					<!-- 			<div style="clear:both;"></div> -->
-					<%-- 		</c:if> --%>
-				</c:forEach>
-			</c:otherwise>
-		</c:choose>
-	</div>
-	<div class="clear"></div>
-=======
+				     </div>
+				</div>
 			</c:forEach>
 		</c:otherwise>
 	</c:choose>
 </div>
 <div class="clear"></div>
->>>>>>> 5ac11a99f1707e1970f18ccb96f56f4dd605b9e5
 
 	<!--all-contents-list 끝 -->
 	

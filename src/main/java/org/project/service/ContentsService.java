@@ -3,6 +3,7 @@ package org.project.service;
 import java.util.List;
 
 import org.project.domain.ContentsVO;
+import org.project.domain.FestaVO;
 import org.project.domain.PriceVO;
 
 
@@ -35,5 +36,7 @@ public interface ContentsService {
 	public List<ContentsVO> getAllFestival(String result);
 
 	public List<ContentsVO> getMusicalContentsByDate(String startDate, String endDate);
+
+	public List<FestaVO> getFestaContents();
 
 }

@@ -3,6 +3,7 @@ package org.project.service;
 import java.util.List;
 
 import org.project.domain.ContentsVO;
+import org.project.domain.FestaVO;
 import org.project.domain.PriceVO;
 import org.project.mapper.ContentsMapper;
 import org.springframework.stereotype.Service;
@@ -115,4 +116,9 @@ public class ContentsServiceImpl implements ContentsService {
 
 	
 	 }
+
+	@Override
+	public List<FestaVO> getFestaContents() {
+		return contentsmapper.getFestaContents();
+	}
 }

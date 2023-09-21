@@ -263,7 +263,7 @@ a.before_after_year{
 }
 
 /* 모달에 대한 CSS */
-.modal-musical, .modal-concert, .modal-festival {
+#modal-musical, #modal-concert, #modal-festival {
   display: none;
   position: relative;
   z-index: 9999;
@@ -382,7 +382,12 @@ button.modal-close-btn {
 form#calendarFrm {
     position: relative;
     z-index: 100;
-        padding-left: 300px;
+    padding-left: 300px;
     padding-right: 300px;
     font-family: 'Noto Sans KR', sans-serif;
+}
+
+.list-inner-wrap{
+	width: 10.82rem;
+    margin: 10px;
 }

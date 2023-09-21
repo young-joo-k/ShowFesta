@@ -3,6 +3,7 @@ package org.project.mapper;
 import java.util.List;
 
 import org.project.domain.ContentsVO;
+import org.project.domain.FestaVO;
 import org.project.domain.PriceVO;
 
 public interface ContentsMapper {
@@ -34,4 +35,6 @@ public interface ContentsMapper {
 	public List<ContentsVO> getAllFestival(String date);
 
 	public List<ContentsVO> getMusicalContentsByDate(String startDate, String endDate);
+
+	public List<FestaVO> getFestaContents();
 }
