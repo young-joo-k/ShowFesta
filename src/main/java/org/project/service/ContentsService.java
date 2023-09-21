@@ -12,8 +12,8 @@ public interface ContentsService {
 	public List<ContentsVO> getMusicalContents();
 	
 	public List<ContentsVO> getConcertContents();
-	
-	public List<ContentsVO> getFestivalContents();
+
+	public List<FestaVO> getFestaContents();
 
 	public ContentsVO getMusical(Long m_num);
 //	public ContentsVO getConcert(Long m_num);
@@ -37,11 +37,7 @@ public interface ContentsService {
 
 	public List<ContentsVO> getMusicalContentsByDate(String startDate, String endDate);
 
-	public List<FestaVO> getFestaContents();
-
 	public List<ContentsVO> getConcertContentsByDate(String startDate, String endDate);
-
-	public List<ContentsVO> getFestivalContentSearchDate(String startDate, String endDate);
 
 	public List<FestaVO> getFestaContentSearchDate(String startDate, String endDate);
 

@@ -3,6 +3,7 @@ package org.project.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.project.domain.FestaVO;
 import org.project.domain.SearchVO;
 import org.project.mapper.SearchMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class SearchServiceImpl implements SearchService {
     	return concertSearchResults;
     }
     @Override
-    public List<SearchVO> festivalsearch(String keyword) {
+    public List<FestaVO> festivalsearch(String keyword) {
     	return searchMapper.searchFestivals(keyword);
     }
     @Override

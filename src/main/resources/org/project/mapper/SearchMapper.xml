@@ -15,8 +15,11 @@
         WHERE m_title LIKE '%'||#{keyword}||'%'
     </select>
     
-    <select id="searchFestivals" parameterType="string" resultType="org.project.domain.SearchVO">
-        SELECT contentid as m_num, f_title as m_title, f_link as m_b_link, f_img as m_img
+    <select id="searchFestivals" parameterType="string" resultType="org.project.domain.FestaVO">
+		SELECT contentId,f_title,f_img,
+				to_char(f_s_date,'YY/MM/DD') AS f_s_date,
+				to_char(f_e_date,'YY/MM/DD') AS f_e_date,
+				f_tel,f_infoadr,f_text,f_link,f_adress,f_time
         FROM tbl_festa
         WHERE f_title LIKE '%'||#{keyword}||'%'
     </select>
