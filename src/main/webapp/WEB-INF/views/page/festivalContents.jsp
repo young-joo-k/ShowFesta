@@ -72,7 +72,7 @@ pageEncoding="UTF-8"%>
 	</c:if>
 	
 	<!-- 여기서부터 검색 결과를 표시할 부분 -->
-	<c:if test = "${empty musicalContents }">
+	<c:if test = "${empty festivalContents }">
 		<div class="search-contents-list">
 		    <c:choose>
 		        <c:when test="${empty searchResult}">
@@ -113,3 +113,22 @@ pageEncoding="UTF-8"%>
 
 </body>
 </html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+	// 현재 날짜를 가져오는 함수
+	  function getCurrentDate() {
+	    var today = new Date();
+	    var year = today.getFullYear();
+	    var month = (today.getMonth() + 1).toString().padStart(2, '0');
+	    var day = today.getDate().toString().padStart(2, '0');
+	    return year + "-" + month + "-" + day;
+	  }
+
+	  // 오늘 날짜를 가져와서 input 요소의 value에 설정
+	  var currentDate = getCurrentDate();
+	  $("#startDate").val(currentDate); // 시작일 input 요소에 설정
+	  $("#endDate").val(currentDate);   // 종료일 input 요소에 설정
+	  
+});
+</script>
