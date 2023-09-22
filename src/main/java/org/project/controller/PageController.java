@@ -54,6 +54,7 @@ public class PageController {
 
 	@Autowired
 	private InfoImgService infoimgservice;
+	
 	@Autowired
 	private LikeService likeservice;
 

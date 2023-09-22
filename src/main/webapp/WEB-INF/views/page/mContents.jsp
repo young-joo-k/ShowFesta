@@ -132,7 +132,6 @@ $(document).ready(function() {
 	  $("#startDate").val(currentDate); // 시작일 input 요소에 설정
 	  $("#endDate").val(currentDate);   // 종료일 input 요소에 설정
 	  
-	  //검색 시 보이는 창과 기본창 구분하는 부분
 	  
 	  //즐겨찾기에 쓰이는
 // 	  $(".likeBtn").on("click", function(e) {

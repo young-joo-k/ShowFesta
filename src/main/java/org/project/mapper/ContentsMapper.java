@@ -45,4 +45,6 @@ public interface ContentsMapper {
 	public List<FestaVO> getFestaContentsByDate(String startDate, String endDate);
 
 	public List<FestaVO> searchFestaContents();
+
+	public void insert(ContentsVO contentsvo);
 }
