@@ -371,6 +371,21 @@ public class PageController {
 
 		return "/page/memberUpdate";
 	}
+	
+	@PostMapping("/memberUpdate")
+	public String memberUpdate(MemberVO membervo, RedirectAttributes rttr, Model model, HttpSession session) {
+		// 아이디 정보
+	    String id = (String) session.getAttribute("id");
+	    
+	    if (id != null) {
+	        // 세션에서 현재 로그인한 사용자의 아이디를 가져오고, 업데이트할 정보를 받은 updatedMember 객체를 사용하여 회원 정보를 업데이트합니다.
+	        membervo.setId(id);
+			memberservice.updateUserInfo(membervo);
+	        return "redirect:/page/myPage"; // 업데이트 후 프로필 페이지로 리다이렉트합니다.
+	    } else {
+	        return "redirect:/page/memberUpdate"; 
+	    }
+	}
 
 	@GetMapping("/adminPage")
 	public String adminPage(Model model, HttpSession session) {
