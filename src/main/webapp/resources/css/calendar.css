@@ -12,8 +12,8 @@
       }
 
 td {font-size: 9pt; color:#595959;}
-th {font-family: "돋움"; font-size: 9pt; color:#000127;}
-select {font-family: "돋움"; font-size: 9pt; color:#595959;}
+th {; font-size: 9pt; color:#000127;}
+select { font-size: 9pt; color:#595959;}
 
 
 .divDotText {
@@ -30,18 +30,15 @@ text-overflow:ellipsis;
 }
 
 .contentsCnt1:active, .contentsCnt2:active, .contentsCnt3:active { 
-   font-size:15pt; 
-   font-family:"돋움";
-   color:#FEBC38; 
+	color: #fc7110;
    text-decoration:none;  
+   	transition: color 0.1s;
    
 }
 .contentsCnt1:hover, .contentsCnt2:hover, .contentsCnt3:hover { 
-   font-size:15pt; 
-   font-family:"돋움";
-   color:#FEBC38;
+	color: #fc7110;
    text-decoration:none;
-   
+   	transition: color 0.1s;
 }
 
 .day{
