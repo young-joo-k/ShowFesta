@@ -81,7 +81,10 @@
 							<c:choose>
 								<c:when test="${dateList.value=='today'}">
 									<td class="today">
-										<div class="date">${dateList.date}일</div>
+									
+										<div class="date">
+											<div class="circle"></div>
+										${dateList.date}일</div>
 										<div class="contentsCount">
 											<a href="#" id="m_btn${dateList.date }" class="contentsCnt1"
 												data-event-type="뮤지컬" data-date="${dateList.date }">뮤지컬
@@ -154,7 +157,7 @@
 								</c:when>
 								<c:when test="${date_status.index%7==6}">
 									<td class="sat_day">
-										<div class="sat">${dateList.date}</div> <c:if
+										<div class="sat">${dateList.date}일</div> <c:if
 											test="${not empty dateList.date and dateList.date ne ''}">
 											<a href="#" id="m_btn${dateList.date }" class="contentsCnt1"
 												data-event-type="뮤지컬" data-date="${dateList.date }">뮤지컬
@@ -231,7 +234,7 @@
 									<!--             			</tr> -->
 									<tr class="cal-list">
 										<td class="sun_day">
-											<div class="sun">${dateList.date}</div> <c:if
+											<div class="sun">${dateList.date}일</div> <c:if
 												test="${not empty dateList.date and dateList.date ne ''}">
 												<a href="#" id="m_btn${dateList.date }" class="contentsCnt1"
 													data-event-type="뮤지컬" data-date="${dateList.date }">뮤지컬
@@ -244,69 +247,69 @@
 												<a href="#" id="f_btn${dateList.date }" class="contentsCnt3"
 													data-event-type="축제" data-date="${dateList.date }">축제 :
 													${dateList.festivalCnt }</a>
-											</c:if>  <c:forEach var="musicalList"
-											items="${dateList.m_all_contents }">
-											<div class="musicalList${dateList.date }"
-												style="display: none;">
-												<a href='/page/musical_info?m_num=${musicalList.m_num}'>
-													<div class=list-inner-wrap>
-														<img class="modal-comImg"
-															src=<c:out value = "${musicalList.m_img}"/>>
-														<div class=modal-list-txt>
-															<div class="modal-list-tit1">${musicalList.m_title}</div>
-															<div class="modal-list-tit2">
-																<p class="dateDate">${musicalList.m_start_date}&nbsp;~&nbsp;</p>
-																<p class="dateDate">${musicalList.m_end_date}</p>
+											</c:if> <c:forEach var="musicalList"
+												items="${dateList.m_all_contents }">
+												<div class="musicalList${dateList.date }"
+													style="display: none;">
+													<a href='/page/musical_info?m_num=${musicalList.m_num}'>
+														<div class=list-inner-wrap>
+															<img class="modal-comImg"
+																src=<c:out value = "${musicalList.m_img}"/>>
+															<div class=modal-list-txt>
+																<div class="modal-list-tit1">${musicalList.m_title}</div>
+																<div class="modal-list-tit2">
+																	<p class="dateDate">${musicalList.m_start_date}&nbsp;~&nbsp;</p>
+																	<p class="dateDate">${musicalList.m_end_date}</p>
+																</div>
+																<div class="modal-list-tit3">${musicalList.m_place}</div>
 															</div>
-															<div class="modal-list-tit3">${musicalList.m_place}</div>
 														</div>
-													</div>
-												</a>
-											</div>
-										</c:forEach> <c:forEach var="concertList"
-											items="${dateList.c_all_contents }">
-											<div class="concertList${dateList.date }"
-												style="display: none;">
-												<a href='/page/concert_info?m_num=${concertList.m_num}'>
-													<div class=list-inner-wrap>
-														<img class="modal-comImg"
-															src=<c:out value = "${concertList.m_img}"/>>
-														<div class=modal-list-txt>
-															<div class="modal-list-tit1">${concertList.m_title}</div>
-															<div class="modal-list-tit2">
-																<p class="dateDate">${concertList.m_start_date}&nbsp;~&nbsp;</p>
-																<p class="dateDate">${concertList.m_end_date}</p>
+													</a>
+												</div>
+											</c:forEach> <c:forEach var="concertList"
+												items="${dateList.c_all_contents }">
+												<div class="concertList${dateList.date }"
+													style="display: none;">
+													<a href='/page/concert_info?m_num=${concertList.m_num}'>
+														<div class=list-inner-wrap>
+															<img class="modal-comImg"
+																src=<c:out value = "${concertList.m_img}"/>>
+															<div class=modal-list-txt>
+																<div class="modal-list-tit1">${concertList.m_title}</div>
+																<div class="modal-list-tit2">
+																	<p class="dateDate">${concertList.m_start_date}&nbsp;~&nbsp;</p>
+																	<p class="dateDate">${concertList.m_end_date}</p>
+																</div>
+																<div class="modal-list-tit3">${concertList.m_place}</div>
 															</div>
-															<div class="modal-list-tit3">${concertList.m_place}</div>
 														</div>
-													</div>
-												</a>
-											</div>
-										</c:forEach> <c:forEach var="festivalList"
-											items="${dateList.f_all_contents }">
-											<div class="festivalList${dateList.date }"
-												style="display: none;">
-												<a href='/page/festaContents'>
-													<div class=list-inner-wrap>
-														<img class="modal-comImg"
-															src=<c:out value = "${festivalList.f_img}"/>>
-														<div class=modal-list-txt>
-															<div class="modal-list-tit1">${festivalList.f_title}</div>
-															<div class="modal-list-tit2">
-																<p class="dateDate">${festivalList.f_s_date}&nbsp;~&nbsp;</p>
-																<p class="dateDate">${festivalList.f_e_date}</p>
+													</a>
+												</div>
+											</c:forEach> <c:forEach var="festivalList"
+												items="${dateList.f_all_contents }">
+												<div class="festivalList${dateList.date }"
+													style="display: none;">
+													<a href='/page/festaContents'>
+														<div class=list-inner-wrap>
+															<img class="modal-comImg"
+																src=<c:out value = "${festivalList.f_img}"/>>
+															<div class=modal-list-txt>
+																<div class="modal-list-tit1">${festivalList.f_title}</div>
+																<div class="modal-list-tit2">
+																	<p class="dateDate">${festivalList.f_s_date}&nbsp;~&nbsp;</p>
+																	<p class="dateDate">${festivalList.f_e_date}</p>
+																</div>
+																<div class="modal-list-tit3">${festivalList.f_adress}</div>
 															</div>
-															<div class="modal-list-tit3">${festivalList.f_adress}</div>
 														</div>
-													</div>
-												</a>
-											</div>
-										</c:forEach>
+													</a>
+												</div>
+											</c:forEach>
 										</td>
 								</c:when>
 								<c:otherwise>
 									<td class="normal_day">
-										<div class="date">${dateList.date}</div> <c:if
+										<div class="date">${dateList.date}일</div> <c:if
 											test="${not empty dateList.date and dateList.date ne ''}">
 											<a href="#" id="m_btn${dateList.date }" class="contentsCnt1"
 												data-event-type="뮤지컬" data-date="${dateList.date }">뮤지컬

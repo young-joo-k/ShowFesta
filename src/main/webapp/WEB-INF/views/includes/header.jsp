@@ -106,11 +106,11 @@ $(document).ready(function() {
     $('.dropdown').hover(
         function() {
             // 호버 시 드롭다운 메뉴를 보이게 하기
-            $(this).find('ul').slideDown('fast');
+            $(this).find('ul').slideDown('400');
         },
         function() {
             // 호버가 해제될 때 드롭다운 메뉴를 숨기기
-            $(this).find('ul').slideUp('fast');
+            $(this).find('ul').slideUp('400');
         }
     );
     $('.dropdown ul').hide();

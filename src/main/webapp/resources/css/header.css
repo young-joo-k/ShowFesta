@@ -137,6 +137,7 @@ font-family: 'Jua', sans-serif !important;
 #calendarCss{
 	width:80px;
 }
+
 .nav_menu {
     display: inline-flex;
     padding-inline-start: 0px;
@@ -146,6 +147,9 @@ font-family: 'Jua', sans-serif !important;
     border-radius: 18px;
     padding-left: 20px;
     padding-right: 20px;
+    position:relative;
+        background-color: white;
+    opacity: 92%;
 }
 #qnaCss{
 	width:75px;

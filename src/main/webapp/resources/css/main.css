@@ -10,7 +10,7 @@ body::before{
     content: "";
     background-image: url(../img/bomb3.png);
     background-repeat: no-repeat;
-    background-position: 150px 52px;
+    background-position: 13px 90px;
     background-size: 46%;
     opacity: 65%;
     top: 0px;

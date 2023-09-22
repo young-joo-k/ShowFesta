@@ -164,17 +164,30 @@ text-overflow:ellipsis;
     border-radius: 18px;
 }
 .calendar_body .today{
-  border:1px solid white;
   height:120px;
-  background-color:#c9c9c9;
   text-align: left;
   vertical-align: top;
+}
+
+.today .date {
+    display: flex;
+    justify-content: end;
+}
+.circle{
+    background-color: red;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    margin-top: 7px;
+    margin-left: 14px;
 }
 
 .no-data-message{
    color:red;   
 }
-
+.week{
+	background-color:white;
+}
 .contentsCnt1, .contentsCnt2, .contentsCnt3 {
   margin-top: 20px;
     font-size: 15px;

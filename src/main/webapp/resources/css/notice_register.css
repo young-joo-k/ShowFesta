@@ -5,6 +5,11 @@
     text-align: center;
 }
 
+.chooseContents{
+	    display: flex;
+    justify-content: center;
+    margin-left: 600px;
+}
 .register-top h4 {
     margin-bottom: 14px;
     font-weight: bold;

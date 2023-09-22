@@ -17,10 +17,16 @@ pageEncoding="UTF-8"%>
 					<div class="register-top">
 						<h4> 컨텐츠 추가 </h4>
 					</div>
-					
+					<div class = chooseContents>
+						<div>
 					<input type = "radio" name = "contentType" value = "musical" checked>뮤지컬
+					</div>
+					<div  style = "margin-left:30px;">
 					<input type = "radio" name = "contentType" value = "concert">콘서트
+					</div>
+					</div>
 					<!-- 뮤지컬 컨텐츠 추가 -->
+					</div>
 					<form role="form" action="contentsPlus" method="post">
 						<div class = "register-table-wrap">
 							<p class="es-text">
