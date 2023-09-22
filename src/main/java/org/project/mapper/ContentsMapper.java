@@ -40,5 +40,7 @@ public interface ContentsMapper {
 
 	public List<FestaVO> searchFestaContents();
 
-	public void insert(ContentsVO contentsvo);
+	public void musicalContentsPlus(ContentsVO contentsvo);
+
+	public void concertContentsPlus(ContentsVO contentsvo);
 }

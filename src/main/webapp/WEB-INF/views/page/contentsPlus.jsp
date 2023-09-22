@@ -17,7 +17,11 @@ pageEncoding="UTF-8"%>
 					<div class="register-top">
 						<h4> 컨텐츠 추가 </h4>
 					</div>
-					<form role="form" action="notice_register" method="post">
+					
+					<input type = "radio" name = "contentType" value = "musical" checked>뮤지컬
+					<input type = "radio" name = "contentType" value = "concert">콘서트
+					<!-- 뮤지컬 컨텐츠 추가 -->
+					<form role="form" action="contentsPlus" method="post">
 						<div class = "register-table-wrap">
 							<p class="es-text">
 								<span class="es-dot"></span>
@@ -30,7 +34,7 @@ pageEncoding="UTF-8"%>
 											타이틀
 										</th>
 										<td>
-											<input type="text" placeholder="제목을 입력해 주세요." class="isSecurity" maxlength="50" name="b_writer"
+											<input type="text" placeholder="제목을 입력해 주세요." class="isSecurity" maxlength="50" name="m_title"
 												id="b_writer" required>
 											<input type ="hidden" id="initialName">
 										</td>
@@ -41,7 +45,7 @@ pageEncoding="UTF-8"%>
 											이미지URL
 										</th>
 										<td>
-											<input type="text" placeholder="포스터 이미지 URL을 입력해주세요." class="wil100-per" maxlength="100" name="b_title"
+											<input type="text" placeholder="포스터 이미지 URL을 입력해주세요." class="wil100-per" maxlength="100" name="m_img"
 												id="b_title" required>
 										</td>
 									</tr>
@@ -51,7 +55,7 @@ pageEncoding="UTF-8"%>
 											시작날짜
 										</th>
 										<td>
-											<textarea placeholder="시작날짜를 입력해 주세요.(형식: yyyy-MM-dd)" class="will100-per" id="b_content" name="b_content" required></textarea>
+											<textarea placeholder="시작날짜를 입력해 주세요.(형식: yyyy-MM-dd)" class="will100-per" id="m_start_date" name="m_start_date" required></textarea>
 										</td>
 									</tr>
 									<tr>
@@ -60,7 +64,7 @@ pageEncoding="UTF-8"%>
 											종료날짜
 										</th>
 										<td>
-											<textarea placeholder="종료날짜를 입력해 주세요.(형식: yyyy-MM-dd)" class="will100-per" id="b_content" name="b_content" required></textarea>
+											<textarea placeholder="종료날짜를 입력해 주세요.(형식: yyyy-MM-dd)" class="will100-per" id="m_end_date" name="m_end_date" required></textarea>
 										</td>
 									</tr>
 									<tr>
@@ -69,7 +73,7 @@ pageEncoding="UTF-8"%>
 											장소
 										</th>
 										<td>
-											<textarea placeholder="장소를 입력해주세요." class="will100-per" id="b_content" name="b_content" required></textarea>
+											<textarea placeholder="장소를 입력해주세요." class="will100-per" id="m_place" name="m_place" required></textarea>
 										</td>
 									</tr>
 									<tr>
@@ -78,16 +82,17 @@ pageEncoding="UTF-8"%>
 											링크
 										</th>
 										<td>
-											<textarea placeholder="링크를 입력해 주세요." class="will100-per" id="b_content" name="b_content" required></textarea>
+											<textarea placeholder="링크를 입력해 주세요." class="will100-per" id="m_b_link" name="m_b_link" required></textarea>
 										</td>
 									</tr>
 								</tbody>
 							</table>
+							<input type="hidden" name="type" value="musical">
 						</div>
 						<div class="register-btn-wrap">
 							<ul>
 								<li>
-									<input type="submit" class="register-submit" onclick="onSubmit(); return false;" value="등록">
+									<input type="submit" class="contentsPlus-submit"  value="등록">
 								</li>
 								<li>
 									<a href="/page/notice_list" onclick="onCancel();" class="register-cancel">취소</a>
@@ -103,10 +108,14 @@ pageEncoding="UTF-8"%>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
-	
-
+    $('.contentsPlus-submit').click(function(){
+        var selectedType = $('input[name="contentType"]:checked').val();
+        $('input[name="type"]').val(selectedType);
+        return true; 
+    });
 });
 </script>
+
 
 
 
