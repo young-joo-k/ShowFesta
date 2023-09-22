@@ -17,12 +17,6 @@ public interface ContentsMapper {
 	public ContentsVO MusicalRead(Long m_num);
 
 	public List<ContentsVO> getFestivalContents();
-
-	public List<ContentsVO> getToday_m_contents();
-
-	public List<ContentsVO> getToday_c_contents();
-
-	public List<ContentsVO> getToday_f_contents();
 	
 	public ContentsVO ConcertRead(Long m_num);
 
@@ -34,7 +28,7 @@ public interface ContentsMapper {
 
 	public List<ContentsVO> getAllConcert(String date);
 
-	public List<ContentsVO> getAllFestival(String date);
+	public List<FestaVO> getAllFestival(String date);
 
 	public List<ContentsVO> getMusicalContentsByDate(String startDate, String endDate);
 

@@ -105,44 +105,23 @@ public class PageController {
 				calendarData.setM_all_contents(contentsservice.getAllMusical(result));
 				calendarData.setC_all_contents(contentsservice.getAllConcert(result));
 				calendarData.setF_all_contents(contentsservice.getAllFestival(result));
-//	            	 System.out.println(result);
-//	            	 System.out.println(calendarData.getMusicalCnt());
 			}
 			dateList.add(calendarData);
 		}
 
 		// 달력 빈곳 빈 데이터로 삽입
 		int index = 7 - dateList.size() % 7;
-//	      log.info(modalList.get(0).getM_all_contents());
-//	      System.out.println(dateList.get(s_index));
-//	      System.out.println(modalList.get(0));
 		if (dateList.size() % 7 != 0) {
 			for (int i = 0; i < index; i++) {
 				calendarData = new DateData(null, null, null, null);
 				dateList.add(calendarData);
 			}
 		}
-//	      int musicalCnt = scheduleservice.getMusical();
-//	      int concertCnt = scheduleservice.getConcerts();
-//	      int festivalCnt = scheduleservice.getFestival();
 
-		// 모달창에 띄우기 위해서 필요한 코드 입니다.
-//	      List<ContentsVO> today_m_contents = contentsservice.getToday_m_contents();
-//	      List<ContentsVO> today_c_contents = contentsservice.getToday_c_contents();
-//	      List<ContentsVO> today_f_contents = contentsservice.getToday_f_contents();
-
-		// 배열에 담음
-//	      model.addAttribute("musicalCnt", musicalCnt);
-//	      model.addAttribute("concertCnt", concertCnt);
-//	      model.addAttribute("festivalCnt", festivalCnt);
 		model.addAttribute("DateList", dateList); // 날짜 데이터 배열
 		model.addAttribute("today_info", today_info);
 		model.addAttribute("endDay", today_info.get("endDay"));
-//	      System.out.println(dateList.get(5));
-		// 여기 모델도 모달창에 띄우려고 쓰는거입니다
-//	      model.addAttribute("today_m_contents", today_m_contents);
-//	      model.addAttribute("today_c_contents", today_c_contents);
-//	      model.addAttribute("today_f_contents", today_f_contents);
+
 		return "/page/calendar";
 	}
 

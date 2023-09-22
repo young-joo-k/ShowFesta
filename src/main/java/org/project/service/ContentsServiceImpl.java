@@ -39,25 +39,6 @@ public class ContentsServiceImpl implements ContentsService {
 		
 		return contentsmapper.getConcertContents();
 	}
-
-	@Override
-	public List<ContentsVO> getToday_m_contents() {
-		
-		log.info("today_m_contents");
-		return contentsmapper.getToday_m_contents();
-	}
-
-
-	@Override
-	public List<ContentsVO> getToday_c_contents() {
-		return contentsmapper.getToday_c_contents();
-	}
-
-	@Override
-	public List<ContentsVO> getToday_f_contents() {
-		
-		return contentsmapper.getToday_f_contents();
-	}
 	
 	@Override
 	public ContentsVO getConcert(Long m_num) {
@@ -90,7 +71,7 @@ public class ContentsServiceImpl implements ContentsService {
 	}
 
 	@Override
-	public List<ContentsVO> getAllFestival(String date) {
+	public List<FestaVO> getAllFestival(String date) {
 		// TODO Auto-generated method stub
 		return contentsmapper.getAllFestival(date);
 	}
