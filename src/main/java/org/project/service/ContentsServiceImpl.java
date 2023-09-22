@@ -122,8 +122,13 @@ public class ContentsServiceImpl implements ContentsService {
 	}
 
 	@Override
-	public void contentsPlus(ContentsVO contentsvo) {
-		contentsmapper.insert(contentsvo);
+	public void musicalContentsPlus(ContentsVO contentsvo) {
+		contentsmapper.musicalContentsPlus(contentsvo);
+	}
+
+	@Override
+	public void concertContentsPlus(ContentsVO contentsvo) {
+		contentsmapper.concertContentsPlus(contentsvo);
 	}
 
 }

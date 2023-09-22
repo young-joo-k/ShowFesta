@@ -257,16 +257,16 @@ public class PageController {
 			// 모델에 뿌려주고
 			model.addAttribute("user", membervo);
 			// 즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
-			List<LikeVO> likeList = likeservice.getLike(membervo.getId());
-			log.info(likeList);
-			// 즐겨찾기한 애들 이름만 담을 리스트
-			List<String> nameList = new ArrayList<String>();
-			for (LikeVO list : likeList) {
-				String name = list.getLike_name();
-				nameList.add(name);
-			}
-//			System.out.println(nameList);
-			model.addAttribute("likeList", nameList);
+//			List<LikeVO> likeList = likeservice.getLike(membervo.getId());
+//			log.info(likeList);
+//			// 즐겨찾기한 애들 이름만 담을 리스트
+//			List<String> nameList = new ArrayList<String>();
+//			for (LikeVO list : likeList) {
+//				String name = list.getLike_name();
+//				nameList.add(name);
+//			}
+////			System.out.println(nameList);
+//			model.addAttribute("likeList", nameList);
 		}
 
 		List<ContentsVO> musicalList = contentsservice.getMusicalContents();

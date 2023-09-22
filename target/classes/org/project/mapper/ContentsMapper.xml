@@ -159,8 +159,15 @@
 		FROM tbl_festa ORDER BY f_s_date DESC
 	</select>
 	
-	<insert id = "insert">
+<!-- 	관리자페이지에서 컨텐츠 추가 -->
+<!-- 뮤지컬컨텐츠 추가 -->
+	<insert id = "musicalContentsPlus">
 		INSERT INTO tbl_musical (m_num, m_title, m_img, m_start_date, m_end_date, m_place, m_b_link)
+		VALUES (seq_musical.nextval, #{m_title}, #{m_img}, #{m_start_date}, #{m_end_date}, #{m_place}, #{m_b_link})
+	</insert>
+	
+	<insert id = "concertContentsPlus">
+		INSERT INTO tbl_concert (m_num, m_title, m_img, m_start_date, m_end_date, m_place, m_b_link)
 		VALUES (seq_musical.nextval, #{m_title}, #{m_img}, #{m_start_date}, #{m_end_date}, #{m_place}, #{m_b_link})
 	</insert>
 </mapper>
