@@ -158,4 +158,9 @@
 		f_tel,f_infoadr,f_text,f_link,f_adress,f_time
 		FROM tbl_festa ORDER BY f_s_date DESC
 	</select>
+	
+	<insert id = "insert">
+		INSERT INTO tbl_musical (m_num, m_title, m_img, m_start_date, m_end_date, m_place, m_b_link)
+		VALUES (seq_musical.nextval, #{m_title}, #{m_img}, #{m_start_date}, #{m_end_date}, #{m_place}, #{m_b_link})
+	</insert>
 </mapper>

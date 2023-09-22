@@ -25,6 +25,15 @@
 }
 .contentSearchBtn{
 	margin-left: 1rem;
+	background-color: white;
+    margin-left: 1rem;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    border-radius: 10px;
+    width: 61px;
+    height: 32px;
+    text-align: center;
+    font-weight: 800;
 }
 
 #startDate, #endDate{

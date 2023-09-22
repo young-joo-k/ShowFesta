@@ -92,7 +92,6 @@
 	<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 	<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 </form>
-
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#regBtn").on("click", function() {
@@ -104,8 +103,7 @@
 			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
 			actionForm.submit();
 		});
-
-
+	});
 </script>
 </html>
 

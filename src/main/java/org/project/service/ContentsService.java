@@ -35,5 +35,7 @@ public interface ContentsService {
 
 	public List<FestaVO> getFestaContentSearchDate(String startDate, String endDate);
 
+	public void contentsPlus(ContentsVO contentsvo);
+
 
 }

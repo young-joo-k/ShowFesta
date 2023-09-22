@@ -121,4 +121,9 @@ public class ContentsServiceImpl implements ContentsService {
         }
 	}
 
+	@Override
+	public void contentsPlus(ContentsVO contentsvo) {
+		contentsmapper.insert(contentsvo);
+	}
+
 }

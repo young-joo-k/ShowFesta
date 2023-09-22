@@ -51,19 +51,19 @@ pageEncoding="UTF-8"%>
 											시작날짜
 										</th>
 										<td>
-											<textarea placeholder="공지사항 내용을 입력해 주세요." class="will100-per" id="b_content" name="b_content" required></textarea>
+											<textarea placeholder="시작날짜를 입력해 주세요.(형식: yyyy-MM-dd)" class="will100-per" id="b_content" name="b_content" required></textarea>
 										</td>
 									</tr>
-																		<tr>
+									<tr>
 										<th scope="row">
 											<span class="es-dot"></span>
 											종료날짜
 										</th>
 										<td>
-											<textarea placeholder="공지사항 내용을 입력해 주세요." class="will100-per" id="b_content" name="b_content" required></textarea>
+											<textarea placeholder="종료날짜를 입력해 주세요.(형식: yyyy-MM-dd)" class="will100-per" id="b_content" name="b_content" required></textarea>
 										</td>
 									</tr>
-																		<tr>
+									<tr>
 										<th scope="row">
 											<span class="es-dot"></span>
 											장소
@@ -72,13 +72,13 @@ pageEncoding="UTF-8"%>
 											<textarea placeholder="장소를 입력해주세요." class="will100-per" id="b_content" name="b_content" required></textarea>
 										</td>
 									</tr>
-																		<tr>
+									<tr>
 										<th scope="row">
 											<span class="es-dot"></span>
 											링크
 										</th>
 										<td>
-											<textarea placeholder="공지사항 내용을 입력해 주세요." class="will100-per" id="b_content" name="b_content" required></textarea>
+											<textarea placeholder="링크를 입력해 주세요." class="will100-per" id="b_content" name="b_content" required></textarea>
 										</td>
 									</tr>
 								</tbody>
@@ -100,4 +100,14 @@ pageEncoding="UTF-8"%>
 		</div>
 	</div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+	
+
+});
+</script>
+
+
+
 </html>
