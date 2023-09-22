@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.project.domain.ContentsVO;
+import org.project.domain.FestaVO;
 import org.project.domain.ScheduleVO;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class DateData {
 	String schedule = "";
 	List<ContentsVO> m_all_contents;
 	List<ContentsVO> c_all_contents;
-	List<ContentsVO> f_all_contents;
+	List<FestaVO> f_all_contents;
 	int MusicalCnt;
 	int ConcertCnt;
 	int FestivalCnt;

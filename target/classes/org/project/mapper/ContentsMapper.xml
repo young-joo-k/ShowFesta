@@ -2,94 +2,65 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace ="org.project.mapper.ContentsMapper">
+<mapper namespace="org.project.mapper.ContentsMapper">
 
- 
-	<select id="MusicalRead" resultType = "org.project.domain.ContentsVO">
+
+	<select id="MusicalRead"
+		resultType="org.project.domain.ContentsVO">
 		select * from tbl_musical where m_num = #{m_num}
 	</select>
-	
+
 	<!--유형별페이지에서 사용 -->
 	<!--뮤지컬 -->
-	<select id="getMusicalContents" resultType = "org.project.domain.ContentsVO">
+	<select id="getMusicalContents"
+		resultType="org.project.domain.ContentsVO">
 		SELECT m_num,m_title,m_img,
-				to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
-				to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
-				m_place,
-				m_b_link 
+		to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
+		to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
+		m_place,
+		m_b_link
 		FROM tbl_musical ORDER BY m_start_date DESC
 	</select>
-	
+
 	<!--콘서트 -->
-	<select id="getConcertContents" resultType = "org.project.domain.ContentsVO">
+	<select id="getConcertContents"
+		resultType="org.project.domain.ContentsVO">
 		SELECT m_num,m_title,m_img,
-				to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
-				to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
-				m_place,m_b_link 
+		to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
+		to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
+		m_place,m_b_link
 		FROM tbl_concert ORDER BY m_start_date DESC
 	</select>
-	
+
 	<!--페스티벌 -->
-	<select id="getFestivalContents" resultType = "org.project.domain.ContentsVO">
+	<select id="getFestivalContents"
+		resultType="org.project.domain.ContentsVO">
 		SELECT m_num,m_title,
-				to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
-				to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
-				m_place
+		to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
+		to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
+		m_place
 		FROM tbl_festival ORDER BY m_start_date DESC
 	</select>
-	
-	
-	
-	<!-- 캘린더 내 모달에서 사용됨 -->
-	<select id ="getToday_m_contents" resultType ="org.project.domain.ContentsVO">
-		<![CDATA[
-			select m_num,m_title,m_img,
-					to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
-					to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
-					m_place,m_b_link 
-			from tbl_musical
-			where sysdate > m_start_date and sysdate < m_end_date
-		]]> 
 
-	</select>
-	
-	<select id ="getToday_c_contents" resultType ="org.project.domain.ContentsVO">
-		<![CDATA[
-			select m_num,m_title,m_img,
-					to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
-					to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
-					m_place,m_b_link 
- 			from tbl_concert 
- 			where sysdate > m_start_date and sysdate < m_end_date 
- 		]]> 
-	</select>
-	
-	<select id ="getToday_f_contents" resultType ="org.project.domain.ContentsVO">
-		<![CDATA[
-			select m_num,m_title,
-					to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
-					to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
-					m_place
- 			from tbl_festival 
- 			where sysdate > m_start_date and sysdate < m_end_date 
- 		]]>  
-	</select>
-
-	<select id="ConcertRead" resultType = "org.project.domain.ContentsVO">
+	<select id="ConcertRead"
+		resultType="org.project.domain.ContentsVO">
 		select * from tbl_concert where m_num = #{m_num}
 	</select>
 
-	<select id="FestivalRead" resultType = "org.project.domain.ContentsVO">
+	<select id="FestivalRead"
+		resultType="org.project.domain.ContentsVO">
 		select * from tbl_festival where m_num = #{m_num}
 	</select>
-	
-	<select id="getPrice" resultType = "org.project.domain.PriceVO">
-		select * from tbl_price where m_title = #{m_title}
+
+	<select id="getPrice" resultType="org.project.domain.PriceVO">
+		select * from tbl_price where
+		m_title = #{m_title}
 	</select>
-	
-		<!-- 캘린더 내 모달에서 사용됨 -->
-		<!-- 여기는 today를 제외한 나머지 애들 가져오는거 -->
-	<select id ="getAllMusical" resultType ="org.project.domain.ContentsVO">
+
+	<!-- 캘린더 내 모달에서 사용됨 -->
+	<!-- 여기는 today를 제외한 나머지 애들 가져오는거 -->
+	<select id="getAllMusical"
+		resultType="org.project.domain.ContentsVO">
 		<![CDATA[
 			select m_num,m_title,m_img,
 					to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
@@ -97,11 +68,12 @@
 					m_place,m_b_link 
 			from tbl_musical
 			where TO_DATE(#{date}, 'YY/MM/DD') > m_start_date and TO_DATE(#{date}, 'YY/MM/DD') < m_end_date
-		]]> 
+		]]>
 
 	</select>
-	
-	<select id ="getAllConcert" resultType ="org.project.domain.ContentsVO">
+
+	<select id="getAllConcert"
+		resultType="org.project.domain.ContentsVO">
 		<![CDATA[
 			select m_num,m_title,m_img,
 					to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
@@ -109,22 +81,24 @@
 					m_place,m_b_link 
  			from tbl_concert 
  			where TO_DATE(#{date}, 'YY/MM/DD') > m_start_date and TO_DATE(#{date}, 'YY/MM/DD') < m_end_date 
- 		]]> 
+ 		]]>
 	</select>
-	
-	<select id ="getAllFestival" resultType ="org.project.domain.ContentsVO">
+
+	<select id="getAllFestival"
+		resultType="org.project.domain.FestaVO">
 		<![CDATA[
-			select m_num,m_title,
-					to_char(m_start_date,'YYYY.MM.DD') AS m_start_date,
-					to_char(m_end_date,'YYYY.MM.DD') AS m_end_date,
-					m_place
- 			from tbl_festival 
- 			where TO_DATE(#{date}, 'YY/MM/DD') > m_start_date and TO_DATE(#{date}, 'YY/MM/DD') < m_end_date 
- 		]]>  -->
+	       SELECT contentId,f_title,f_img,
+				to_char(f_s_date,'YY/MM/DD') AS f_s_date,
+				to_char(f_e_date,'YY/MM/DD') AS f_e_date,
+				f_tel,f_infoadr,f_text,f_link,f_adress,f_time
+	        FROM tbl_festa
+ 			where TO_DATE(#{date}, 'YY/MM/DD') > f_s_date and TO_DATE(#{date}, 'YY/MM/DD') < f_e_date 
+ 		]]>
 	</select>
-	
-<!-- 	검색결과 표시해줄 부분 -->
-	<select id="getMusicalContentsByDate" resultType="org.project.domain.ContentsVO">
+
+	<!-- 검색결과 표시해줄 부분 -->
+	<select id="getMusicalContentsByDate"
+		resultType="org.project.domain.ContentsVO">
 	    <![CDATA[
 	       SELECT m_num, m_title, m_img,
 	               TO_CHAR(m_start_date, 'YYYY.MM.DD') AS m_start_date,
@@ -135,8 +109,9 @@
 	        AND TO_DATE(#{arg1}, 'YYYY-MM-DD') <= m_end_date
 	    ]]>
 	</select>
-	
-	<select id="getConcertContentsByDate" resultType="org.project.domain.ContentsVO">
+
+	<select id="getConcertContentsByDate"
+		resultType="org.project.domain.ContentsVO">
 	    <![CDATA[
 	       SELECT m_num, m_title, m_img,
 	               TO_CHAR(m_start_date, 'YYYY.MM.DD') AS m_start_date,
@@ -147,8 +122,9 @@
 	        AND TO_DATE(#{arg1}, 'YYYY-MM-DD') <= m_end_date
 	    ]]>
 	</select>
-	
-	<select id="getFestivalContentsByDate" resultType="org.project.domain.ContentsVO">
+
+	<select id="getFestivalContentsByDate"
+		resultType="org.project.domain.ContentsVO">
 	    <![CDATA[
 	       SELECT m_num, m_title, m_img,
 	               TO_CHAR(m_start_date, 'YYYY.MM.DD') AS m_start_date,
@@ -159,7 +135,8 @@
 	        AND TO_DATE(#{arg1}, 'YYYY-MM-DD') <= m_end_date
 	    ]]>
 	</select>
-	<select id="getFestaContentsByDate" resultType="org.project.domain.FestaVO">
+	<select id="getFestaContentsByDate"
+		resultType="org.project.domain.FestaVO">
 	    <![CDATA[
 	       SELECT contentId,f_title,f_img,
 				to_char(f_s_date,'YY/MM/DD') AS f_s_date,
@@ -170,14 +147,15 @@
 	        AND TO_DATE(#{arg1}, 'YYYY-MM-DD') <= f_e_date
 	    ]]>
 	</select>
-<!-- 	검색결과 보여주기 끝 -->
-	
+	<!-- 검색결과 보여주기 끝 -->
+
 	<!--페스티벌 -->
-	<select id="getFestaContents" resultType = "org.project.domain.FestaVO">
+	<select id="getFestaContents"
+		resultType="org.project.domain.FestaVO">
 		SELECT contentId,f_title,f_img,
-				to_char(f_s_date,'YY/MM/DD') AS f_s_date,
-				to_char(f_e_date,'YY/MM/DD') AS f_e_date,
-				f_tel,f_infoadr,f_text,f_link,f_adress,f_time
+		to_char(f_s_date,'YY/MM/DD') AS f_s_date,
+		to_char(f_e_date,'YY/MM/DD') AS f_e_date,
+		f_tel,f_infoadr,f_text,f_link,f_adress,f_time
 		FROM tbl_festa ORDER BY f_s_date DESC
 	</select>
 </mapper>

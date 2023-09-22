@@ -24,8 +24,8 @@
 <select id = "getFestival" resultType = "int">
 <![CDATA[
 	select count(*) 
-	from tbl_festival
-	where sysdate > m_start_date and sysdate < m_end_date
+	from tbl_festa
+	where sysdate > f_s_date and sysdate < f_e_date
 	]]>
 </select>
 
@@ -49,8 +49,8 @@
 <select id = "getFestivalCnt" resultType = "int">
 <![CDATA[
 	select count(*) 
-	from tbl_festival
-	where TO_DATE(#{date}, 'YY/MM/DD') > m_start_date and TO_DATE(#{date}, 'YY/MM/DD') < m_end_date
+	from tbl_festa
+	where TO_DATE(#{date}, 'YY/MM/DD') > f_s_date and TO_DATE(#{date}, 'YY/MM/DD') < f_e_date
 	]]>
 </select>
 
