@@ -284,9 +284,26 @@ public class PageController {
 
 	// 콘서트 유형별페이지 가져옵니다
 	@GetMapping("/concertContents")
-	public void concertContent(Model model) {
+	public void concertContent(HttpSession session,Model model) {
 		log.info("concert contents get");
-
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			// 유저 정보 가져와서
+			MemberVO membervo = memberservice.getUserInfo(id);
+			// 모델에 뿌려주고
+			model.addAttribute("user", membervo);
+			// 즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
+//			List<LikeVO> likeList = likeservice.getLike(membervo.getId());
+//			log.info(likeList);
+//			// 즐겨찾기한 애들 이름만 담을 리스트
+//			List<String> nameList = new ArrayList<String>();
+//			for (LikeVO list : likeList) {
+//				String name = list.getLike_name();
+//				nameList.add(name);
+//			}
+////			System.out.println(nameList);
+//			model.addAttribute("likeList", nameList);
+		}
 		List<ContentsVO> concertList = contentsservice.getConcertContents();
 
 		if (concertList == null || concertList.isEmpty()) {
@@ -299,8 +316,26 @@ public class PageController {
 
 	// 페스티벌 유형별페이지 가져옵니다
 	@GetMapping("/festaContents")
-	public void festaContent(Model model) {
+	public void festaContent(HttpSession session,Model model) {
 		log.info("festa contents get");
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			// 유저 정보 가져와서
+			MemberVO membervo = memberservice.getUserInfo(id);
+			// 모델에 뿌려주고
+			model.addAttribute("user", membervo);
+			// 즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
+//			List<LikeVO> likeList = likeservice.getLike(membervo.getId());
+//			log.info(likeList);
+//			// 즐겨찾기한 애들 이름만 담을 리스트
+//			List<String> nameList = new ArrayList<String>();
+//			for (LikeVO list : likeList) {
+//				String name = list.getLike_name();
+//				nameList.add(name);
+//			}
+////			System.out.println(nameList);
+//			model.addAttribute("likeList", nameList);
+		}
 		try {
 			List<FestaVO> festaList = contentsservice.getFestaContents();
 			int length = festaList.size();

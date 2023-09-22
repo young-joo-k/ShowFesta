@@ -162,7 +162,8 @@ a.likeBtn {
 	color: inherit;
 }
 .slide-wrap{
-	width: 57.5rem;
+	width: 320px;
+	float : left;
 }
 #modal-festa {
 	display: none;
@@ -209,8 +210,8 @@ button.modal-close-btn {
 
 .modal-body {
 	margin: 0 auto;
-	width: 50rem;
-	height: 50rem;
+	width: 55rem;
+	height: 40rem;
 	color: black;
 	box-sizing: border-box;
 	max-height: auto; /* 원하는 높이로 조정 */
@@ -255,6 +256,11 @@ button.modal-close-btn {
 	height: 100%;
 }
 
+.app-info{
+	float:left;
+	width: calc(100% - 350px);
+	margin-left:30px;
+}
 .app-title{
 	width:100%;
 }
@@ -274,6 +280,9 @@ button.modal-close-btn {
 	list-style-type: none;
 }
 
+.modal-li{
+	width:770px;
+}
 .gaeyo {
 	color: rgb(0, 0, 0);
 	font-size: 16px;

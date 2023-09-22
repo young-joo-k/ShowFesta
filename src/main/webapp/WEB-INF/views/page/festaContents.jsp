@@ -112,7 +112,7 @@
 												</div>
 												<div class="bot">
 													<ul>
-														<li><strong>개요</strong>
+														<li class = "modal-li"><strong>개요</strong>
 															<p>
 															<div class="gaeyo">${content.f_text }</div>
 															</p></li>
