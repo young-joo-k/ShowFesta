@@ -134,17 +134,17 @@
 											items="${dateList.f_all_contents }">
 											<div class="festivalList${dateList.date }"
 												style="display: none;">
-												<a href='/page/musical_info?m_num=${festivalList.m_num}'>
+												<a href='/page/festaContents'>
 													<div class=list-inner-wrap>
 														<img class="modal-comImg"
-															src=<c:out value = "${content.m_img}"/>>
+															src=<c:out value = "${festivalList.f_img}"/>>
 														<div class=modal-list-txt>
-															<div class="modal-list-tit1">${festivalList.m_title}</div>
+															<div class="modal-list-tit1">${festivalList.f_title}</div>
 															<div class="modal-list-tit2">
-																<p class="dateDate">${festivalList.m_start_date}&nbsp;~&nbsp;</p>
-																<p class="dateDate">${festivalList.m_end_date}</p>
+																<p class="dateDate">${festivalList.f_s_date}&nbsp;~&nbsp;</p>
+																<p class="dateDate">${festivalList.f_e_date}</p>
 															</div>
-															<div class="modal-list-tit3">${festivalList.m_place}</div>
+															<div class="modal-list-tit3">${festivalList.f_adress}</div>
 														</div>
 													</div>
 												</a>
@@ -209,17 +209,17 @@
 											items="${dateList.f_all_contents }">
 											<div class="festivalList${dateList.date }"
 												style="display: none;">
-												<a href='/page/musical_info?m_num=${festivalList.m_num}'>
+												<a href='/page/festaContents'>
 													<div class=list-inner-wrap>
 														<img class="modal-comImg"
-															src=<c:out value = "${content.m_img}"/>>
+															src=<c:out value = "${festivalList.f_img}"/>>
 														<div class=modal-list-txt>
-															<div class="modal-list-tit1">${festivalList.m_title}</div>
+															<div class="modal-list-tit1">${festivalList.f_title}</div>
 															<div class="modal-list-tit2">
-																<p class="dateDate">${festivalList.m_start_date}&nbsp;~&nbsp;</p>
-																<p class="dateDate">${festivalList.m_end_date}</p>
+																<p class="dateDate">${festivalList.f_s_date}&nbsp;~&nbsp;</p>
+																<p class="dateDate">${festivalList.f_e_date}</p>
 															</div>
-															<div class="modal-list-tit3">${festivalList.m_place}</div>
+															<div class="modal-list-tit3">${festivalList.f_adress}</div>
 														</div>
 													</div>
 												</a>
@@ -286,17 +286,17 @@
 											items="${dateList.f_all_contents }">
 											<div class="festivalList${dateList.date }"
 												style="display: none;">
-												<a href='/page/musical_info?m_num=${festivalList.m_num}'>
+												<a href='/page/festaContents'>
 													<div class=list-inner-wrap>
 														<img class="modal-comImg"
-															src=<c:out value = "${content.m_img}"/>>
+															src=<c:out value = "${festivalList.f_img}"/>>
 														<div class=modal-list-txt>
-															<div class="modal-list-tit1">${festivalList.m_title}</div>
+															<div class="modal-list-tit1">${festivalList.f_title}</div>
 															<div class="modal-list-tit2">
-																<p class="dateDate">${festivalList.m_start_date}&nbsp;~&nbsp;</p>
-																<p class="dateDate">${festivalList.m_end_date}</p>
+																<p class="dateDate">${festivalList.f_s_date}&nbsp;~&nbsp;</p>
+																<p class="dateDate">${festivalList.f_e_date}</p>
 															</div>
-															<div class="modal-list-tit3">${festivalList.m_place}</div>
+															<div class="modal-list-tit3">${festivalList.f_adress}</div>
 														</div>
 													</div>
 												</a>
@@ -361,17 +361,17 @@
 											items="${dateList.f_all_contents }">
 											<div class="festivalList${dateList.date }"
 												style="display: none;">
-												<a href='/page/musical_info?m_num=${festivalList.m_num}'>
+												<a href='/page/festaContents'>
 													<div class=list-inner-wrap>
 														<img class="modal-comImg"
-															src=<c:out value = "${content.m_img}"/>>
+															src=<c:out value = "${festivalList.f_img}"/>>
 														<div class=modal-list-txt>
-															<div class="modal-list-tit1">${festivalList.m_title}</div>
+															<div class="modal-list-tit1">${festivalList.f_title}</div>
 															<div class="modal-list-tit2">
-																<p class="dateDate">${festivalList.m_start_date}&nbsp;~&nbsp;</p>
-																<p class="dateDate">${festivalList.m_end_date}</p>
+																<p class="dateDate">${festivalList.f_s_date}&nbsp;~&nbsp;</p>
+																<p class="dateDate">${festivalList.f_e_date}</p>
 															</div>
-															<div class="modal-list-tit3">${festivalList.m_place}</div>
+															<div class="modal-list-tit3">${festivalList.f_adress}</div>
 														</div>
 													</div>
 												</a>

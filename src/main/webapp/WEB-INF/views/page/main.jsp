@@ -64,7 +64,7 @@
 							class=img></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="/page/musical_info"><img
+						<a href="/page/festaContents"><img
 							src=https://korean.visitkorea.or.kr/kfes/upload/contents/db/400_7c1728ce-e80a-4c10-809d-6212a0e38bff_3.jpg
 							class=img></a>
 					</div>
@@ -165,25 +165,86 @@
 					<div data-v-54077454 data-v-223ac3f7 class="session-contents"
 						cell-type="band_14">
 						<div class="contents-wrapper">
-							<c:forEach var="content" items="${festivalContents}">
 								<div data-v-54077454 class="contents-slide"
 									style="width: 240px; margin-right: 20px;">
 									<div data-v-54077454 class="thumb portrait"
 										loaded-fn="function() { [navice cod]}" cell-index="0">
 										<a
-											href='/page/festival_info?m_num=<c:out value = "${content.m_num}"/>'>
+											href='/page/festaContents'>
 											<div class="thumb-image">
 												<div class="picture-area">
 													<picture> <img
-														src="/resources/img/festival/${content.m_title}.jpg">
+														src="/resources/img/festival/세계화상비즈니스위크.jpg">
 													</picture>
 												</div>
 											</div>
 										</a>
 									</div>
 								</div>
-							</c:forEach>
-
+								<div data-v-54077454 class="contents-slide"
+									style="width: 240px; margin-right: 20px;">
+									<div data-v-54077454 class="thumb portrait"
+										loaded-fn="function() { [navice cod]}" cell-index="0">
+										<a
+											href='/page/festaContents'>
+											<div class="thumb-image">
+												<div class="picture-area">
+													<picture> <img
+														src="/resources/img/festival/글로벌 영도커피페스티벌.jpg">
+													</picture>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div data-v-54077454 class="contents-slide"
+									style="width: 240px; margin-right: 20px;">
+									<div data-v-54077454 class="thumb portrait"
+										loaded-fn="function() { [navice cod]}" cell-index="0">
+										<a
+											href='/page/festaContents'>
+											<div class="thumb-image">
+												<div class="picture-area">
+													<picture> <img
+														src="/resources/img/festival/양재플라워페스타.jpg">
+													</picture>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div data-v-54077454 class="contents-slide"
+									style="width: 240px; margin-right: 20px;">
+									<div data-v-54077454 class="thumb portrait"
+										loaded-fn="function() { [navice cod]}" cell-index="0">
+										<a
+											href='/page/festaContents'>
+											<div class="thumb-image">
+												<div class="picture-area">
+													<picture> <img
+														src="/resources/img/festival/제2회세계를품은인천교육한마당.jpg">
+													</picture>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div data-v-54077454 class="contents-slide"
+									style="width: 240px; margin-right: 20px;">
+									<div data-v-54077454 class="thumb portrait"
+										loaded-fn="function() { [navice cod]}" cell-index="0">
+										<a
+											href='/page/festaContents'>
+											<div class="thumb-image">
+												<div class="picture-area">
+													<picture> <img
+														src="/resources/img/festival/오독.jpg">
+													</picture>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
 						</div>
 					</div>
 					<a data-v-223ac3f7 href="/page/festaContents" class="btn-more all">더보기</a>

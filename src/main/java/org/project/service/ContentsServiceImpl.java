@@ -39,31 +39,6 @@ public class ContentsServiceImpl implements ContentsService {
 		
 		return contentsmapper.getConcertContents();
 	}
-
-	@Override
-	public List<ContentsVO> getFestivalContents() {
-	
-		return contentsmapper.getFestivalContents();
-	}
-
-	@Override
-	public List<ContentsVO> getToday_m_contents() {
-		
-		log.info("today_m_contents");
-		return contentsmapper.getToday_m_contents();
-	}
-
-
-	@Override
-	public List<ContentsVO> getToday_c_contents() {
-		return contentsmapper.getToday_c_contents();
-	}
-
-	@Override
-	public List<ContentsVO> getToday_f_contents() {
-		
-		return contentsmapper.getToday_f_contents();
-	}
 	
 	@Override
 	public ContentsVO getConcert(Long m_num) {
@@ -96,7 +71,7 @@ public class ContentsServiceImpl implements ContentsService {
 	}
 
 	@Override
-	public List<ContentsVO> getAllFestival(String date) {
+	public List<FestaVO> getAllFestival(String date) {
 		// TODO Auto-generated method stub
 		return contentsmapper.getAllFestival(date);
 	}
@@ -115,30 +90,16 @@ public class ContentsServiceImpl implements ContentsService {
 
 	
 	 }
-
-	@Override
-	public List<FestaVO> getFestaContents() {
-		return contentsmapper.getFestaContents();
-	}
+		@Override
+		public List<FestaVO> getFestaContents() {
+			return contentsmapper.getFestaContents();
+		}
 
 	@Override
 	public List<ContentsVO> getConcertContentsByDate(String startDate, String endDate) {
 		try {
             // startDate와 endDate를 사용하여 동적 쿼리 생성 및 실행
             List<ContentsVO> searchResult = contentsmapper.getConcertContentsByDate(startDate, endDate);
-            
-            return searchResult;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null; 
-        }
-	}
-
-	@Override
-	public List<ContentsVO> getFestivalContentSearchDate(String startDate, String endDate) {
-		try {
-            // startDate와 endDate를 사용하여 동적 쿼리 생성 및 실행
-            List<ContentsVO> searchResult = contentsmapper.getFestivalContentSearchDate(startDate, endDate);
             
             return searchResult;
         } catch (Exception e) {

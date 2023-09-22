@@ -148,6 +148,7 @@ $(document).ready(function(){
         $(".my-like-actor").hide(); // my-like-actor를 숨김
         $(".myPage-qna-wrap").show(); // myPage-qna-wrap을 보이게 함
     });
+    
 });
 </script>
 

@@ -2,6 +2,7 @@ package org.project.controller;
 
 import java.util.List;
 
+import org.project.domain.FestaVO;
 import org.project.domain.SearchVO;
 import org.project.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,15 +29,17 @@ public class SearchController {
         if (keyword != null && !keyword.isEmpty()) {
             List<SearchVO> musicalSearchResults = searchService.musicalsearch(keyword);
             List<SearchVO> concertSearchResults = searchService.concertsearch(keyword);
-            List<SearchVO> festivalSearchResults = searchService.festivalsearch(keyword);
+            List<FestaVO> festivalSearchResults = searchService.festivalsearch(keyword);
             List<SearchVO> actorSearchResults = searchService.actorsearch(keyword);
+    		int fsList = festivalSearchResults.size();
+    		model.addAttribute("length",fsList);
             model.addAttribute("musicalSearchResults", musicalSearchResults);
             model.addAttribute("festivalSearchResults", festivalSearchResults);
             model.addAttribute("actorSearchResults", actorSearchResults);
             model.addAttribute("concertSearchResults", concertSearchResults);
             log.info("Get");
         }
-        return "page/search"; // �˻� ����� ������ �� �̸� (search.jsp �Ǵ� �ٸ� �̸�)
+        return "page/search";
     }
     @GetMapping("/searchResult_musical")
     public String searchMusical(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
@@ -59,7 +62,7 @@ public class SearchController {
     @GetMapping("/searchResult_festival")
     public String searchFestival(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
     	if (keyword != null && !keyword.isEmpty()) {
-    		List<SearchVO> festivalSearchResults = searchService.festivalsearch(keyword);
+    		List<FestaVO> festivalSearchResults = searchService.festivalsearch(keyword);
     		model.addAttribute("festivalSearchResults", festivalSearchResults);
     		int fsList = festivalSearchResults.size();
     		model.addAttribute("length",fsList);

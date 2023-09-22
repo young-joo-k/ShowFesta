@@ -24,6 +24,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 		return schedulemapper.getConcerts();
 	}
 	
+//	여기 수정해야함
 	@Override
 	public int getFestival() {
 		return schedulemapper.getFestival();
