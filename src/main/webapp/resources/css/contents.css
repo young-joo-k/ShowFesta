@@ -2,7 +2,6 @@
 /* 이 css는 모든 유형별 페이지에서 공통으로 사용됩니다. */
 
 .genreContents{
-	background-color : #ffffff;
 }
 .categoryTop{
 	padding-top: 10px;
@@ -16,7 +15,7 @@
 /* 기간검색에 쓰이는 부분 */
 .contentSearchBox{
 	margin-top: 2rem;
-	margin-right: 10rem;
+	margin-right: 16rem;
 }
 .contentSearchBox-wrap{
 	display: flex;
@@ -48,7 +47,8 @@
 	flex-wrap: wrap;
 	width:100%;
 	justify-content: center;
-
+    padding-left: 300px;
+    padding-right: 300px;
 }
 
 .search-contents-list{

@@ -77,7 +77,8 @@ font-family: 'Gloock', sans-serif !important;
     margin-top: 70px;
         margin-bottom: 0px;
         margin-left: 280px;
-        
+        filter: brightness(0) invert(1);
+        font-weigth:bold;
 }
 
 .memberInfo_wrap li {
@@ -119,6 +120,7 @@ font-family: 'Gloock', sans-serif !important;
 	white-space: nowrap;
 	transform: translate(-50%, 0);
 	font-family: 'Noto Sans KR', sans-serif;
+	font-weight:bold;
 }
 
 .nav {
@@ -141,16 +143,15 @@ font-family: 'Gloock', sans-serif !important;
 .nav_menu {
     display: inline-flex;
     padding-inline-start: 0px;
-    margin-top: 64px;
+    margin-top: 36px;
     box-shadow: 2px 4px 12px rgba(0,0,0,.08);
     transition: all .3s cubic-bezier(0,0,.5,1);
     border-radius: 18px;
     padding-left: 20px;
     padding-right: 20px;
     position:relative;
-        background-color: white;
     opacity: 92%;
-    color:black;
+    color:white;
     font-size:small;
 }
 #qnaCss{
@@ -166,8 +167,7 @@ font-family: 'Gloock', sans-serif !important;
 	
 }
 .nav_menu>li>h2>a {
-	color:black;
-	
+	color:white;
 }
 .totalSearch_wrap {
 	display: inline-flex;
@@ -186,7 +186,7 @@ font-family: 'Gloock', sans-serif !important;
 	padding-left: 18px;
 	padding-right: 55px;
 	font-size: 16px;
-	color: #222;
+	color: white;
 	line-height: 1.500em;
 	border-radius: 10px;
 	outline-color: #fc7110;
@@ -196,6 +196,8 @@ font-family: 'Gloock', sans-serif !important;
 	box-shadow: 2px 4px 12px rgba(0,0,0,.08);
     transition: all .3s cubic-bezier(0,0,.5,1);
     border-radius: 18px;
+    	background-color:#000127
+    
 }
 
 .totalSearch_wrap .btn_totalSearch {
@@ -212,6 +214,8 @@ font-family: 'Gloock', sans-serif !important;
 	border: 0 none;
 	cursor: pointer;
 	margin-top : 20px;
+	filter: brightness(0) invert(1);
+
 }
 
 dl, ul, ol, menu, li {

@@ -29,27 +29,39 @@
 						<th>등록일</th>
 					</tr>
 				</thead>
-				<c:forEach items="${list}" var="qna">
-					<tbody>
-						<tr>
-							<td>
-								<p class="noti-type">
-									<c:out value="${qna.b_num}" />
-								</p>
-							</td>
-							<td><span><a href='/page/qna_get?b_num=<c:out value="${qna.b_num }"/>'>
-						<c:out value="${qna.b_title}"/></a></span></td>
-							<td>
-								<p class="noti-date">
-									<fmt:formatDate pattern="yyyy-MM-dd"
-										value="${qna.updatedate }" />
-								</p>
-							</td>
-						</tr>
-
-					</tbody>
-				</c:forEach>
-
+				<tbody>
+					<c:choose>
+						<c:when test= "${empty list }">
+							<tr class = "no-data">
+								<td colspan="3" class="no-data-message">
+									<p class="no-data-message">1:1문의가 없습니다.</p>
+								</td>
+							</tr>
+						</c:when>
+						<c:otherwise>
+							<c:forEach items="${list}" var="qna">
+								<tbody>
+									<tr>
+										<td>
+											<p class="noti-type">
+												<c:out value="${qna.b_num}" />
+											</p>
+										</td>
+										<td><span><a href='/page/qna_get?b_num=<c:out value="${qna.b_num }"/>'>
+									<c:out value="${qna.b_title}"/></a></span></td>
+										<td>
+											<p class="noti-date">
+												<fmt:formatDate pattern="yyyy-MM-dd"
+													value="${qna.updatedate }" />
+											</p>
+										</td>
+									</tr>
+			
+								</tbody>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+				</tbody>
 			</table>
 		</div>
 		<div class='pull-right'>
@@ -68,8 +80,6 @@
 				</c:if>
 			</ul>
 		</div>
-
-
 	</div>
 </body>
 <form id= 'actionForm' action="/page/qna_list" method='get'>

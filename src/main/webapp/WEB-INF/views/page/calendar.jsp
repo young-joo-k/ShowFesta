@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<head>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp"%>
@@ -6,7 +7,7 @@
 <%@page import="java.util.Calendar"%>
 
 <!-- <title>캘린더</title> -->
-<link href="/resources/css/calendar.css?after" rel="stylesheet"
+<link href="/resources/css/N_calendar.css?after" rel="stylesheet"
 	type="text/css">
 </head>
 <body class="calendarBody">

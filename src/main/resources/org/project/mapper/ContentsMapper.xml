@@ -170,4 +170,20 @@
 		INSERT INTO tbl_concert (m_num, m_title, m_img, m_start_date, m_end_date, m_place, m_b_link)
 		VALUES (seq_musical.nextval, #{m_title}, #{m_img}, #{m_start_date}, #{m_end_date}, #{m_place}, #{m_b_link})
 	</insert>
+	
+	
+<!-- 	뮤지컬 컨텐츠 삭제	 -->
+	<delete id="contentsDelete">
+   	 DELETE FROM tbl_musical WHERE m_num = #{m_num}
+	</delete>
+
+
+<!-- 	콘서트 컨텐츠 삭제	 -->
+	<delete id = "concertDelete">
+		DELETE FROM tbl_concert where m_num=#{m_num}
+	</delete>
+<!-- 	축제 컨텐츠 삭제	 -->
+<!-- 	<delete id = "festivalContentsDelete"> -->
+<!-- 		DELETE FROM tbl_musical where m_num=#{m_num} -->
+<!-- 	</delete> -->
 </mapper>

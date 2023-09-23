@@ -1,8 +1,6 @@
 package org.project.controller;
 
-import java.text.SimpleDateFormat;
 import java.util.Base64;
-import java.util.Date;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -12,9 +10,10 @@ import okhttp3.*;
 
 public class SmsSender {
 
-	private static String projectId = "ncp:sms:kr:316609991035:sms";
-	private static String accessKey = "U62vMFlW1dBJ6yd0kBn1";
-	private static String secretKey = "lBa6D9aHsFxGKI0Ttm1UJyCGD84eEfZYWz94WFzH";
+
+    private static String projectId = "";
+    private static String accessKey = "";
+    private static String secretKey = "";
 
 	private static String url = "/sms/v2/services/" + projectId + "/messages";
 	private static String requestUrl = "https://sens.apigw.ntruss.com" + url;

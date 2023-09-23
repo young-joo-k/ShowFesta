@@ -4,6 +4,10 @@
 eclipse.preferences.version=1
 encoding//src/main/java/org/project/controller/MemberController.java=UTF-8
 encoding//src/main/java/org/project/controller/PageController.java=UTF-8
+<<<<<<< HEAD
+=======
+encoding//src/main/java/org/project/controller/QnaController.java=UTF-8
+>>>>>>> 53cab0986eebe0d22ecc667c68347f097ad68d55
 encoding//src/main/java/org/project/service/ContentsService.java=UTF-8
 encoding//src/main/java/org/project/service/ContentsServiceImpl.java=UTF-8
 encoding//src/main/java/org/project/service/MemberServiceImpl.java=UTF-8

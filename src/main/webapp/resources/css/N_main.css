@@ -4,6 +4,7 @@
 }
  body{
 	position : relative;
+	background-color: #000127;
 }
 body::before{
     position: absolute;

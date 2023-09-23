@@ -1,0 +1,575 @@
+@charset "UTF-8";
+
+.likeBtn, .sideBtn, .topButton, .castingLink, .castingHeartBtn,
+	.contentToggleBtn {
+	color: inherit;
+}
+
+.likeBtn, .sideBtn, .topButton, .castingLink, .castingHeartBtn,
+	.contentToggleBtn[role='button'] {
+	cursor: pointer;
+	outline-offset: -1px;
+}
+
+button {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background: none;
+	font-family: -apple-system, system-ui, BlinkMacSystemFont, '맑은 고딕',
+		'Malgun Gothic', '돋움', Dotum, Helvetica, 'Apple SD Gothic Neo',
+		sans-serif;
+	box-sizing: border-box;
+	cursor: pointer;
+	outline-offset: -1px;
+}
+
+input, textarea {
+	font-family: -apple-system, system-ui, BlinkMacSystemFont, '맑은 고딕',
+		'Malgun Gothic', '돋움', Dotum, Helvetica, 'Apple SD Gothic Neo',
+		sans-serif;
+	resize: none;
+}
+
+label {
+	box-sizing: border-box;
+}
+
+.blind {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	margin: -0.1rem;
+	width: 0.1rem;
+	height: 0.1rem;
+}
+
+strong {
+	font-weight: bold;
+}
+
+li {
+	list-style: none;
+}
+
+.is-disabled {
+	pointer-events: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.productWrapper {
+	position: relative;
+	padding-top: 15rem;
+	color:white;
+}
+
+.productWrapper .productMain {
+	width: 83rem;
+	margin-bottom: 9.8rem;
+	margin-left: 27%;
+}
+
+.productWrapper .productMainBody {
+	position: relative;
+}
+
+.productWrapper .prdContents {
+	padding-top: 11.8rem;
+	padding-bottom: 9rem;
+}
+
+.productWrapper .summary {
+    position: relative;
+    font-size: 0;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    padding: 3.5rem;
+    border-radius: 18px;
+}
+
+.productWrapper .summary .summaryTop {
+	margin-bottom: 1.9rem;
+}
+
+.productWrapper .summary .summaryBody {
+	display: flex;
+	align-items: center;
+}
+
+.productWrapper .summary .tag {
+	display: inline-block;
+	margin-bottom: 0.9rem;
+	width: 100%;
+	color: #666;
+	font-size: 0;
+}
+
+.productWrapper .summary .tag .tagList {
+	display: inline-block;
+	margin-right: 1.1rem;
+	vertical-align: middle;
+}
+
+.productWrapper .summary .tag .tagItem {
+	display: inline-block;
+	margin-left: 0.6rem;
+}
+
+.productWrapper .summary .tag .tagItem:first-child {
+	margin-left: 0;
+}
+
+.productWrapper .summary .tag .tagItem .text {
+	font-size: 1.2rem;
+	display: inline-block;
+	padding: 0 1.1rem 0 0.8rem;
+	color: #fff;
+	font-size: 1.2rem;
+	height: 2.4rem;
+	font-weight: bold;
+	line-height: 2.3rem;
+	vertical-align: middle;
+	background-color: #9557fa;
+	border-radius: 0.4rem;
+}
+
+.productWrapper .summary .prdTitle {
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	font-size: 2.4rem;
+	font-weight: bold;
+	line-height: 130%;
+	padding-bottom : 3rem;
+}
+
+.productWrapper .summary .posterBox .posterBoxTop {
+	background-image:
+		url('//openimage.interpark.com/ticket-desktop/pages/product/noImage_logo.png');
+	background-repeat: no-repeat;
+	background-color: #f0f0f0;
+	background-position: 50% 50%;
+	position: relative;
+	height: 40rem;
+}
+
+.productWrapper .summary .posterBox .posterBoxImage {
+    display: block;
+    width: 30rem;
+    height: 40rem;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.productWrapper .summary .likeBtn {
+position: absolute;
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: inherit;
+    line-height: 2.4rem;
+    outline-style: none;
+    cursor: pointer;
+    top: 70%;
+    left: 50%;
+    z-index: 1;
+}
+
+.productWrapper .summary .likeBtn:focus-visible {
+	outline-style: auto;
+}
+
+.productWrapper .summary .likeBtn:before {
+background-image: url(../img/heart.png);
+    background-repeat: no-repeat;
+    position: relative;
+    display: inline-block;
+    top: 1rem;
+    left: -1rem;;
+    width: 3rem;
+    height: 3rem;
+    padding-right: 0.6rem;
+    background-position: 0 0;
+    content: '';
+    background-position: 0 0;
+}
+
+.productWrapper .summary .likeBtn.is-toggled:before {
+	background-position: 0 -3rem;
+}
+
+.productWrapper .summary .likeBtn:disabled {
+	color: inherit;
+}
+
+.productWrapper .summary .bookBtn {
+	align-self: flex-end;
+}
+
+.productWrapper .summary .info {
+	display: flex;
+	margin-left: 5rem;
+	vertical-align: top;
+	flex-direction: column;
+    height: 30.1rem;
+    overflow-y: auto;
+}
+
+.productWrapper .summary .info .infoItem {
+	margin-top: 1.5rem;
+	padding-left: 2.5rem;
+	font-size: 0;
+}
+
+.productWrapper .summary .info .infoItem:first-child {
+	margin-top: 0;
+	line-height: 2.2rem;
+}
+
+.productWrapper .summary .info .infoLabel {
+	display: inline-block;
+	width: 9rem;
+	padding-right: 0.5rem;
+	font-size: 1.6rem;
+	font-weight: normal;
+	line-height: 160%;
+	vertical-align: top;
+	box-sizing: border-box;
+}
+
+.productWrapper .summary .info .infoDesc {
+	display: inline-block;
+	max-width: 39rem;
+	vertical-align: top;
+}
+
+.productWrapper .summary .info .infoDesc.is-guide .infoText {
+	position: relative;
+	top: -0.4rem;
+	font-size: 1.4rem;
+	line-height: 3rem;
+	word-break: keep-all;
+}
+
+.productWrapper .summary .info .infoText {
+	position: relative;
+	max-width: 41.5rem;
+	font-size: 1.6rem;
+	line-height: 200%;
+}
+
+.productWrapper .content {
+	position: absolute;
+}
+
+.productWrapper .content .navInfo {
+	width: 83rem;
+	z-index: 5;
+	position: absolute;
+	top: initial;
+}
+
+.productWrapper .content .navList {
+	font-size: 0;
+	border-bottom: 0.1rem solid #b6bdc7;
+	border-width: 0.2rem;
+	margin-top: 5rem;
+}
+
+.productWrapper .content .navItem {
+	position: relative;
+	display: inline-block;
+	font-size: 1.6rem;
+	white-space: nowrap;
+	line-height: 2.5rem;
+	font-weight: bold;
+}
+
+.productWrapper .sideBtn {
+	display: table;
+	width: 60%;
+	min-height: 5.4rem;
+	padding: 0 1rem;
+	font-size: 1.6rem;
+	font-weight: bold;
+	color: #fff;
+	background-color: #a9a9a9;
+	border: 0.1rem solid #a9a9a9;
+	border-radius: 1rem;
+	text-align: center;
+	box-sizing: border-box;
+	margin-top: 5rem;
+	margin-left: 7rem;
+}
+
+.productWrapper .sideBtn>span {
+	display: table-cell;
+	height: 100%;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 120%;
+}
+
+.productWrapper .sideBtn.is-primary {
+	font-size: 1.8rem;
+}
+
+.productWrapper .sideBtn+.sideBtn {
+	margin-top: 1rem;
+}
+
+.productWrapper .sideBtn:disabled, .productWrapper .sideBtn.is-disabled
+	{
+	color: #fff;
+	border-color: #ccc;
+	background-color: #ccc;
+	cursor: default;
+}
+#casting{
+	    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    border-radius: 18px;
+}
+.productWrapper .detail {
+	position: relative;
+	padding-bottom: 0;
+}
+
+.productWrapper .detail .content {
+	position: relative;
+    margin: 0 0 10rem 0;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    border-radius: 18px;
+}
+
+.productWrapper .detail .content .contentTitle {
+	margin-bottom: 2rem;
+	font-size: 2rem;
+	font-weight: bold;
+	line-height: 120%;
+	padding: 10px;
+}
+
+.productWrapper .detail .content .contentTitle .countNum {
+	vertical-align: top;
+	line-height: 2rem;
+	font-size: 1.8rem;
+}
+
+.productWrapper .detail .content .contentDetail {
+	color: #000;
+	font-size: 1.4rem;
+	line-height: 180%;
+}
+
+.productWrapper .detail .content .contentDetail+.contentDetail {
+	margin-top: 3rem;
+}
+
+.productWrapper .detail .content .facilityInfo {
+	margin-top: 3rem;
+	color: #000;
+	font-size: 1.4rem;
+	line-height: 180%;
+}
+
+.productWrapper .detail .content .contentDetail+.facilityInfo {
+	margin-bottom: 3rem;
+}
+
+.productWrapper .detail .content .contentDetail img {
+	display: block;
+	width: 750px !important;
+	margin-left: 4rem;
+	    border-radius: 10px;
+}
+
+.productWrapper .detail .content .contentDetailTitle {
+	margin: 0 0 1.2rem;
+	font-size: 1.4rem;
+	font-weight: bold;
+	line-height: 120%;
+}
+
+.productWrapper .detail .content .contentToggleBtn {
+    display: block;
+    width: 100%;
+    height: 5.8rem;
+    line-height: 5.8rem;
+    color: #666;
+    font-size: 1.4rem;
+    text-align: center;
+    background-color: #f4f6f9;
+    overflow-anchor: none;
+    border-radius: 10px;
+}
+
+.productWrapper .detail .content .contentToggleBtn:before {
+	display: inline-block;
+	content: '더보기';
+}
+
+.productWrapper .detail .content .contentToggleBtn:after {
+	background-image:
+		url('//openimage.interpark.com/ticket-desktop/pages/product/icon_contentToggle.png');
+	background-repeat: no-repeat;
+	position: relative;
+	top: -0.1rem;
+	left: 0.6rem;
+	display: inline-block;
+	width: 1.3rem;
+	height: 0.8rem;
+	background-size: 100%;
+	background-position: 0 -0.8rem;
+	content: '';
+}
+
+.productWrapper .detail .expandableWrap.is-toggled .contentToggleBtn:before
+	{
+	content: '닫기';
+}
+
+.productWrapper .detail .expandableWrap.is-toggled .contentToggleBtn:after
+	{
+	background-position: 0 0;
+}
+
+.productWrapper .detail .loadableWrap.is-allLoaded.is-toggled .contentToggleBtn:before
+	{
+	content: '닫기';
+}
+
+.productWrapper .detail .loadableWrap.is-allLoaded.is-toggled .contentToggleBtn:after
+	{
+	background-position: 0 0;
+}
+
+.productWrapper
+ 
+.detail
+ 
+.
+{
+position
+:
+ 
+relative
+;
+
+
+}
+.productWrapper .detail .casting .castingInfoBtn {
+	position: absolute;
+	top: -0.4rem;
+	right: 0;
+	padding: 0.8rem 1.8rem;
+	font-size: 1.4rem;
+	color: #000;
+	border-radius: 0.6rem;
+	border: 0.1rem solid #b6bdc7;
+}
+
+.productWrapper .detail .casting .is-toggled .castingList {
+	height: auto;
+}
+
+.productWrapper .detail .casting .castingList {
+	overflow: hidden;
+	height: 19.2rem;
+	padding-left: 1.2rem;
+	margin-top: 5rem;
+	font-size: 0;
+}
+
+.productWrapper .detail .casting .castingItem {
+	position: relative;
+	display: inline-block;
+	width: 10.1rem;
+	min-height: 15.2rem;
+	margin: 0 3.6rem 4rem 0;
+	font-size: 1.4rem;
+	text-align: center;
+	vertical-align: top;
+}
+
+.productWrapper .detail .casting .castingItem:nth-child(6n) {
+	margin-right: 0;
+}
+
+.productWrapper .detail .casting .castingTop {
+	position: relative;
+}
+
+.productWrapper .detail .casting .castingProfile {
+	overflow: hidden;
+	display: block;
+	width: 10.1rem;
+	margin: 0 auto 0.8rem;
+	border-radius: 50%;
+	background-color: #f0f0f0;
+}
+
+.productWrapper .detail .casting .castingImage {
+	display: block;
+	width: 100%;
+	margin-top: -1.2rem;
+}
+
+.productWrapper .detail .casting .castingActor {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-weight: bold;
+	color: #000;
+	line-height: 2.5rem;
+}
+
+.productWrapper .detail .casting .castingName {
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	line-height: 130%;
+}
+
+.productWrapper .detail .casting .castingHeartBtn {
+	position: absolute;
+	bottom: 0.2rem;
+	right: 0;
+	display: block;
+	width: 2.8rem;
+	height: 2.8rem;
+	border-radius: 50%;
+	background-color: #ddd;
+	box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.14);
+}
+
+.productWrapper .detail .casting .castingHeartBtn:before {
+	background-image:
+		url('//openimage.interpark.com/ticket-desktop/pages/product/icon_myCastHeart.png');
+	background-repeat: no-repeat;
+	display: block;
+	width: 1.3rem;
+	height: 1.2rem;
+	margin: 0.8rem auto 0;
+	background-position: 0 0;
+	content: '';
+}
+
+.productWrapper .detail .casting .castingHeartBtn.is-toggled {
+	background-color: #fff;
+}
+
+.productWrapper .detail .casting .castingHeartBtn.is-toggled:before {
+	background-position: 0 -1.2rem;
+}
+
+.productWrapper .detail .description .contentTitle {
+	margin-bottom: 3rem;
+}
+
+

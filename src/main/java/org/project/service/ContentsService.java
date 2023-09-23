@@ -39,5 +39,9 @@ public interface ContentsService {
 
 	public void concertContentsPlus(ContentsVO contentsvo);
 
+	public void deleteContentsByM_num(int m_num);
+
+	public void deleteConcertContentsByM_num(int m_num);
+
 
 }
