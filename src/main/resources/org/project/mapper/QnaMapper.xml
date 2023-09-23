@@ -57,4 +57,7 @@ select * from tbl_qna where b_num = #{b_num}
 	values (#{b_num}, #{b_title}, #{b_content}, #{b_writer}, #{id})
 </insert>
 
+<!-- 관리자가 사용해야하는 부분 -->
+
+
 </mapper>

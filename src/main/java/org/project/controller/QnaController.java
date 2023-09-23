@@ -42,9 +42,9 @@ public class QnaController {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
 			
-			//���ã�����̺� ���ã���� �׸��� ��� ������ ������
+			//占쏙옙占시ｏ옙占쏙옙占쏙옙遣占� 占쏙옙占시ｏ옙占쏙옙占� 占쌓몌옙占쏙옙 占쏙옙占� 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙
 			QnaVO qna = new QnaVO();
-	        qna.setId(id); // ����� ID�� QnaVO ��ü�� ����
+	        qna.setId(id); // 占쏙옙占쏙옙占� ID占쏙옙 QnaVO 占쏙옙체占쏙옙 占쏙옙占쏙옙
 
 	        model.addAttribute("qna", qna);
 		} else{
@@ -85,5 +85,19 @@ public class QnaController {
 	public void get(@RequestParam("b_num") Long b_num, @ModelAttribute("cri") Criteria cri, Model model) {
 		log.info("qna_get");
 		model.addAttribute("qna", service.get(b_num));
+	}
+	
+	@GetMapping("/qna_management")
+	public void adminlist(Criteria cri, Model model, HttpSession session) {
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			}
+		log.info("list: " + cri);
+		model.addAttribute("list", service.getAllList(cri));
+		
+		int total = service.qnaTotal(cri);
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 }
