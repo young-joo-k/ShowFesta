@@ -43,4 +43,8 @@ public interface ContentsMapper {
 	public void musicalContentsPlus(ContentsVO contentsvo);
 
 	public void concertContentsPlus(ContentsVO contentsvo);
+
+	public void contentsDelete(int m_num);
+
+	public void concertDelete(int m_num);
 }

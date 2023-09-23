@@ -101,7 +101,7 @@ pageEncoding="UTF-8"%>
 									<input type="submit" class="contentsPlus-submit"  value="등록">
 								</li>
 								<li>
-									<a href="/page/notice_list" onclick="onCancel();" class="register-cancel">취소</a>
+									<a href="/page/adminPage" onclick="onCancel();" class="register-cancel">취소</a>
 								</li>
 							</ul>
 						</div>
