@@ -5,13 +5,16 @@
 <html lang="ko">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Arvo:wght@700&family=Black+Han+Sans&family=Concert+One&family=EB+Garamond:wght@800&family=Fugaz+One&family=Gloock&family=Josefin+Sans:wght@700&family=Jua&family=Kanit:wght@500&family=Lilita+One&family=Noto+Sans+KR:wght@500&family=Paytone+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Arvo:wght@700&family=Black+Han+Sans&family=Concert+One&family=EB+Garamond:wght@800&family=Fugaz+One&family=Josefin+Sans:wght@700&family=Jua&family=Kanit:wght@500&family=Lilita+One&family=Paytone+One&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=IBM+Plex+Sans+KR&family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-<link href="/resources/css/header.css?after" rel="stylesheet">
+<link href="/resources/css/N_header.css?after" rel="stylesheet">
 <link href="/resources/css/style.css?after" rel="stylesheet">
-<link href="/resources/css/main.css?after" rel="stylesheet">
+<link href="/resources/css/N_main.css?after" rel="stylesheet">
 <link href="/resources/css/dropdown.css?after" rel="stylesheet">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <head>
@@ -60,6 +63,14 @@
 		</div>
 		<div class="nav">
 			<div class="contents">
+			<div class="totalSearch_wrap">
+					<label for="totalSearch">
+						<input type="text" id="header_keyword" placeholder="검색어를 입력해 주세요">
+						<input type="hidden" id="header_ad_keyword" name="header_ad_keyword">
+					</label>
+					<button type="button" class="btn_totalSearch" id="btn_header_search" onclick="search()">검색</button>
+				</div>
+			<div>
 				<ul class="nav_menu">
 					<li>
 						<h2>
@@ -87,13 +98,8 @@
 						</h2>
 					</li>
 				</ul>
-				<div class="totalSearch_wrap">
-					<label for="totalSearch">
-						<input type="text" id="header_keyword" placeholder="검색어를 입력해 주세요">
-						<input type="hidden" id="header_ad_keyword" name="header_ad_keyword">
-					</label>
-					<button type="button" class="btn_totalSearch" id="btn_header_search" onclick="search()">검색</button>
 				</div>
+				
 			</div>
 		</div>
 	</div>

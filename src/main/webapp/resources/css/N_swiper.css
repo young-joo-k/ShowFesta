@@ -1,0 +1,211 @@
+@charset "UTF-8";
+.clear_g {
+	display: block;
+	overflow: hidden;
+	width: auto;
+	clear: both;
+	*zoom: 1;
+		margin: 0;
+	padding: 0;
+	letter-spaceing: -1px;
+	position:relative;
+}
+/* .clear_g::after{
+		position:absolute;
+	content:"";
+		background-image: url('../img/bomb8.png');
+	background-repeat: no-repeat;
+	background-position: 1000px 5px;
+	background-size: 25%;
+	opacity: 40%;
+	        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+} */
+
+.wrap_main_slider {
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	padding-top: 50px;
+	padding-bottom:50px;
+}
+
+.wrap_main_slider #swiper {
+	position: relative;
+	width: 1008px;
+	margin: 0 auto;
+}
+.swiper-button-next {
+    position: absolute;
+    top: var(--swiper-navigation-top-offset,50%);
+    width: 190%;
+    height: var(--swiper-navigation-size);
+    margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--swiper-navigation-color,var(--swiper-theme-color));
+}
+
+.swiper-button-prev {
+    position: absolute;
+    top: var(--swiper-navigation-top-offset,50%);
+    width: 10%;
+    height: var(--swiper-navigation-size);
+    margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--swiper-navigation-color,var(--swiper-theme-color));
+}
+
+
+
+
+.wrap_main_slider .btn_comm .btn_mslider_prev {
+	float: right;
+}
+
+.btn_mslider_prev {
+	float: right;
+	background:
+		url(//cdnticket.melon.co.kr/resource/image/web/common/wrap_main_slider_btn.png)
+		no-repeat 0 0;
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	margin-right: -91px;
+	    margin-top: -10px
+}
+
+.btn_mslider_next {
+	float: left;
+	background:
+		url(//cdnticket.melon.co.kr/resource/image/web/common/wrap_main_slider_btn.png)
+		no-repeat -120px 0;
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	margin-left: -91px;
+	    margin-top: -10px
+}
+
+a .btn_mslider_prev, a .btn_mslider_next {
+	width: 120px;
+	height: 120px;
+}
+
+.wrap_main_slider .slider_inner {
+	position: relative;
+	width: 274px;
+	height: 396px;
+	margin: 0 auto;
+}
+
+.wrap_main_slider .list_slider {
+	position: absolute;
+	left: 0px;
+	margin-left: -21px;
+}
+
+dl, ul, ol, menu, li {
+	list-style: none;
+}
+
+.wrap_main_slider .list_slider li {
+	position: relative;
+	float: left;
+	width: 269px;
+	height: 396px;
+	padding: 0 2px 0 3px;
+}
+
+.wrap_main_slider .list_slider a {
+	display: block;
+}
+
+
+.wrap_main_slider .list_slider .thumb {
+	display: block;
+	position: relative;
+	width: 256px;
+	height: 320px;
+	padding: 6px 6px 0 7px;
+	overflow: hidden;
+}
+
+.wrap_main_slider .next {
+	position: absolute;
+	left: 100%;
+	top: 0;
+	width: 100%;
+	height: 246px;
+	padding-top: 150px;
+	padding-left: 30px;
+	z-index: 20;
+	margin-left: -91px;
+}
+
+.wrap_main_slider .next span {
+	float: left;
+}
+
+a .btn_mslider_prev, a .btn_mslider_next {
+	width: 120px;
+	height: 120px;
+}
+
+.btn_comm {
+	display: block;
+	overflow: hidden;
+	background:
+		url(//cdnticket.melon.co.kr/resource/image/web/common/btn_comm.png)
+		no-repeat;
+	text-indent: -9999px;
+}
+
+.wrap_main_slider .list_slider li img {
+	width: 256px;
+}
+
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    transition-timing-function: var(--swiper-wrapper-transition-timing-function,initial);
+    box-sizing: content-box;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+    bottom: var(--swiper-pagination-bottom,8px);
+    top: var(--swiper-pagination-top,auto);
+    left: 0;
+    width: 100%;
+}
+
+.swiper-pagination {
+    position: absolute;
+    text-align: center;
+    transition: .3s opacity;
+    transform: translate3d(0,0,0);
+    z-index: 10;
+}
+
+.img {
+	width: 256px;
+	height: 320px;
+	margin-right: 10px;
+	margin-left: 10px;
+	box-shadow: 2px 3px 15px steelblue;
+    border-radius: 12px;
+	
+}
+

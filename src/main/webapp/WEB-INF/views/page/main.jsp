@@ -3,8 +3,8 @@
 	<html>
 <head>
 <%@include file="../includes/header.jsp"%>
-<link href="/resources/css/mainpage.css?after" rel="stylesheet">
-<link href="/resources/css/swiper.css?after" rel="stylesheet">
+<link href="/resources/css/N_mainpage.css?after" rel="stylesheet">
+<link href="/resources/css/N_swiper.css?after" rel="stylesheet">
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 <title>Home</title>
 </head>
@@ -84,7 +84,7 @@
 	<div class>
 		<div data-v-223ac3f7 class="middle-section">
 			<div data-v-223ac3f7 id="mitisection_index_1"
-				class="multi portrait-cell" style="background-color: white;">
+				class="multi portrait-cell">
 				<div data-v-223ac3f7 class="title">
 					<h1 data-v-223ac3f7 tabindex="0" class="title-area">
 						<span data-v-223ac3f7 class="label">뮤지컬</span>
@@ -97,7 +97,7 @@
 							<c:forEach var="content" items="${musicalContents}"
 								varStatus="loop">
 								<div data-v-54077454 class="contents-slide"
-									style="width: 240px; margin-right: 20px;">
+									style="width: 160px; margin-right: 10px;">
 									<div data-v-54077454 class="thumb portrait"
 										loaded-fn="function() { [navice cod]}" cell-index="0">
 										<a
@@ -132,7 +132,7 @@
 						<div class="contents-wrapper">
 							<c:forEach var="content" items="${concertContents}">
 								<div data-v-54077454 class="contents-slide"
-									style="width: 240px; margin-right: 20px;">
+									style="width: 160px; margin-right: 10px;">
 									<div data-v-54077454 class="thumb portrait"
 										loaded-fn="function() { [navice cod]}" cell-index="0">
 										<a
@@ -166,7 +166,7 @@
 						cell-type="band_14">
 						<div class="contents-wrapper">
 								<div data-v-54077454 class="contents-slide"
-									style="width: 240px; margin-right: 20px;">
+									style="width: 160px; margin-right: 10px;">
 									<div data-v-54077454 class="thumb portrait"
 										loaded-fn="function() { [navice cod]}" cell-index="0">
 										<a
@@ -182,7 +182,7 @@
 									</div>
 								</div>
 								<div data-v-54077454 class="contents-slide"
-									style="width: 240px; margin-right: 20px;">
+									style="width: 160px; margin-right: 10px;">
 									<div data-v-54077454 class="thumb portrait"
 										loaded-fn="function() { [navice cod]}" cell-index="0">
 										<a
@@ -198,7 +198,7 @@
 									</div>
 								</div>
 								<div data-v-54077454 class="contents-slide"
-									style="width: 240px; margin-right: 20px;">
+									style="width: 160px; margin-right: 10px;">
 									<div data-v-54077454 class="thumb portrait"
 										loaded-fn="function() { [navice cod]}" cell-index="0">
 										<a
@@ -214,7 +214,7 @@
 									</div>
 								</div>
 								<div data-v-54077454 class="contents-slide"
-									style="width: 240px; margin-right: 20px;">
+									style="width: 160px; margin-right: 10px;">
 									<div data-v-54077454 class="thumb portrait"
 										loaded-fn="function() { [navice cod]}" cell-index="0">
 										<a
@@ -230,7 +230,7 @@
 									</div>
 								</div>
 								<div data-v-54077454 class="contents-slide"
-									style="width: 240px; margin-right: 20px;">
+									style="width: 160px; margin-right: 10px;">
 									<div data-v-54077454 class="thumb portrait"
 										loaded-fn="function() { [navice cod]}" cell-index="0">
 										<a

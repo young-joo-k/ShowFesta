@@ -1,17 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 pageEncoding="UTF-8"%>
-<%@include file="../includes/header.jsp"%>
+<%@include file="../includes/concertheader.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<head>
+<link href="/resources/css/N_contents.css?after" rel="stylesheet" type="text/css">
 
-<link href="/resources/css/contents.css?after" rel="stylesheet" type="text/css">
-<body class = "genreContents">
+</head>
 <!-- 유형별 페이지 입니다. 콘서트 -->
-
+<body class = "genreContents">
 <!-- 어떤 유형인지 나타냄 -->
-<div class = categoryTop>
-	<p class = list-title>콘서트</p>
-</div>
 
 <!-- 날짜 선택할 수 있는 곳 -->
 <div class="contentSearchBox">

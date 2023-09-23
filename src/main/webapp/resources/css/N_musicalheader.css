@@ -1,5 +1,13 @@
 @charset "UTF-8";
-
+.smalllogo{
+color: #fc7110;
+    padding-top: 25px;
+    font-size: 23px;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 100px;
+    cursor:pointer;
+}
 body{
 	margin: 0;
 	font-family: 'Noto Sans KR', sans-serif;
@@ -12,7 +20,7 @@ body{
 }
 
 .contents>h1>a {
-	color: #fc7110;
+	color: white;
 }
 
 .contents>ul>li>h2>a {
@@ -69,19 +77,18 @@ font-family: 'Gloock', sans-serif !important;
 }
 
 .memberInfo_wrap {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
     margin-right: 16px;
-        float: right;
-    margin-right: 0px;
-    margin-top: 70px;
-        margin-bottom: 0px;
-        margin-left: 280px;
-        
+    float: right;
+    margin-top: 5px;
+    margin-bottom: 14px;
+    margin-left: 800px;
+    filter: brightness(0) invert(1);
 }
 
 .memberInfo_wrap li {
-	margin-left: 44px;
+	margin-left: 20px;
 	margin-top: 2px;
 	
 }
@@ -110,15 +117,13 @@ font-family: 'Gloock', sans-serif !important;
 }
 
 .memberInfo_wrap li a span {
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	font-size: 13px;
-	color: black;
-	line-height: 1.462em;
-	white-space: nowrap;
-	transform: translate(-50%, 0);
-	font-family: 'Noto Sans KR', sans-serif;
+    bottom: 0;
+    left: 50%;
+    font-size: 13px;
+    color: black;
+    transform: translate(-50%, 0);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
 }
 
 .nav {
@@ -148,10 +153,10 @@ font-family: 'Gloock', sans-serif !important;
     padding-left: 20px;
     padding-right: 20px;
     position:relative;
-        background-color: white;
     opacity: 92%;
-    color:black;
+    color:white;
     font-size:small;
+    z-index:1;
 }
 #qnaCss{
 	width:75px;
@@ -166,14 +171,14 @@ font-family: 'Gloock', sans-serif !important;
 	
 }
 .nav_menu>li>h2>a {
-	color:black;
-	
+	color:white;
 }
 .totalSearch_wrap {
-	display: inline-flex;
-	position: absolute;
-	right: 0;
-	padding: 25px 36px 0 10px;
+    display: inline-flex;
+    position: absolute;
+    right: 0;
+    padding: 55px 36px 0 10px;
+    z-index:1;
 }
 
 .totalSearch_wrap label {
@@ -186,7 +191,7 @@ font-family: 'Gloock', sans-serif !important;
 	padding-left: 18px;
 	padding-right: 55px;
 	font-size: 16px;
-	color: #222;
+	color: white;
 	line-height: 1.500em;
 	border-radius: 10px;
 	outline-color: #fc7110;
@@ -196,6 +201,8 @@ font-family: 'Gloock', sans-serif !important;
 	box-shadow: 2px 4px 12px rgba(0,0,0,.08);
     transition: all .3s cubic-bezier(0,0,.5,1);
     border-radius: 18px;
+    	background-color:#000127
+    
 }
 
 .totalSearch_wrap .btn_totalSearch {
@@ -211,7 +218,9 @@ font-family: 'Gloock', sans-serif !important;
 		no-repeat;
 	border: 0 none;
 	cursor: pointer;
-	margin-top : 20px;
+	margin-top : 50px;
+	filter: brightness(0) invert(1);
+
 }
 
 dl, ul, ol, menu, li {

@@ -1,169 +1,165 @@
 @charset "UTF-8";
-/* 이 css는 모든 유형별 페이지에서 공통으로 사용됩니다. */
-.genreContents {
+
+.multi .title {
+	margin: 0 0 20px;
 }
 
-.categoryTop {
-	padding-top: 10px;
-	margin-left: 200px
-}
-
-.list-title {
-	size: larger;
-	color: #595959;
-	font-size: xx-large;
-}
-/* 기간검색에 쓰이는 부분 */
-.contentSearchBox {
-	margin-top: 2rem;
-	margin-right: 7rem;
-}
-
-.contentSearchBox-wrap {
-	display: flex;
-	justify-content: flex-end;
-	font-size: larger;
-}
-
-.contentSearchBtn {
-	margin-left: 1rem;
-}
-
-#startDate, #endDate {
-	width: 130px;
-	height: 30px;
-	font-size: 17px;
-}
-
-.all-contents-list {
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
-	justify-content: center;
-}
-
-.search-contents-list {
-	padding-top: 5rem;
-	/* 	화면에 맞춰서 크기 조절됨 */
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.contents-list {
-	float: left;
-	margin-left: 28px;
-	padding-top: 30px;
-}
-
-.list_wrap {
-	position: relative;
-	display: block;
-	width: 180px;
-	height: 358px;
-	padding: 24px 24px 21px;
-	border: 1px solid #eee;
-}
-
-.list-inner-wrap {
-	position: relative;
-	display: block;
-	width: 248px;
-	height: px;
-	padding: 24px 24px 21px;
-	border: 1px solid #eee;
-	text-align: center;
-}
-
-.comImg {
-	/*   position: absolute; */
-	/*   width: 100%; */
-	/*   height: 100%; */
-	width: 180px;
-	height: 250px;
-}
-
-.list-txt {
-	color: #595959;
-	text-align: center;
-}
-
-.list-tit1 {
-	font-size: 16px;
-	display: -webkit-inline-box;
+.title-area .label {
+	display: inline-block;
+	vertical-align: middle;
+	color: white;
 	font-weight: bold;
-	margin-top: 15px;
+	font-size: 20px;
 }
 
-.list-tit2 {
-	display: -webkit-inline-box;
-	font-size: 14px;
+.title-area span {
+	font-size: 24px;
+	line-height: 36px;
 }
 
-.list-tit3 {
-	font-size: 13px;
-}
-
-.no-data-message {
-	text-align: center;
-	padding: 20px;
-	font-size: 18px;
-	color: #FEBC38;
-}
-
-a.likeBtn {
-	text-size-adjust: none;
-	font-family: -apple-system, system-ui, BlinkMacSystemFont, "맑은 고딕",
-		"Malgun Gothic", "돋움", Dotum, Helvetica, "Apple SD Gothic Neo",
-		sans-serif;
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	vertical-align: baseline;
-	background: transparent;
-	text-decoration: none;
-	color: inherit;
-	outline-offset: -1px;
-	position: absolute;
-	display: inline-block;
-	font-size: 1.4rem;
-	font-weight: inherit;
-	line-height: 2.4rem;
-	outline-style: none;
-	cursor: pointer;
-	top: 96%;
-	left: 1%;
-	z-index: 999991;
-}
-
-.likeBtn:focus-visible {
-	outline-style: auto;
-}
-
-.likeBtn:before {
-	background-image: url('../img/heart.png');
-	background-repeat: no-repeat;
+.multi {
 	position: relative;
+	width: 1300px;
+	margin: 0 auto;
+	overflow: hidden;
+	border-radius: 8px;
+	margin-bottom: 30px;
+}
+
+.multi.portrait-cell[data-v-223ac3f7] {
+
+}
+
+.multi .title h1 {
 	display: inline-block;
-	top: 0.2rem;
-	width: 3rem;
-	height: 3rem;
-	padding-right: 0.6rem;
-	background-position: 0 0;
-	content: '';
-	background-position: 0 0;
+	font-size: 0;
+	line-height: 36px;
+	color: #black;
+	font-weight: 400;
+	vertical-align: middle;
+	border-bottom: 2px solid;
 }
 
-.likeBtn.is-toggled:before {
-	background-position: 0 -3rem;
+.session-contents {
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
 }
 
-.likeBtn:disabled {
-	color: inherit;
+.contents-wrapper {
+	position: relative;
+	width: 100%;
+	z-index: 1;
+	display: flex;
+	transition-property: transform;
+	box-sizing: content-box;
+	transform: translateZ(0);
 }
-.slide-wrap{
-	width: 320px;
-	float : left;
+
+.contents-slide {
+    width: 160px;
+    margin-right: 10px;
+    box-shadow: 3px 3px 3px gray;
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    border-radius: 18px;
 }
+
+.portrait:last-child {
+	margin-right: 0;
+}
+
+.portrait {
+	position: relative;
+	float: left;
+	width: 160px;
+}
+
+.multi a:not(.btn-more) {
+	display: block;
+    margin-bottom: -2px;
+    border-radius: 12px;
+}
+
+.portrait .thumb-image {
+	position: relative;
+	width: 160px;
+	height: 240px;
+	overflow: hidden;
+	will-change: transform;
+	border-radius: 12px;
+	background-color: #252525;
+}
+
+.thumb-image .thumb-img {
+	transition: all .15s linear;
+	transform: scaleX(1);
+}
+
+.picture-area img, .ppv-wrap {
+	width: 100%;
+	height: 100%
+}
+.portrait-cell {
+	width: 842px;
+}
+
+.multi .btn-more.all {
+	position: absolute;
+	top: 7px;
+	right: 20px;
+	padding: 5px 20px 10px 0;
+	font-size: 16px;
+	line-height: 24px;
+	color: white;
+	background: transparent url(../img/next.png) right scroll no-repeat;
+	background-size: 16px auto;
+	z-index:100;
+}
+
+.middle-section {
+	padding-top: 50px;
+	position: relative;
+}
+
+/* .middle-section::after {
+	position: absolute;
+	content: "";
+	background-image: url('../img/bomb9.png');
+	background-repeat: no-repeat;
+	background-position: 60px 20px;
+	background-size: 90%;
+	opacity: 20%;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+} */
+
+.main01-nav button[class^=btn] {
+	display: table-cell;
+	width: 34px;
+	height: 34px;
+	vertical-align: middle;
+}
+
+.picture-area img {
+	transition: transform 0.3s;
+}
+
+.picture-area {
+	overflow: hidden; /* 이미지 넘침 제어 */
+}
+
+.picture-area:hover img {
+	transform: scale(1.1); /* 호버 상태에서 이미지를 확대합니다 (1.1배로 확대). */
+}
+
+div#under-line {
+    border-bottom: 2px solid;
+}
+
 #modal-festa {
 	display: none;
 	position: fixed;
@@ -209,8 +205,8 @@ button.modal-close-btn {
 
 .modal-body {
 	margin: 0 auto;
-	width: 55rem;
-	height: 40rem;
+	width: 50rem;
+	height: 50rem;
 	color: black;
 	box-sizing: border-box;
 	max-height: auto; /* 원하는 높이로 조정 */
@@ -255,11 +251,6 @@ button.modal-close-btn {
 	height: 100%;
 }
 
-.app-info{
-	float:left;
-	width: calc(100% - 350px);
-	margin-left:30px;
-}
 .app-title{
 	width:100%;
 }
@@ -279,9 +270,6 @@ button.modal-close-btn {
 	list-style-type: none;
 }
 
-.modal-li{
-	width:770px;
-}
 .gaeyo {
 	color: rgb(0, 0, 0);
 	font-size: 16px;
