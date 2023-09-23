@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.project.mapper.SmsMapper">
+	<select id="getSendList" resultType="org.project.domain.SmsVO">
+		SELECT u.name,
+		u.phone,l.like_name, t.t_date - INTERVAL '5' MINUTE AS t_date
+		FROM
+		tbl_user u, tbl_like l, tbl_ticket t
+		WHERE u.id = l.id
+		AND l.like_type =
+		'musical'
+		AND (t.m_title LIKE '%' || l.like_name || '%'
+		or l.like_name
+		LIKE '%' || t.m_title || '%')
+	</select>
+	<select id="checkSend" resultType="java.sql.Timestamp">
+		SELECT t.t_date - INTERVAL '5' MINUTE AS t_date
+		FROM tbl_user u
+		JOIN
+		tbl_like l ON u.id = l.id
+		JOIN tbl_ticket t ON l.like_name LIKE '%' ||
+		t.m_title || '%'
+		WHERE u.id LIKE #{arg1}
+		AND l.like_type = 'musical'
+		AND l.like_name LIKE '%' || #{arg0} || '%'
+	</select>
+</mapper>

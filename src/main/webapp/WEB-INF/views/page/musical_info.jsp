@@ -27,7 +27,7 @@
 											aria-label="즐겨찾기 등록" role="checkbox" href="#"
 											data-popup-hover="like" data-contents-name="${musical.m_title } " data-type="musical"  
 											data-user-id="${user.id }" data-img="${musical.m_img }"  
-											data-num = "${musical.m_num }"
+											data-num = "${musical.m_num }" data-name="${user.name}" data-phone="${user.phone }"
 											<c:if test="${empty user}">
 										        data-empty-user="true"				
 										    </c:if>>좋아요</a>
@@ -269,7 +269,9 @@
 	    	var type = likeBtn.attr("data-type");
 	    	var img = likeBtn.attr("data-img");
 	    	var num = likeBtn.attr("data-num");
-			// castingHeartBtn 토글
+	    	var name = likeBtn.attr("data-name");
+	    	var phone = likeBtn.attr("data-phone");
+			// LikeBtn 토글
 		    if (likeBtn.hasClass("is-toggled")) {
 		        likeBtn.removeClass("is-toggled");
 // 		        toastMessage.text("즐겨찾기 해제되었습니다.");
@@ -303,10 +305,30 @@
 		                id: userId,
 		                like_type: type,
 		                like_img:img,
-		                m_num:numgi
+		                m_num:num,
+		                name:name,
+		                phone:phone
 		            },
-		            success: function() {
+		            success: function(result) {
+		            	console.log(result);
 		                console.log("성공 ");
+				        $.ajax({
+				            type: "POST",
+				            url: "/sms/sendSMS",
+				            data: {
+				                to:phone,
+				                subject:"shwofesta",
+				                content: contentsName+" 티켓팅 시간 5분 전입니다.",
+				                reserveTime : result
+				            },
+				            success: function() {
+				            	console.log(result);
+				                console.log("성공 ");
+				            },
+				            error: function() {
+				                console.log("실패: ");
+				            }
+				        });
 		            },
 		            error: function() {
 		                console.log("실패: ");

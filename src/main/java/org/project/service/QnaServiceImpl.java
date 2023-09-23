@@ -25,7 +25,7 @@ public class QnaServiceImpl implements QnaService{
 	@Override
 	public QnaVO get(Long b_num) {
 		// TODO Auto-generated method stub
-		log.info("qna get");
+		log.info("qna service get");
 		return mapper.read(b_num);
 	}
 
@@ -48,6 +48,18 @@ public class QnaServiceImpl implements QnaService{
     	log.info("get qna total count");
     	return mapper.qnaTotalCount(cri);
     }
+
+	@Override
+	public List<QnaVO> getAllList(Criteria cri) {
+		System.out.println("페이지처리용도 : "+cri);
+		return mapper.getAllListWithPaging(cri);
+	}
+
+	@Override
+	public int reply(int b_num, String commentText) {
+		log.info("댓글등록서비스");
+		return mapper.reply(b_num, commentText);
+	}
 	}
 
 

@@ -21,4 +21,8 @@ public interface QnaMapper {
 	public int delete(Long b_num);
 	
 	public int qnaTotalCount(Criteria cri);
+
+	public List<QnaVO> getAllListWithPaging(Criteria cri);
+
+	public int reply(int b_num, String commentText);
 }

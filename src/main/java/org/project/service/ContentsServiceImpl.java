@@ -15,31 +15,30 @@ import lombok.extern.log4j.Log4j;
 @Service
 @AllArgsConstructor
 public class ContentsServiceImpl implements ContentsService {
-	
-	
+
 	private ContentsMapper contentsmapper;
+
 	@Override
 	public List<ContentsVO> getMusicalContents() {
-        log.info("getMusicalContents");
+		log.info("getMusicalContents");
 //        List<ContentsVO> musicalContents = new List<>();
-        
-        
-        return contentsmapper.getMusicalContents();
-    }
+
+		return contentsmapper.getMusicalContents();
+	}
 
 	@Override
 	public ContentsVO getMusical(Long m_num) {
-		log.info("get---"+m_num);
-		
+		log.info("get---" + m_num);
+
 		return contentsmapper.MusicalRead(m_num);
 	}
 
 	@Override
 	public List<ContentsVO> getConcertContents() {
-		
+
 		return contentsmapper.getConcertContents();
 	}
-	
+
 	@Override
 	public ContentsVO getConcert(Long m_num) {
 		// TODO Auto-generated method stub
@@ -76,49 +75,49 @@ public class ContentsServiceImpl implements ContentsService {
 		return contentsmapper.getAllFestival(date);
 	}
 
-	 @Override
-	    public List<ContentsVO> getMusicalContentsByDate(String startDate, String endDate) {
-	        try {
-	            // startDate와 endDate를 사용하여 동적 쿼리 생성 및 실행
-	            List<ContentsVO> searchResult = contentsmapper.getMusicalContentsByDate(startDate, endDate);
-	            
-	            return searchResult;
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	            return null; 
-	    }
+	@Override
+	public List<ContentsVO> getMusicalContentsByDate(String startDate, String endDate) {
+		try {
+			// startDate와 endDate를 사용하여 동적 쿼리 생성 및 실행
+			List<ContentsVO> searchResult = contentsmapper.getMusicalContentsByDate(startDate, endDate);
 
-	
-	 }
-		@Override
-		public List<FestaVO> getFestaContents() {
-			return contentsmapper.getFestaContents();
+			return searchResult;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
+
+	}
+
+	@Override
+	public List<FestaVO> getFestaContents() {
+		return contentsmapper.getFestaContents();
+	}
 
 	@Override
 	public List<ContentsVO> getConcertContentsByDate(String startDate, String endDate) {
 		try {
-            // startDate와 endDate를 사용하여 동적 쿼리 생성 및 실행
-            List<ContentsVO> searchResult = contentsmapper.getConcertContentsByDate(startDate, endDate);
-            
-            return searchResult;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null; 
-        }
+			// startDate와 endDate를 사용하여 동적 쿼리 생성 및 실행
+			List<ContentsVO> searchResult = contentsmapper.getConcertContentsByDate(startDate, endDate);
+
+			return searchResult;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
 	public List<FestaVO> getFestaContentSearchDate(String startDate, String endDate) {
 		try {
-            // startDate와 endDate를 사용하여 동적 쿼리 생성 및 실행
-            List<FestaVO> searchResult = contentsmapper.getFestaContentsByDate(startDate, endDate);
-            
-            return searchResult;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null; 
-        }
+			// startDate와 endDate를 사용하여 동적 쿼리 생성 및 실행
+			List<FestaVO> searchResult = contentsmapper.getFestaContentsByDate(startDate, endDate);
+
+			return searchResult;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
