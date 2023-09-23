@@ -30,7 +30,13 @@ public class NoticeController {
 	private MemberService memberservice;
 
 	@PostMapping("/notice_register")
-	public String register(NoticeVO notice, RedirectAttributes rttr) {
+	public String register(NoticeVO notice, RedirectAttributes rttr, HttpSession session, Model model) {
+		// ì•„ì´ë”” ì •ë³´
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+		}
 		log.info("register: " + notice);
 		service.register(notice);
 		rttr.addFlashAttribute("result", notice.getB_num());
@@ -90,7 +96,7 @@ public class NoticeController {
 		if (id != null) {
 			MemberVO membervo = memberservice.getUserInfo(id);
 			model.addAttribute("user", membervo);
-			//Áñ°ÜÃ£±âÅ×ÀÌºí¿¡ Áñ°ÜÃ£±âÇÑ Ç×¸ñÀÇ ¸ğµç Á¤º¸¸¦ °¡Á®¿Í
+			//ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
 		} 
 	}

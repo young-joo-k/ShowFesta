@@ -62,7 +62,13 @@ public class PageController {
 	private QnaService qnaservice;
 
 	@GetMapping("/calendar")
-	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
+	public String calendar(Model model, HttpServletRequest request, DateData dateData, HttpSession session) {
+		// 아이디 정보
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+		}
 		log.info("calendar Get");
 		Calendar cal = Calendar.getInstance();
 		DateData calendarData;
