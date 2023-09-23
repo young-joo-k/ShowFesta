@@ -10,7 +10,6 @@
 .member::before {
 	position: absolute;
 	content: "";
-	background-image: url('../img/bomb10.png');
 	background-repeat: no-repeat;
 	background-position: 380px 20px;
 	background-size: 60%;

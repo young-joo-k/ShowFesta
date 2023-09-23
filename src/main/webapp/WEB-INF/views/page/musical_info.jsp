@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"%>
 <link href="/resources/css/common.css?after" rel="stylesheet"
 	type="text/css">
-<link href="/resources/css/goods.css?after" rel="stylesheet"
+<link href="/resources/css/N_goods.css?after" rel="stylesheet"
 	type="text/css">
 <%@include file="../includes/header.jsp"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
