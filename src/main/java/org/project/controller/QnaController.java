@@ -82,22 +82,37 @@ public class QnaController {
 	}
 	
 	@GetMapping("/qna_get")
-	public void get(@RequestParam("b_num") Long b_num, @ModelAttribute("cri") Criteria cri, Model model) {
+	public void get(@RequestParam("b_num") Long b_num, @ModelAttribute("cri") Criteria cri, Model model, HttpSession session) {
 		log.info("qna_get");
+		String id = (String) session.getAttribute("id");
+		MemberVO membervo = memberservice.getUserInfo(id);
+		model.addAttribute("user", membervo);
+
 		model.addAttribute("qna", service.get(b_num));
 	}
 	
-	@GetMapping("/qna_management")
-	public void adminlist(Criteria cri, Model model, HttpSession session) {
-		String id = (String) session.getAttribute("id");
-		if (id != null) {
-			MemberVO membervo = memberservice.getUserInfo(id);
-			model.addAttribute("user", membervo);
-			}
-		log.info("list: " + cri);
-		model.addAttribute("list", service.getAllList(cri));
-		
-		int total = service.qnaTotal(cri);
-		model.addAttribute("pageMaker", new PageDTO(cri, total));
-	}
+	@PostMapping("/qna_get")
+	public String addComment(@RequestParam("b_num") int b_num, @RequestParam("commentText") String commentText) {
+        // 댓글 등록 처리
+		log.info(commentText);
+		log.info(b_num);
+		service.reply(b_num, commentText);
+        return "redirect:/page/myPage"; // 댓글 등록 성공 시 "success" 반환
+    }
+	
+//	@GetMapping("/qna_management")
+//	public void adminlist(Criteria cri, Model model, HttpSession session) {
+//		String id = (String) session.getAttribute("id");
+//		if (id != null) {
+//			MemberVO membervo = memberservice.getUserInfo(id);
+//			model.addAttribute("user", membervo);
+//			}
+//		log.info("list1111: " + cri);
+//		
+//		log.info("리스트 : "+service.getAllList(cri));
+//		model.addAttribute("list", service.getAllList(cri));
+//		
+//		int total = service.qnaTotal(cri);
+//		model.addAttribute("pageMaker", new PageDTO(cri, total));
+//	}
 }

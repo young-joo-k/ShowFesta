@@ -13,4 +13,5 @@ public class QnaVO {
 	private String b_writer;
 	private Date regdate;
 	private Date updatedate;
+	private String reply;
 }

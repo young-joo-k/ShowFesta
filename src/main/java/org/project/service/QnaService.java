@@ -20,6 +20,8 @@ public interface QnaService {
 	public int qnaTotal(Criteria cri);
 
 //	관리자가 다 볼 수 있게 하려고 만든 부분 
-	public Object getAllList(Criteria cri);
+	public List<QnaVO> getAllList(Criteria cri);
+
+	public int reply(int b_num, String commentText);
 
 }

@@ -58,6 +58,25 @@ select * from tbl_qna where b_num = #{b_num}
 </insert>
 
 <!-- 관리자가 사용해야하는 부분 -->
+<select id="getAllListWithPaging" resultType="org.project.domain.QnaVO">
+  <![CDATA[
+    select b_num, b_title, b_content, b_writer, regdate, updatedate, id 
+    from (
+      select /*+INDEX_DESC(tbl_qna pk_board) */
+      rownum rn, b_num, b_title, b_content, b_writer, regdate, updatedate, id 
+      from tbl_qna 
+       where rownum <= #{pageNum} * #{amount}
+    )
+     where rn > (#{pageNum} - 1) * #{amount}
+  ]]>
+</select>
+<!-- 관리자가 댓글 등록 -->
+<insert id = "reply" >
+	UPDATE tbl_qna
+SET reply = #{arg1}
+WHERE b_num = #{arg0}
+
+</insert>
 
 
 </mapper>

@@ -382,8 +382,8 @@ public class PageController {
 			log.info("회원정보 전달");
 			
 			// 전체 문의사항 가져오기
-			log.info("list: " + cri);
-			model.addAttribute("list", qnaservice.getList(cri));
+			log.info("리스트 : "+qnaservice.getAllList(cri));
+			model.addAttribute("list", qnaservice.getAllList(cri));
 
 			int total = qnaservice.qnaTotal(cri);
 			model.addAttribute("pageMaker", new PageDTO(cri, total));

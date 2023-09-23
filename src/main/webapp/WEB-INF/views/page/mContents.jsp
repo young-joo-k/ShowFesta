@@ -12,24 +12,8 @@
 <!-- 유형별 페이지 입니다. 뮤지컬 -->
 
 <!-- 어떤 유형인지 나타냄 -->
-<<<<<<< HEAD
 <body class="genreContents">
-	<!-- 날짜 선택할 수 있는 곳 -->
-	<div class="contentSearchBox">
-		<div class="contentSearchBox-wrap">
-			<form action="/page/musicalContentSearchDate" method="post">
-				<label for="startDate">시작일 <input type="date" id="startDate"
-					name="startDate" max="2026-12-31" min="2023-01-01" required>
-				</label>&nbsp;&nbsp; <label for="endDate">종료일 <input type="date"
-					id="endDate" name="endDate" max="2026-12-31" min="2023-01-01"
-					required>
-				</label>
-				<button class="contentSearchBtn" type="submit">검색</button>
-			</form>
-=======
-<div class = categoryTop>
-	<p class = list-title>뮤지컬</p>
-</div>
+
 
 <!-- 날짜 선택할 수 있는 곳 -->
 <div class="contentSearchBox">
@@ -124,8 +108,8 @@
 		            </c:forEach>
 		        </c:otherwise>
 		    </c:choose>
->>>>>>> 180d11ca77e3f1caf794a358ee8bb8aba8ed15a7
 		</div>
+		</c:if>
 	</div>
 
 
