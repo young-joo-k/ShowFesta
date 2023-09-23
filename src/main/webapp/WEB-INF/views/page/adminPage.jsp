@@ -83,31 +83,20 @@ pageEncoding="UTF-8"%>
 <!-- 문의내역 눌렀을 때 나타날 내용 -->
 <div class="admin-qna">
     <div class="admin-content-wrap">
-        <c:choose>
-            <c:when test="${empty notice_list}">
-                <div class="no-like-message">
-                    <p class="no-like-message">문의내용이 없습니다.</p>
-                </div>
-            </c:when>
-            <c:otherwise>
-                <c:forEach var="notice" items="${notice_list}">
-                    <div class="admin-wrap">
-                        <div class="myPage-qna-space">
-                            <div class="myPage-qna-button-wrap">
-                                <button type="button" class="myPage-qna-button">
-                                    <a href="/page/user_qna" class="question">문의사항</a>
-                                </button>
-                            </div>
-                            <div class="myPage-qna-list">
-                                <div class="myQna">
-                                    <h1>문의사항 내용을 띄워줍니다.</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
-            </c:otherwise>
-        </c:choose>
+	    <div class="admin-wrap">
+	        <div class="myPage-qna-space">
+	            <div class="myPage-qna-button-wrap">
+	                <button type="button" class="myPage-qna-button">
+	                    <a href="/page/user_qna" class="question">문의사항</a>
+	                </button>
+	            </div>
+	            <div class="myPage-qna-list">
+	                <div class="myQna">
+	                    <%@include file = "myPage_qna_list.jsp" %>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
     </div>
 </div>
 <!-- 문의내역 끝 -->
@@ -118,7 +107,7 @@ pageEncoding="UTF-8"%>
 		<div class="contentsManager">
 			<a class="contentsPlus" id="contentsBtn" href="/page/contentsPlus">추가
 			</a>
-			<a class="contentsMinus" id="contentsBtn" >삭제
+			<a class="contentsMinus" id="contentsBtn" href="/page/contentsDelete">삭제
 			</a>
 		</div>
     </div>
@@ -156,7 +145,6 @@ pageEncoding="UTF-8"%>
 			                  
 		                </c:forEach>
 		                <div class = "userDeleteButtonWrap">
-<!-- 			<button class = "userDeleteBtn">선택한 사용자 삭제</button> -->
 			<button type = "button" class = "userDeleteBtn" data-oper="userDeleteBtn">삭제</button>
 		</div>
 	                </table>
@@ -194,16 +182,9 @@ $(document).ready(function(){
 //         $(".admin-content-manage").hide();
 //         $(".userManage").hide();
 //     });
-    
-//     $(".admin-qna-contents").click(function(){
-//         // 문의내용 버튼 클릭 시
-//         $(".admin-notice").hide();
-//         $(".admin-qna").show();
-//         $(".admin-content-manage").hide();
-//         $(".userManage").hide();
-//     });
+
      $(".admin-qna-contents").click(function(){
-        // 컨텐츠 관리 버튼 클릭 시
+        // 문의내용 버튼 클릭 시
 //         $(".admin-notice").hide();
         $(".admin-qna").show();
         $(".admin-content-manage").hide();

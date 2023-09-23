@@ -361,11 +361,11 @@ public class PageController {
 			// 즐겨찾기테이블에 즐겨찾기한 항목의 모든 정보를 가져와
 			List<LikeVO> likeInfo = likeservice.getLike(membervo.getId());
 			model.addAttribute("likeInfo", likeInfo);
-
+			
+//			1:1문의사항 가져오기
 			cri.setId(id);
 			log.info("list: " + cri);
 			model.addAttribute("list", qnaservice.getList(cri));
-//			model.addAttribute("pageMaker", new PageDTO(cri, 123));
 
 			int total = qnaservice.qnaTotal(cri);
 			model.addAttribute("pageMaker", new PageDTO(cri, total));
@@ -377,11 +377,18 @@ public class PageController {
 			model.addAttribute("manager", membervo);
 			// 사용자정보를 다 가지고 마이페이지로 넘어갑니다.
 			List<MemberVO> memberAll = memberservice.getAllUser();
-//			model.addAttribute("allUser", memberAll);
 
 			model.addAttribute("allUser", memberAll);
 			log.info("회원정보 전달");
-			log.info("너는 관리자니까 관리자 화면으로 가");
+			
+			// 전체 문의사항 가져오기
+			log.info("list: " + cri);
+			model.addAttribute("list", qnaservice.getList(cri));
+
+			int total = qnaservice.qnaTotal(cri);
+			model.addAttribute("pageMaker", new PageDTO(cri, total));
+
+			log.info("관리자마이페이지로");
 			return "/page/adminPage";
 
 		} else if (id == null) {

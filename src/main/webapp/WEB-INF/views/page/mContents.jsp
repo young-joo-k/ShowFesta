@@ -51,7 +51,6 @@ pageEncoding="UTF-8"%>
 							        <img class ="comImg" src= <c:out value = "${content.m_img}"/>>
 							        <div class = list-txt>
 										<div class = "list-tit1">
-											
 											${content.m_title}
 										</div>
 										<div class = "list-tit2">

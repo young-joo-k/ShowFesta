@@ -131,4 +131,15 @@ public class ContentsServiceImpl implements ContentsService {
 		contentsmapper.concertContentsPlus(contentsvo);
 	}
 
+	@Override
+	public void deleteContentsByM_num(int m_num) {
+		contentsmapper.contentsDelete(m_num);
+	}
+
+	@Override
+	public void deleteConcertContentsByM_num(int m_num) {
+
+		contentsmapper.concertDelete(m_num);
+	};
+
 }
