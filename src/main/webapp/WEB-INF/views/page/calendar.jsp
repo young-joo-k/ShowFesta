@@ -2,7 +2,7 @@
 <head>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="../includes/header.jsp"%>
+<%@include file="../includes/calendarheader.jsp"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Calendar"%>
 
@@ -230,9 +230,10 @@
 											</div>
 										</c:forEach>
 									</td>
+										</tr>
 								</c:when>
 								<c:when test="${date_status.index%7==0}">
-									<!--             			</tr> -->
+									
 									<tr class="cal-list">
 										<td class="sun_day">
 											<div class="sun">${dateList.date}일</div> <c:if

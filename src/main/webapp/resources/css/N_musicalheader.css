@@ -28,7 +28,7 @@ body{
 	font-size:20px;
 	transition: color 0.1s;
 }
-.contents>ul>li>h2>a:hover {
+.contents>div>ul>li>h2>a:hover {
 	color: #fc7110;
 	font-size:20px;
 }
@@ -147,8 +147,6 @@ font-family: 'Gloock', sans-serif !important;
     display: inline-flex;
     padding-inline-start: 0px;
     margin-top: 64px;
-    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
-    transition: all .3s cubic-bezier(0,0,.5,1);
     border-radius: 18px;
     padding-left: 20px;
     padding-right: 20px;
@@ -159,7 +157,7 @@ font-family: 'Gloock', sans-serif !important;
     z-index:1;
 }
 #qnaCss{
-	width:75px;
+	width:90px;
 }
 .nav_menu>li:first-child {
 	width: 60px;
@@ -199,7 +197,6 @@ font-family: 'Gloock', sans-serif !important;
 	margin-top : 20px;
 	font-family: 'Noto Sans KR', sans-serif;
 	box-shadow: 2px 4px 12px rgba(0,0,0,.08);
-    transition: all .3s cubic-bezier(0,0,.5,1);
     border-radius: 18px;
     	background-color:#000127
     
@@ -234,6 +231,8 @@ dl, ul, ol, menu, li {
     border: 1px white;
     box-shadow: 2px 4px 12px rgba(0,0,0,.08);
     transition: all .3s cubic-bezier(0,0,.5,1);
+    width: 80px;
+        margin-top:10px;
   }
 
   .dropdown ul li {

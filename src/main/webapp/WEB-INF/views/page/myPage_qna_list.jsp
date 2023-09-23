@@ -8,7 +8,7 @@
 <link href="/resources/css/notice_list.css?after" rel="stylesheet">
 </head>
 <!-- <body> -->
-	<div>
+	<div >
 		<ul class="cs-2depth">
 			<li class="cs-2depth-on">
 				<button>전체</button>

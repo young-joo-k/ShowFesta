@@ -258,11 +258,11 @@
 <script>
 	new Swiper('.swiper', {
 		autoplay : {
-			delay : 1500
+			delay : 3000
 		},
 		loop : true,
 		slidesPerView : 10,
-		spaceBetween : 5,
+		spaceBetween : 4,
 		centeredSlides : true,
 		pagination : {
 			el : '.swiper-pagination',

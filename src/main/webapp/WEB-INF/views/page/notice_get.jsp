@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"%>
-<%@include file="../includes/header.jsp"%>
+<%@include file="../includes/noticeheader.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
@@ -12,11 +12,6 @@
 	<div id="app">
 		<div class="body">
 			<main id="contents" class="top-padding">
-				<div class="page-top">
-					<div class="page-top-inner-wrap">
-						<h1 tabindex="0" class="page-title">고객센터</h1>
-					</div>
-				</div>
 				<div class="wrap">
 					<div class="cs-body">
 						<ul id="contents" class="cs-1depth">
