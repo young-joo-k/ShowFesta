@@ -46,6 +46,7 @@
 	position: relative;
 	overflow: hidden;
 	z-index: 1;
+	color: white;
 }
 
 .contents-wrapper {
@@ -61,8 +62,6 @@
 .contents-slide {
     width: 160px;
     margin-right: 10px;
-    box-shadow: 3px 3px 3px gray;
-    transition: all .3s cubic-bezier(0,0,.5,1);
     border-radius: 18px;
 }
 
@@ -102,7 +101,7 @@
 	height: 100%
 }
 .portrait-cell {
-	width: 842px;
+	width: 847px;
 }
 
 .multi .btn-more.all {
@@ -112,9 +111,10 @@
 	padding: 5px 20px 10px 0;
 	font-size: 16px;
 	line-height: 24px;
-	color: white;
 	background: transparent url(../img/next.png) right scroll no-repeat;
 	background-size: 16px auto;
+	filter: brightness(0) invert(1);
+	font-weight:bold;
 	z-index:100;
 }
 
@@ -158,6 +158,8 @@
 
 div#under-line {
     border-bottom: 2px solid;
+    border-width:96%;
+        width: 96%;
 }
 
 #modal-festa {

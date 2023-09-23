@@ -65,15 +65,18 @@ font-size: 20px;
 .cs-body {
     width: 100%;
     margin: 0 auto;
-    padding-bottom: 80px;
-}
+    padding-bottom: 40px;
+    background-color: white;
+    border-radius: 10px;
+        font-family: 'Noto Sans KR';
+ animation: fadeInUp 1s;
+ }
 
 .cs-1depth {
     overflow: hidden;
     margin-bottom: 40px;
-    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
     transition: all .3s cubic-bezier(0,0,.5,1);
-    border-radius: 18px;
+    border-radius:10px;
 }
 
 
@@ -81,12 +84,6 @@ font-size: 20px;
 .cs-1depth li.customer-1depth-on {
     position: relative;
     z-index: 10;
-        border-top: 1px solid;
-        border-right: 1px solid;
-        border-left: 1px solid;
-    border-top-color: #ddd;
-    border-left-color: #ddd;
-    border-right-color: #ddd;
     background-color: white;
 }
 .cs-1depth li.customer-1depth-off {
@@ -293,6 +290,7 @@ textarea {
     height: 6.25em;
 	border: none;
 	resize: none;
+	    font-family: 'Noto Sans KR';
 }
 
 .list-btn {
@@ -342,12 +340,13 @@ button#remoBtn {
 }
 
 .pagination{
-	    padding-bottom: 80px;
     margin: 0 auto;
     text-align: center;
     clear: both;
     display : flex;
     justify-content: center;
+    margin-top: 20px;
+    font-family: 'Noto Sans KR';
 }
 
 .paginate_button {

@@ -9,6 +9,8 @@
     width: 100%;
     margin: 0 auto;
     position: relative;
+        display: flex;
+    justify-content: center;
 }
 
 .my-user-qna-info {
@@ -19,6 +21,8 @@ position: relative;
     box-shadow: 2px 4px 12px rgba(0,0,0,.08);
     transition: all .3s cubic-bezier(0,0,.5,1);
     border-radius: 18px;
+    width: 800px;
+    margin-top: 40px;
 }
 
 .my-user-qna-info .cs-number {

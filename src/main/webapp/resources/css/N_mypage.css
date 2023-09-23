@@ -20,9 +20,11 @@ article{
 
 .myPage-profile{
 	display:flex;
-	
-}
 
+}
+.myPage-img{
+		filter: brightness(0) invert(1);
+}
 .myPage-img-select source {
     width: 150px; /* 최대 너비를 100%로 설정하여 이미지 비율 유지 */
     height: 150px; /* 높이를 자동으로 조정하여 이미지 비율 유지 */
@@ -36,6 +38,13 @@ article{
 }
 
 .myPage-info{
+	color:white;
+}
+.myPage-update{
+	color:white;
+}
+.myPage-update:hover{
+	color:#fc7110;
 }
 
 .myPage-name{
@@ -43,23 +52,19 @@ article{
 }
 
 .myPage-name, .myPage-update{
-	color: #595959;
 	
 }
 
 a.myPage-update{
-	color: #595959;
 	font-size:x-large;
 }
 
 .myPage-menu-wrapper{
-display: flex;
+    display: flex;
     background-color: white;
-    width: 800px;
+    width: 1300px;
     border-radius: 10px;
     box-shadow: 2px 4px 12px rgba(0,0,0,.08);
-    transition: all .3s cubic-bezier(0,0,.5,1);
-    justify-content: center;
 }
 
 .myPage-menu{
@@ -70,6 +75,15 @@ display: flex;
 .mypage-contents{
 	margin: 10px;
 	font-size: large;
+}
+.like-contents:hover{
+	color:#fc7110;
+}
+.like-actor:hover{
+	color:#fc7110;
+}
+.myPage-qna:hover{
+	color:#fc7110;
 }
 
 .like-contents, .like-actor, .myPage-qna{
@@ -109,6 +123,7 @@ display: flex;
 .comImg{
 	width:150px;
 	height:200px;
+	border-radius:10px;
 }
 
 a.myLikeContent{
@@ -118,6 +133,11 @@ a.myLikeContent{
 
 .like-list-title{
 	text-align: center;
+	    text-align: center;
+    color: #959595;
+    font-family: 'Noto Sans KR';
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 
@@ -160,6 +180,9 @@ a.question{
 .myPage-qna-wrap{
 	display: flex;
     justify-content: center;
+    background-color: white;
+    width: 800px;
+    margin-left: 552px;
 }
 
 

@@ -1,90 +1,102 @@
 @charset "utf-8";
+
 .calendarFrm {
-      scrollbar-face-color: #F6F6F6;
-      scrollbar-highlight-color: #bbbbbb;
-      scrollbar-3dlight-color: #FFFFFF;
-      scrollbar-shadow-color: #bbbbbb;
-      scrollbar-darkshadow-color: #FFFFFF;
-      scrollbar-track-color: #FFFFFF;
-      scrollbar-arrow-color: #bbbbbb;
-      margin-left:"0px"; margin-right:"0px"; margin-top:"0px"; margin-bottom:"0px";
-      background-color : #000127;
-      }
-
-td {font-size: 9pt; color:#595959;}
-th {; font-size: 9pt; color:#000127;}
-select { font-size: 9pt; color:#595959;}
-
-
-.divDotText {
-overflow:hidden;
-text-overflow:ellipsis;
+	scrollbar-face-color: #F6F6F6;
+	scrollbar-highlight-color: #bbbbbb;
+	scrollbar-3dlight-color: #FFFFFF;
+	scrollbar-shadow-color: #bbbbbb;
+	scrollbar-darkshadow-color: #FFFFFF;
+	scrollbar-track-color: #FFFFFF;
+	scrollbar-arrow-color: #bbbbbb;
+	margin-left: "0px";
+	margin-right: "0px";
+	margin-top: "0px";
+	margin-bottom: "0px";
+	background-color: #000127;
 }
 
+td {
+	font-size: 9pt;
+	color: #595959;
+	background-color: white;
+}
+
+th {;
+	font-size: 9pt;
+	color: #000127;
+}
+
+select {
+	font-size: 9pt;
+	color: #595959;
+}
+
+.divDotText {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 
 /* A:link { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:none; } */
 /* A:visited { font-size:9pt; font-family:"돋움";color:#000127; text-decoration:none; } */
 /* 마우스 올렸을때 색 바뀌는 부분 */
-.contentsCount{
-  margin-left: 10px;
+.contentsCount {
+	margin-left: 10px;
 }
 
-.contentsCnt1:active, .contentsCnt2:active, .contentsCnt3:active { 
+.contentsCnt1:active, .contentsCnt2:active, .contentsCnt3:active {
 	color: #fc7110;
-   text-decoration:none;  
-   	transition: color 0.1s;
-   
+	text-decoration: none;
+	transition: color 0.1s;
 }
-.contentsCnt1:hover, .contentsCnt2:hover, .contentsCnt3:hover { 
+
+.contentsCnt1:hover, .contentsCnt2:hover, .contentsCnt3:hover {
 	color: #fc7110;
-   text-decoration:none;
-   	transition: color 0.1s;
+	text-decoration: none;
+	transition: color 0.1s;
 }
 
-.day{
-  width:100px; 
-  height:30px;
-  font-weight: bold;
-  font-size:18px;
-  font-weight:bold;
-  text-align: right;
-  margin-right:10px;
-  padding-right:10px;
+.day {
+	width: 100px;
+	height: 30px;
+	font-weight: bold;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: right;
+	margin-right: 10px;
+	padding-right: 10px;
 }
 
-
-
-
-.sat{
-  color:#a5a5a5;
-  text-align : right;
-  margin-bottom : 25px;
-  margin-right: 10px;
-}
-.sun{
-  color:#a5a5a5;
-  text-align: right;
-  margin-bottom:25px;
-  margin-right:10px;
+.sat {
+	color: #a5a5a5;
+	text-align: right;
+	margin-bottom: 25px;
+	margin-right: 10px;
 }
 
-.searchBox{
-  float:right;
+.sun {
+	color: #a5a5a5;
+	text-align: right;
+	margin-bottom: 25px;
+	margin-right: 10px;
 }
 
-.sunday{
-	    color: #a5a5a5;
-    text-align: right;
-    margin-bottom: 10px;
-    padding-right: 10px;
-}
-.satday{
-	    color: #a5a5a5;
-    text-align: right;
-    margin-bottom: 10px;
-    padding-right: 10px;
+.searchBox {
+	float: right;
 }
 
+.sunday {
+	color: #a5a5a5;
+	text-align: right;
+	margin-bottom: 10px;
+	padding-right: 10px;
+}
+
+.satday {
+	color: #a5a5a5;
+	text-align: right;
+	margin-bottom: 10px;
+	padding-right: 10px;
+}
 
 /* #typeSearch{ */
 /*    width:80px; */
@@ -96,7 +108,6 @@ text-overflow:ellipsis;
 /*   color: #000127; */
 /* } */
 
-
 /* 검색어 입력창 */
 /* input{ */
 /*    width:200px; */
@@ -106,293 +117,303 @@ text-overflow:ellipsis;
 /*    background-color: #F6F6F6; */
 
 /* } */
-
-.today_button_div{
-  float: right;
-  padding-top: 25px;
-  
+.today_button_div {
+	float: right;
+	padding-top: 25px;
 }
 
-.today_button{
-    width: 50px;
-    height: 30px;
-    text-align: center;
-    border-style: solid;
-    border-width: thin;
-    border-color: #a5a5a5;
-    border-radius: 4px;
-    background-color: white;
-    font-size: medium;
-    box-shadow: 2px 2px 2px #a5a5a5;
-    font-weight: bold;
-    font-family: 'Noto Sans KR', sans-serif;
+.today_button {
+	width: 50px;
+	height: 30px;
+	text-align: center;
+	border-style: solid;
+	border-width: thin;
+	border-color: #a5a5a5;
+	border-radius: 4px;
+	background-color: white;
+	font-size: medium;
+	box-shadow: 2px 2px 2px #a5a5a5;
+	font-weight: bold;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
-.searchBoxBtn{
-  border-style: solid;
-  border-radius: 4px;
-  width: 50px;
-  height: 30px;
-  border-color: #FEBC38;
-  border-radius: 4px;
-  background-color: #FEBC38;
-
+.searchBoxBtn {
+	border-style: solid;
+	border-radius: 4px;
+	width: 50px;
+	height: 30px;
+	border-color: #FEBC38;
+	border-radius: 4px;
+	background-color: #FEBC38;
 }
 
-.calendar{
-  width:80%;
-  margin:auto;
+.calendar {
+	width: 80%;
+	margin: auto;
 }
 
-.cal-navigation{
-  margin-top:100px;
-  margin-bottom:30px;
-  text-align: center;
-  font-size: 25px;
-  vertical-align: middle;
-  font-size: larger;
-  font-weight: bold;
-  color: #595959; 
+.cal-navigation {
+	margin-top: -50px;
+	margin-bottom: 10px;
+	text-align: center;
+	font-size: 25px;
+	vertical-align: middle;
+	font-size: larger;
+	font-weight: bold;
+	color: white;
 }
-.calendar_body{
-  width:100%;
-  margin-bottom: 50px;
-  border-collapse: collapse;
-  padding-top: 20px;
-  box-shadow: 13px 15px 12px rgba(0,0,0,.08);
-    transition: all .3s cubic-bezier(0,0,.5,1);
-    border-radius: 18px;
+
+.calendar_body {
+	width: 100%;
+	margin-bottom: 50px;
+	padding-top: 20px;
+	box-shadow: 13px 15px 12px rgba(0, 0, 0, .08);
+	transition: all .3s cubic-bezier(0, 0, .5, 1);
+	border-radius: 18px;
 }
-.calendar_body .today{
-  height:120px;
-  text-align: left;
-  vertical-align: top;
+
+.calendar_body .today {
+	height: 120px;
+	text-align: left;
+	vertical-align: top;
 }
 
 .today .date {
-    display: flex;
-    justify-content: end;
-}
-.circle{
-    background-color: red;
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    margin-top: 7px;
-    margin-left: 14px;
+	display: flex;
+	justify-content: end;
 }
 
-.no-data-message{
-   color:red;   
+.circle {
+	background-color: red;
+	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+	margin-top: 7px;
+	margin-left: 14px;
 }
-.week{
-	background-color:white;
+
+.no-data-message {
+	color: red;
 }
+
+.week {
+	background-color: white;
+}
+
 .contentsCnt1, .contentsCnt2, .contentsCnt3 {
-  margin-top: 20px;
-    font-size: 15px;
-    color: #000127;
-    margin-left: 5px;
-     
-}
-.calendar_body .date{
-  font-weight: bold;
-  font-size: 18px;
-  padding-left: 3px;
-  padding-top: 3px;
-  text-align : right;
-  margin-bottom : 25px;
-  margin-right: 8px;
-}
-.calendar_body .sat_day{
-  border:1px solid #a5a5a5;
-  border-right-color: white;
-  height:120px;
-  background-color:#EFEFEF;
-  text-align:left;
-  vertical-align: top;
-}
-.calendar_body .sat_day .sat{
-  color: #a5a5a5; 
-  font-weight: bold;
-  font-size: 18px;
-  padding-left: 3px;
-  padding-top: 3px;
-
-}
-.calendar_body .sun_day{
-  border:0.1px solid #a5a5a5;
-  border-left-color: white;
-  height:120px;
-  background-color:#EFEFEF;
-  text-align: left;
-  vertical-align: top;
-}
-.calendar_body .sun_day .sun{
-  color: #a5a5a5; 
-  font-weight: bold;
-  font-size: 18px;
-  padding-left: 3px;
-  padding-top: 3px;
-}
-.calendar_body .normal_day{
-  border:1px solid #a5a5a5;
-  height:120px;
-  background-color:white;
-  vertical-align: top;
-  text-align: left;
-}
-a.before_after_month{
-  margin: 10px;
-  font-weight: bold;
-  font-size: x-large;
-  color: #595959;
+	margin-top: 20px;
+	font-size: 15px;
+	color: #000127;
+	margin-left: 5px;
 }
 
-a.before_after_year{
-  font-weight: bold;
-  font-weight: bold;
-  font-size: larger;
-  color: black;
+.calendar_body .date {
+	font-weight: bold;
+	font-size: 18px;
+	padding-left: 3px;
+	padding-top: 3px;
+	text-align: right;
+	margin-bottom: 25px;
+	margin-right: 8px;
 }
-.this_month{
-  margin: 10px;
-  color : #595959;
-  font-size: 35px;
+
+.calendar_body .sat_day {
+	border: 1px solid #a5a5a5;
+	border-right-color: white;
+	height: 120px;
+	background-color: #EFEFEF;
+	text-align: left;
+	vertical-align: top;
+}
+
+.calendar_body .sat_day .sat {
+	color: #a5a5a5;
+	font-weight: bold;
+	font-size: 18px;
+	padding-left: 3px;
+	padding-top: 3px;
+}
+
+.calendar_body .sun_day {
+	border: 0.1px solid #a5a5a5;
+	border-left-color: white;
+	height: 120px;
+	background-color: #EFEFEF;
+	text-align: left;
+	vertical-align: top;
+}
+
+.calendar_body .sun_day .sun {
+	color: #a5a5a5;
+	font-weight: bold;
+	font-size: 18px;
+	padding-left: 3px;
+	padding-top: 3px;
+}
+
+.calendar_body .normal_day {
+	border: 1px solid #a5a5a5;
+	height: 120px;
+	background-color: white;
+	vertical-align: top;
+	text-align: left;
+}
+
+a.before_after_month {
+	margin: 10px;
+	font-weight: bold;
+	font-size: x-large;
+	color: #595959;
+}
+
+a.before_after_year {
+	font-weight: bold;
+	font-weight: bold;
+	font-size: larger;
+	color: #959595;
+}
+
+.this_month {
+	margin: 10px;
+	color: #959595;
+	font-size: 35px;
 }
 
 /* 모달에 대한 CSS */
 #modal-musical, #modal-concert, #modal-festival {
-  display: none;
-  position: relative;
-  z-index: 9999;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%, -100%);
-  width: 50rem;
-  height: 50rem;
-  background-color: #F6F6F6;
-  border-radius: 4px;
+	display: none;
+	position: relative;
+	z-index: 9999;
+	left: 50%;
+	top: 0;
+	transform: translate(-50%, -100%);
+	width: 50rem;
+	height: 50rem;
+	background-color: #F6F6F6;
+	border-radius: 10px;
+	
 }
 
-.modal-header{
-   display: flex;
-   justify-content: space-between;
-   color: #000127;
-   position: relative;
+.modal-header {
+	display: flex;
+	justify-content: space-between;
+	color: #000127;
+	position: relative;
 }
 
-.modal-title{
-   text-align: center;
-   color: #595959;
-   margin-left: 2rem;
+.modal-title {
+	text-align: center;
+	color: #595959;
+	margin-left: 2rem;
+}
+.modal-list-tit1{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 button.modal-close-btn {
-position: absolute;
-    right: 0;
-    top: 0;
-    margin-top: 10px;
-    margin-right: 20px;
-    height: 35px;
-    width: 70px;
-    color: white;
-    background-color: #FEBC38;
-    border-style: none;
-    border-radius: 11px;
-    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
-    transition: all .3s cubic-bezier(0,0,.5,1);
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin-top: 10px;
+	margin-right: 20px;
+	height: 35px;
+	width: 70px;
+	color: white;
+	background-color: #FEBC38;
+	border-style: none;
+	border-radius: 11px;
+	box-shadow: 2px 4px 12px rgba(0, 0, 0, .08);
+	transition: all .3s cubic-bezier(0, 0, .5, 1);
+	    font-family: 'Noto Sans KR';
 }
 
 .modal-content-wrap {
-   margin: 0 auto;
-   width: 50rem;
-   height: 50rem;
-   color: #F6F6F6;
-   margin:5px;
+	margin: 0 auto;
+	width: 50rem;
+	height: 50rem;
+	color: #F6F6F6;
+	margin: 5px;
 }
 
-.modal-body{
-   margin: 0 auto;
-   width: 50rem;
-   height: 50rem;
-   color: #F6F6F6;
-   box-sizing: border-box;
-   max-height: auto; /* 원하는 높이로 조정 */
-   overflow-y: auto; /* 내용이 넘칠 때 수직 스크롤바 추가 */
+.modal-body {
+	margin: 0 auto;
+	width: 50rem;
+	height: 50rem;
+	color: #F6F6F6;
+	box-sizing: border-box;
+	max-height: auto; /* 원하는 높이로 조정 */
+	overflow-y: auto; /* 내용이 넘칠 때 수직 스크롤바 추가 */
 }
 
-.modal-content-container{
-   max-height: calc(100% - 80px); /* 모달 헤더와 푸터의 높이를 고려한 최대 높이 설정 */
-   overflow-y: auto; /* 내용이 넘칠 때 수직 스크롤바 추가 */
-   margin-right:10px;
+.modal-content-container {
+	max-height: calc(100% - 80px); /* 모달 헤더와 푸터의 높이를 고려한 최대 높이 설정 */
+	overflow-y: auto; /* 내용이 넘칠 때 수직 스크롤바 추가 */
+	margin-right: 10px;
 }
 
-.today-contents{
+.today-contents {
 	display: flex;
 	flex-wrap: wrap;
 }
 
-.modal-contents-list{
+.modal-contents-list {
 	flex: 0 0 calc(25% - 10px); /* 4개의 열로 나누기 위한 스타일, 여백을 조절할 수 있습니다. */
 	margin-right: 10px;
-/*    width: 25%; 4개 컨텐츠가 한 줄에 들어가도록 25%로 설정 */
-/*    float: left; 왼쪽으로 띄워서 나란히 표시 */
-   box-sizing: border-box; /* 요소의 width와 height에 padding과 border를 포함시킴 */
-   padding: 15px; /* 컨텐츠 간의 간격을 조절 */
-   padding-bottom: 25px;
-   text-align: center;
+	/*    width: 25%; 4개 컨텐츠가 한 줄에 들어가도록 25%로 설정 */
+	/*    float: left; 왼쪽으로 띄워서 나란히 표시 */
+	box-sizing: border-box; /* 요소의 width와 height에 padding과 border를 포함시킴 */
+	padding: 15px; /* 컨텐츠 간의 간격을 조절 */
+	padding-bottom: 25px;
+	text-align: center;
 }
 
-
-
-.modal-comImg{
-   width:150px;
-   height:200px;   
+.modal-comImg {
+	width: 150px;
+	height: 200px;
 }
 
-.modal-list-txt{
-  size: 10px;
-  align-items: center;
-  margin-top:10px;
-  color: #595959;
-  
+.modal-list-txt {
+	size: 10px;
+	align-items: center;
+	margin-top: 10px;
+	color: #595959;
 }
 
 .close-modal {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    cursor: pointer;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 24px;
+	cursor: pointer;
 }
-
 
 /* 오버레이에 대한 CSS */
 .overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 9995;
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+	z-index: 9995;
 }
 
 form#calendarFrm {
-    position: relative;
-    z-index: 100;
-    padding-left: 300px;
-    padding-right: 300px;
-    font-family: 'Noto Sans KR', sans-serif;
+	position: relative;
+	z-index: 100;
+	padding-left: 300px;
+	padding-right: 300px;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
-.list-inner-wrap{
-    width: 10.82rem;
-    margin: 10px;
-    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
-    transition: all .3s cubic-bezier(0,0,.5,1);
-    padding: 5px;
-    text-align: center;
+.list-inner-wrap {
+	width: 10.82rem;
+	margin: 10px;
+	box-shadow: 2px 4px 12px rgba(0, 0, 0, .08);
+	transition: all .3s cubic-bezier(0, 0, .5, 1);
+	padding: 5px;
+	text-align: center;
 }

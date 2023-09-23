@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"%>
-<%@include file="../includes/header.jsp"%>
+<%@include file="../includes/joinheader.jsp"%>
 <link href="/resources/css/join.css?after" rel="stylesheet">
 <link href="/resources/css/notice_register.css?after" rel="stylesheet">
 <body>

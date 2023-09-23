@@ -63,64 +63,9 @@
 				<li><a href="../page/myPage"> <span>마이페이지</span>
 				</a></li>
 			</ul>
-		</div>
-		<div class="header_content">
-
-			<div class="contents">
-
-				<h1>
-					<a>Festival</a>
-
-				</h1>
-
-
-
 			</div>
-		</div>
-		<div class="nav">
-			<div class="contents">
-				<div class="totalSearch_wrap">
-					<label for="totalSearch"> <input type="text"
-						id="header_keyword" placeholder="검색어를 입력해 주세요"> <input
-						type="hidden" id="header_ad_keyword" name="header_ad_keyword">
-					</label>
-					<button type="button" class="btn_totalSearch"
-						id="btn_header_search" onclick="search()">검색</button>
-				</div>
-				<div>
-					<ul class="nav_menu">
-						<li>
-							<h2>
-								<a href="/">홈</a>
-							</h2>
-						</li>
-						<li class="dropdown">
-							<h2>
-								<a href="#">카테고리</a>
-								<ul class="category" style="display: none;">
-									<li><a href="/page/mContents">뮤지컬</a></li>
-									<li><a href="/page/concertContents">콘서트</a></li>
-									<li><a href="/page/festaContents">페스티벌</a></li>
-								</ul>
-							</h2>
-
-						</li>
-						<li id="calendarCss">
-							<h2>
-								<a href="/page/calendar">캘린더</a>
-							</h2>
-						</li>
-						<li id="qnaCss">
-							<h2>
-								<a href="/page/notice_list">고객센터</a>
-							</h2>
-						</li>
-					</ul>
-				</div>
-
 			</div>
-		</div>
-	</div>
+			
 	<!-- End Header -->
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
