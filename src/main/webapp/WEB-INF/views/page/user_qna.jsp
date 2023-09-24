@@ -15,18 +15,18 @@
 		<div class="body">
 			<main id="contents" class="top-padding">
 
-			<div class="wrap">
-				<div class="cs-body">
-					<ul id="contents" class="cs-1depth">
-						<li class="customer-1depth-off">
-							<a href="/page/notice_list" aria-current="page" class="router-link-exact-active router-link-active">공지사항</a>
-						</li> 
-						<li class="customer-1depth-on">
-							<a href="/page/user_qna" aria-current="page" class="router-link-exact-active router-link-active">1:1 문의</a>
-						</li> 
-					</ul>
-					<div class="mypooq-inner-wrap">
-						<section>
+				<div class="wrap">
+					<div class="cs-body" style="border-radius: 18px;">
+						<ul id="contents" class="cs-1depth">
+							<li class="customer-1depth-off"><a href="/page/notice_list"
+								aria-current="page"
+								class="router-link-exact-active router-link-active">공지사항</a></li>
+							<li class="customer-1depth-on"><a href="/page/user_qna"
+								aria-current="page"
+								class="router-link-exact-active router-link-active">1:1 문의</a></li>
+						</ul>
+						<div class="mypooq-inner-wrap">
+							<section>
 								<div class="wrap">
 									<div class="my-user-qna-info">
 										<span tabindex="0" class="cs-number">043-249-1852~8</span>
@@ -38,16 +38,20 @@
 											<li>주말 및 공휴일 휴무</li>
 										</ul>
 										<p>
-											"ShowFesta 이용 시 불편하면 전화하거나 1:1 문의해 주세요." <br> "최대한 빠르게 처리해 드리겠습니다."
+											"ShowFesta 이용 시 불편하면 전화하거나 1:1 문의해 주세요." <br> "최대한 빠르게
+											처리해 드리겠습니다."
 										</p>
 									</div>
 								</div>
 							</section>
+						</div>
 					</div>
 				</div>
-			</div>
 			</main>
 		</div>
 	</div>
 </body>
+<footer>
+<%@include file="../includes/footer.jsp"%>
+</footer>
 </html>

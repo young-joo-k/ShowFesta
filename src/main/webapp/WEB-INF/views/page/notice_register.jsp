@@ -13,7 +13,9 @@
 	<div class="body">
 		<div class="top-padding">
 			<div class="wrap" id="g-contents">
-				<div class="cs-body">
+				<div class="cs-body" style="
+    border-radius: 18px;
+">
 					<div class="register-top">
 						<h4> 공지사항 작성 </h4>
 					</div>
@@ -24,10 +26,6 @@
 							</p>
 							<table class="register-table">
 								<caption class="blind">공지사항 작성 </caption>
-								<colgroup>
-									<col width="280">
-									<col>
-								</colgroup>
 								<tbody>
 									<tr>
 										<th scope="row">
@@ -78,4 +76,7 @@
 		</div>
 	</div>
 </body>
+<footer>
+<%@include file="../includes/footer.jsp"%>
+</footer>
 </html>

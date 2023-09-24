@@ -14,7 +14,7 @@
 			<main id="contents" class="top-padding">
 
 				<div class="wrap">
-					<div class="cs-body">
+					<div class="cs-body" style="border-radius: 18px;">
 						<ul id="contents" class="cs-1depth">
 							<li class="customer-1depth-on"><a href="/page/notice_list"
 								aria-current="page"
@@ -100,6 +100,9 @@
 		</div>
 	</div>
 </body>
+<footer>
+<%@include file="../includes/footer.jsp"%>
+</footer>
 <form id='actionForm' action="/page/notice_list" method='get'>
 	<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 	<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
@@ -118,7 +121,6 @@
 						$(".modal-body").html(
 								"게시글" + parseInt(result) + " 번이 등록되었습니다.");
 					}
-					$("#myModal").modal("show");
 				}
 				$("#regBtn").on("click", function() {
 					self.location = "/page/notice_register";

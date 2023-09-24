@@ -1,113 +1,79 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"%>
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!-- ======= Footer ======= -->
+<link href="/resources/css/footer.css?after" rel="stylesheet">
 
-    <div class="footer-content">
-      <div class="container">
+<footer id="footer" class="footer">
 
-        <div class="row g-5">
-          <div class="col-lg-4">
-            <h3 class="footer-heading">About ShowFesta</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?</p>
-            <p><a href="calendar.html" class="footer-link-more">Learn More</a></p>
-          </div>
-          <div class="col-6 col-lg-2">
-            <h3 class="footer-heading">Navigation</h3>
-            <ul class="footer-links list-unstyled">
-              <li><a href="/main.jsp"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="/news.jsp"><i class="bi bi-chevron-right"></i> News</a></li>
-              <li><a href="/category.html"><i class="bi bi-chevron-right"></i> Categories</a></li>
-              <li><a href="/calendar.jsp"><i class="bi bi-chevron-right"></i> Calendar</a></li>
-              <li><a href="/notice.jsp"><i class="bi bi-chevron-right"></i> Notice</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-lg-2">
-            <h3 class="footer-heading">Categories</h3>
-            <ul class="footer-links list-unstyled">
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> 뮤지컬</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> 콘서트</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> 페스티벌</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> 지역축제</a></li>
-            </ul>
-          </div>
+	<div class="footer-content">
+		<div class="container">
 
-          <div class="col-lg-4">
-            <h3 class="footer-heading">Recent Posts</h3>
+			<div class="row g-5">
+				<div class="col-lg-4">
+					<h3 class="footer-heading" style="width: 161px;">About
+						ShowFesta</h3>
+					<p class="introduce">주식회사 구구팔하나 | 고객센터 043-249-1852~8</p>
+					<p class="introduce">평일 09:00~18::00 *점심시간 12:30~13:30" 주말 및
+						공휴일 휴무</p>
+					<p class="introduce">충북 청주시 청원구 오창읍 양청4길 45 충북대학교 오창캠퍼스 융합기술원
+						5층 C545호</p>
+				</div>
+				<div class="col-6 col-lg-2" style="width: 101px;">
+					<h3 class="footer-heading">Navigation</h3>
+					<ul class="footer-links list-unstyled">
+						<li><a href="/page/main"><i class="bi bi-chevron-right"></i>
+								Home</a></li>
+						<li><a href="/page/calendar"><i
+								class="bi bi-chevron-right"></i> Calendar</a></li>
+						<li><a href="/page/notice_list"><i
+								class="bi bi-chevron-right"></i> CustomerService</a></li>
+					</ul>
+				</div>
+				<div class="col-6 col-lg-2">
+					<h3 class="footer-heading">Categories</h3>
+					<ul class="footer-links list-unstyled">
+						<li><a href="/page/mContents"><i
+								class="bi bi-chevron-right"></i> 뮤지컬</a></li>
+						<li><a href="/page/concertContents"><i
+								class="bi bi-chevron-right"></i> 콘서트</a></li>
+						<li><a href="/page/festaContents"><i
+								class="bi bi-chevron-right"></i> 페스티벌</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-            <ul class="footer-links footer-blog-entry list-unstyled">
-              <li>
-                <a href="news.jsp" class="d-flex align-items-center">
-                  <img src="/resources/assets/img/post-sq-1.jpg" alt="" class="img-fluid me-3">
-                  <div>
-                    <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                    <span>5 Great Startup Tips for Female Founders</span>
-                  </div>
-                </a>
-              </li>
+	<div class="footer-legal">
+		<div class="container">
 
-              <li>
-                <a href="news.html" class="d-flex align-items-center">
-                  <img src="/resources/assets/img/post-sq-2.jpg" alt="" class="img-fluid me-3">
-                  <div>
-                    <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                    <span>What is the son of Football Coach John Gruden, Deuce Gruden doing Now?</span>
-                  </div>
-                </a>
-              </li>
+			<div class="row justify-content-between">
+				<div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+					<div class="copyright">
+						© Copyright <strong><span>ShowFesta</span></strong>. All Rights
+						Reserved
+					</div>
 
-              <li>
-                <a href="news.html" class="d-flex align-items-center">
-                  <img src="/resources/assets/img/post-sq-3.jpg" alt="" class="img-fluid me-3">
-                  <div>
-                    <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                    <span>Life Insurance And Pregnancy: A Working Mom’s Guide</span>
-                  </div>
-                </a>
-              </li>
+					<div class="credits">
+						<!-- All the links in the footer should remain intact. -->
+						<!-- You can delete the links only if you purchased the pro version. -->
+						<!-- Licensing information: https://bootstrapmade.com/license/ -->
+						<!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
+						Designed by 9981
+					</div>
 
-              <li>
-                <a href="news.html" class="d-flex align-items-center">
-                  <img src="/resources/assets/img/post-sq-4.jpg" alt="" class="img-fluid me-3">
-                  <div>
-                    <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                    <span>How to Avoid Distraction and Stay Focused During Video Calls?</span>
-                  </div>
-                </a>
-              </li>
+				</div>
+			</div>
 
-            </ul>
+		</div>
+	</div>
 
-          </div>
-        </div>
-      </div>
-    </div>
+</footer>
 
-    <div class="footer-legal">
-      <div class="container">
-
-        <div class="row justify-content-between">
-          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-            <div class="copyright">
-              © Copyright <strong><span>ShowFesta</span></strong>. All Rights Reserved
-            </div>
-
-            <div class="credits">
-              <!-- All the links in the footer should remain intact. -->
-              <!-- You can delete the links only if you purchased the pro version. -->
-              <!-- Licensing information: https://bootstrapmade.com/license/ -->
-              <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
-              Designed by <a href="https://bootstrapmade.com/">9981</a>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </footer>
-
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<a href="#"
+	class="scroll-top d-flex align-items-center justify-content-center"><i
+	class="bi bi-arrow-up-short"></i></a>
 
 
 </body>

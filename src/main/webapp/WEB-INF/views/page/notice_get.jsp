@@ -77,6 +77,9 @@
 		</div>
 	</div>
 </body>
+<footer>
+<%@include file="../includes/footer.jsp"%>
+</footer>
 <script type="text/javascript"">
 $(document).ready(function() {
 

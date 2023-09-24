@@ -10,7 +10,8 @@
 <link href="/resources/css/notice_register.css?after" rel="stylesheet">
 </head>
 <body>
-	<div class="cs-table02-wrap">
+	<div class="cs-table02-wrap"
+		style="margin-left: 450px; margin-top: 200px; border-radius: 18px;">
 		<ul class="cs-2depth">
 			<li class="cs-2depth-on">
 				<button>전체</button>
@@ -32,55 +33,54 @@
 					<th>등록일</th>
 				</tr>
 			</thead>
-				<tbody>
-					<tr>
-						<td>
-							<p class="noti-type">
-								<c:out value="${qna.b_num}" />
-							</p>
-						</td>
-						<td>
-							<p class="noti-type">
-								<c:out value="${qna.id}" />
-							</p>
-						</td>
-						<td>
-							<c:out value="${qna.b_title}"/>
-						</td>
-						<td>
-							<c:out value="${qna.b_content }"/>
-						</td>
-						<td>
-							<p class="noti-date">
-								<fmt:formatDate pattern="yyyy-MM-dd" value="${qna.updatedate }" /> 
-							</p>
-						</td>
-					</tr>
-<!-- 					댓글부분 -->
-					<c:choose>
-						<c:when test = '${user.id eq "admin" }'>
-							<form id='actionForm' action="/page/qna_get" method='post'>
-								<tr>
-									<td>답변</td>
-									<td>
-									<button type = "submit"> 답글 등록 </button>
-									<input type = "text" name = "commentText" value = "${qna.reply }"></td>
-									<input type='hidden' name='b_num' value='${qna.b_num}'>
-								</tr>
-							</form>
-							
-						</c:when>
-						<c:otherwise>
-							<div class = "nomal user">
-								<tr>
-									<td>답변</td>
-									<td>${qna.reply}</td>
-								</tr>
-							</div>
-					</c:otherwise>
-					</c:choose>
-				</tbody>
+			<tbody>
+				<tr>
+					<td>
+						<p class="noti-type">
+							<c:out value="${qna.b_num}" />
+						</p>
+					</td>
+					<td>
+						<p class="noti-type">
+							<c:out value="${qna.id}" />
+						</p>
+					</td>
+					<td><c:out value="${qna.b_title}" /></td>
+					<td><c:out value="${qna.b_content }" /></td>
+					<td>
+						<p class="noti-date">
+							<fmt:formatDate pattern="yyyy-MM-dd" value="${qna.updatedate }" />
+						</p>
+					</td>
+				</tr>
+			</tbody>
 		</table>
+		<!-- 					댓글부분 -->
+		<c:choose>
+			<c:when test='${user.id eq "admin" }'>
+				<form id='actionForm' action="/page/qna_get" method='post'>
+					<tr>
+						<td>답변</td>
+						<td>
+							 <input type="text"
+							name="commentText" value="${qna.reply }">
+							<button class="aBtn" type="submit">답글 등록</button>
+						</td>
+						<input type='hidden' name='b_num' value='${qna.b_num}'>
+					</tr>
+				</form>
+
+			</c:when>
+			<c:otherwise>
+				<div class="nomal user">
+					<div style="display: flex; margin-top: 20px;">
+						<div style="margin-left: 48px;">답변</div>
+						<div style="margin-left: 120px;">${qna.reply}</div>
+					</div>
+				</div>
+			</c:otherwise>
+		</c:choose>
+
 	</div>
 	<div class='pull-right'>
 		<ul class="pagination">
@@ -105,6 +105,9 @@
 	<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 	<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 </form>
-
+<footer>
+<%@include file="../includes/footer.jsp"%>
+</footer>
 </html>
+
 

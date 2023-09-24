@@ -35,8 +35,6 @@ article{
     margin-left : 25px
 }
 
-.myPage-info{
-}
 
 .myPage-name{
 	font-size:xx-large;
@@ -83,7 +81,7 @@ display: flex;
 .my-like-content{
 	margin:2rem;
 	display:flex;
-	    justify-content: center;
+    justify-content: center;
 }
 
 .my-content-wrap{
@@ -93,6 +91,7 @@ display: flex;
     justify-content: flex-start;
     width: 1300px;
     box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    background-color: #FFFFFF;
 }
 
 .like-list-wrap {

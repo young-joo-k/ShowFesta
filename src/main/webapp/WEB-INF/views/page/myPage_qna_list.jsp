@@ -83,6 +83,9 @@
 		</div>
 	</div>
 </body>
+<footer>
+<%@include file="../includes/footer.jsp"%>
+</footer>
 <form id= 'actionForm' action="/page/qna_list" method='get'>
 	<input type='hidden'  name='pageNum' value = '${pageMaker.cri.pageNum}'>
 	<input type='hidden'  name='amount' value = '${pageMaker.cri.amount}'>

@@ -13,10 +13,9 @@
 		<div class="body">
 			<main id="contents" class="top-padding">
 				<div class="wrap">
-					<div class="cs-body">
+					<div class="cs-body" style="border-radius: 18px;">
 						<div>
-
-							<div class="cs-table02-wrap">
+							<div class="cs-table02-wrap" style="border-radius: 18px;">
 								<ul class="cs-2depth">
 									<li class="cs-2depth-on">
 										<button>전체</button>
@@ -88,6 +87,9 @@
 		</div>
 	</div>
 </body>
+<footer>
+<%@include file="../includes/footer.jsp"%>
+</footer>
 <form id='actionForm' action="/page/qna_list" method='get'>
 	<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 	<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
@@ -104,8 +106,9 @@
 			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
 			actionForm.submit();
 		});
-
+	});
 
 </script>
+
 </html>
 

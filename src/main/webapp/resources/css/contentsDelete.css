@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.wrap{
+	display: flex;
+    color: black;
+    justify-content: center;
+    background-color: white;
+    padding-top: 20px;
+    width: 1700px;
+    margin-left: 100px;
+    border-radius: 18px;
+        padding-bottom: 40px;
+}
+
+.chooseContents{
+	display:flex;
+    justify-content: space-between;
+}
+.contentsDelete-submit{
+	margin-right : 20px;
+}
+
+.adminStartDate{
+	margin-right: 80px;
+    display: flex;
+}
+
+.allContentInfo-place{
+	margin-left: 35px;
+    display: flex;
+}
+

@@ -32,9 +32,9 @@ article{
 
 /* img 태그에 스타일 추가 */
 .myPage-img-select img {
-    width: 150px; 
-    height: 150px; 
-    margin-left : 25px
+    width: 100px; 
+    height: 100px; 
+    margin-left : 45px
 }
 
 .myPage-info{
@@ -62,8 +62,8 @@ a.myPage-update{
 .myPage-menu-wrapper{
     display: flex;
     background-color: white;
-    width: 1300px;
-    border-radius: 10px;
+    width: 1000px;
+    border-radius: 18px 18px 0px 0px;
     box-shadow: 2px 4px 12px rgba(0,0,0,.08);
 }
 
@@ -95,18 +95,19 @@ a.myPage-update{
 }
 
 .my-like-content{
-	margin:2rem;
 	display:flex;
 	    justify-content: center;
 }
 
 .my-content-wrap{
-    border-radius: 18px;
+    border-radius: 0px 0px 18px 18px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    width: 1300px;
+    width: 1000px;
     box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    background-color:white;
+    padding-bottom: 15px;
 }
 
 .like-list-wrap {
@@ -143,7 +144,6 @@ a.myLikeContent{
 
 .my-like-actor{
 	display:none;
-	margin:2rem;
 	    display: flex;
     justify-content: center;
 }
@@ -155,7 +155,6 @@ a.question{
 }
 
 .myPage-qna-space{
-	margin:2rem;
 }
 
 .myPage-qna-button-wrap{
@@ -178,18 +177,15 @@ a.question{
 }
 
 .myPage-qna-wrap{
-	display: flex;
-    justify-content: center;
+display: flex;
     background-color: white;
-    width: 800px;
-    margin-left: 552px;
+    width: 1000px;
+    margin-left: 452px;
+    justify-content: center;
 }
 
 
 .myQna{
-	width: 50rem;
-	height: 25rem;
-	color: #595959;
 }
 
 
@@ -304,8 +300,12 @@ a.myPageBack, a.correctBtn{
 
 
 #deleteForm {
-	    display: flex;
+    display: flex;
     justify-content: space-around;
+    background-color: white;
+    width: 1000px;
+    margin-left: 452px;
+    border-radius: 0px 0px 18px 18px;
 }
 /* 관리자 페이지  */
 .notice-contents, .admin-qna-contents, .admin-content-list, .admin-user-manager{
@@ -318,6 +318,7 @@ a.myPageBack, a.correctBtn{
         border: none;
             background-color: white;
 }
+
 
 /* 안에 내용에 따라 박스 크기가 조절됩니다 */
 .admin-content-wrap{
@@ -332,7 +333,6 @@ a.myPageBack, a.correctBtn{
 
 .userDeleteBtn{
 border-radius: 4px;
-    margin-top: 20px;
     width: 64px;
     height: 38px;
     color: black;
@@ -340,6 +340,7 @@ border-radius: 4px;
     font-weight: bold;
     border-color: #959595;
     margin-left:20px;
+        box-shadow: 2px 4px 12px rgba(0,0,0,.08);
 }
 
 .no-like-message{
@@ -349,12 +350,14 @@ border-radius: 4px;
     display: flex;
     flex-wrap: wrap;
     margin: 2rem;
-    width: 700px;
+    width: 830px;
     border-radius: 18px;
     box-shadow: 2px 4px 12px rgba(0,0,0,.08);
-    transition: all .3s cubic-bezier(0,0,.5,1);
     padding-left: 10px;
     padding-top:10px;
+}
+.adminUserId{
+	width:250px;
 }
 
 .userManagement{
@@ -377,7 +380,7 @@ input[type="checkbox"] {
 
 .allUserInfo{
 	text-align:center;
-	color:#959595;
+	color:gray;
 }
 
 .allUserInfoId{
@@ -401,9 +404,12 @@ input[type="checkbox"] {
 	height:50px;
 }
 .contentsManager{
-	width: 100%;
+    width: 1000px;
     display: flex;
+    margin-left: 452px;
     justify-content: center;
+    background-color: white;
+    border-radius: 0px 0px 18px 18px;
 }
 
 #contentsBtn{

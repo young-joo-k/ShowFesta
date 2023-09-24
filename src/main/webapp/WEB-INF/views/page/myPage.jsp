@@ -37,6 +37,16 @@
 		</div>
 	</div>
 	</article> </section>
+	<!-- 문의내역 눌렀을 때 나타날 내용 -->
+	<div class="myPage-qna-wrap" style="">
+		<div class="myPage-qna-space">
+			<!-- 문의내용 있을 경우 들어갈 공간임 -->
+			<!-- 				게시판 내가 1:1 문의사항 남긴거 리스트 불러오기 						 -->
+			<%@include file="myPage_qna_list.jsp"%>
+		</div>
+
+	</div>
+	<!-- 문의내역 끝 -->
 </div>
 
 <!-- 즐겨찾기 버튼 눌렀을 때 띄워줄 내용 즐겨찾기에서 사용할 예정 -->
@@ -96,29 +106,11 @@
 	</div>
 </div>
 <!-- 즟겨찾기 끝 -->
+<footer>
+<%@include file="../includes/footer.jsp"%>
+</footer>
 
-<!-- 문의내역 눌렀을 때 나타날 내용 -->
-<div class="myPage-qna-wrap" style="
-    border-radius: 10px;
-    margin-top: 20px;
-">
-	<div class="myPage-qna-space">
-		<div class="myPage-qna-button-wrap">
-			<!-- 				<button type = "button" class = "myPage-qna-button"> -->
-			<!-- 					<a href = "/page/user_qna" class = "question">문의하기</a> -->
-			<!-- 				</button> -->
-		</div>
-		<!-- 문의내용 있을 경우 들어갈 공간임 -->
-		<div class="myPage-qna-list">
-			<div class="myQna">
-				<!-- 				게시판 내가 1:1 문의사항 남긴거 리스트 불러오기 						 -->
-				<%@include file="myPage_qna_list.jsp"%>
-			</div>
-		</div>
-	</div>
 
-</div>
-<!-- 문의내역 끝 -->
 
 
 
@@ -128,33 +120,33 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-    // 기본 화면 설정
-    $(".my-like-actor").hide();
-    $(".myPage-qna-wrap").hide();
+	$(document).ready(function() {
+		// 기본 화면 설정
+		$(".my-like-actor").hide();
+		$(".myPage-qna-wrap").hide();
 
-    $(".like-contents").click(function(){
-        // 즐겨찾기(컨텐츠) 버튼 클릭 시
-        $(".my-like-content").show(); // my-like-content를 보이게 함
-        $(".my-like-actor").hide(); // my-like-actor를 숨김
-        $(".myPage-qna-wrap").hide(); // myPage-qna-wrap을 숨김
-    });
-    
-    $(".like-actor").click(function(){
-        // 즐겨찾기(배우) 버튼 클릭 시
-        $(".my-like-content").hide(); // my-like-content를 숨김
-        $(".my-like-actor").show(); // my-like-actor를 보이게 함
-        $(".myPage-qna-wrap").hide(); // myPage-qna-wrap을 숨김
-    });
-    
-    $(".myPage-qna").click(function(){
-        // 문의내역 버튼 클릭 시
-        $(".my-like-content").hide(); // my-like-content를 숨김
-        $(".my-like-actor").hide(); // my-like-actor를 숨김
-        $(".myPage-qna-wrap").show(); // myPage-qna-wrap을 보이게 함
-    });
-    
-});
+		$(".like-contents").click(function() {
+			// 즐겨찾기(컨텐츠) 버튼 클릭 시
+			$(".my-like-content").show(); // my-like-content를 보이게 함
+			$(".my-like-actor").hide(); // my-like-actor를 숨김
+			$(".myPage-qna-wrap").hide(); // myPage-qna-wrap을 숨김
+		});
+
+		$(".like-actor").click(function() {
+			// 즐겨찾기(배우) 버튼 클릭 시
+			$(".my-like-content").hide(); // my-like-content를 숨김
+			$(".my-like-actor").show(); // my-like-actor를 보이게 함
+			$(".myPage-qna-wrap").hide(); // myPage-qna-wrap을 숨김
+		});
+
+		$(".myPage-qna").click(function() {
+			// 문의내역 버튼 클릭 시
+			$(".my-like-content").hide(); // my-like-content를 숨김
+			$(".my-like-actor").hide(); // my-like-actor를 숨김
+			$(".myPage-qna-wrap").show(); // myPage-qna-wrap을 보이게 함
+		});
+
+	});
 </script>
 
 

@@ -260,6 +260,9 @@
 	</div>
 	
 </body>
+<footer>
+<%@include file="../includes/footer.jsp"%>
+</footer>
 <script>
 	new Swiper('.swiper', {
 		autoplay : {
