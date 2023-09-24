@@ -10,4 +10,5 @@ public class LikeVO {
 	private String like_img;
 	private String like_link;
 	private String m_num;
+	private String reserveid;
 }

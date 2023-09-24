@@ -41,7 +41,7 @@
 <!-- ======= Header ======= -->
 <body>
 	<div class="header">
-		<div class="smalllogo" onclick="location.href='/'" class="showfesta">
+		<div class="smalllogo" onclick="location.href='/page/main'" class="showfesta">
 			ShowFesta
 			<ul class="memberInfo_wrap">
 				<li id="first-member"
@@ -89,7 +89,7 @@
 					<ul class="nav_menu">
 						<li>
 							<h2>
-								<a href="/">홈</a>
+								<a href="/page/main">홈</a>
 							</h2>
 						</li>
 						<li class="dropdown">

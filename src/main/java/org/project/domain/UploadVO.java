@@ -1,11 +1,12 @@
 package org.project.domain;
 
-import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
 
 @Data
 public class UploadVO {
-	private String name;
-	private MultipartFile file;
+	String like_name;
+	String id;
+	String like_type;
+	String reserveid;
 }

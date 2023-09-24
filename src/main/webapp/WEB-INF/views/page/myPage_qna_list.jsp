@@ -48,7 +48,8 @@
 											</p>
 										</td>
 										<td><span><a href='/page/qna_get?b_num=<c:out value="${qna.b_num }"/>'>
-									<c:out value="${qna.b_title}"/></a></span></td>
+									<c:out value="${qna.b_title}"/></a></span>
+									<p style="float:right;">답변 완료</p></td>
 										<td>
 											<p class="noti-date">
 												<fmt:formatDate pattern="yyyy-MM-dd"
