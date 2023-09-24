@@ -14,14 +14,17 @@
     margin-bottom: 14px;
     font-weight: bold;
     font-size: 26px;
-    color: black;
-        padding-top: 30px;
+    color: #FFFFFF;
+    padding-top: 30px;
+}
+
+.chooseContents{
+	color: #FFFFFF;
 }
 
 .es-text {
     text-align: right;
     font-size: 14px;
-    color: #a5a5a5;
     margin-bottom: 10px;
 }
 
@@ -37,7 +40,7 @@
     padding: 24px 0 12px 40px;
     font-weight: 700;
     font-size: 25px;
-    color: black;
+    color: #FFFFFF;
     vertical-align: top;
 }
 
@@ -129,4 +132,23 @@ width: 435px;
 .login-submit {
     background-color: #fc7110;
     color: #fff;
+}
+
+
+/* 컨텐츠 삭제 */
+.contentManagement{
+	size: large;
+}
+
+.musicalContentList{
+	
+}
+
+.contentList{
+	color:#FFFFFF;
+	font-size: large;
+/* 	border-style: solid; */
+/* 	border-radius: 5px; */
+	border-color: #FFFFFF;
+	
 }
