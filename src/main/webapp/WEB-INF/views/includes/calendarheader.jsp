@@ -41,7 +41,8 @@
 <!-- ======= Header ======= -->
 <body>
 	<div class="header">
-		<div class="smalllogo" onclick="location.href='/page/main'" class="showfesta">
+		<div class="smalllogo" onclick="location.href='/page/main'"
+			class="showfesta">
 			ShowFesta
 			<ul class="memberInfo_wrap">
 				<li id="first-member"
@@ -66,7 +67,7 @@
 
 			<div class="contents">
 
-				<h1>
+				<h1 style="margin-left: 531px;">
 					<a>Calendar</a>
 
 				</h1>
