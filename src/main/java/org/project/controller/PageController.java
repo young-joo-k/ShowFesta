@@ -62,7 +62,13 @@ public class PageController {
 	private QnaService qnaservice;
 
 	@GetMapping("/calendar")
-	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
+	public String calendar(Model model, HttpServletRequest request, DateData dateData, HttpSession session) {
+		// 아이디 정보
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+		}
 		log.info("calendar Get");
 		Calendar cal = Calendar.getInstance();
 		DateData calendarData;
@@ -467,10 +473,14 @@ public class PageController {
 
 	@PostMapping("/musicalContentSearchDate")
 	public String musicalContentSearchDate(@RequestParam("startDate") String startDate,
-			@RequestParam("endDate") String endDate, Model model) {
+			@RequestParam("endDate") String endDate, Model model, HttpSession session) {
 		// startDate와 endDate를 사용하여 mContents를 가져오는 로직을 작성
-
 		try {
+			String id = (String) session.getAttribute("id");
+			if (id != null) {
+				MemberVO membervo = memberservice.getUserInfo(id);
+				model.addAttribute("user", membervo);
+				}
 			if (startDate != null && endDate != null) {
 				log.info(startDate);
 				log.info(endDate);
@@ -489,10 +499,15 @@ public class PageController {
 
 	@PostMapping("/concertContentSearchDate")
 	public String concertContentSearchDate(@RequestParam("startDate") String startDate,
-			@RequestParam("endDate") String endDate, Model model) {
+			@RequestParam("endDate") String endDate, Model model, HttpSession session) {
 		// startDate와 endDate를 사용하여 mContents를 가져오는 로직을 작성
 
 		try {
+			String id = (String) session.getAttribute("id");
+			if (id != null) {
+				MemberVO membervo = memberservice.getUserInfo(id);
+				model.addAttribute("user", membervo);
+				}
 			if (startDate != null && endDate != null) {
 				log.info(startDate);
 				log.info(endDate);
@@ -511,10 +526,15 @@ public class PageController {
 
 	@PostMapping("/festaContentSearchDate")
 	public String festaContentSearchDate(@RequestParam("startDate") String startDate,
-			@RequestParam("endDate") String endDate, Model model) {
+			@RequestParam("endDate") String endDate, Model model, HttpSession session) {
 		// startDate와 endDate를 사용하여 mContents를 가져오는 로직을 작성
 
 		try {
+			String id = (String) session.getAttribute("id");
+			if (id != null) {
+				MemberVO membervo = memberservice.getUserInfo(id);
+				model.addAttribute("user", membervo);
+				}
 			if (startDate != null && endDate != null) {
 				log.info(startDate);
 				log.info(endDate);

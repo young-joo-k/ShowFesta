@@ -69,7 +69,7 @@
 			<div class="contents">
 
 				<h1>
-					<a>Festival</a>
+					<a>Calendar</a>
 
 				</h1>
 

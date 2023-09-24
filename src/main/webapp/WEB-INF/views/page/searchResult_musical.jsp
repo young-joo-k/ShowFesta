@@ -3,7 +3,7 @@
 	<html>
 <head>
 <%@include file="../includes/header.jsp"%>
-<link href="/resources/css/mainpage.css?after" rel="stylesheet">
+<link href="/resources/css/N_mainpage.css?after" rel="stylesheet">
 <link href="/resources/css/swiper.css?after" rel="stylesheet">
 <link href="/resources/css/searchresult.css?after" rel="stylesheet">
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
@@ -13,7 +13,9 @@
 	<div>
 		<div data-v-223ac3f7 class="middle-section">
 			<div data-v-223ac3f7 id="mitisection_index_1"
-				class="multi portrait-cell">
+				class="multi portrait-cell" style="
+    width: 1300;
+">
 				<div data-v-223ac3f7 class="title" id="under-line">
 					<h1 data-v-223ac3f7 tabindex="0" class="title-area">
 						<span data-v-223ac3f7 class="label">뮤지컬</span>

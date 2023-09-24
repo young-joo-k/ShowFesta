@@ -97,12 +97,13 @@
 						<li class="dropdown">
 							<h2>
 								<a href="#">카테고리</a>
-							</h2>
-							<ul class="category" style="display: none;">
+															<ul class="category" style="display: none;">
 								<li><a href="/page/mContents">뮤지컬</a></li>
 								<li><a href="/page/concertContents">콘서트</a></li>
 								<li><a href="/page/festaContents">페스티벌</a></li>
 							</ul>
+							</h2>
+
 						</li>
 						<li id="calendarCss">
 							<h2>
