@@ -2,8 +2,12 @@ package org.project.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.project.domain.FestaVO;
+import org.project.domain.MemberVO;
 import org.project.domain.SearchVO;
+import org.project.service.MemberService;
 import org.project.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,9 +28,17 @@ public class SearchController {
     @Autowired
     private SearchService searchService; // SearchService�� �����ϼ���.
 
+	@Autowired
+	private MemberService memberservice;
+	
     @GetMapping("/search")
-    public String search(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
-        if (keyword != null && !keyword.isEmpty()) {
+    public String search(@RequestParam(name = "keyword", required = false) String keyword,Model model, HttpSession session) {
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			}
+    	if (keyword != null && !keyword.isEmpty()) {
             List<SearchVO> musicalSearchResults = searchService.musicalsearch(keyword);
             List<SearchVO> concertSearchResults = searchService.concertsearch(keyword);
             List<FestaVO> festivalSearchResults = searchService.festivalsearch(keyword);
@@ -42,7 +54,12 @@ public class SearchController {
         return "page/search";
     }
     @GetMapping("/searchResult_musical")
-    public String searchMusical(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
+    public String searchMusical(@RequestParam(name = "keyword", required = false) String keyword,Model model, HttpSession session) {
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			}
     	if (keyword != null && !keyword.isEmpty()) {
     		List<SearchVO> musicalSearchResults = searchService.musicalsearch(keyword);
     		model.addAttribute("musicalSearchResults", musicalSearchResults);
@@ -51,7 +68,12 @@ public class SearchController {
     	return "page/searchResult_musical"; // �˻� ����� ������ �� �̸� (search.jsp �Ǵ� �ٸ� �̸�)
     }
     @GetMapping("/searchResult_concert")
-    public String searchConcert(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
+    public String searchConcert(@RequestParam(name = "keyword", required = false) String keyword,Model model, HttpSession session) {
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			}
     	if (keyword != null && !keyword.isEmpty()) {
     		List<SearchVO> concertSearchResults = searchService.concertsearch(keyword);
     		model.addAttribute("concertSearchResults", concertSearchResults);
@@ -60,7 +82,12 @@ public class SearchController {
     	return "page/searchResult_concert"; // �˻� ����� ������ �� �̸� (search.jsp �Ǵ� �ٸ� �̸�)
     }
     @GetMapping("/searchResult_festival")
-    public String searchFestival(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
+    public String searchFestival(@RequestParam(name = "keyword", required = false) String keyword,Model model, HttpSession session) {
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			}
     	if (keyword != null && !keyword.isEmpty()) {
     		List<FestaVO> festivalSearchResults = searchService.festivalsearch(keyword);
     		model.addAttribute("festivalSearchResults", festivalSearchResults);
@@ -71,7 +98,12 @@ public class SearchController {
     	return "page/searchResult_festival"; // �˻� ����� ������ �� �̸� (search.jsp �Ǵ� �ٸ� �̸�)
     }
     @GetMapping("/searchResult_actor")
-    public String searchActor(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
+    public String searchActor(@RequestParam(name = "keyword", required = false) String keyword,Model model, HttpSession session) {
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			}
     	if (keyword != null && !keyword.isEmpty()) {
     		List<SearchVO> actorSearchResults = searchService.actorsearch(keyword);
     		model.addAttribute("actorSearchResults", actorSearchResults);

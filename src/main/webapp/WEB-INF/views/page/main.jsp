@@ -64,10 +64,15 @@
 							class=img></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="/page/festaContents"><img
-							src=https://korean.visitkorea.or.kr/kfes/upload/contents/db/400_7c1728ce-e80a-4c10-809d-6212a0e38bff_3.jpg
+						<a href=http://localhost:8080/page/concert_info?m_num=141><img
+							src=http://tkfile.yes24.com/upload2/PerfBlog/202308/20230822/20230822-46790.jpg
 							class=img></a>
 					</div>
+<!-- 					<div class="swiper-slide"> -->
+<!-- 						<a href="/page/festaContents"><img -->
+<!-- 							src=https://korean.visitkorea.or.kr/kfes/upload/contents/db/400_7c1728ce-e80a-4c10-809d-6212a0e38bff_3.jpg -->
+<!-- 							class=img></a> -->
+<!-- 					</div> -->
 				</div>
 
 				<div class="swiper-pagination"></div>

@@ -19,8 +19,6 @@
 	href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=IBM+Plex+Sans+KR&family=Noto+Sans+KR:wght@300&display=swap"
 	rel="stylesheet">
 <link href="/resources/css/N_musicalheader.css?after" rel="stylesheet">
-
-<link href="/resources/css/N_musiaclheader.css?after" rel="stylesheet">
 <link href="/resources/css/style.css?after" rel="stylesheet">
 <link href="/resources/css/N_main.css?after" rel="stylesheet">
 <link href="/resources/css/dropdown.css?after" rel="stylesheet">
@@ -69,7 +67,7 @@
 			<div class="contents">
 
 				<h1>
-					<a>Calnedar</a>
+					<a>Calendar</a>
 
 				</h1>
 
