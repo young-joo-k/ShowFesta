@@ -62,8 +62,8 @@ a.myPage-update{
 .myPage-menu-wrapper{
     display: flex;
     background-color: white;
-    width: 1300px;
-    border-radius: 10px;
+    width: 1000px;
+    border-radius: 18px 18px 0px 0px;
     box-shadow: 2px 4px 12px rgba(0,0,0,.08);
 }
 
@@ -95,18 +95,19 @@ a.myPage-update{
 }
 
 .my-like-content{
-	margin:2rem;
 	display:flex;
 	    justify-content: center;
 }
 
 .my-content-wrap{
-    border-radius: 18px;
+    border-radius: 0px 0px 18px 18px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    width: 1300px;
+    width: 1000px;
     box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    background-color:white;
+    padding-bottom: 15px;
 }
 
 .like-list-wrap {
@@ -143,7 +144,6 @@ a.myLikeContent{
 
 .my-like-actor{
 	display:none;
-	margin:2rem;
 	    display: flex;
     justify-content: center;
 }
@@ -178,11 +178,11 @@ a.question{
 }
 
 .myPage-qna-wrap{
-	display: flex;
-    justify-content: center;
+display: flex;
     background-color: white;
-    width: 800px;
-    margin-left: 552px;
+    width: 1000px;
+    margin-left: 452px;
+    justify-content: center;
 }
 
 

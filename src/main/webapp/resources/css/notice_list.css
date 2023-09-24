@@ -169,13 +169,13 @@ button, input, select {
 }
 
 .cs-table02-wrap {
-    position: relative;
+    width: 1000px;
     padding-bottom: 40px;
     border-radius: 18px;
     padding: 25px;
     box-shadow: 2px 4px 12px rgba(0,0,0,.08);
-    transition: all 30s cubic-bezier(0,0,.5,1);
     background-color: white;
+    font-family: 'Noto Sans KR';
 }
 
 .cs-table-02 {
@@ -206,7 +206,7 @@ table {
 }
 
 .cs-table-02 tbody td {
-    padding: 15px 0;
+    padding: 15px 20px;
 }
 
 .noti-date, .noti-type {

@@ -104,7 +104,7 @@
 			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
 			actionForm.submit();
 		});
-
+	});
 
 </script>
 </html>
