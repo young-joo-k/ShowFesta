@@ -2,9 +2,13 @@ package org.project.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.project.domain.ContentsVO;
+import org.project.domain.MemberVO;
 import org.project.service.ContentsService;
 import org.project.service.InfoImgService;
+import org.project.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,10 +33,19 @@ public class ContentsController {
 	
 	@Autowired
 	private InfoImgService infoimgservice;
+	@Autowired
+	private MemberService memberservice;
 	
 	@GetMapping("/contentsPlus")
-	public void contentsPlus() {
+	public void contentsPlus(Model model, HttpSession session) {
 		log.info("plus Get");
+		log.info("/notice_get");
+		// ì•„ì´ë”” ì •ë³´
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+		}
 
 	}
 
@@ -45,8 +58,8 @@ public class ContentsController {
 	        } else if ("concert".equals(type)) {
 	            contentsservice.concertContentsPlus(contentsvo);
 	        } else {
-	            // À¯È¿ÇÏÁö ¾ÊÀº type °ªÀÌ ¾Æ´Ñ °æ¿ì¿¡ ´ëÇÑ Ã³¸®
-	            throw new IllegalArgumentException("À¯È¿ÇÏÁö ¾ÊÀº type °ªÀÔ´Ï´Ù: " + type);
+	            // ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ type ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ì¿¡ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	            throw new IllegalArgumentException("ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ type ï¿½ï¿½ï¿½Ô´Ï´ï¿½: " + type);
 	        }
 	        return "redirect:/page/adminPage";
 	    } catch (Exception e) {
@@ -56,14 +69,19 @@ public class ContentsController {
 	}
 	
 	@GetMapping("/contentsDelete")
-	public void contentsDelete(Model model) {
+	public void contentsDelete(Model model, HttpSession session) {
 		log.info("delete Get");
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+			}
 		List<ContentsVO> musicalList = contentsservice.getMusicalContents();
 		log.info(musicalList);
 		if (musicalList == null || musicalList.isEmpty()) {
 
 			System.out.println(musicalList.get(0).getM_num());
-			log.info("¹è¿­ÀÌ ºñ¾îÀÖ½À´Ï´Ù.");
+			log.info("ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½Ï´ï¿½.");
 
 			model.addAttribute("musicalContents", musicalList);
 		}
@@ -75,7 +93,7 @@ public class ContentsController {
 		if (concertList == null || concertList.isEmpty()) {
 			System.out.println(concertList.get(0).getM_num());
 			model.addAttribute("concertContents", concertList);
-			log.info("¹è¿­ÀÌ ºñ¾îÀÖ½À´Ï´Ù.");
+			log.info("ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½Ï´ï¿½.");
 		}
 		model.addAttribute("concertContents", concertList);
 	}
@@ -83,51 +101,51 @@ public class ContentsController {
 	
 	@PostMapping("/contentsDelete")
 	public String contentsDelete(Model model, ContentsVO contentsvo, @RequestParam("contentType") String contentType, @RequestParam(value = "selectedcontents", required = false) String[] selectedContents) {
-	    log.info("ÄÁÅÙÃ÷ »èÁ¦");
+	    log.info("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 
 	    if ("musical".equals(contentType)) {
-	        // ¹ÂÁöÄÃ »èÁ¦ ·ÎÁ÷
+	        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	        if (selectedContents != null && selectedContents.length > 0) {
-	            log.info("selectedContents ¹è¿­ ±æÀÌ: " + selectedContents.length);
+	            log.info("selectedContents ï¿½è¿­ ï¿½ï¿½ï¿½ï¿½: " + selectedContents.length);
 
 	            for (String contentNumStr : selectedContents) {
 	                try {
 	                    int m_num = Integer.parseInt(contentNumStr);
-	                    log.info("¼±ÅÃµÈ ¹ÂÁöÄÃ ÄÁÅÙÃ÷ " + m_num);
+	                    log.info("ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ " + m_num);
 
 	                    contentsservice.deleteContentsByM_num(m_num);
 	                } catch (NumberFormatException e) {
-	                    log.error("Àß¸øµÈ ÄÁÅÙÃ÷ ¹øÈ£ Çü½Ä: " + contentNumStr, e);
+	                    log.error("ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½: " + contentNumStr, e);
 	                } catch (Exception e) {
-	                    log.error("ÄÁÅÙÃ÷ »èÁ¦ Áß ¿À·ù ¹ß»ı: " + e.getMessage(), e);
+	                    log.error("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½: " + e.getMessage(), e);
 	                }
 	            }
 	        } else {
-	            log.info("¼±ÅÃÇÑ ¹ÂÁöÄÃ ÄÁÅÙÃ÷ ¾øÀ½");
+	            log.info("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 	        }
 	    } else if ("concert".equals(contentType)) {
-	        // ÄÜ¼­Æ® »èÁ¦ ·ÎÁ÷
+	        // ï¿½Ü¼ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	        if (selectedContents != null && selectedContents.length > 0) {
-	            log.info("selectedContents ¹è¿­ ±æÀÌ: " + selectedContents.length);
+	            log.info("selectedContents ï¿½è¿­ ï¿½ï¿½ï¿½ï¿½: " + selectedContents.length);
 
 	            for (String contentNumStr : selectedContents) {
 	                try {
 	                    int m_num = Integer.parseInt(contentNumStr);
-	                    log.info("¼±ÅÃµÈ ÄÜ¼­Æ® ÄÁÅÙÃ÷ " + m_num);
+	                    log.info("ï¿½ï¿½ï¿½Ãµï¿½ ï¿½Ü¼ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ " + m_num);
 
-	                    contentsservice.deleteConcertContentsByM_num(m_num); // m_numÀ» Á¤¼ö·Î º¯È¯ÇÏ¿© Àü´Ş
+	                    contentsservice.deleteConcertContentsByM_num(m_num); // m_numï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 	                } catch (NumberFormatException e) {
-	                    log.error("Àß¸øµÈ ÄÁÅÙÃ÷ ¹øÈ£ Çü½Ä: " + contentNumStr, e);
+	                    log.error("ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½: " + contentNumStr, e);
 	                } catch (Exception e) {
-	                    log.error("ÄÁÅÙÃ÷ »èÁ¦ Áß ¿À·ù ¹ß»ı: " + e.getMessage(), e);
+	                    log.error("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½: " + e.getMessage(), e);
 	                }
 	            }
 	        } else {
-	            log.info("¼±ÅÃÇÑ ÄÜ¼­Æ® ÄÁÅÙÃ÷ ¾øÀ½");
+	            log.info("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ü¼ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 	        }
 	    }
 
-	    // »èÁ¦ ÈÄ¿¡ ¾î¶² ÆäÀÌÁö·Î ¸®´ÙÀÌ·ºÆ®ÇÒ Áö °áÁ¤
+	    // ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ ï¿½î¶² ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì·ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	    return "redirect:/page/contentsDelete";
 	}
 }

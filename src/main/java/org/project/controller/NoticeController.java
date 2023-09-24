@@ -44,8 +44,14 @@ public class NoticeController {
 	}
 
 	@GetMapping({ "/notice_get", "/notice_modify" })
-	public void get(@RequestParam("b_num") Long b_num, @ModelAttribute("cri") Criteria cri, Model model) {
+	public void get(@RequestParam("b_num") Long b_num, @ModelAttribute("cri") Criteria cri, Model model, HttpSession session) {
 		log.info("/notice_get");
+		// 아이디 정보
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			MemberVO membervo = memberservice.getUserInfo(id);
+			model.addAttribute("user", membervo);
+		}
 		model.addAttribute("notice", service.get(b_num));
 	}
 
