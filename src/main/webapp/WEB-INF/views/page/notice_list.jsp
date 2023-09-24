@@ -14,7 +14,9 @@
 			<main id="contents" class="top-padding">
 
 				<div class="wrap">
-					<div class="cs-body">
+					<div class="cs-body" style="
+    border-radius: 18px;
+">
 						<ul id="contents" class="cs-1depth">
 							<li class="customer-1depth-on"><a href="/page/notice_list"
 								aria-current="page"
@@ -118,7 +120,6 @@
 						$(".modal-body").html(
 								"게시글" + parseInt(result) + " 번이 등록되었습니다.");
 					}
-					$("#myModal").modal("show");
 				}
 				$("#regBtn").on("click", function() {
 					self.location = "/page/notice_register";

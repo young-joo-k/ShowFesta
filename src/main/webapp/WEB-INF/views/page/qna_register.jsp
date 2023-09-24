@@ -13,7 +13,7 @@
 	<div class="body">
 		<div class="top-padding">
 			<div class="wrap" id="g-contents">
-				<div class="cs-body">
+				<div class="cs-body" style="border-radius: 18px;">
 					<div class="register-top">
 						<h4>1:1 문의</h4>
 					</div>

@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="cs-table02-wrap"
-		style="margin-left: 450px; margin-top: 200px;">
+		style="margin-left: 450px; margin-top: 200px; border-radius: 18px;">
 		<ul class="cs-2depth">
 			<li class="cs-2depth-on">
 				<button>전체</button>
@@ -62,8 +62,9 @@
 					<tr>
 						<td>답변</td>
 						<td>
-							<button type="submit">답글 등록</button> <input type="text"
+							 <input type="text"
 							name="commentText" value="${qna.reply }">
+							<button class="aBtn" type="submit">답글 등록</button>
 						</td>
 						<input type='hidden' name='b_num' value='${qna.b_num}'>
 					</tr>

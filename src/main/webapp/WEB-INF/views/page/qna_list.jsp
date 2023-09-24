@@ -13,10 +13,9 @@
 		<div class="body">
 			<main id="contents" class="top-padding">
 				<div class="wrap">
-					<div class="cs-body">
+					<div class="cs-body" style="border-radius: 18px;">
 						<div>
-
-							<div class="cs-table02-wrap">
+							<div class="cs-table02-wrap" style="border-radius: 18px;">
 								<ul class="cs-2depth">
 									<li class="cs-2depth-on">
 										<button>전체</button>
