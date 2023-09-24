@@ -38,6 +38,7 @@
 		</div>
 	</div>
 </body>
+<%@include file="../includes/footer.jsp"%>
 <%--     <h1>비밀번호 찾기 결과</h1>
     
     <p>
