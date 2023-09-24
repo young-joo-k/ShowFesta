@@ -106,6 +106,9 @@
 	</div>
 </div>
 <!-- 즟겨찾기 끝 -->
+<footer>
+<%@include file="../includes/footer.jsp"%>
+</footer>
 
 
 

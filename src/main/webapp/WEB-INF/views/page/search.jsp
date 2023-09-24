@@ -265,6 +265,9 @@
 	<div id="overlay" class="overlay"></div>
 	<!--all-contents-list 끝 -->
 </body>
+<footer>
+<%@include file="../includes/footer.jsp"%>
+</footer>
 <script>
 	$(document)
 			.ready(

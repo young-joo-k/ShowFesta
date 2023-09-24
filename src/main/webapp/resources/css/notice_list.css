@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 #app {
-    height: 100%;
 }
 
 .body {
@@ -65,7 +64,6 @@ font-size: 20px;
 .cs-body {
 width: 100%;
     margin: 0 auto;
-    padding-bottom: 30px;
     background-color: white;
     border-radius: 18px 18px 0 0;
     font-family: 'Noto Sans KR';

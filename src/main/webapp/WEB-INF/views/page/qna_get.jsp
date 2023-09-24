@@ -105,6 +105,9 @@
 	<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 	<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 </form>
-
+<footer>
+<%@include file="../includes/footer.jsp"%>
+</footer>
 </html>
+
 

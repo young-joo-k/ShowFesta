@@ -141,6 +141,9 @@
 	<!--모달끝 -->
 	<div id="overlay" class="overlay"></div>
 </body>
+<footer>
+<%@include file="../includes/footer.jsp"%>
+</footer>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	var f_length = $("#fList_length").val();
