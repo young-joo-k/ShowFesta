@@ -40,8 +40,8 @@ public class SmsSender {
 		bodyJson.put("subject", subject);
 		bodyJson.put("content", content);
 		bodyJson.put("messages", toArr);
-		bodyJson.put("reserveTime",rTime); // 예약 일시
-		bodyJson.put("reserveTimeZone", "Asia/Seoul"); // 예약 일시
+		bodyJson.put("reserveTime",rTime); // �삁�빟 �씪�떆
+		bodyJson.put("reserveTimeZone", "Asia/Seoul"); // �삁�빟 �씪�떆
 		String body = bodyJson.toString();
 		System.out.println(body);
 		return doPost(requestUrl, body);
