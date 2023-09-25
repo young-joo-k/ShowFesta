@@ -1,5 +1,6 @@
 package org.project.controller;
 
+import java.time.Instant;
 import java.util.Base64;
 
 import javax.crypto.Mac;
@@ -10,15 +11,14 @@ import okhttp3.*;
 
 public class SmsSender {
 
-
-    private static String projectId = "";
-    private static String accessKey = "";
-    private static String secretKey = "";
+	private static String projectId = "";
+	private static String accessKey = "";
+	private static String secretKey = "";
 
 	private static String url = "/sms/v2/services/" + projectId + "/messages";
 	private static String requestUrl = "https://sens.apigw.ntruss.com" + url;
 
-	private static String timestamp = Long.toString(System.currentTimeMillis());
+	private static String timestamp = getUtcTimestamp();
 	private static String method = "POST";
 
 	public static String sendSms(String to, String subject, String content, String rTime) throws Exception {
@@ -40,7 +40,7 @@ public class SmsSender {
 		bodyJson.put("subject", subject);
 		bodyJson.put("content", content);
 		bodyJson.put("messages", toArr);
-		bodyJson.put("reserveTime",rTime); // �삁�빟 �씪�떆
+		bodyJson.put("reserveTime", rTime); // �삁�빟 �씪�떆
 		bodyJson.put("reserveTimeZone", "Asia/Seoul"); // �삁�빟 �씪�떆
 		String body = bodyJson.toString();
 		System.out.println(body);
@@ -71,5 +71,10 @@ public class SmsSender {
 		byte[] rawHmac = mac.doFinal(message.getBytes("UTF-8"));
 		encodeBase64String = Base64.getEncoder().encodeToString(rawHmac);
 		return encodeBase64String;
+	}
+
+	private static String getUtcTimestamp() {
+		Instant instant = Instant.now(); // 현재 시간을 UTC로 가져옴
+		return String.valueOf(instant.toEpochMilli()); // 밀리초 단위로 변환하여 문자열로 반환
 	}
 }
