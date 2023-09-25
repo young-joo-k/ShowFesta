@@ -10,6 +10,7 @@
 	type="text/css">
 </head>
 <!-- <body> -->
+<body>
 <div id="myPage-wrap">
 	<section class="mypage"> <article class="myPage-profile">
 	<div class="myPage-img">
@@ -105,16 +106,16 @@
 		</c:choose>
 	</div>
 </div>
+</body>
 <!-- 즟겨찾기 끝 -->
 <footer>
 <%@include file="../includes/footer.jsp"%>
 </footer>
+</html>
 
 
 
 
-
-<%-- <%@include file="../includes/footer.jsp"%> --%>
 
 <!-- </body> -->
 

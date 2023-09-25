@@ -54,10 +54,11 @@
 }
 
 .search-contents-list{
-	padding-top: 5rem;
-/* 	화면에 맞춰서 크기 조절됨 */
-	display: flex;
-	flex-wrap: wrap;
+width: 1200px;
+    padding-top: 0rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 393px;
 }
 
 .contents-list {
