@@ -17,9 +17,9 @@
 	<div class="contentSearchBox">
 		<div class="contentSearchBox-wrap">
 			<form action="/page/musicalContentSearchDate" method="post">
-				<label for="startDate">시작일 <input type="date" id="startDate"
+				<label for="startDate">기간 <input type="date" id="startDate"
 					name="startDate" max="2026-12-31" min="2023-01-01" required>
-				</label>&nbsp;&nbsp; <label for="endDate">종료일 <input type="date"
+				</label>&nbsp;&nbsp; <label for="endDate" style="font-size: 27px; margin-left: -7px">~ <input type="date"
 					id="endDate" name="endDate" max="2026-12-31" min="2023-01-01"
 					required>
 				</label>

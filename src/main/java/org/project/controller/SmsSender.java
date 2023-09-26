@@ -11,11 +11,11 @@ import okhttp3.*;
 
 public class SmsSender {
 
-	private static String projectId = "";
+	private static String serviceId = "";
 	private static String accessKey = "";
 	private static String secretKey = "";
 
-	private static String url = "/sms/v2/services/" + projectId + "/messages";
+	private static String url = "/sms/v2/services/" + serviceId + "/messages";
 	private static String requestUrl = "https://sens.apigw.ntruss.com" + url;
 
 	private static String timestamp = getUtcTimestamp();

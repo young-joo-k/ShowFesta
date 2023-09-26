@@ -13,7 +13,7 @@
 		<div class="body">
 			<main id="contents" class="top-padding">
 				<div class="wrap">
-					<div class="cs-body">
+					<div class="cs-body" style="border-radius: 18px;">
 						<ul id="contents" class="cs-1depth">
 							<li class="customer-1depth-on"><a href="/page/notice_list"
 								aria-current="page"
@@ -64,37 +64,41 @@
 									<textarea name='b_content' readonly="readonly"><c:out
 											value="${notice.b_content}" /></textarea>
 								</div>
-								<button  id = modiBtn data-oper='modify' class="btn btn-default" onclick="location.href='/page/notice_modify?b_num=<c:out value="${notice.b_num}"/>'">수정</button>
-								<button  id = listBtn data-oper='list' class="btn btn-info" onclick="location.href='/page/notice_list'">목록</button>
-								<form  action="/page/notice_modify" method="get">
-								<input type='hidden' id='b_num' name='b_num' value='<c:out value="${notice.b_num}"/>'> </form>
-							</div>	
+							
+								<button id=listBtn data-oper='list' class="btn btn-info"
+									onclick="location.href='/page/notice_list'">목록</button>
+								<form action="/page/notice_modify" method="get">
+									<input type='hidden' id='b_num' name='b_num'
+										value='<c:out value="${notice.b_num}"/>'>
+								</form>
+							</div>
 
 						</div>
 					</div>
-				</div>	
+				</div>
 			</main>
 		</div>
 	</div>
 </body>
 <footer>
-<%@include file="../includes/footer.jsp"%>
+	<%@include file="../includes/footer.jsp"%>
 </footer>
 <script type="text/javascript"">
-$(document).ready(function() {
+	$(document).ready(function() {
 
-var operForm = $("#operForm");
+		var operForm = $("#operForm");
 
-$("button[data-oper='modify']")on("click", function(e){
-operForm.attr("action", "/page/notice_modify").submit();
-});
+		$("button[data-oper='modify']")
+		on("click", function(e) {
+			operForm.attr("action", "/page/notice_modify").submit();
+		});
 
-$("button[data-oper='list']").on("click", function(e){
-operForm.find("#b_num").remove();
-operForm.attr("action", "/page/notice_list")
-operForm.submit();
-});
-});
+		$("button[data-oper='list']").on("click", function(e) {
+			operForm.find("#b_num").remove();
+			operForm.attr("action", "/page/notice_list")
+			operForm.submit();
+		});
+	});
 </script>
 </html>
 

@@ -19,7 +19,7 @@
 	</insert>
 	
 	<delete id="Actordelete">
-	  	delete from tbl_like where like_name=#{like_name} and id=#{id} and like_type=#{like_type} and m_num=#{m_num}
+	  	delete from tbl_like where like_name=#{like_name} and id=#{id} and like_type=#{like_type} and like_img=#{like_img}
 	</delete>
 
 	<select id="getLike" resultType="org.project.domain.LikeVO">

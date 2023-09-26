@@ -28,22 +28,22 @@
 										<th scope="row"><span class="es-dot"></span> 이름</th>
 										<td><input type="hidden" id="id" name="id"
 											value="<%= session.getAttribute("id") %>"> <input
-											type="text" placeholder="이름을 입력해 주세요.(특수문자 입력 불가)"
+											type="text"
 											class="isSecurity" maxlength="50" name="b_writer"
-											id="b_writer" required> <input type="hidden"
+											id="b_writer" value="구구팔하나" required> <input type="hidden"
 											id="initialName"></td>
 									</tr>
 									<tr>
 										<th scope="row"><span class="es-dot"></span> 제목</th>
-										<td><input type="text" placeholder="공지사항 제목을 입력해 주세요."
+										<td><input type="text" 
 											class="wil100-per" maxlength="100" name="b_title"
-											id="b_title" required></td>
+											id="b_title" value="쇼페스타 이용문의 입니다." required></td>
 									</tr>
 									<tr>
 										<th scope="row"><span class="es-dot"></span> 내용</th>
-										<td><textarea placeholder="공지사항 내용을 입력해 주세요."
+										<td><textarea 
 												class="register-table-textarea03" id="b_content"
-												name="b_content" required></textarea></td>
+												name="b_content" required>운영시간 궁금합니다.</textarea></td>
 									</tr>
 								</tbody>
 							</table>

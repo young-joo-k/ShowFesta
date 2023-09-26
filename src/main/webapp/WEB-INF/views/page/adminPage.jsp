@@ -18,7 +18,7 @@
 		<picture class="myPage-img-select"> <source
 			srcset="/resources/img/mypageimg.png"></source> <img src="#"> </picture>
 		<div class="myPage-info">
-			<div class="myPage-name">${user.getId()} 관리자</div>
+			<div class="myPage-name">${user.getId()}관리자</div>
 			<!-- 					<a class = "myPage-update" href="/page/memberUpdate">회원정보 수정</a> -->
 		</div>
 	</div>
@@ -128,7 +128,14 @@
 															<td><span><a
 																	href='/page/qna_get?b_num=<c:out value="${qna.b_num }"/>'>
 																		<c:out value="${qna.b_title}" />
-																</a></span></td>
+																</a></span> <c:choose>
+																	<c:when test="${qna.reply eq null }">
+																		<p style="float: right;"></p>
+																	</c:when>
+																	<c:otherwise>
+																		<p style="float: right;">답변 완료</p>
+																	</c:otherwise>
+																</c:choose></td>
 															<td>
 																<p class="noti-date">
 																	<fmt:formatDate pattern="yyyy-MM-dd"
@@ -244,61 +251,60 @@
 <%-- <%@include file="../includes/footer.jsp"%> --%>
 
 </body>
-<footer>
-<%@include file="../includes/footer.jsp"%>
+<footer> <%@include file="../includes/footer.jsp"%>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-    // 기본 화면 설정
-    $(".admin-notice").hide();
-    $(".admin-qna").show();
-    $(".admin-content-manage").hide();
-    $(".userManage").hide();
+	$(document).ready(function() {
+		// 기본 화면 설정
+		$(".admin-notice").hide();
+		$(".admin-qna").show();
+		$(".admin-content-manage").hide();
+		$(".userManage").hide();
 
-    // 문의내용 버튼 클릭 시
-    $(".admin-qna-contents").click(function(){
-        $(".admin-notice").hide();
-        $(".admin-qna").show();
-        $(".admin-content-manage").hide();
-        $(".userManage").hide();
-    });
+		// 문의내용 버튼 클릭 시
+		$(".admin-qna-contents").click(function() {
+			$(".admin-notice").hide();
+			$(".admin-qna").show();
+			$(".admin-content-manage").hide();
+			$(".userManage").hide();
+		});
 
-    // 컨텐츠 관리 버튼 클릭 시
-    $(".admin-content-list").click(function(){
-        $(".admin-notice").hide();
-        $(".admin-qna").hide();
-        $(".admin-content-manage").show();
-        $(".userManage").hide();
-    });
+		// 컨텐츠 관리 버튼 클릭 시
+		$(".admin-content-list").click(function() {
+			$(".admin-notice").hide();
+			$(".admin-qna").hide();
+			$(".admin-content-manage").show();
+			$(".userManage").hide();
+		});
 
-    // 사용자 관리 버튼 클릭 시
-    $(".admin-user-manager").click(function(){
-        $(".admin-notice").hide();
-        $(".admin-qna").hide();
-        $(".admin-content-manage").hide();
-        $(".userManage").show();
-    });
-       
-    $(".userDeleteBtn").click(function () {
-        var operation = $(this).data("oper");
+		// 사용자 관리 버튼 클릭 시
+		$(".admin-user-manager").click(function() {
+			$(".admin-notice").hide();
+			$(".admin-qna").hide();
+			$(".admin-content-manage").hide();
+			$(".userManage").show();
+		});
 
-        if (operation === 'userDeleteBtn') {
-            var selectedUserIds = [];
-            $("input[type='checkbox']:checked").each(function () {
-                selectedUserIds.push($(this).val()); // 선택한 사용자의 ID를 배열에 추가
-            });
+		$(".userDeleteBtn").click(function() {
+			var operation = $(this).data("oper");
 
-            // 선택한 사용자의 ID를 숨김 입력 필드에 할당
-            $("#selectedUsers").val(selectedUserIds.join(','));
+			if (operation === 'userDeleteBtn') {
+				var selectedUserIds = [];
+				$("input[type='checkbox']:checked").each(function() {
+					selectedUserIds.push($(this).val()); // 선택한 사용자의 ID를 배열에 추가
+				});
 
-            // 폼을 제출
-            $("#deleteForm").submit();
-        }
-    });
-    
-});
+				// 선택한 사용자의 ID를 숨김 입력 필드에 할당
+				$("#selectedUsers").val(selectedUserIds.join(','));
+
+				// 폼을 제출
+				$("#deleteForm").submit();
+			}
+		});
+
+	});
 </script>
 
 

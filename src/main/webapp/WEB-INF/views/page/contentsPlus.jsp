@@ -39,40 +39,34 @@
 							<tbody>
 								<tr>
 									<th scope="row"><span class="es-dot"></span> 타이틀</th>
-									<td><input type="text" placeholder="제목을 입력해 주세요."
-										class="isSecurity" maxlength="50" name="m_title" id="b_writer"
-										required> <input type="hidden" id="initialName">
-									</td>
+									<td><input type="text" class="isSecurity" maxlength="50"
+										name="m_title" id="b_writer" value="쇼페스타" required> <input
+										type="hidden" id="initialName"></td>
 								</tr>
 								<tr>
 									<th scope="row"><span class="es-dot"></span> 이미지URL</th>
-									<td><input type="text" placeholder="포스터 이미지 URL을 입력해주세요."
-										class="wil100-per" maxlength="100" name="m_img" id="b_title"
-										required></td>
+									<td><input type="text" class="wil100-per" maxlength="100"
+										name="m_img" id="b_title" value="https://i.ibb.co/V26LTpX/Show-Festa-Logo.jpg" required></td>
 								</tr>
 								<tr>
 									<th scope="row"><span class="es-dot"></span> 시작날짜</th>
-									<td><textarea placeholder="시작날짜를 입력해 주세요.(형식: yyyy-MM-dd)"
-											class="will100-per" id="m_start_date" name="m_start_date"
-											required></textarea></td>
+									<td><textarea class="will100-per" id="m_start_date"
+											name="m_start_date"required>2023-12-31</textarea></td>
 								</tr>
 								<tr>
 									<th scope="row"><span class="es-dot"></span> 종료날짜</th>
-									<td><textarea placeholder="종료날짜를 입력해 주세요.(형식: yyyy-MM-dd)"
-											class="will100-per" id="m_end_date" name="m_end_date"
-											required></textarea></td>
+									<td><textarea class="will100-per" id="m_end_date"
+											name="m_end_date" required>2024-12-31</textarea></td>
 								</tr>
 								<tr>
 									<th scope="row"><span class="es-dot"></span> 장소</th>
-									<td><textarea placeholder="장소를 입력해주세요."
-											class="will100-per" id="m_place" name="m_place" required></textarea>
-									</td>
+									<td><textarea class="will100-per" id="m_place"
+											name="m_place"  required>충북대학교 공동훈련센터</textarea></td>
 								</tr>
 								<tr>
 									<th scope="row"><span class="es-dot"></span> 링크</th>
-									<td><textarea placeholder="링크를 입력해 주세요."
-											class="will100-per" id="m_b_link" name="m_b_link" required></textarea>
-									</td>
+									<td><textarea class="will100-per" id="m_b_link"
+											name="m_b_link" required>https://jobedu.cbnu.ac.kr/</textarea></td>
 								</tr>
 							</tbody>
 						</table>
@@ -92,8 +86,7 @@
 	</div>
 	</div>
 </body>
-<footer>
-<%@include file="../includes/footer.jsp"%>
+<footer> <%@include file="../includes/footer.jsp"%>
 </footer>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>

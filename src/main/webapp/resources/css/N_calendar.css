@@ -372,6 +372,7 @@ button.modal-close-btn {
 .modal-comImg {
 	width: 150px;
 	height: 200px;
+	border-radius:10px;
 }
 
 .modal-list-txt {

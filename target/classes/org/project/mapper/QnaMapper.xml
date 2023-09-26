@@ -17,10 +17,10 @@ select * from tbl_qna where b_num = #{b_num}
 
 <select id="getListWithPaging" resultType="org.project.domain.QnaVO">
   <![CDATA[
-    select b_num, b_title, b_content, b_writer, regdate, updatedate, id 
+    select b_num, b_title, b_content, b_writer, regdate, updatedate, id ,reply
     from (
       select /*+INDEX_DESC(tbl_qna pk_board) */
-      rownum rn, b_num, b_title, b_content, b_writer, regdate, updatedate, id 
+      rownum rn, b_num, b_title, b_content, b_writer, regdate, updatedate, id ,reply
       from tbl_qna 
       where rownum <= #{pageNum} * #{amount}
       and id = #{id, jdbcType=VARCHAR}
@@ -60,10 +60,10 @@ select * from tbl_qna where b_num = #{b_num}
 <!-- 관리자가 사용해야하는 부분 -->
 <select id="getAllListWithPaging" resultType="org.project.domain.QnaVO">
   <![CDATA[
-    select b_num, b_title, b_content, b_writer, regdate, updatedate, id 
+    select b_num, b_title, b_content, b_writer, regdate, updatedate, id , reply
     from (
       select /*+INDEX_DESC(tbl_qna pk_board) */
-      rownum rn, b_num, b_title, b_content, b_writer, regdate, updatedate, id 
+      rownum rn, b_num, b_title, b_content, b_writer, regdate, updatedate, id, reply
       from tbl_qna 
        where rownum <= #{pageNum} * #{amount}
     )

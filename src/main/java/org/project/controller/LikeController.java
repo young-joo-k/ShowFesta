@@ -58,6 +58,7 @@ public class LikeController {
 	@GetMapping("/actor_delete")
 	public void likeActorDelete(LikeVO likevo) {
 		log.info(likevo);
+		log.info("배우삭제");
 		likeservice.LikeActorDelete(likevo);
 	}
 

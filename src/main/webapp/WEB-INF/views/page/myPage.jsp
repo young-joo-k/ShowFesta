@@ -11,105 +11,105 @@
 </head>
 <!-- <body> -->
 <body>
-<div id="myPage-wrap">
-	<section class="mypage"> <article class="myPage-profile">
-	<div class="myPage-img">
-		<picture class="myPage-img-select"> <source
-			srcset="/resources/img/mypageimg.png"></source> <img src="#"> </picture>
-	</div>
-	<div class="myPage-info">
-		<div class="myPage-name">${user.getName()}님</div>
-		<a class="myPage-update" href="/page/memberUpdate">회원정보 수정</a>
-	</div>
-	</article> </section>
-	<section class="myPage-body"> <article
-		class="myPage-content-wrap">
-	<div class="myPage-menu">
-		<div class="myPage-menu-wrapper">
-			<div class="mypage-contents">
-				<button class="like-contents">즐겨찾기(컨텐츠)</button>
-			</div>
-			<div class="mypage-contents">
-				<button class="like-actor">즐겨찾기(배우)</button>
-			</div>
-			<div class="mypage-contents">
-				<button class="myPage-qna" style="padding-right: 85px;">문의내역</button>
+	<div id="myPage-wrap">
+		<section class="mypage"> <article class="myPage-profile">
+		<div class="myPage-img">
+			<picture class="myPage-img-select"> <source
+				srcset="/resources/img/mypageimg.png"></source> <img src="#">
+			</picture>
+		</div>
+		<div class="myPage-info">
+			<div class="myPage-name">${user.getName()}님</div>
+			<a class="myPage-update" href="/page/memberUpdate">회원정보 수정</a>
+		</div>
+		</article> </section>
+		<section class="myPage-body"> <article
+			class="myPage-content-wrap">
+		<div class="myPage-menu">
+			<div class="myPage-menu-wrapper">
+				<div class="mypage-contents">
+					<button class="like-contents">즐겨찾기(컨텐츠)</button>
+				</div>
+				<div class="mypage-contents">
+					<button class="like-actor">즐겨찾기(배우)</button>
+				</div>
+				<div class="mypage-contents">
+					<button class="myPage-qna" style="padding-right: 85px;">문의내역</button>
+				</div>
 			</div>
 		</div>
-	</div>
-	</article> </section>
-	<!-- 문의내역 눌렀을 때 나타날 내용 -->
-	<div class="myPage-qna-wrap" style="">
-		<div class="myPage-qna-space">
-			<!-- 문의내용 있을 경우 들어갈 공간임 -->
-			<!-- 				게시판 내가 1:1 문의사항 남긴거 리스트 불러오기 						 -->
-			<%@include file="myPage_qna_list.jsp"%>
+		</article> </section>
+		<!-- 문의내역 눌렀을 때 나타날 내용 -->
+		<div class="myPage-qna-wrap" style="border-radius: 0px 0px 18px 18px;">
+			<div class="myPage-qna-space">
+				<!-- 문의내용 있을 경우 들어갈 공간임 -->
+				<!-- 				게시판 내가 1:1 문의사항 남긴거 리스트 불러오기 						 -->
+				<%@include file="myPage_qna_list.jsp"%>
+			</div>
+
 		</div>
-
+		<!-- 문의내역 끝 -->
 	</div>
-	<!-- 문의내역 끝 -->
-</div>
 
-<!-- 즐겨찾기 버튼 눌렀을 때 띄워줄 내용 즐겨찾기에서 사용할 예정 -->
-<div class="my-like-content">
-	<div class="my-content-wrap">
-		<c:choose>
-			<c:when test="${empty likeInfo}">
-				<div class="no-like-message">
-					<p class="no-like-message">즐겨찾기 하신 내용이 없습니다.</p>
-				</div>
-			</c:when>
-			<c:otherwise>
-				<c:forEach var="myLike" items="${likeInfo}">
-					<c:if test="${myLike.like_type ne 'actor'}">
-						<div class="like-list-wrap">
-							<a class="myLikeContent" style="cursor: pointer;"
-								href='/page/${myLike.like_type }_info?m_num=<c:out value="${myLike.m_num}"/>'>
-								<img class="comImg" src="<c:out value="${myLike.like_img}"/>">
-								<div class="like-list-title">
-									<c:out value="${myLike.like_name}" />
-								</div>
-							</a>
-						</div>
-					</c:if>
-				</c:forEach>
-			</c:otherwise>
-		</c:choose>
+	<!-- 즐겨찾기 버튼 눌렀을 때 띄워줄 내용 즐겨찾기에서 사용할 예정 -->
+	<div class="my-like-content">
+		<div class="my-content-wrap">
+			<c:choose>
+				<c:when test="${empty likeInfo}">
+					<div class="no-like-message">
+						<p class="no-like-message">즐겨찾기 하신 내용이 없습니다.</p>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<c:forEach var="myLike" items="${likeInfo}">
+						<c:if test="${myLike.like_type ne 'actor'}">
+							<div class="like-list-wrap">
+								<a class="myLikeContent" style="cursor: pointer;"
+									href='/page/${myLike.like_type }_info?m_num=<c:out value="${myLike.m_num}"/>'>
+									<img class="comImg" src="<c:out value="${myLike.like_img}"/>">
+									<div class="like-list-title">
+										<c:out value="${myLike.like_name}" />
+									</div>
+								</a>
+							</div>
+						</c:if>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+		</div>
 	</div>
-</div>
-<!-- 즟겨찾기 끝 -->
+	<!-- 즟겨찾기 끝 -->
 
-<!-- 즐겨찾기 버튼 눌렀을 때 띄워줄 내용 배우 즐겨찾기 -->
-<div class="my-like-actor">
-	<div class="my-content-wrap">
-		<c:choose>
-			<c:when test="${empty likeInfo}">
-				<div class="no-like-message">
-					<p class="no-like-message">즐겨찾기 하신 내용이 없습니다.</p>
-				</div>
-			</c:when>
-			<c:otherwise>
-				<c:forEach var="myLike" items="${likeInfo}">
-					<c:if test="${myLike.like_type eq 'actor'}">
-						<div class="like-list-wrap">
-							<a class="myLikeContent" style="cursor: pointer;"
-								href=${myLike.like_link }> <img class="comImg"
-								src="<c:out value="${myLike.like_img}"/>">
-								<div class="like-list-title">
-									<c:out value="${myLike.like_name}" />
-								</div>
-							</a>
-						</div>
-					</c:if>
-				</c:forEach>
-			</c:otherwise>
-		</c:choose>
+	<!-- 즐겨찾기 버튼 눌렀을 때 띄워줄 내용 배우 즐겨찾기 -->
+	<div class="my-like-actor">
+		<div class="my-content-wrap">
+			<c:choose>
+				<c:when test="${empty likeInfo}">
+					<div class="no-like-message">
+						<p class="no-like-message">즐겨찾기 하신 내용이 없습니다.</p>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<c:forEach var="myLike" items="${likeInfo}">
+						<c:if test="${myLike.like_type eq 'actor'}">
+							<div class="like-list-wrap">
+								<a class="myLikeContent" style="cursor: pointer;"
+									href=${myLike.like_link }> <img class="comImg"
+									src="<c:out value="${myLike.like_img}"/>">
+									<div class="like-list-title">
+										<c:out value="${myLike.like_name}" />
+									</div>
+								</a>
+							</div>
+						</c:if>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+		</div>
 	</div>
-</div>
 </body>
 <!-- 즟겨찾기 끝 -->
-<footer>
-<%@include file="../includes/footer.jsp"%>
+<footer> <%@include file="../includes/footer.jsp"%>
 </footer>
 </html>
 

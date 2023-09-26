@@ -182,7 +182,7 @@ position: absolute;
 }
 
 .productWrapper .summary .likeBtn:before {
-background-image: url(../img/heart1.png);
+background-image: url(../img/heart3.png);
     background-repeat: no-repeat;
     position: relative;
     display: inline-block;
@@ -193,11 +193,22 @@ background-image: url(../img/heart1.png);
     padding-right: 0.6rem;
     background-position: 0 0;
     content: '';
-    background-position: 0 0;
+        background-size: 25px;
 }
 
 .productWrapper .summary .likeBtn.is-toggled:before {
-	background-position: 0 -3rem;
+	background-image: url(../img/heart4.png);
+	    background-repeat: no-repeat;
+    position: relative;
+    display: inline-block;
+    top: 1rem;
+    left: -1rem;;
+    width: 3rem;
+    height: 3rem;
+    padding-right: 0.6rem;
+    background-position: 0 0;
+    content: '';
+        background-size: 25px;
 }
 
 .productWrapper .summary .likeBtn:disabled {
